@@ -78,14 +78,14 @@ public class fecha implements Serializable{
 	 * @param c
 	 * @return fechastring
 	 */
-	public String calendartostring(Calendar c, configuration conf){
+	public String calendartostring(Calendar c){
 		int dia, mes, anyo;
 		String fechastring="";
 		
 		anyo = c.get(Calendar.YEAR);
 		mes = c.get(Calendar.MONTH)+1;
 		dia = c.get(Calendar.DATE);
-		switch(conf.getDate()){
+		switch(singleton_global.conf.getDate()){
 		case 'a':
 			fechastring=(dia+"/"+mes+"/"+anyo);
 			break;

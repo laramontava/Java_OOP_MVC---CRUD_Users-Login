@@ -1,21 +1,30 @@
 package app.classes;
 
-import java.io.Serializable;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-public class configuration implements Serializable {
+@XStreamAlias("Config")
+public class configuration {
+	@XStreamAlias("date")
 	private char date;
+	@XStreamAlias("currency")
 	private char currency;
+	@XStreamAlias("decimal")
 	private int decimal;
+	@XStreamAlias("language")
 	private String language;
+	@XStreamAlias("format")
 	private String format;
+	@XStreamAlias("theme")
+	private int theme;
 	
 	public configuration() {
 		super();
-		this.date ='a';
+		this.date ='a';//
 		this.currency = '€';
 		this.decimal = 2;
-		this.language = "english";
+		this.language = "asd";
 		this.format = "json";
+		this.theme = 1;
 	}
 	
 	
@@ -53,10 +62,17 @@ public class configuration implements Serializable {
 	public void setFormat(String format){
 		this.format = format;
 	}
-
+	public int getTheme(){
+		return theme;
+	}
+	public void setTheme(int theme){
+		this.theme = theme;
+	}
 
 	public String toString() {
 		return "configuration [date=" + date + ", currency=" + currency + ", decimal=" + decimal + ", language="
-				+ language + ", format=" + format + "]";
+				+ language + ", format=" + format + ", theme=" + theme + "]";
 	}
+
+	
 }

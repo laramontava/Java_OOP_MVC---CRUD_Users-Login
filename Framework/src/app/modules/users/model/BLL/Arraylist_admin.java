@@ -1,17 +1,19 @@
-package app.modules.users.utils;
+package app.modules.users.model.BLL;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.JOptionPane;
 import app.classes.configuration;
 import app.classes.idioma;
-import app.modules.users.classes.admin;
-import app.modules.users.classes.orderdatebirthday;
-import app.modules.users.classes.ordername;
-import app.modules.users.classes.singleton;
-import app.modules.users.utils.functions_users;
-import app.modules.users.utils.lib_ficheros.json;
-import app.modules.users.utils.lib_ficheros.txt;
+import app.classes.singleton_global;
+import app.modules.users.model.BLL.lib_ficheros.json;
+import app.modules.users.model.BLL.lib_ficheros.txt;
+import app.modules.users.model.BLL.lib_ficheros.xml;
+import app.modules.users.model.DAO.functions_users;
+import app.modules.users.model.classes.admin;
+import app.modules.users.model.classes.orderdatebirthday;
+import app.modules.users.model.classes.ordername;
+import app.modules.users.model.classes.singleton;
 
 
 public class Arraylist_admin {
@@ -26,92 +28,42 @@ public class Arraylist_admin {
 		Arraylist_admin.admins = admins;
 	}
 
-	public  void AddAdmin(admin admind,configuration conf,idioma translate){
+	public  void AddAdmin(admin admind,idioma translate){
 		int pos = -1;
 		admind = functions_users.finddniadmin(translate);
-		pos = adminfind(admind, conf, translate);
+		pos = adminfind(admind, translate);
 		if(pos!=-1){
 			JOptionPane.showMessageDialog(null, "Existe");
 		}
 		else{
-			admind = functions_users.pideadmin(conf, translate);
+			admind = functions_users.pideadmin(translate);
 			admins.add(admind);
 		}
-		
-		/*admind = functions_users.finddniadmin(translate);
-		JOptionPane.showMessageDialog(null, admind);
-		//if(admins.size()!=0){
-		if(admins.isEmpty()){
-			JOptionPane.showMessageDialog(null, "Primero");
-			admind = functions_users.pideadmin(conf, translate);
-			admins.add(admind);
-		}
-		else{
-			for (int i = 0; i<=admins.size()-1; i++){
-				if((admins.get(i)).equals(admind.getDni()) ){
-				//if(admins.equals(admind.getDni())){
-					JOptionPane.showMessageDialog(null, "Nuevo");
-					admind = functions_users.pideadmin(conf, translate);
-					admins.add(admind);
-					
-				}
-				else{
-					JOptionPane.showMessageDialog(null, "Existe");
-				}
-			}
-		}*/
-		
-		/*admind = functions_users.finddniadmin(translate);
-		for (int i = 0; i<=admins.size()-1; i++){
-			if((admins.get(i)).equals(admind) )
-				JOptionPane.showMessageDialog(null, "Repe");
-			else{
-				admind = functions_users.pideadmin(conf, translate);
-				admins.add(admind);
-			}
-		
-		}*/
-		
-		/*int rep = 0;
-		admind = functions_users.finddniadmin(translate);
-		rep = adminsearchrepeat(admind);
-		if(rep == 0){
-			admind = functions_users.pideadmin(conf, translate);
-			admins.add(admind);
-		}
-		else{
-			JOptionPane.showMessageDialog(null, "Repe");
-		}*/
 	}
 	
-	public void editadmin(admin admind, configuration conf, idioma translate){
+	public void editadmin(admin admind, idioma translate){
 		int pos = -1;
 		if(admins.isEmpty()){
 			JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
 		} else{
 			pos = -1;
 			admind = functions_users.finddniadmin(translate);
-			pos = adminfind(admind, conf, translate);
+			pos = adminfind(admind, translate);
 			if(pos != -1){
 				//admins.get(pos);
-				functions_users.cambiauser(admins.get(pos), conf, translate);
+				functions_users.cambiauser(admins.get(pos), translate);
 				//admins.set(pos, admind);
 			} else{
 				JOptionPane.showMessageDialog(null, "Existe");
 			}
 		}
-		/*admind = functions_users.finddniadmin(translate);
-		for (int i = 0; i<=admins.size()-1; i++){
-			if((admins.get(i)).equals(admind) )
-				functions_users.cambiauser(admins.get(i), conf, translate);
-		}*/
 	}
-	public void printadmin(configuration conf, idioma translate){
+	public void printadmin(idioma translate){
 		if(admins.isEmpty()){
 			JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
 		} else{
 			for(int i = 0; i<admins.size();i++){
-				JOptionPane.showMessageDialog(null, admins.get(i).toString(conf, translate));
+				JOptionPane.showMessageDialog(null, admins.get(i).toString(singleton_global.conf, translate));
 			}
 		}
 	}
@@ -133,18 +85,18 @@ public class Arraylist_admin {
 		}
 	}
 	//Collections.sort(AL_cli); compareto user => dni
-	public void adminsearch(admin pideadmin,configuration conf, idioma translate){
+	public void adminsearch(admin pideadmin,idioma translate){
 		if(admins.isEmpty()){
 			JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
 		} else{
 			pideadmin = functions_users.finddniadmin(translate);
 			for (int i = 0; i<=admins.size()-1; i++){
 				if((admins.get(i)).equals(pideadmin) )
-					JOptionPane.showMessageDialog(null, admins.get(i).toString(conf, translate));
+					JOptionPane.showMessageDialog(null, admins.get(i).toString(singleton_global.conf, translate));
 			}
 		}
 	}
-	public static int adminfind(admin admind,configuration conf, idioma translate) { 
+	public static int adminfind(admin admind, idioma translate) { 
 		for (int i = 0; i<=admins.size()-1; i++){
 			if((admins.get(i)).equals(admind) )
 				return i;
@@ -152,7 +104,7 @@ public class Arraylist_admin {
 		return -1;
 	}
 	
-	public void deleteadmin(admin pideadmin,configuration conf, idioma translate){
+	public void deleteadmin(admin pideadmin, idioma translate){
 		if(admins.isEmpty()){
 			JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
 		} else{
@@ -163,7 +115,37 @@ public class Arraylist_admin {
 			}
 		}
 	}
+	public void openfiles(){
+		switch(singleton_global.conf.getFormat()){
+		case "json":
+			json.OpenJson();
+			break;
+		case "txt":
+			txt.Opentxt();
+			break;
+		case "xml":
+			xml.Openxml();
+			break;
+		}
+	}
 	
+	public void savefiles(){
+		if(admins.isEmpty()){
+			JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
+		}else{
+			switch(singleton_global.conf.getFormat()){
+			case "json":
+				json.GenerateJson();
+				break;
+			case "txt":
+				txt.Generatetxt();
+				break;
+			case "xml":
+				xml.Generatexml();
+				break;
+			}
+		}
+	}
 	/*public int ordenarnombre(admin pideadmin){
 		if(pideadmin.getName().equals(admins.)>0)
 			return 1;

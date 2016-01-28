@@ -25,7 +25,7 @@ public class idioma extends Properties{
             getProperties("valencia.properties");
             break;
         default:
-                getProperties("english.properties");
+            getProperties("english.properties");
         }
 	}
 	

@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import app.classes.configuration;
 import app.classes.fecha;
 import app.classes.idioma;
+import app.classes.singleton_global;
 import app.utils.functions;
 import app.utils.validate;
 
@@ -118,21 +119,21 @@ public class kernel {
 	
 	}
 	
-	public static String validatefecha(String message, String title, configuration conf){
+	public static String validatefecha(String message, String title){
 		String s="";
 		boolean val=true;
 		int dia = 0, mes = 0, anyo = 0;
 		
 		do{
 			s = functions.validatestring(message, title);
-			val = validate.validafechacorrecta(s, conf.getDate());
+			val = validate.validafechacorrecta(s, singleton_global.conf.getDate());
 			if(val==false){
 				JOptionPane.showMessageDialog(null, "Incorrect data");
 			}
 			if(val==true){
 				String[] fecha;
 
-				switch(conf.getDate()){
+				switch(singleton_global.conf.getDate()){
 				case 'a'://dd/mm/yyyy
 					fecha=s.split("/");
 					
@@ -201,13 +202,13 @@ public class kernel {
 		}while(val==false);
 		return s;
 	}
-	public static String datebirthday(String message, String title, configuration conf, idioma translate){
+	public static String datebirthday(String message, String title, idioma translate){
 		String s="";
 		boolean val=true;
 		int resultado = 0;
 		do{
 			val=true;
-			s = validatefecha(message,title,conf);
+			s = validatefecha(message,title);
 			fecha datefecha = new fecha();
 			Calendar date = new GregorianCalendar();
 			date=datefecha.stringtocalendar(s);
@@ -232,14 +233,14 @@ public class kernel {
 		}while(val==false);
 		return s;
 	}
-	public static String yearsservice(String message, String title, String datebirthday, configuration conf, idioma translate){
+	public static String yearsservice(String message, String title, String datebirthday, idioma translate){
 		String s="";
 		boolean val=true;
 		int years=0;
 		
 		do{
 			val=true;
-			s = validatefecha(message,title,conf);
+			s = validatefecha(message,title);
 			fecha datefecha = new fecha();
 			Calendar date = new GregorianCalendar();
 			date=datefecha.stringtocalendar(s);

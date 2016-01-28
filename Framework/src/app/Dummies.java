@@ -1,9 +1,9 @@
 package app;
 
 
-import app.modules.users.classes.admin;
-import app.modules.users.classes.client;
-import app.modules.users.classes.registered_user;
+import app.modules.users.model.classes.admin;
+import app.modules.users.model.classes.client;
+import app.modules.users.model.classes.registered_user;
 
 
 public class Dummies {
