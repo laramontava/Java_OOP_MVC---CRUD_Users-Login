@@ -3,8 +3,6 @@ package app.modules.users.model.BLL;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.JOptionPane;
-import app.classes.configuration;
-import app.classes.idioma;
 import app.classes.singleton_global;
 import app.modules.users.model.BLL.lib_ficheros.json;
 import app.modules.users.model.BLL.lib_ficheros.txt;
@@ -13,8 +11,6 @@ import app.modules.users.model.DAO.functions_users;
 import app.modules.users.model.classes.admin;
 import app.modules.users.model.classes.orderdatebirthday;
 import app.modules.users.model.classes.ordername;
-import app.modules.users.model.classes.singleton;
-
 
 public class Arraylist_admin {
 	private static ArrayList<admin> admins = new ArrayList<admin>();
@@ -28,42 +24,42 @@ public class Arraylist_admin {
 		Arraylist_admin.admins = admins;
 	}
 
-	public  void AddAdmin(admin admind,idioma translate){
+	public  void AddAdmin(admin admind){
 		int pos = -1;
-		admind = functions_users.finddniadmin(translate);
-		pos = adminfind(admind, translate);
+		admind = functions_users.finddniadmin();
+		pos = adminfind(admind);
 		if(pos!=-1){
 			JOptionPane.showMessageDialog(null, "Existe");
 		}
 		else{
-			admind = functions_users.pideadmin(translate);
+			admind = functions_users.pideadmin();
 			admins.add(admind);
 		}
 	}
 	
-	public void editadmin(admin admind, idioma translate){
+	public void editadmin(admin admind){
 		int pos = -1;
 		if(admins.isEmpty()){
 			JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
 		} else{
 			pos = -1;
-			admind = functions_users.finddniadmin(translate);
-			pos = adminfind(admind, translate);
+			admind = functions_users.finddniadmin();
+			pos = adminfind(admind);
 			if(pos != -1){
 				//admins.get(pos);
-				functions_users.cambiauser(admins.get(pos), translate);
+				functions_users.cambiauser(admins.get(pos));
 				//admins.set(pos, admind);
 			} else{
 				JOptionPane.showMessageDialog(null, "Existe");
 			}
 		}
 	}
-	public void printadmin(idioma translate){
+	public void printadmin(){
 		if(admins.isEmpty()){
 			JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
 		} else{
 			for(int i = 0; i<admins.size();i++){
-				JOptionPane.showMessageDialog(null, admins.get(i).toString(singleton_global.conf, translate));
+				JOptionPane.showMessageDialog(null, admins.get(i).toString());
 			}
 		}
 	}
@@ -85,18 +81,18 @@ public class Arraylist_admin {
 		}
 	}
 	//Collections.sort(AL_cli); compareto user => dni
-	public void adminsearch(admin pideadmin,idioma translate){
+	public void adminsearch(admin pideadmin){
 		if(admins.isEmpty()){
 			JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
 		} else{
-			pideadmin = functions_users.finddniadmin(translate);
+			pideadmin = functions_users.finddniadmin();
 			for (int i = 0; i<=admins.size()-1; i++){
 				if((admins.get(i)).equals(pideadmin) )
-					JOptionPane.showMessageDialog(null, admins.get(i).toString(singleton_global.conf, translate));
+					JOptionPane.showMessageDialog(null, admins.get(i).toString());
 			}
 		}
 	}
-	public static int adminfind(admin admind, idioma translate) { 
+	public static int adminfind(admin admind) { 
 		for (int i = 0; i<=admins.size()-1; i++){
 			if((admins.get(i)).equals(admind) )
 				return i;
@@ -104,11 +100,11 @@ public class Arraylist_admin {
 		return -1;
 	}
 	
-	public void deleteadmin(admin pideadmin, idioma translate){
+	public void deleteadmin(admin pideadmin){
 		if(admins.isEmpty()){
 			JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
 		} else{
-			pideadmin = functions_users.finddniadmin(translate);
+			pideadmin = functions_users.finddniadmin();
 			for (int i = 0; i<=admins.size()-1; i++){
 				if((admins.get(i)).equals(pideadmin) )
 					admins.remove(i);

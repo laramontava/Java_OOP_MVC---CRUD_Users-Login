@@ -1,8 +1,6 @@
 package app.modules.users.model.DAO;
-import javax.swing.JOptionPane;
 
-import app.classes.configuration;
-import app.classes.idioma;
+import javax.swing.JOptionPane;
 import app.classes.singleton_global;
 import app.modules.users.core.kernel;
 import app.modules.users.model.BLL.Arraylist_admin;
@@ -18,7 +16,7 @@ import app.utils.menus;
 
 public class functions_users {
 	
-	public static admin pideadmin(idioma translate){
+	public static admin pideadmin(){
 		String dni, name, subname, mobile, email, date_birthday, user, pass, avatar, state;
 		int activity;
 		float salary;
@@ -41,35 +39,35 @@ public class functions_users {
 		}
 		//dni=kernel.pedirdatos("dni",translate.getProperty("dni"),"DNI", translate);
 		dni=singleton.dni;
-		name=kernel.pedirdatos("name",translate.getProperty("name"),"Name", translate);
-		subname=kernel.pedirdatos("subname",translate.getProperty("subname"),"Subname", translate);
-		mobile=kernel.pedirdatos("mobile",translate.getProperty("phone"),"Mobile", translate);
-		email=kernel.pedirdatos("email",translate.getProperty("email"),"Email", translate);
-		date_birthday=kernel.datebirthday(translate.getProperty("datebirthday")+formatdate,"Date Birthday",translate);
-		user=functions.validatestring(translate.getProperty("user"), "User");
-		pass=functions.validatestring(translate.getProperty("pass"), "Password");
-		avatar=functions.validatestring(translate.getProperty("avatar"), "Avatar");
-		state=menus.menustate(translate.getProperty("state"), "State");
-		hiring_date=kernel.yearsservice(translate.getProperty("hiring_date")+formatdate,"Hiring date",date_birthday,translate);
-		salary=functions.validatefloat(translate.getProperty("salary"), "Salary");
-		activity=functions.validateint(translate.getProperty("activity"), "Activity");
+		name=kernel.pedirdatos("name",singleton_global.translate.getProperty("name"),"Name");
+		subname=kernel.pedirdatos("subname",singleton_global.translate.getProperty("subname"),"Subname");
+		mobile=kernel.pedirdatos("mobile",singleton_global.translate.getProperty("phone"),"Mobile");
+		email=kernel.pedirdatos("email",singleton_global.translate.getProperty("email"),"Email");
+		date_birthday=kernel.datebirthday(singleton_global.translate.getProperty("datebirthday")+formatdate,"Date Birthday");
+		user=functions.validatestring(singleton_global.translate.getProperty("user"), "User");
+		pass=functions.validatestring(singleton_global.translate.getProperty("pass"), "Password");
+		avatar=functions.validatestring(singleton_global.translate.getProperty("avatar"), "Avatar");
+		state=menus.menustate(singleton_global.translate.getProperty("state"), "State");
+		hiring_date=kernel.yearsservice(singleton_global.translate.getProperty("hiring_date")+formatdate,"Hiring date",date_birthday);
+		salary=functions.validatefloat(singleton_global.translate.getProperty("salary"), "Salary");
+		activity=functions.validateint(singleton_global.translate.getProperty("activity"), "Activity");
 		return new admin(dni,name,subname,mobile,email,date_birthday,user,pass,avatar,state,hiring_date,salary,activity);
 	}
-	public static admin finddniadmin(idioma translate){
+	public static admin finddniadmin(){
 		//String dni;
 		//dni=kernel.pedirdatos("dni",translate.getProperty("dni"),"DNI", translate);
-		singleton.dni=kernel.pedirdatos("dni",translate.getProperty("dni"),"DNI", translate);
+		singleton.dni=kernel.pedirdatos("dni",singleton_global.translate.getProperty("dni"),"DNI");
 		return new admin(singleton.dni);
 	}
-	public static client finddniclient(idioma translate){
-		singleton.dni=kernel.pedirdatos("dni",translate.getProperty("dni"),"DNI", translate);
+	public static client finddniclient(){
+		singleton.dni=kernel.pedirdatos("dni",singleton_global.translate.getProperty("dni"),"DNI");
 		return new client(singleton.dni);
 	}
-	public static registered_user finddniuserreg(idioma translate){
-		singleton.dni=kernel.pedirdatos("dni",translate.getProperty("dni"),"DNI", translate);
+	public static registered_user finddniuserreg(){
+		singleton.dni=kernel.pedirdatos("dni",singleton_global.translate.getProperty("dni"),"DNI");
 		return new registered_user(singleton.dni);
 	}
-	public static client pideclient(idioma translate){
+	public static client pideclient(){
 		String dni, name, subname, mobile, email, date_birthday, user, pass, avatar, state;
 		float shopping;
 		String up_date, client_type;
@@ -91,25 +89,25 @@ public class functions_users {
 		}
 		//dni=kernel.pedirdatos("dni",translate.getProperty("dni"),"DNI", translate);
 		dni=singleton.dni;
-		name=kernel.pedirdatos("name",translate.getProperty("name"),"Name", translate);
-		subname=kernel.pedirdatos("subname",translate.getProperty("subname"),"Subname", translate);
-		mobile=kernel.pedirdatos("mobile",translate.getProperty("phone"),"Mobile", translate);
-		email=kernel.pedirdatos("email",translate.getProperty("email"),"Email", translate);
-		date_birthday=kernel.datebirthday(translate.getProperty("datebirthday")+formatdate,"Date Birthday",translate);
-		user=functions.validatestring(translate.getProperty("user"), "User");
-		pass=functions.validatestring(translate.getProperty("pass"), "Password");
-		avatar=functions.validatestring(translate.getProperty("avatar"), "Avatar");
-		state=menus.menustate(translate.getProperty("state"), "State");
-		up_date=kernel.yearsservice(translate.getProperty("up_date")+formatdate,"Hiring date",date_birthday,translate);
-		shopping=functions.validatefloat(translate.getProperty("shopping"), "Shopping");
-		premium=menus.validateboolean(translate.getProperty("premium"), "Premium");
-		client_type=functions.validatestring(translate.getProperty("clienttype"), "Client type");
+		name=kernel.pedirdatos("name",singleton_global.translate.getProperty("name"),"Name");
+		subname=kernel.pedirdatos("subname",singleton_global.translate.getProperty("subname"),"Subname");
+		mobile=kernel.pedirdatos("mobile",singleton_global.translate.getProperty("phone"),"Mobile");
+		email=kernel.pedirdatos("email",singleton_global.translate.getProperty("email"),"Email");
+		date_birthday=kernel.datebirthday(singleton_global.translate.getProperty("datebirthday")+formatdate,"Date Birthday");
+		user=functions.validatestring(singleton_global.translate.getProperty("user"), "User");
+		pass=functions.validatestring(singleton_global.translate.getProperty("pass"), "Password");
+		avatar=functions.validatestring(singleton_global.translate.getProperty("avatar"), "Avatar");
+		state=menus.menustate(singleton_global.translate.getProperty("state"), "State");
+		up_date=kernel.yearsservice(singleton_global.translate.getProperty("up_date")+formatdate,"Hiring date",date_birthday);
+		shopping=functions.validatefloat(singleton_global.translate.getProperty("shopping"), "Shopping");
+		premium=menus.validateboolean(singleton_global.translate.getProperty("premium"), "Premium");
+		client_type=functions.validatestring(singleton_global.translate.getProperty("clienttype"), "Client type");
 		
 		return new client(dni,name,subname,mobile,email,date_birthday,user,pass,avatar,state,up_date,shopping,premium,
 				client_type);
 	}
 
-	public static registered_user pideregistrado(idioma translate){
+	public static registered_user pideregistrado(){
 		String dni, name, subname, mobile, email, date_birthday, user, pass, avatar, state;
 		int activity;
 		String formatdate="";
@@ -129,50 +127,50 @@ public class functions_users {
 		}
 		//dni=kernel.pedirdatos("dni",translate.getProperty("dni"),"DNI", translate);
 		dni=singleton.dni;
-		name=kernel.pedirdatos("name",translate.getProperty("name"),"Name", translate);
-		subname=kernel.pedirdatos("subname",translate.getProperty("subname"),"Subname", translate);
-		mobile=kernel.pedirdatos("mobile",translate.getProperty("phone"),"Mobile", translate);
-		email=kernel.pedirdatos("email",translate.getProperty("email"),"Email", translate);
-		date_birthday=kernel.datebirthday(translate.getProperty("datebirthday")+formatdate,"Date Birthday",translate);
-		user=functions.validatestring(translate.getProperty("user"), "User");
-		pass=functions.validatestring(translate.getProperty("pass"), "Password");
-		avatar=functions.validatestring(translate.getProperty("avatar"), "Avatar");
-		state=menus.menustate(translate.getProperty("state"), "State");
-		activity=functions.validateint(translate.getProperty("activity"), "Activity");
+		name=kernel.pedirdatos("name",singleton_global.translate.getProperty("name"),"Name");
+		subname=kernel.pedirdatos("subname",singleton_global.translate.getProperty("subname"),"Subname");
+		mobile=kernel.pedirdatos("mobile",singleton_global.translate.getProperty("phone"),"Mobile");
+		email=kernel.pedirdatos("email",singleton_global.translate.getProperty("email"),"Email");
+		date_birthday=kernel.datebirthday(singleton_global.translate.getProperty("datebirthday")+formatdate,"Date Birthday");
+		user=functions.validatestring(singleton_global.translate.getProperty("user"), "User");
+		pass=functions.validatestring(singleton_global.translate.getProperty("pass"), "Password");
+		avatar=functions.validatestring(singleton_global.translate.getProperty("avatar"), "Avatar");
+		state=menus.menustate(singleton_global.translate.getProperty("state"), "State");
+		activity=functions.validateint(singleton_global.translate.getProperty("activity"), "Activity");
 		
 		return new registered_user(dni,name,subname,mobile,email,date_birthday,user,pass,avatar,state,activity);
 	}
-	public static void savedniadmin (admin admind,idioma translate, users user){
+	public static void savedniadmin (admin admind, users user){
 		int pos = -1;
-		admind = functions_users.finddniadmin(translate);
-		pos = Arraylist_admin.adminfind(admind, translate);
+		admind = functions_users.finddniadmin();
+		pos = Arraylist_admin.adminfind(admind);
 		if (pos != -1) {
 			JOptionPane.showMessageDialog(null, "Error");
 		}else {
 			user.setDni(singleton.dni);
 		}
 	}
-	public static void savedniclient (client clientd, idioma translate, users user){
+	public static void savedniclient (client clientd, users user){
 		int pos = -1;
-		clientd = functions_users.finddniclient(translate);
-		pos = Arraylist_client.ClientFind(clientd, translate);
+		clientd = functions_users.finddniclient();
+		pos = Arraylist_client.ClientFind(clientd);
 		if (pos != -1) {
 			JOptionPane.showMessageDialog(null, "Error");
 		}else {
 			user.setDni(singleton.dni);
 		}
 	}
-	public static void savednireguser (registered_user ruserd, idioma translate, users user){
+	public static void savednireguser (registered_user ruserd, users user){
 		int pos = -1;
-		ruserd = functions_users.finddniuserreg(translate);
-		pos = Arraylist_userreg.UserregFind(ruserd, translate);
+		ruserd = functions_users.finddniuserreg();
+		pos = Arraylist_userreg.UserregFind(ruserd);
 		if (pos != -1) {
 			JOptionPane.showMessageDialog(null, "Error");
 		}else {
 			user.setDni(singleton.dni);
 		}
 	}
-	public static void cambiauser(users type, idioma translate){
+	public static void cambiauser(users type){
 		int option3;
 		String formatdate="";
 		
@@ -202,43 +200,43 @@ public class functions_users {
 				break;
 			case 1:
 				//type.setDni(kernel.pedirdatos("dni",translate.getProperty("dni"),"DNI", translate));
-				savedniadmin(admins, translate, type);
+				savedniadmin(admins, type);
 				break;
 			case 2:
-				type.setName(kernel.pedirdatos("name",translate.getProperty("name"),"Name", translate));
+				type.setName(kernel.pedirdatos("name",singleton_global.translate.getProperty("name"),"Name"));
 				break;
 			case 3:
-				type.setSubname(kernel.pedirdatos("subname",translate.getProperty("subname"),"Subname", translate));
+				type.setSubname(kernel.pedirdatos("subname",singleton_global.translate.getProperty("subname"),"Subname"));
 				break;
 			case 4:
-				type.setMobile(kernel.pedirdatos("mobile",translate.getProperty("phone"),"Mobile", translate));
+				type.setMobile(kernel.pedirdatos("mobile",singleton_global.translate.getProperty("phone"),"Mobile"));
 				break;
 			case 5:
-				type.setEmail(kernel.pedirdatos("email",translate.getProperty("email"),"Email", translate));
+				type.setEmail(kernel.pedirdatos("email",singleton_global.translate.getProperty("email"),"Email"));
 				break;
 			case 6:
-				type.setDate_birthday(kernel.datebirthday(translate.getProperty("datebirthday")+formatdate,"",translate));
+				type.setDate_birthday(kernel.datebirthday(singleton_global.translate.getProperty("datebirthday")+formatdate,""));
 				break;
 			case 7:
-				type.setUser(functions.validatestring(translate.getProperty("user"), "User"));
+				type.setUser(functions.validatestring(singleton_global.translate.getProperty("user"), "User"));
 				break;
 			case 8:
-				type.setPass(functions.validatestring(translate.getProperty("pass"), "Password"));
+				type.setPass(functions.validatestring(singleton_global.translate.getProperty("pass"), "Password"));
 				break;
 			case 9:
-				type.setAvatar(functions.validatestring(translate.getProperty("avatar"), "Avatar"));
+				type.setAvatar(functions.validatestring(singleton_global.translate.getProperty("avatar"), "Avatar"));
 				break;
 			case 10:
-				type.setState(menus.menustate(translate.getProperty("state"), "State"));
+				type.setState(menus.menustate(singleton_global.translate.getProperty("state"), "State"));
 				break;
 			case 11:
-				((admin)type).setHiring_date(kernel.yearsservice(translate.getProperty("hiring_date")+formatdate, "Up date",type.getDate_birthday(),translate));
+				((admin)type).setHiring_date(kernel.yearsservice(singleton_global.translate.getProperty("hiring_date")+formatdate, "Up date",type.getDate_birthday()));
 				break;
 			case 12:
-				((admin)type).setSalary(functions.validatefloat(translate.getProperty("salary"), "Salary"));
+				((admin)type).setSalary(functions.validatefloat(singleton_global.translate.getProperty("salary"), "Salary"));
 				break;
 			case 13:
-				((admin)type).setActivity(functions.validateint(translate.getProperty("activity"), "Activity"));
+				((admin)type).setActivity(functions.validateint(singleton_global.translate.getProperty("activity"), "Activity"));
 				break;
 			}
 		}
@@ -252,46 +250,46 @@ public class functions_users {
 			switch(option3){
 			case 1:
 				//type.setDni(kernel.pedirdatos("dni",translate.getProperty("dni"),"DNI", translate));
-				savedniclient(clients, translate, type);
+				savedniclient(clients, type);
 				break;
 			case 2:
-				type.setName(kernel.pedirdatos("name",translate.getProperty("name"),"Name", translate));
+				type.setName(kernel.pedirdatos("name",singleton_global.translate.getProperty("name"),"Name"));
 				break;
 			case 3:
-				type.setSubname(kernel.pedirdatos("subname",translate.getProperty("subname"),"Subname", translate));
+				type.setSubname(kernel.pedirdatos("subname",singleton_global.translate.getProperty("subname"),"Subname"));
 				break;
 			case 4:
-				type.setMobile(kernel.pedirdatos("mobile",translate.getProperty("phone"),"Mobile", translate));
+				type.setMobile(kernel.pedirdatos("mobile",singleton_global.translate.getProperty("phone"),"Mobile"));
 				break;
 			case 5:
-				type.setEmail(kernel.pedirdatos("email",translate.getProperty("email"),"Email", translate));
+				type.setEmail(kernel.pedirdatos("email",singleton_global.translate.getProperty("email"),"Email"));
 				break;
 			case 6:
-				type.setDate_birthday(kernel.datebirthday(translate.getProperty("datebirthday")+formatdate,"",translate));
+				type.setDate_birthday(kernel.datebirthday(singleton_global.translate.getProperty("datebirthday")+formatdate,""));
 				break;
 			case 7:
-				((client)type).setUser(functions.validatestring(translate.getProperty("user"), "User name"));
+				((client)type).setUser(functions.validatestring(singleton_global.translate.getProperty("user"), "User name"));
 				break;
 			case 8:
-				((client)type).setPass(functions.validatestring(translate.getProperty("pass"), "Password"));
+				((client)type).setPass(functions.validatestring(singleton_global.translate.getProperty("pass"), "Password"));
 				break;
 			case 9:
-				((client)type).setAvatar(functions.validatestring(translate.getProperty("avatar"), "Avatar"));
+				((client)type).setAvatar(functions.validatestring(singleton_global.translate.getProperty("avatar"), "Avatar"));
 				break;
 			case 10:
-				((client)type).setState(menus.menustate(translate.getProperty("state"), "State"));
+				((client)type).setState(menus.menustate(singleton_global.translate.getProperty("state"), "State"));
 				break;
 			case 11:
-				((client)type).setUp_date(kernel.yearsservice(translate.getProperty("up_date")+formatdate, "Up date",type.getDate_birthday(),translate));
+				((client)type).setUp_date(kernel.yearsservice(singleton_global.translate.getProperty("up_date")+formatdate, "Up date",type.getDate_birthday()));
 				break;
 			case 12:
-				((client)type).setShopping(functions.validatefloat(translate.getProperty("shopping"), "Shop"));
+				((client)type).setShopping(functions.validatefloat(singleton_global.translate.getProperty("shopping"), "Shop"));
 				break;
 			case 13:
-				((client)type).setPremium(menus.validateboolean(translate.getProperty("premium"), "Premium"));
+				((client)type).setPremium(menus.validateboolean(singleton_global.translate.getProperty("premium"), "Premium"));
 				break;
 			case 14:
-				((client)type).setClient_type(functions.validatestring(translate.getProperty("clienttype"), "Client Type"));
+				((client)type).setClient_type(functions.validatestring(singleton_global.translate.getProperty("clienttype"), "Client Type"));
 				break;
 			}
 		}
@@ -303,37 +301,37 @@ public class functions_users {
 			switch(option3){
 			case 1:
 				//type.setDni(kernel.pedirdatos("dni",translate.getProperty("dni"),"DNI", translate));
-				savednireguser(rusers, translate, type);
+				savednireguser(rusers, type);
 				break;
 			case 2:
-				type.setName(kernel.pedirdatos("name",translate.getProperty("name"),"Name", translate));
+				type.setName(kernel.pedirdatos("name",singleton_global.translate.getProperty("name"),"Name"));
 				break;
 			case 3:
-				type.setSubname(kernel.pedirdatos("subname",translate.getProperty("subname"),"Subname", translate));
+				type.setSubname(kernel.pedirdatos("subname",singleton_global.translate.getProperty("subname"),"Subname"));
 				break;
 			case 4:
-				type.setMobile(kernel.pedirdatos("mobile",translate.getProperty("phone"),"Mobile", translate));
+				type.setMobile(kernel.pedirdatos("mobile",singleton_global.translate.getProperty("phone"),"Mobile"));
 				break;
 			case 5:
-				type.setEmail(kernel.pedirdatos("email",translate.getProperty("email"),"Email", translate));
+				type.setEmail(kernel.pedirdatos("email",singleton_global.translate.getProperty("email"),"Email"));
 				break;
 			case 6:
-				type.setDate_birthday(kernel.datebirthday(translate.getProperty("datebirthday")+formatdate,"",translate));
+				type.setDate_birthday(kernel.datebirthday(singleton_global.translate.getProperty("datebirthday")+formatdate,""));
 				break;
 			case 7:
-				((registered_user)type).setUser(functions.validatestring(translate.getProperty("user"), "User name"));
+				((registered_user)type).setUser(functions.validatestring(singleton_global.translate.getProperty("user"), "User name"));
 				break;
 			case 8:
-				((registered_user)type).setPass(functions.validatestring(translate.getProperty("pass"), "Password"));
+				((registered_user)type).setPass(functions.validatestring(singleton_global.translate.getProperty("pass"), "Password"));
 				break;
 			case 9:
-				((registered_user)type).setAvatar(functions.validatestring(translate.getProperty("avatar"), "Avatar"));
+				((registered_user)type).setAvatar(functions.validatestring(singleton_global.translate.getProperty("avatar"), "Avatar"));
 				break;
 			case 10:
-				((registered_user)type).setState(menus.menustate(translate.getProperty("state"), "State"));
+				((registered_user)type).setState(menus.menustate(singleton_global.translate.getProperty("state"), "State"));
 				break;
 			case 11:
-				((registered_user)type).setActivity(functions.validateint(translate.getProperty("activity"), "Activity"));
+				((registered_user)type).setActivity(functions.validateint(singleton_global.translate.getProperty("activity"), "Activity"));
 				break;
 			}
 		}

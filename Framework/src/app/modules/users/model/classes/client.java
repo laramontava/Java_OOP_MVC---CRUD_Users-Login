@@ -1,12 +1,9 @@
 package app.modules.users.model.classes;
 
-import app.classes.configuration;
 import app.classes.fecha;
-import app.classes.idioma;
 import app.classes.singleton_global;
 import app.utils.format;
 import java.io.Serializable;
-
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("Client")
@@ -98,18 +95,18 @@ public class client extends users implements Serializable{
 	}
 	
 	//to string
-	public String toString(configuration conf, idioma translate) {
+	public String toString() {
 		String cad="";
 		
 		cad+=super.toString()+"\n";
 		cad+="Up date => "+this.getUp_date()+"\n";
 		cad+="Years service => "+this.getYears_service()+"\n";
-		switch(conf.getCurrency()){
+		switch(singleton_global.conf.getCurrency()){
 		case '€':
 			cad+="Shopping => "+format.FormatEuro(this.getShopping())+"\n";
 			break;
 		case '$':
-			cad+="Shopping => "+format.FormatDollar(this.getShopping(), conf)+"\n";
+			cad+="Shopping => "+format.FormatDollar(this.getShopping(), singleton_global.conf)+"\n";
 			break;
 		case '£':
 			cad+="Shopping => "+format.FormatLibra(this.getShopping())+"\n";

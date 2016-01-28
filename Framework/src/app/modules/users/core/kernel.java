@@ -2,19 +2,15 @@ package app.modules.users.core;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
 import javax.swing.JOptionPane;
-
-import app.classes.configuration;
 import app.classes.fecha;
-import app.classes.idioma;
 import app.classes.singleton_global;
 import app.utils.functions;
 import app.utils.validate;
 
 public class kernel {
 	
-	public static String pedirdatos(String type,String message, String title,idioma translate){
+	public static String pedirdatos(String type,String message, String title){
 		int modulo, dninum;
 		char numcalc;
 		String s="", dnicad="", dniletra="";
@@ -29,7 +25,7 @@ public class kernel {
 				s = functions.validatestring(message, title);
 				val = validate.validatedni(s);
 				if(val==false){
-					JOptionPane.showMessageDialog(null, translate.getProperty("incorrectformat"));
+					JOptionPane.showMessageDialog(null, singleton_global.translate.getProperty("incorrectformat"));
 				}
 				if(val==true){
 					for(int i=0;i<8;i++){
@@ -44,7 +40,7 @@ public class kernel {
 					}
 					else{
 						val=false;
-						JOptionPane.showMessageDialog(null, translate.getProperty("incorrectcharadni"));
+						JOptionPane.showMessageDialog(null, singleton_global.translate.getProperty("incorrectcharadni"));
 					}
 				}
 			}while(val==false);
@@ -54,7 +50,7 @@ public class kernel {
 				s = functions.validatestring(message, title);
 				val = validate.validaNombre(s);
 				if(val==false){
-					JOptionPane.showMessageDialog(null, translate.getProperty("incorrectformat"));
+					JOptionPane.showMessageDialog(null, singleton_global.translate.getProperty("incorrectformat"));
 				}
 			}while(val==false);
 			break;
@@ -63,7 +59,7 @@ public class kernel {
 				s = functions.validatestring(message, title);
 				val = validate.validaNombre(s);
 				if(val==false){
-					JOptionPane.showMessageDialog(null, translate.getProperty("incorrectformat"));
+					JOptionPane.showMessageDialog(null, singleton_global.translate.getProperty("incorrectformat"));
 				}
 			}while(val==false);
 			break;
@@ -72,7 +68,7 @@ public class kernel {
 				s = functions.validatestring(message, title);
 				val = validate.validaTelefono(s);
 				if(val==false){
-					JOptionPane.showMessageDialog(null, translate.getProperty("incorrectformat"));
+					JOptionPane.showMessageDialog(null, singleton_global.translate.getProperty("incorrectformat"));
 				}
 			}while(val==false);
 			break;
@@ -81,7 +77,7 @@ public class kernel {
 				s = functions.validatestring(message, title);
 				val = validate.validaEmail(s);
 				if(val==false){
-					JOptionPane.showMessageDialog(null, translate.getProperty("incorrectformat"));
+					JOptionPane.showMessageDialog(null, singleton_global.translate.getProperty("incorrectformat"));
 				}
 			}while(val==false);
 			break;
@@ -90,7 +86,7 @@ public class kernel {
 				s = functions.validatestring(message,title);
 				val = validate.validafechacorrecta(s,'a');
 				if(val==false){
-					JOptionPane.showMessageDialog(null, translate.getProperty("incorrectformat"));
+					JOptionPane.showMessageDialog(null, singleton_global.translate.getProperty("incorrectformat"));
 				}
 			}while(val==false);
 			break;
@@ -100,7 +96,7 @@ public class kernel {
 				s = functions.validatestring("Introduce up date\n Example: dd/mm/yyyy", "Up date");
 				val = validate.validafechacorrecta(s,'a');
 				if(val==false){
-					JOptionPane.showMessageDialog(null, translate.getProperty("incorrectformat"));
+					JOptionPane.showMessageDialog(null, singleton_global.translate.getProperty("incorrectformat"));
 				}
 			}while(val==false);
 			break;
@@ -109,7 +105,7 @@ public class kernel {
 				s = functions.validatestring("Introduce hiring date\n Example: dd/mm/yyyy", "Hiring date");
 				val = validate.validafechacorrecta(s,'a');
 				if(val==false){
-					JOptionPane.showMessageDialog(null, translate.getProperty("incorrectformat"));
+					JOptionPane.showMessageDialog(null, singleton_global.translate.getProperty("incorrectformat"));
 				}
 			}while(val==false);
 			break;
@@ -202,7 +198,7 @@ public class kernel {
 		}while(val==false);
 		return s;
 	}
-	public static String datebirthday(String message, String title, idioma translate){
+	public static String datebirthday(String message, String title){
 		String s="";
 		boolean val=true;
 		int resultado = 0;
@@ -216,7 +212,7 @@ public class kernel {
 			Calendar datesystem = new GregorianCalendar();
 			datesystem=fe.fechasystem();
 			if(date.after(datesystem)){
-				JOptionPane.showMessageDialog(null, translate.getProperty("future"));
+				JOptionPane.showMessageDialog(null, singleton_global.translate.getProperty("future"));
 				val=false;
 			}
 			if(val==true){
@@ -233,7 +229,7 @@ public class kernel {
 		}while(val==false);
 		return s;
 	}
-	public static String yearsservice(String message, String title, String datebirthday, idioma translate){
+	public static String yearsservice(String message, String title, String datebirthday){
 		String s="";
 		boolean val=true;
 		int years=0;
@@ -248,13 +244,13 @@ public class kernel {
 			Calendar datesystem = new GregorianCalendar();
 			datesystem=fe.fechasystem();
 			if(date.after(datesystem)){
-				JOptionPane.showMessageDialog(null, translate.getProperty("future"));
+				JOptionPane.showMessageDialog(null, singleton_global.translate.getProperty("future"));
 				val=false;
 			}
 			fecha diferencia = new fecha();
 			years=diferencia.restafechas(date, datefecha.stringtocalendar(datebirthday), "años");
 			if(years<18){
-				JOptionPane.showMessageDialog(null, translate.getProperty("menor"));
+				JOptionPane.showMessageDialog(null, singleton_global.translate.getProperty("menor"));
 				val=false;
 			}
 			if(val==true){

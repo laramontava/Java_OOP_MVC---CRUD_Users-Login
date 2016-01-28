@@ -1,7 +1,5 @@
 package app.modules.users.model.classes;
 
-import app.classes.configuration;
-import app.classes.idioma;
 import java.io.Serializable;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
@@ -50,7 +48,7 @@ public class registered_user extends users implements Serializable {
 	}
 	
 	//to string
-	public String toString(configuration conf, idioma translate) {
+	public String toString() {
 		String cad="";
 		cad+=super.toString()+"\n";
 		cad+="Activity => "+this.getActivity()+"\n";

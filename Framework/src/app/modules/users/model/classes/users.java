@@ -1,4 +1,5 @@
 package app.modules.users.model.classes;
+
 import app.classes.fecha;
 import java.io.Serializable;
 import com.thoughtworks.xstream.annotations.XStreamAlias;

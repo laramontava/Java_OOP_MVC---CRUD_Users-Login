@@ -75,17 +75,17 @@ public class Main {
 				option2 = menus.mainmenu(tipo2, translate.getProperty("Preghacer"), "Admin main");
 				switch(option2){
 				case 0: //crear admin ----
-					singleton.admin.AddAdmin(pideadmin, translate);
+					singleton.admin.AddAdmin(pideadmin);
 					//pideadmin=functions_users.pideadmin(conf,translate);
 					break;
 				case 1: //cambiar admin ----
-					singleton.admin.editadmin(pideadmin, translate);
+					singleton.admin.editadmin(pideadmin);
 					break;
 				case 2: //imprimir ---
-					singleton.admin.printadmin(translate);
+					singleton.admin.printadmin();
 					break;
 				case 3://buscar ---
-					singleton.admin.adminsearch(pideadmin, translate);
+					singleton.admin.adminsearch(pideadmin);
 					break;
 				case 4://ordenar ---
 					option2 = menus.mainmenu(tipo8, "¿Por qué quieres ordenar?", "Ordenar");
@@ -102,7 +102,7 @@ public class Main {
 					}
 					break;
 				case 5://eliminar ---
-					singleton.admin.deleteadmin(pideadmin, translate);
+					singleton.admin.deleteadmin(pideadmin);
 					break;
 				case 6://abrir ---
 					singleton.admin.openfiles();
@@ -140,11 +140,11 @@ public class Main {
 				option2 = menus.mainmenu(tipo2, translate.getProperty("Preghacer"), "Client main");
 				switch(option2){
 				case 0:
-					singleton.client.AddClient(pidecliente, translate);
+					singleton.client.AddClient(pidecliente);
 					//pidecliente=functions_users.pideclient(conf, translate);
 					break;
 				case 1:
-					singleton.client.EditClient(pidecliente, translate);
+					singleton.client.EditClient(pidecliente);
 					/*if(pidecliente==null){
 						JOptionPane.showMessageDialog(null, translate.getProperty("creatc"));
 					}
@@ -153,7 +153,7 @@ public class Main {
 					}*/
 					break;
 				case 2:
-					singleton.client.PrintClient(translate);
+					singleton.client.PrintClient();
 				/*	if(pidecliente==null){
 						JOptionPane.showMessageDialog(null, translate.getProperty("creatc"));
 					}
@@ -162,7 +162,7 @@ public class Main {
 					}*/
 					break;
 				case 3://buscar ---
-					singleton.client.clientsearch(pidecliente, translate);
+					singleton.client.clientsearch(pidecliente);
 					break;
 				case 4://ordenar  ---
 					option2 = menus.mainmenu(tipo8, "¿Por qué quieres ordenar?", "Ordenar");
@@ -179,7 +179,11 @@ public class Main {
 					}
 					break;
 				case 5://eliminar ---
-					singleton.client.DeleteClient(pidecliente, translate);
+					singleton.client.DeleteClient(pidecliente);
+					break;
+				case 6:
+					break;
+				case 7:
 					break;
 				}
 			}while(option2!=8);
@@ -189,11 +193,11 @@ public class Main {
 				option2 = menus.mainmenu(tipo2, translate.getProperty("Preghacer"), "Registered main");
 				switch(option2){
 				case 0://crear  ---
-					singleton.reguser.AddUserreg(pideregistrado, translate);
+					singleton.reguser.AddUserreg(pideregistrado);
 					//pideregistrado=functions_users.pideregistrado(singleton_global.conf, translate);
 					break;
 				case 1://cambiar datos  ---
-					singleton.reguser.EditUserreg(pideregistrado, translate);
+					singleton.reguser.EditUserreg(pideregistrado);
 					/*if(pideregistrado==null){
 						JOptionPane.showMessageDialog(null, translate.getProperty("creatu"));
 					}
@@ -202,7 +206,7 @@ public class Main {
 					}*/
 					break;
 				case 2://imprimir  ---
-					singleton.reguser.PrintUserreg(translate);
+					singleton.reguser.PrintUserreg();
 					/*if(pideregistrado==null){
 						JOptionPane.showMessageDialog(null, translate.getProperty("creatu"));
 					}
@@ -211,7 +215,7 @@ public class Main {
 					}*/
 					break;
 				case 3://buscar ---
-					singleton.reguser.UserregSearch(pideregistrado, translate);
+					singleton.reguser.UserregSearch(pideregistrado);
 					break;
 				case 4://ordenar  ---
 					option2 = menus.mainmenu(tipo8, "¿Por qué quieres ordenar?", "Ordenar");
@@ -228,7 +232,11 @@ public class Main {
 					}
 					break;
 				case 5://eliminar ---
-					singleton.reguser.DeleteUserreg(pideregistrado, translate);
+					singleton.reguser.DeleteUserreg(pideregistrado);
+					break;
+				case 6:
+					break;
+				case 7:
 					break;
 				}
 			}while(option2!=8);//volver

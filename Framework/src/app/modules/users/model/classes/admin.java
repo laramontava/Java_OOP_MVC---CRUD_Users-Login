@@ -1,13 +1,9 @@
 package app.modules.users.model.classes;
 
 import app.utils.format;
-import app.classes.configuration;
 import app.classes.fecha;
-import app.classes.idioma;
 import app.classes.singleton_global;
-
 import java.io.Serializable;
-
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("Admin")
@@ -85,37 +81,37 @@ public class admin extends users implements Serializable{
 	}
 	
 	//to string
-	public String toString(configuration conf, idioma translate) {
+	public String toString() {
 		String cad="";
 		
 		cad+=super.toString()+"\n";
-		cad+=translate.getProperty("Hiring_date")+" => "+this.getHiring_date()+"\n";
-		cad+=translate.getProperty("Years_service")+" => "+this.getYears_service()+"\n";
+		cad+=singleton_global.translate.getProperty("Hiring_date")+" => "+this.getHiring_date()+"\n";
+		cad+=singleton_global.translate.getProperty("Years_service")+" => "+this.getYears_service()+"\n";
 			
-		switch(conf.getCurrency()){
+		switch(singleton_global.conf.getCurrency()){
 		case '€':
-			cad+=translate.getProperty("Salary")+" => "+format.FormatEuro(this.getSalary())+"\n";
+			cad+=singleton_global.translate.getProperty("Salary")+" => "+format.FormatEuro(this.getSalary())+"\n";
 			break;
 		case '$':
-			cad+=translate.getProperty("Salary")+" => "+format.FormatDollar(this.getSalary(),conf)+"\n";
+			cad+=singleton_global.translate.getProperty("Salary")+" => "+format.FormatDollar(this.getSalary(),singleton_global.conf)+"\n";
 			break;
 		case '£':
-			cad+=translate.getProperty("Salary")+" => "+format.FormatLibra(this.getSalary())+"\n";
+			cad+=singleton_global.translate.getProperty("Salary")+" => "+format.FormatLibra(this.getSalary())+"\n";
 			break;
 		}
-		switch(conf.getCurrency()){
+		switch(singleton_global.conf.getCurrency()){
 		case '€':
-			cad+=translate.getProperty("Incentives")+" => "+format.FormatEuro(this.getVentajas())+"\n";
+			cad+=singleton_global.translate.getProperty("Incentives")+" => "+format.FormatEuro(this.getVentajas())+"\n";
 			break;
 		case '$':
-			cad+=translate.getProperty("Incentives")+" => "+format.FormatDollar(this.getVentajas(),conf)+"\n";
+			cad+=singleton_global.translate.getProperty("Incentives")+" => "+format.FormatDollar(this.getVentajas(),singleton_global.conf)+"\n";
 			break;
 		case '£':
-			cad+=translate.getProperty("Incentives")+" => "+format.FormatLibra(this.getVentajas())+"\n";
+			cad+=singleton_global.translate.getProperty("Incentives")+" => "+format.FormatLibra(this.getVentajas())+"\n";
 			break;
 		}
 		//cad+="Incentives => "+this.getVentajas()+"\n";
-		cad+=translate.getProperty("Activity")+" => "+this.getActivity()+"\n";
+		cad+=singleton_global.translate.getProperty("Activity")+" => "+this.getActivity()+"\n";
 		
 		return cad;
 	}

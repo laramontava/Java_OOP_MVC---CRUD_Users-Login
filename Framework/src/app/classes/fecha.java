@@ -2,9 +2,7 @@ package app.classes;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import java.io.Serializable;
 
 @XStreamAlias("Data")

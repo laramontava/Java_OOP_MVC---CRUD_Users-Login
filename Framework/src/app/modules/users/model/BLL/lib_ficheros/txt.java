@@ -2,12 +2,9 @@ package app.modules.users.model.BLL.lib_ficheros;
 
 import java.io.*;
 import java.util.ArrayList;
-
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
-import app.modules.users.model.BLL.Arraylist_admin;
 import app.modules.users.model.classes.admin;
 import app.modules.users.model.classes.singleton;
 
