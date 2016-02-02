@@ -8,6 +8,7 @@ import com.google.gson.stream.JsonReader;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 
+import app.classes.singleton_global;
 import app.modules.users.model.classes.admin;
 import app.modules.users.model.classes.client;
 import app.modules.users.model.classes.registered_user;
@@ -90,20 +91,16 @@ public class json {
 	          xstreamjson.setMode(XStream.NO_REFERENCES);
 	          xstreamjson.alias("Admin", admin.class);
 	          
-	          //JFileChooser fileChooser = new JFileChooser();
-	          //int seleccion = fileChooser.showSaveDialog(null);
-	          //if (seleccion == JFileChooser.APPROVE_OPTION) {
-	                //File JFC = fileChooser.getSelectedFile();
-	                //PATH = JFC.getAbsolutePath();
+	          if(!singleton_global.conf.getDummies())
 	                PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_admin/admin.json";
+	          else
+				  PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_dummies_admin/admin.json";
 	                Gson gson = new Gson();
 		            String json = gson.toJson(singleton.admin.getAdmins());
 		            FileWriter fileXml = new FileWriter(PATH);
 	                fileXml.write(json.toString());
 	                fileXml.close(); 
-	                
-	                //JOptionPane.showMessageDialog(null, "Archivo JSON guardado con exito", "Archivo JSON", JOptionPane.INFORMATION_MESSAGE);
-	          //}
+	          
        } catch (Exception e) {
        	JOptionPane.showMessageDialog(null, "Error al grabar el JSON", "Error", JOptionPane.ERROR_MESSAGE);
        }
@@ -116,9 +113,10 @@ public class json {
 	        	  XStream xstream = new XStream(new JettisonMappedXmlDriver());
 		          xstream.setMode(XStream.NO_REFERENCES);
 				  xstream.alias("Admin", admin.class);
-				  PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_admin/admin.json";
-				  
-		          
+				  if(!singleton_global.conf.getDummies())
+					  PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_admin/admin.json";
+				  else
+					  PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_dummies_admin/admin.json";
 		          File path = new File(PATH);
 		          if (path.exists()) {
 		               

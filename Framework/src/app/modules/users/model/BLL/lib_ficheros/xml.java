@@ -8,6 +8,8 @@ import app.modules.users.model.BLL.Arraylist_admin;
 import app.modules.users.model.classes.admin;
 import app.modules.users.model.classes.singleton;
 import app.classes.fecha;
+import app.classes.singleton_global;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -90,9 +92,10 @@ public class xml {
             StringBuffer xml = new StringBuffer();
             xml.append(header);
             xml.append(os.toString());
-	    
+            if(!singleton_global.conf.getDummies())
                 PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_admin/admin.xml";
-                
+            else
+            	PATH=new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_dummies_admin/admin.txt";
                 FileWriter fileXml = new FileWriter(PATH);
                 fileXml.write(xml.toString());
                 fileXml.close();

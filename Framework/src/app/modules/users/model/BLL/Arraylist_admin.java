@@ -13,15 +13,15 @@ import app.modules.users.model.classes.orderdatebirthday;
 import app.modules.users.model.classes.ordername;
 
 public class Arraylist_admin {
-	private static ArrayList<admin> admins = new ArrayList<admin>();
+	private ArrayList<admin> admins = new ArrayList<admin>();
 	
 	public Arraylist_admin(){
 	}
-	public static ArrayList<admin> getAdmins() {
+	public ArrayList<admin> getAdmins() {
 		return admins;
 	}
-	public static void setAdmins(ArrayList<admin> admins) {
-		Arraylist_admin.admins = admins;
+	public void setAdmins(ArrayList<admin> admins) {
+		this.admins = admins;
 	}
 
 	public  void AddAdmin(admin admind){
@@ -36,7 +36,9 @@ public class Arraylist_admin {
 			admins.add(admind);
 		}
 	}
-	
+	public void AddDummies(admin admind){
+		admins.add(admind);
+	}
 	public void editadmin(admin admind){
 		int pos = -1;
 		if(admins.isEmpty()){
@@ -92,7 +94,7 @@ public class Arraylist_admin {
 			}
 		}
 	}
-	public static int adminfind(admin admind) { 
+	public int adminfind(admin admind) { 
 		for (int i = 0; i<=admins.size()-1; i++){
 			if((admins.get(i)).equals(admind) )
 				return i;
@@ -105,6 +107,7 @@ public class Arraylist_admin {
 			JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
 		} else{
 			pideadmin = functions_users.finddniadmin();
+			//pideadmin = functions.validatestring("Introdudce DNI del admin que quiers eliminar", "Delete");
 			for (int i = 0; i<=admins.size()-1; i++){
 				if((admins.get(i)).equals(pideadmin) )
 					admins.remove(i);

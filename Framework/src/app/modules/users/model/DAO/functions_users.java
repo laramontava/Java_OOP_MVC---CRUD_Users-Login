@@ -143,7 +143,8 @@ public class functions_users {
 	public static void savedniadmin (admin admind, users user){
 		int pos = -1;
 		admind = functions_users.finddniadmin();
-		pos = Arraylist_admin.adminfind(admind);
+		//pos = Arraylist_admin.adminfind(admind);
+		pos = singleton.admin.adminfind(admind);
 		if (pos != -1) {
 			JOptionPane.showMessageDialog(null, "Error");
 		}else {
@@ -153,7 +154,7 @@ public class functions_users {
 	public static void savedniclient (client clientd, users user){
 		int pos = -1;
 		clientd = functions_users.finddniclient();
-		pos = Arraylist_client.ClientFind(clientd);
+		pos = singleton.client.ClientFind(clientd);
 		if (pos != -1) {
 			JOptionPane.showMessageDialog(null, "Error");
 		}else {
@@ -163,7 +164,7 @@ public class functions_users {
 	public static void savednireguser (registered_user ruserd, users user){
 		int pos = -1;
 		ruserd = functions_users.finddniuserreg();
-		pos = Arraylist_userreg.UserregFind(ruserd);
+		pos = singleton.reguser.UserregFind(ruserd);
 		if (pos != -1) {
 			JOptionPane.showMessageDialog(null, "Error");
 		}else {

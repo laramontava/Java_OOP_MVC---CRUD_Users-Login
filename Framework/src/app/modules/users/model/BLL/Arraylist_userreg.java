@@ -10,16 +10,16 @@ import app.modules.users.model.classes.registered_user;
 
 
 public class Arraylist_userreg {
-	private static ArrayList<registered_user> rusers = new ArrayList<registered_user>();
+	private ArrayList<registered_user> rusers = new ArrayList<registered_user>();
 	
 	public Arraylist_userreg(){
 		
 	}
-	public static ArrayList<registered_user> getUserreg() {
+	public ArrayList<registered_user> getUserreg() {
 		return rusers;
 	}
-	public static void setUserreg(ArrayList<registered_user> rusers) {
-		Arraylist_userreg.rusers = rusers;
+	public void setUserreg(ArrayList<registered_user> rusers) {
+		this.rusers = rusers;
 	}
 	public  void AddUserreg(registered_user ruserd){
 		int pos = -1;
@@ -91,7 +91,7 @@ public class Arraylist_userreg {
 			}
 		}
 	}
-	public static int UserregFind(registered_user ruserd) { 
+	public int UserregFind(registered_user ruserd) { 
 		for (int i = 0; i<=rusers.size()-1; i++){
 			if((rusers.get(i)).equals(ruserd) )
 				return i;

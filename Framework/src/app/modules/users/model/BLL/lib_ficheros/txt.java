@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import app.classes.singleton_global;
 import app.modules.users.model.classes.admin;
 import app.modules.users.model.classes.singleton;
 
@@ -60,8 +62,10 @@ public class txt {
 		String PATH = null;
 	       try {
 	           File f;
-	           
+	           if(!singleton_global.conf.getDummies())
 	               PATH=new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_admin/admin.txt";
+	           else
+	        	   PATH=new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_dummies_admin/admin.txt";
 	               f = new File(PATH);
 	               
 	               FileOutputStream fo=new FileOutputStream(f);
@@ -78,8 +82,10 @@ public class txt {
     	String PATH = null;
         try {
             File f;
-            PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_admin/admin.txt";
-
+            if(!singleton_global.conf.getDummies())
+            	PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_admin/admin.txt";
+            else
+            	PATH=new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_dummies_admin/admin.txt";
                 f = new File(PATH);
                 FileInputStream fi=new FileInputStream(f);
     			ObjectInputStream oi=new ObjectInputStream(fi);

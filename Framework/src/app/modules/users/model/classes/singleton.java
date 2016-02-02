@@ -1,6 +1,5 @@
 package app.modules.users.model.classes;
 
-import app.classes.configuration;
 import app.modules.users.model.BLL.Arraylist_admin;
 import app.modules.users.model.BLL.Arraylist_client;
 import app.modules.users.model.BLL.Arraylist_userreg;

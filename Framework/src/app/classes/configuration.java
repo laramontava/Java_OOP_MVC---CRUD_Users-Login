@@ -16,6 +16,8 @@ public class configuration {
 	private String format;
 	@XStreamAlias("theme")
 	private int theme;
+	@XStreamAlias("dummies")
+	private boolean dummies;
 	
 	public configuration() {
 		super();
@@ -25,6 +27,7 @@ public class configuration {
 		this.language = "asd";
 		this.format = "json";
 		this.theme = 1;
+		this.dummies = false;
 	}
 	
 	
@@ -67,6 +70,12 @@ public class configuration {
 	}
 	public void setTheme(int theme){
 		this.theme = theme;
+	}
+	public boolean getDummies(){
+		return dummies;
+	}
+	public void setDummies(boolean dummies){
+		this.dummies = dummies;
 	}
 
 	public String toString() {

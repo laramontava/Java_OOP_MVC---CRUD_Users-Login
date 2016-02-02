@@ -15,6 +15,7 @@ import app.modules.users.model.classes.admin;
 import app.modules.users.model.classes.client;
 import app.modules.users.model.classes.registered_user;
 import app.modules.users.model.classes.singleton;
+import app.modules.users.model.utils.dummies;
 import app.utils.config_save;
 //import app.modules.users.utils.functions_users;
 import app.utils.menus;
@@ -25,16 +26,16 @@ public class Main {
 	public static void main(String[] args){
 		singleton_global.conf = new configuration();
 		//System.out.println(singleton_global.conf);
-		JOptionPane.showMessageDialog(null, singleton_global.conf+"     sin archivo");
+		//JOptionPane.showMessageDialog(null, singleton_global.conf+"     sin archivo");
 		config_save.OpenJsonautoconf();
-		int option, option2;
+		int option, option2,dummies1;
 		boolean exit = false;
 		char moneda=' ';
 		//System.out.println(singleton_global.conf);
-		JOptionPane.showMessageDialog(null, singleton_global.conf+"      abre archivo");
-		idioma translate = new idioma(singleton_global.conf.getLanguage());
-		JOptionPane.showMessageDialog(null, translate +"    idioma");
-		JOptionPane.showMessageDialog(null, singleton_global.conf+"        pilla idioma de conf");
+		//JOptionPane.showMessageDialog(null, singleton_global.conf+"      abre archivo");
+		singleton_global.translate = new idioma(singleton_global.conf.getLanguage());
+		//JOptionPane.showMessageDialog(null, translate +"    idioma");
+		//JOptionPane.showMessageDialog(null, singleton_global.conf+"        pilla idioma de conf");
 		admin pideadmin = new admin();
 		client pidecliente = new client();
 		registered_user pideregistrado = new registered_user();
@@ -49,34 +50,58 @@ public class Main {
 		String[] tipo8 = {"DNI","Nombre","Fecha nacimiento"};
 		String[] tipo9 = {".json",".txt",".xml"};
 		String[] tipo10 = {"Metal","GTK - WINDOWS","CDE/Motif","Nimbus"};
+		String[] tipo11 = {"Activar","Desactivar"};
+		String[] tipo12 = {"Crear admin manual","Crear admin auto"};
 		//admin dummies = new admin("12345678Z","Lara","Montava","653231387","lara@gmail.com","26/09/1997","lara","1234",
 		//		"avatar","estado","12/12/2015",699.78f,123);
 		
-		json.OpenJsonauto();
-		txt.Opentxtauto();
-		xml.Openxmlauto();
+		switch(singleton_global.conf.getFormat()){
+		case "json":
+			json.OpenJsonauto();
+			break;
+		case "txt":
+			txt.Opentxtauto();			
+			break;
+		case "xml":
+			xml.Openxmlauto();
+			break;
+		}
+		
 		do{
-		String[] tipo = {translate.getProperty("admin"),translate.getProperty("client"),
-				translate.getProperty("registered_user"),translate.getProperty("config"),
-				translate.getProperty("exit")};
-		String[] tipo2 = {translate.getProperty("creat"),translate.getProperty("change_data"),
-				translate.getProperty("print"),"Buscar","Ordenar","Eliminar","Abrir","Guardar",
-				translate.getProperty("return")};
-		String[] tipo3 = {translate.getProperty("date"),translate.getProperty("currency"),
-				translate.getProperty("decimal"),translate.getProperty("language"),"Extensión de archivos",
-				"Tema",translate.getProperty("return")};
+		String[] tipo = {singleton_global.translate.getProperty("admin"),singleton_global.translate.getProperty("client"),
+				singleton_global.translate.getProperty("registered_user"),singleton_global.translate.getProperty("config"),
+				singleton_global.translate.getProperty("exit")};
+		String[] tipo2 = {singleton_global.translate.getProperty("creat"),singleton_global.translate.getProperty("change_data"),
+				singleton_global.translate.getProperty("print"),"Buscar","Ordenar","Eliminar","Abrir","Guardar",
+				singleton_global.translate.getProperty("return")};
+		String[] tipo3 = {singleton_global.translate.getProperty("date"),singleton_global.translate.getProperty("currency"),
+				singleton_global.translate.getProperty("decimal"),singleton_global.translate.getProperty("language"),"Extensión de archivos",
+				"Tema","Dummies",singleton_global.translate.getProperty("return")};
 		theme.temaElegido(singleton_global.conf.getTheme());
 		
-		option = menus.mainmenu(tipo, translate.getProperty("Pregcrear"), translate.getProperty("CreateuserT"));
+		option = menus.mainmenu(tipo, singleton_global.translate.getProperty("Pregcrear"), singleton_global.translate.getProperty("CreateuserT"));
 		switch(option){ 
 		case 0: //admin
 			
 			do{
-				option2 = menus.mainmenu(tipo2, translate.getProperty("Preghacer"), "Admin main");
+				option2 = menus.mainmenu(tipo2, singleton_global.translate.getProperty("Preghacer"), "Admin main");
 				switch(option2){
-				case 0: //crear admin ----
-					singleton.admin.AddAdmin(pideadmin);
+				case 0: //crear admin
+					if(!singleton_global.conf.getDummies())
+						singleton.admin.AddAdmin(pideadmin);
+					else{
+						option2 = menus.mainmenu(tipo12, "¿Cómo quieres crear el admin?", "Create admin");
+						switch(option2){
+						case 0:
+							singleton.admin.AddAdmin(pideadmin);
+							break;
+						case 1:
+							dummies.LoadDummies();
+							break;
+						}
+					}
 					//pideadmin=functions_users.pideadmin(conf,translate);
+					
 					break;
 				case 1: //cambiar admin ----
 					singleton.admin.editadmin(pideadmin);
@@ -90,13 +115,13 @@ public class Main {
 				case 4://ordenar ---
 					option2 = menus.mainmenu(tipo8, "¿Por qué quieres ordenar?", "Ordenar");
 					switch(option2){
-					case 0://dni
+					case 0://dni ---
 						singleton.admin.orderby(0);
 						break;
-					case 1://nombre
+					case 1://nombre ---
 						singleton.admin.orderby(1);
 						break;
-					case 2: 
+					case 2: //edad ---
 						singleton.admin.orderby(2);
 						break;
 					}
@@ -106,38 +131,16 @@ public class Main {
 					break;
 				case 6://abrir ---
 					singleton.admin.openfiles();
-					/*switch(conf.getFormat()){
-					case "json":
-						json.OpenJson();
-						break;
-					case "txt":
-						txt.Opentxt();
-						break;
-					case "xml":
-						xml.Openxml();
-						break;
-					}*/
 					break;
 				case 7://guardar ---
 					singleton.admin.savefiles();
-					/*switch(conf.getFormat()){
-					case "json":
-						json.GenerateJson();
-						break;
-					case "txt":
-						txt.Generatetxt();
-						break;
-					case "xml":
-						xml.Generatexml();
-						break;
-					}*/
 					break;
 				}
 			}while(option2!=8);
 			break;
 		case 1: //client
 			do{
-				option2 = menus.mainmenu(tipo2, translate.getProperty("Preghacer"), "Client main");
+				option2 = menus.mainmenu(tipo2, singleton_global.translate.getProperty("Preghacer"), "Client main");
 				switch(option2){
 				case 0:
 					singleton.client.AddClient(pidecliente);
@@ -190,7 +193,7 @@ public class Main {
 			break;
 		case 2: //registered user
 			do{
-				option2 = menus.mainmenu(tipo2, translate.getProperty("Preghacer"), "Registered main");
+				option2 = menus.mainmenu(tipo2, singleton_global.translate.getProperty("Preghacer"), "Registered main");
 				switch(option2){
 				case 0://crear  ---
 					singleton.reguser.AddUserreg(pideregistrado);
@@ -243,10 +246,10 @@ public class Main {
 			break;
 		case 3: //config
 			do{
-				option2 = menus.mainmenu(tipo3, translate.getProperty("confmain"), "Configuration main");
+				option2 = menus.mainmenu(tipo3, singleton_global.translate.getProperty("confmain"), "Configuration main");
 				switch(option2){
 				case 0://fecha
-					option2 = menus.mainmenu(tipo5, translate.getProperty("formatdate"), "Date format");
+					option2 = menus.mainmenu(tipo5, singleton_global.translate.getProperty("formatdate"), "Date format");
 					switch(option2){
 					case 0:
 						singleton_global.conf.setDate('a');
@@ -263,7 +266,7 @@ public class Main {
 					}
 					break;
 				case 1://moneda
-					option2 = menus.mainmenu(tipo4, translate.getProperty("formatcurrency"), "Currency format");
+					option2 = menus.mainmenu(tipo4, singleton_global.translate.getProperty("formatcurrency"), "Currency format");
 					switch(option2){
 					case 0:
 						moneda=singleton_global.conf.getCurrency();
@@ -283,7 +286,7 @@ public class Main {
 					}
 					break;
 				case 2://decimal
-					option2 = menus.mainmenu(tipo7, translate.getProperty("formatdecimals"), "Decimal format");
+					option2 = menus.mainmenu(tipo7, singleton_global.translate.getProperty("formatdecimals"), "Decimal format");
 					switch(option2){
 					case 0:
 						singleton_global.conf.setDecimal(1);
@@ -297,16 +300,16 @@ public class Main {
 					}
 					break;
 				case 3://language
-					option2 = menus.mainmenu(tipo6, translate.getProperty("Pregidioma"), "Language");
+					option2 = menus.mainmenu(tipo6, singleton_global.translate.getProperty("Pregidioma"), "Language");
 					switch(option2){
 					case 0:
-						translate.setIdioma("english");
+						singleton_global.translate.setIdioma("english");
 						break;
 					case 1:
-						translate.setIdioma("castellano");
+						singleton_global.translate.setIdioma("castellano");
 						break;
 					case 2:
-						translate.setIdioma("valencia");
+						singleton_global.translate.setIdioma("valencia");
 						break;
 					}
 					break;
@@ -341,9 +344,50 @@ public class Main {
 						break;
 					}
 					break;
+				case 6: //dummies
+					//dummies.LoadDummies();
+					dummies1 = menus.mainmenu(tipo11, "Activar o desactivar dummies", "");
+					switch(dummies1){
+					case 0:
+						json.GenerateJsonauto();
+						txt.Generatetxtauto();
+						xml.Generatexmlauto();
+						singleton_global.conf.setDummies(true);
+						singleton.admin = new Arraylist_admin();
+						switch(singleton_global.conf.getFormat()){
+						case "json":
+							json.OpenJsonauto();
+							break;
+						case "txt":
+							txt.Opentxtauto();			
+							break;
+						case "xml":
+							xml.Openxmlauto();
+							break;
+						}
+						break;
+					case 1:
+						json.GenerateJsonauto();
+						txt.Generatetxtauto();
+						xml.Generatexmlauto();
+						singleton_global.conf.setDummies(false);
+						singleton.admin = new Arraylist_admin();
+						switch(singleton_global.conf.getFormat()){
+						case "json":
+							json.OpenJsonauto();
+							break;
+						case "txt":
+							txt.Opentxtauto();			
+							break;
+						case "xml":
+							xml.Openxmlauto();
+							break;
+						}
+						break;
+					}
+					break;
 				}
-				
-			}while(option2!=6);//volver
+			}while(option2!=7);//volver
 			break;
 		case 4:
 			
@@ -355,7 +399,7 @@ public class Main {
 		txt.Generatetxtauto();
 		xml.Generatexmlauto();
 		//System.out.println(singleton_global.conf);
-		JOptionPane.showMessageDialog(null, singleton_global.conf);
-		JOptionPane.showMessageDialog(null, translate.getProperty("goodbye"));
+		//JOptionPane.showMessageDialog(null, singleton_global.conf);
+		JOptionPane.showMessageDialog(null, singleton_global.translate.getProperty("goodbye"));
 	}
 }

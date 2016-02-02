@@ -2,7 +2,7 @@
 <list>
   <Admin>
     <dni>12345678Z</dni>
-    <name>Pepe</name>
+    <name>Normal</name>
     <surname>Juan</surname>
     <mobile>6345345345</mobile>
     <email>asd@asd.asd</email>
@@ -19,9 +19,9 @@
     <activity>123</activity>
   </Admin>
   <Admin>
-    <dni>66666666Q</dni>
-    <name>asd</name>
-    <surname>asd</surname>
+    <dni>87654321X</dni>
+    <name>Pepa</name>
+    <surname>Juana</surname>
     <mobile>634534534</mobile>
     <email>asd@asd.asd</email>
     <datebirthday>12-12-1930</datebirthday>

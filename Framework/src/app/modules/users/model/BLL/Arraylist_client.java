@@ -10,16 +10,16 @@ import app.modules.users.model.classes.ordername;
 
 
 public class Arraylist_client {
-	private static ArrayList<client> clients = new ArrayList<client>();
+	private ArrayList<client> clients = new ArrayList<client>();
 	
 	public Arraylist_client(){
 		
 	}
-	public static ArrayList<client> getClients() {
+	public ArrayList<client> getClients() {
 		return clients;
 	}
-	public static void setClients(ArrayList<client> clients) {
-		Arraylist_client.clients = clients;
+	public void setClients(ArrayList<client> clients) {
+		this.clients = clients;
 	}
 	
 	public  void AddClient(client clientd){
@@ -93,7 +93,7 @@ public class Arraylist_client {
 			}
 		}
 	}
-	public static int ClientFind(client clientd) { 
+	public int ClientFind(client clientd) { 
 		for (int i = 0; i<=clients.size()-1; i++){
 			if((clients.get(i)).equals(clientd) )
 				return i;
