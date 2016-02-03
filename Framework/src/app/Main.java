@@ -24,9 +24,8 @@ import app.utils.theme;
 
 public class Main {
 	public static void main(String[] args){
+		//JOptionPane.showMessageDialog(null, singleton_global.translate +"    idioma");
 		singleton_global.conf = new configuration();
-		//System.out.println(singleton_global.conf);
-		//JOptionPane.showMessageDialog(null, singleton_global.conf+"     sin archivo");
 		config_save.OpenJsonautoconf();
 		int option, option2,dummies1;
 		boolean exit = false;
@@ -34,7 +33,7 @@ public class Main {
 		//System.out.println(singleton_global.conf);
 		//JOptionPane.showMessageDialog(null, singleton_global.conf+"      abre archivo");
 		singleton_global.translate = new idioma(singleton_global.conf.getLanguage());
-		//JOptionPane.showMessageDialog(null, translate +"    idioma");
+		//JOptionPane.showMessageDialog(null, singleton_global.translate +"    idioma");
 		//JOptionPane.showMessageDialog(null, singleton_global.conf+"        pilla idioma de conf");
 		admin pideadmin = new admin();
 		client pidecliente = new client();
@@ -303,12 +302,15 @@ public class Main {
 					option2 = menus.mainmenu(tipo6, singleton_global.translate.getProperty("Pregidioma"), "Language");
 					switch(option2){
 					case 0:
+						singleton_global.conf.setLanguage("english");
 						singleton_global.translate.setIdioma("english");
 						break;
 					case 1:
+						singleton_global.conf.setLanguage("castellano");
 						singleton_global.translate.setIdioma("castellano");
 						break;
 					case 2:
+						singleton_global.conf.setLanguage("valencia");
 						singleton_global.translate.setIdioma("valencia");
 						break;
 					}
@@ -390,7 +392,6 @@ public class Main {
 			}while(option2!=7);//volver
 			break;
 		case 4:
-			
 			exit = true;
 		}
 		}while((!exit));

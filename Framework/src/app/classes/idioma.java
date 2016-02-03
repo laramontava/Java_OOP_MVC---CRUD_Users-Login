@@ -29,9 +29,6 @@ public class idioma extends Properties{
         }
 	}
 	
-	public String toString() {
-		return "idioma [idioma=" + idioma + "]";
-	}
 
 	public idioma(String idioma){
  
@@ -42,6 +39,9 @@ public class idioma extends Properties{
             case "english":
                     getProperties("english.properties");
                     break;
+            case "valencia":
+            		getProperty("valencia.properties");
+            		break;
             default:
                     getProperties("english.properties");
         }

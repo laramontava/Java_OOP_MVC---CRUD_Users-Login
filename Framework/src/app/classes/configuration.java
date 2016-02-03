@@ -24,7 +24,7 @@ public class configuration {
 		this.date ='a';//
 		this.currency = '€';
 		this.decimal = 2;
-		this.language = "asd";
+		this.language = "english";
 		this.format = "json";
 		this.theme = 1;
 		this.dummies = false;
