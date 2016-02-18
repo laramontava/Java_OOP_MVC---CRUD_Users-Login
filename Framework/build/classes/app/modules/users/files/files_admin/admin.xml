@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+  <Admin>
+    <dni>12345678Z</dni>
+    <name>Normal</name>
+    <surname>Juan</surname>
+    <mobile>6345345345</mobile>
+    <email>asd@asd.asd</email>
+    <datebirthday>01/01/1900</datebirthday>
+    <age>116</age>
+    <username>sad</username>
+    <password>asd</password>
+    <avatar>asd</avatar>
+    <state>Online</state>
+    <ventajas>6.15</ventajas>
+    <hiringdate>12/12/2000</hiringdate>
+    <yearsservice>15</yearsservice>
+    <salary>124.0</salary>
+    <activity>123</activity>
+  </Admin>
+  <Admin>
+    <dni>87654321X</dni>
+    <name>Pepa</name>
+    <surname>Juana</surname>
+    <mobile>634534534</mobile>
+    <email>asd@asd.asd</email>
+    <datebirthday>12-12-1930</datebirthday>
+    <age>85</age>
+    <username>123</username>
+    <password>123</password>
+    <avatar>123</avatar>
+    <state>Online</state>
+    <ventajas>49.3</ventajas>
+    <hiringdate>12-12-2000</hiringdate>
+    <yearsservice>15</yearsservice>
+    <salary>123.213</salary>
+    <activity>986</activity>
+  </Admin>
+</list>

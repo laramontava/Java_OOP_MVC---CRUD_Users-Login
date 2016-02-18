@@ -4,6 +4,7 @@ import app.classes.fecha;
 import java.io.Serializable;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+@SuppressWarnings("serial")
 @XStreamAlias("Users")
 public abstract class users implements Comparable<users>, Serializable{
 	public static Object validate;

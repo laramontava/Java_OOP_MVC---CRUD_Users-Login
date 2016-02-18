@@ -3,6 +3,8 @@ package app.modules.users.model.BLL;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.JOptionPane;
+import app.classes.singleton_global;
+import app.modules.users.model.BLL.lib_ficheros.json;
 import app.modules.users.model.DAO.functions_users;
 import app.modules.users.model.classes.client;
 import app.modules.users.model.classes.orderdatebirthday;
@@ -112,5 +114,18 @@ public class Arraylist_client {
 					clients.remove(i);
 			}
 		}
-	}	
+	}
+	public void openfiles(){
+		switch(singleton_global.conf.getFormat()){
+		case "json":
+			json.OpenJsonclient();
+			break;
+		case "txt":
+			//txt.Opentxt();
+			break;
+		case "xml":
+			//xml.Openxml();
+			break;
+		}
+	}
 }

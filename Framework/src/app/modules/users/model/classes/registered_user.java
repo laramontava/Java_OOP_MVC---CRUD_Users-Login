@@ -3,6 +3,7 @@ package app.modules.users.model.classes;
 import java.io.Serializable;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+@SuppressWarnings("serial")
 @XStreamAlias("Registered_user")
 public class registered_user extends users implements Serializable {
 	@XStreamAlias("activity")

@@ -6,6 +6,7 @@ import app.utils.format;
 import java.io.Serializable;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+@SuppressWarnings("serial")
 @XStreamAlias("Client")
 public class client extends users implements Serializable{
 	@XStreamAlias("up date")
@@ -102,13 +103,13 @@ public class client extends users implements Serializable{
 		cad+="Up date => "+this.getUp_date()+"\n";
 		cad+="Years service => "+this.getYears_service()+"\n";
 		switch(singleton_global.conf.getCurrency()){
-		case '€':
+		case 'â‚¬':
 			cad+="Shopping => "+format.FormatEuro(this.getShopping())+"\n";
 			break;
 		case '$':
 			cad+="Shopping => "+format.FormatDollar(this.getShopping(), singleton_global.conf)+"\n";
 			break;
-		case '£':
+		case 'Â£':
 			cad+="Shopping => "+format.FormatLibra(this.getShopping())+"\n";
 			break;
 		}
@@ -123,7 +124,7 @@ public class client extends users implements Serializable{
 		return super.toString(dni);
 	}
 	
-	//to string petición de usuario
+	//to string peticiï¿½n de usuario
 	public String toString(int i){
 	String cad="";
 		if(i<11){
@@ -164,33 +165,33 @@ public class client extends users implements Serializable{
 	}
 	public int calculateyearsservice(String fecha){
 		fecha years = new fecha(fecha);
-		return years.restafechas(years.stringtocalendar(fecha), years.fechasystem(), "años");
+		return years.restafechas(years.stringtocalendar(fecha), years.fechasystem(), "aï¿½os");
 	}
 	
 	public void currency(char moneda){
 		float cambia;
 		
-		if(moneda=='€'&&singleton_global.conf.getCurrency()=='$'){//eur a usd *1,0934
+		if(moneda=='ï¿½'&&singleton_global.conf.getCurrency()=='$'){//eur a usd *1,0934
 			cambia=(float) (this.shopping*1.0934);
 			this.shopping=cambia;
 		}
-		if(moneda=='$'&&singleton_global.conf.getCurrency()=='€'){//usd a eur /1,0934
+		if(moneda=='$'&&singleton_global.conf.getCurrency()=='ï¿½'){//usd a eur /1,0934
 			cambia=(float) (this.shopping/1.0934);
 			this.shopping=cambia;
 		}
-		if(moneda=='€'&&singleton_global.conf.getCurrency()=='£'){//eur a libra *0,728
+		if(moneda=='ï¿½'&&singleton_global.conf.getCurrency()=='ï¿½'){//eur a libra *0,728
 			cambia=(float) (this.shopping*0.728);
 			this.shopping=cambia;
 		}
-		if(moneda=='£'&&singleton_global.conf.getCurrency()=='€'){//libra a eur /0,728
+		if(moneda=='ï¿½'&&singleton_global.conf.getCurrency()=='ï¿½'){//libra a eur /0,728
 			cambia=(float) (this.shopping/0.728);
 			this.shopping=cambia;
 		}
-		if(moneda=='$'&&singleton_global.conf.getCurrency()=='£'){//usd a libra *0,6658
+		if(moneda=='$'&&singleton_global.conf.getCurrency()=='ï¿½'){//usd a libra *0,6658
 			cambia=(float) (this.shopping*0.6658);
 			this.shopping=cambia;
 		}
-		if(moneda=='£'&&singleton_global.conf.getCurrency()=='$'){//libra a usd /0,6658
+		if(moneda=='ï¿½'&&singleton_global.conf.getCurrency()=='$'){//libra a usd /0,6658
 			cambia=(float) (this.shopping/0.6658);
 			this.shopping=cambia;
 		}

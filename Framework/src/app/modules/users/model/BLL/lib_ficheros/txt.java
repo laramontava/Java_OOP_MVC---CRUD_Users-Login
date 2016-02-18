@@ -34,7 +34,8 @@ public class txt {
 	       }
     }
     
-    public static void Opentxt() {
+    @SuppressWarnings("unchecked")
+	public static void Opentxt() {
     	String PATH = null;
         try {
             File f;
@@ -78,6 +79,7 @@ public class txt {
 	       	JOptionPane.showMessageDialog(null, "Error al grabar el TXT", "Error", JOptionPane.ERROR_MESSAGE);
 	       }
     }
+    @SuppressWarnings("unchecked")
     public static void Opentxtauto() {
     	String PATH = null;
         try {
@@ -96,4 +98,5 @@ public class txt {
         	
         }
     }
-}
+    /*Client-----*/
+    }

@@ -42,7 +42,7 @@ public class Arraylist_admin {
 	public void editadmin(admin admind){
 		int pos = -1;
 		if(admins.isEmpty()){
-			JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
+			JOptionPane.showMessageDialog(null, "No hay ningÃºn admin creado");
 		} else{
 			pos = -1;
 			admind = functions_users.finddniadmin();
@@ -58,7 +58,7 @@ public class Arraylist_admin {
 	}
 	public void printadmin(){
 		if(admins.isEmpty()){
-			JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
+			JOptionPane.showMessageDialog(null, "No hay ningÃºn admin creado");
 		} else{
 			for(int i = 0; i<admins.size();i++){
 				JOptionPane.showMessageDialog(null, admins.get(i).toString());
@@ -67,7 +67,7 @@ public class Arraylist_admin {
 	}
 	public void orderby(int i){
 		if(admins.isEmpty()){
-			JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
+			JOptionPane.showMessageDialog(null, "No hay ningÃºn admin creado");
 		} else{
 			switch(i){
 			case 0:
@@ -85,7 +85,7 @@ public class Arraylist_admin {
 	//Collections.sort(AL_cli); compareto user => dni
 	public void adminsearch(admin pideadmin){
 		if(admins.isEmpty()){
-			JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
+			JOptionPane.showMessageDialog(null, "No hay ningÃºn admin creado");
 		} else{
 			pideadmin = functions_users.finddniadmin();
 			for (int i = 0; i<=admins.size()-1; i++){
@@ -104,7 +104,7 @@ public class Arraylist_admin {
 	
 	public void deleteadmin(admin pideadmin){
 		if(admins.isEmpty()){
-			JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
+			JOptionPane.showMessageDialog(null, "No hay ningÃºn admin creado");
 		} else{
 			pideadmin = functions_users.finddniadmin();
 			//pideadmin = functions.validatestring("Introdudce DNI del admin que quiers eliminar", "Delete");
@@ -130,7 +130,7 @@ public class Arraylist_admin {
 	
 	public void savefiles(){
 		if(admins.isEmpty()){
-			JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
+			JOptionPane.showMessageDialog(null, "No hay ningÃºn admin creado");
 		}else{
 			switch(singleton_global.conf.getFormat()){
 			case "json":
@@ -145,31 +145,5 @@ public class Arraylist_admin {
 			}
 		}
 	}
-	/*public int ordenarnombre(admin pideadmin){
-		if(pideadmin.getName().equals(admins.)>0)
-			return 1;
-		if(pideadmin.getName().compareTo(v2.getNombreEmpleado())<0)
-			return -1;
-		return 0;
-	}
-	public void delete(int position){
-		admins.remove(position);
-	}
-	public static void main(String[]args){
-		Arraylist_admin admind = new Arraylist_admin();
-		configuration conf = new configuration();
-		admin[] admininfo= null;
 		
-		int adminint;
-		admind.AddData(new admin("12345678Z","Lara","Montava","653231387","lara@gmail.com","26/09/1997","lara","1234",
-					"avatar","estado","12/12/2015",699.78f,123));
-		admind.AddData(new admin("12345678Z","Pepe","Montava","653231387","lara@gmail.com","26/09/1997","lara","1234",
-				"avatar","estado","12/12/2015",699.78f,123));
-		admininfo=admind.print();
-		JOptionPane.showMessageDialog(null, admininfo);
-
-		
-		
-	}	*/
-	
 }

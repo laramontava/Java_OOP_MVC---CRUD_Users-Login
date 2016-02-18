@@ -2,12 +2,8 @@ package app.classes;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import java.io.Serializable;
 
-@XStreamAlias("Data")
-public class fecha implements Serializable{
-	@XStreamAlias("fecha")
+public class fecha{
 	private String fecha;
 	
 	public fecha (String fecha){//constructor

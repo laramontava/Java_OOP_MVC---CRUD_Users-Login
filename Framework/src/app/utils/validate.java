@@ -22,8 +22,10 @@ public class validate {
 		if(matcher.matches()){
 		return true;
 			
-		  } 
-	    return false; 
+		  } else{
+                    return false; 
+                }
+                    
 	}
 	
 	public static boolean validaTelefono(String tlf){

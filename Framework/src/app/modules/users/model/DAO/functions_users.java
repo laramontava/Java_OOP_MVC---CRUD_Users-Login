@@ -3,9 +3,6 @@ package app.modules.users.model.DAO;
 import javax.swing.JOptionPane;
 import app.classes.singleton_global;
 import app.modules.users.core.kernel;
-import app.modules.users.model.BLL.Arraylist_admin;
-import app.modules.users.model.BLL.Arraylist_client;
-import app.modules.users.model.BLL.Arraylist_userreg;
 import app.modules.users.model.classes.admin;
 import app.modules.users.model.classes.client;
 import app.modules.users.model.classes.registered_user;
@@ -15,6 +12,7 @@ import app.utils.functions;
 import app.utils.menus;
 
 public class functions_users {
+    
 	
 	public static admin pideadmin(){
 		String dni, name, subname, mobile, email, date_birthday, user, pass, avatar, state;
@@ -38,7 +36,7 @@ public class functions_users {
 			break;
 		}
 		//dni=kernel.pedirdatos("dni",translate.getProperty("dni"),"DNI", translate);
-		dni=singleton.dni;
+                dni=singleton.dni;
 		name=kernel.pedirdatos("name",singleton_global.translate.getProperty("name"),"Name");
 		subname=kernel.pedirdatos("subname",singleton_global.translate.getProperty("subname"),"Subname");
 		mobile=kernel.pedirdatos("mobile",singleton_global.translate.getProperty("phone"),"Mobile");
@@ -52,6 +50,7 @@ public class functions_users {
 		salary=functions.validatefloat(singleton_global.translate.getProperty("salary"), "Salary");
 		activity=functions.validateint(singleton_global.translate.getProperty("activity"), "Activity");
 		return new admin(dni,name,subname,mobile,email,date_birthday,user,pass,avatar,state,hiring_date,salary,activity);
+                
 	}
 	public static admin finddniadmin(){
 		//String dni;

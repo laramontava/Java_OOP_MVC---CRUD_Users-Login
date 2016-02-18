@@ -6,6 +6,7 @@ import app.classes.singleton_global;
 import java.io.Serializable;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+@SuppressWarnings("serial")
 @XStreamAlias("Admin")
 public class admin extends users implements Serializable{
 	@XStreamAlias("hiringdate")
@@ -38,7 +39,7 @@ public class admin extends users implements Serializable{
 		public admin(String dni) {
 			super(dni);
 		}
-	//constructor a petición de usuario
+	//constructor a peticiï¿½n de usuario
 	public admin(Object op, int i){
 		switch(i){
 		case 0:
@@ -89,24 +90,24 @@ public class admin extends users implements Serializable{
 		cad+=singleton_global.translate.getProperty("Years_service")+" => "+this.getYears_service()+"\n";
 			
 		switch(singleton_global.conf.getCurrency()){
-		case '€':
+		case 'â‚¬':
 			cad+=singleton_global.translate.getProperty("Salary")+" => "+format.FormatEuro(this.getSalary())+"\n";
 			break;
 		case '$':
 			cad+=singleton_global.translate.getProperty("Salary")+" => "+format.FormatDollar(this.getSalary(),singleton_global.conf)+"\n";
 			break;
-		case '£':
+		case 'Â£':
 			cad+=singleton_global.translate.getProperty("Salary")+" => "+format.FormatLibra(this.getSalary())+"\n";
 			break;
 		}
 		switch(singleton_global.conf.getCurrency()){
-		case '€':
+		case 'â‚¬':
 			cad+=singleton_global.translate.getProperty("Incentives")+" => "+format.FormatEuro(this.getVentajas())+"\n";
 			break;
 		case '$':
 			cad+=singleton_global.translate.getProperty("Incentives")+" => "+format.FormatDollar(this.getVentajas(),singleton_global.conf)+"\n";
 			break;
-		case '£':
+		case 'Â£':
 			cad+=singleton_global.translate.getProperty("Incentives")+" => "+format.FormatLibra(this.getVentajas())+"\n";
 			break;
 		}
@@ -120,7 +121,7 @@ public class admin extends users implements Serializable{
 	public String toString(String dni){
 		return super.toString(dni);
 	}
-	//to string petición de usuario
+	//to string peticiï¿½n de usuario
 	public String toString(int i){
 		String cad="";
 		if(i<11){
@@ -152,33 +153,33 @@ public class admin extends users implements Serializable{
 	}
 	public int calculateyearsservice(String fecha){
 		fecha years = new fecha(fecha);
-		return years.restafechas(years.stringtocalendar(fecha), years.fechasystem(), "años");
+		return years.restafechas(years.stringtocalendar(fecha), years.fechasystem(), "aï¿½os");
 	}
 	
 	public void currency(char moneda){
 		float cambia;
 		
-		if(moneda=='€'&&singleton_global.conf.getCurrency()=='$'){//eur a usd *1,0934
+		if(moneda=='ï¿½'&&singleton_global.conf.getCurrency()=='$'){//eur a usd *1,0934
 			cambia=(float) (this.salary*1.0934);
 			this.salary=cambia;
 		}
-		if(moneda=='$'&&singleton_global.conf.getCurrency()=='€'){//usd a eur /1,0934
+		if(moneda=='$'&&singleton_global.conf.getCurrency()=='ï¿½'){//usd a eur /1,0934
 			cambia=(float) (this.salary/1.0934);
 			this.salary=cambia;
 		}
-		if(moneda=='€'&&singleton_global.conf.getCurrency()=='£'){//eur a libra *0,728
+		if(moneda=='ï¿½'&&singleton_global.conf.getCurrency()=='ï¿½'){//eur a libra *0,728
 			cambia=(float) (this.salary*0.728);
 			this.salary=cambia;
 		}
-		if(moneda=='£'&&singleton_global.conf.getCurrency()=='€'){//libra a eur /0,728
+		if(moneda=='ï¿½'&&singleton_global.conf.getCurrency()=='ï¿½'){//libra a eur /0,728
 			cambia=(float) (this.salary/0.728);
 			this.salary=cambia;
 		}
-		if(moneda=='$'&&singleton_global.conf.getCurrency()=='£'){//usd a libra *0,6658
+		if(moneda=='$'&&singleton_global.conf.getCurrency()=='ï¿½'){//usd a libra *0,6658
 			cambia=(float) (this.salary*0.6658);
 			this.salary=cambia;
 		}
-		if(moneda=='£'&&singleton_global.conf.getCurrency()=='$'){//libra a usd /0,6658
+		if(moneda=='ï¿½'&&singleton_global.conf.getCurrency()=='$'){//libra a usd /0,6658
 			cambia=(float) (this.salary/0.6658);
 			this.salary=cambia;
 		}
