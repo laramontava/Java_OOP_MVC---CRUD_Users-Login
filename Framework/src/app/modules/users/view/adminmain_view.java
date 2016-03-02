@@ -6,6 +6,13 @@
 package app.modules.users.view;
 
 import app.modules.menu.view.main_view;
+import app.modules.users.model.BLL.BLL_admin;
+import app.modules.users.model.DAO.DAO_admin;
+import app.modules.users.model.classes.singleton;
+import static app.modules.users.model.classes.singleton.admin;
+import static app.modules.users.view.adminnew_view.createoredit;
+import static app.modules.users.view.adminnew_view.titlecreateedit;
+import app.utils.functions;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -46,8 +53,10 @@ public class adminmain_view extends javax.swing.JFrame {
         create_admin1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        statusnewadmin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         create_admin.setBackground(new java.awt.Color(255, 0, 153));
         create_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/user_add_b.png"))); // NOI18N
@@ -65,6 +74,8 @@ public class adminmain_view extends javax.swing.JFrame {
                 create_adminActionPerformed(evt);
             }
         });
+        getContentPane().add(create_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 71, 75, -1));
+        create_admin.getAccessibleContext().setAccessibleDescription("");
 
         edit_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/user_edit.png"))); // NOI18N
         edit_admin.setText("Editar");
@@ -81,6 +92,7 @@ public class adminmain_view extends javax.swing.JFrame {
                 edit_adminActionPerformed(evt);
             }
         });
+        getContentPane().add(edit_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 71, 75, -1));
 
         view_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/user_view.png"))); // NOI18N
         view_admin.setText("Visualizar");
@@ -92,6 +104,12 @@ public class adminmain_view extends javax.swing.JFrame {
         view_admin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         view_admin.setIconTextGap(-1);
         view_admin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        view_admin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                view_adminActionPerformed(evt);
+            }
+        });
+        getContentPane().add(view_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 71, 75, -1));
 
         sort_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/user_sort.png"))); // NOI18N
         sort_admin.setText("Ordenar");
@@ -103,6 +121,7 @@ public class adminmain_view extends javax.swing.JFrame {
         sort_admin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         sort_admin.setIconTextGap(-1);
         sort_admin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(sort_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 71, 75, -1));
 
         open_admin_file.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/file_add.png"))); // NOI18N
         open_admin_file.setText("Abrir");
@@ -120,6 +139,7 @@ public class adminmain_view extends javax.swing.JFrame {
                 open_admin_fileActionPerformed(evt);
             }
         });
+        getContentPane().add(open_admin_file, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 166, 75, -1));
 
         delete_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/user_delete_b.png"))); // NOI18N
         delete_admin.setText("Eliminar");
@@ -137,6 +157,7 @@ public class adminmain_view extends javax.swing.JFrame {
                 delete_adminActionPerformed(evt);
             }
         });
+        getContentPane().add(delete_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 166, 75, -1));
 
         save_admin_file.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/save.png"))); // NOI18N
         save_admin_file.setText("Guardar");
@@ -154,6 +175,7 @@ public class adminmain_view extends javax.swing.JFrame {
                 save_admin_fileActionPerformed(evt);
             }
         });
+        getContentPane().add(save_admin_file, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 166, 75, -1));
 
         create_admin1.setBackground(new java.awt.Color(255, 0, 153));
         create_admin1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/return2.png"))); // NOI18N
@@ -169,9 +191,11 @@ public class adminmain_view extends javax.swing.JFrame {
                 create_admin1ActionPerformed(evt);
             }
         });
+        getContentPane().add(create_admin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
         jLabel1.setText("Administrador");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 11, 180, 35));
 
         jLabel7.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
@@ -182,65 +206,8 @@ public class adminmain_view extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(delete_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(open_admin_file, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(save_admin_file, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(create_admin1)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(edit_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(view_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(sort_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(create_admin1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(sort_admin)
-                    .addComponent(view_admin)
-                    .addComponent(create_admin)
-                    .addComponent(edit_admin))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(delete_admin)
-                    .addComponent(open_admin_file)
-                    .addComponent(save_admin_file))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        create_admin.getAccessibleContext().setAccessibleDescription("");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 288, 42, 9));
+        getContentPane().add(statusnewadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 360, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -253,6 +220,7 @@ public class adminmain_view extends javax.swing.JFrame {
 
     private void open_admin_fileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_open_admin_fileActionPerformed
         // TODO add your handling code here:
+        singleton.admin.openfiles();
     }//GEN-LAST:event_open_admin_fileActionPerformed
 
     private void delete_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_adminActionPerformed
@@ -261,6 +229,7 @@ public class adminmain_view extends javax.swing.JFrame {
 
     private void save_admin_fileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_admin_fileActionPerformed
         // TODO add your handling code here:
+        singleton.admin.savefiles();
     }//GEN-LAST:event_save_admin_fileActionPerformed
 
     private void create_admin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_admin1ActionPerformed
@@ -283,20 +252,28 @@ public class adminmain_view extends javax.swing.JFrame {
 
     private void edit_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_adminActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        new manageadmin_view().setVisible(true);
-        
+        String dni =  functions.validatestring("Type dni", "");
+        dispose();
+        new adminnew_view().setVisible(true);
+        titlecreateedit.setText("Editar un usuario administrador");
+        createoredit.setVisible(false);
+        DAO_admin.fillfields(singleton.admin.buscarDniAdmin(dni));
     }//GEN-LAST:event_edit_adminActionPerformed
+
+    private void view_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_adminActionPerformed
+        // TODO add your handling code here:
+        singleton.admin.printadmin();
+    }//GEN-LAST:event_view_adminActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    /*public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+         *
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -315,13 +292,13 @@ public class adminmain_view extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the form 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new adminmain_view().setVisible(true);
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton create_admin;
@@ -333,6 +310,7 @@ public class adminmain_view extends javax.swing.JFrame {
     public static javax.swing.JButton open_admin_file;
     public static javax.swing.JButton save_admin_file;
     public static javax.swing.JButton sort_admin;
+    public static javax.swing.JLabel statusnewadmin;
     public static javax.swing.JButton view_admin;
     // End of variables declaration//GEN-END:variables
 }

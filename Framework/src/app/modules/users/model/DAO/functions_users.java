@@ -55,6 +55,7 @@ public class functions_users {
 	public static admin finddniadmin(){
 		//String dni;
 		//dni=kernel.pedirdatos("dni",translate.getProperty("dni"),"DNI", translate);
+                
 		singleton.dni=kernel.pedirdatos("dni",singleton_global.translate.getProperty("dni"),"DNI");
 		return new admin(singleton.dni);
 	}
