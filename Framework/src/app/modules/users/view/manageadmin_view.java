@@ -49,7 +49,7 @@ public class manageadmin_view extends javax.swing.JFrame {
         pagina.inicializa();
         pagina.initLinkBox();
         
-        //jLabel3.setText(String.valueOf(Arraylist_admin.size()));
+        jLabel3.setText(String.valueOf(singleton.admin.getAdmins().size()));
         
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -61,10 +61,10 @@ public class manageadmin_view extends javax.swing.JFrame {
         });
           
         List<String> myWords = new ArrayList<String>();
-        /*for(int i=0;i<=AL_actores.size()-1;i++) {
-            myWords.add(AL_actores.get(i).getFirst_name());
+        for(int i=0;i<=singleton.admin.getAdmins().size()-1;i++) {
+            myWords.add(singleton.admin.getAdmins().get(i).getName());
         }
-        */
+        
 	StringSearchable searchable = new StringSearchable(myWords);
 	combo = new AutocompleteJComboBox(searchable);
         //JPanel5 se utiliza solamente para que JPanel3 que contendrá combo, no se redimensione

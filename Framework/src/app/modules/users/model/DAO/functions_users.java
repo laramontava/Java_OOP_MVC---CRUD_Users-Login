@@ -8,6 +8,7 @@ import app.modules.users.model.classes.client;
 import app.modules.users.model.classes.registered_user;
 import app.modules.users.model.classes.singleton;
 import app.modules.users.model.classes.users;
+import app.modules.users.view.adminnew_view;
 import app.utils.functions;
 import app.utils.menus;
 
@@ -192,6 +193,7 @@ public class functions_users {
 		
 		if(type instanceof admin){
 			admin admins = new admin();
+                        
 			
 			option3=functions.validateint("Que cambias? \n1 => DNI \n2 => Name \n3 => Subname \n4 => Mobile"
 					+ "\n5 => Email \n6 => Date birthday \n7 => User \n8 => Pass"

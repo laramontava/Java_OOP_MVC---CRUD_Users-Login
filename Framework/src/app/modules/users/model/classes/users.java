@@ -9,15 +9,15 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public abstract class users implements Comparable<users>, Serializable{
 	public static Object validate;
 	@XStreamAlias("dni")
-	private String dni;
+	 String dni;
 	@XStreamAlias("name")
-	private String name;
+	 String name;
 	@XStreamAlias("surname")
-	private String subname;
+	 String subname;
 	@XStreamAlias("mobile")
 	private String mobile;
 	@XStreamAlias("email")
-	private String email;
+	 String email;
 	@XStreamAlias("datebirthday")
 	private String date_birthday;
 	@XStreamAlias("age")
@@ -57,7 +57,7 @@ public abstract class users implements Comparable<users>, Serializable{
 	public users(String dni) {
 		this.dni = dni;
 	}
-	//constructor a petición de usuario
+	//constructor a peticiï¿½n de usuario
 	public users(int i, String s, int age){
 		switch(i){
 		case 0:
@@ -195,7 +195,7 @@ public abstract class users implements Comparable<users>, Serializable{
 	public String toString(String dni){
 		return this.getDni();
 	}
-	//toString petición usuario
+	//toString peticiï¿½n usuario
 	public String toString(int i, int age){
 		String cad="";
 			switch(i){
@@ -238,6 +238,6 @@ public abstract class users implements Comparable<users>, Serializable{
 	public abstract float calcularventajas();
 	public int calculateage(String fecha){
 		fecha age = new fecha(fecha);
-		return age.restafechas(age.stringtocalendar(fecha), age.fechasystem(), "años");
+		return age.restafechas(age.stringtocalendar(fecha), age.fechasystem(), "aï¿½os");
 	}
 }

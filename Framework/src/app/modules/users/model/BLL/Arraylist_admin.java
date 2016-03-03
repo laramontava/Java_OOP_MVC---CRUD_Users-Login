@@ -63,7 +63,7 @@ public class Arraylist_admin {
             JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
         } else {
             pos = -1;
-            admind = functions_users.finddniadmin();
+            //nipaadmind = functions_users.finddniadmin();
             pos = adminfind(admind);
             if (pos != -1) {
                 //admins.get(pos);

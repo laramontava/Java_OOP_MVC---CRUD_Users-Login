@@ -257,9 +257,10 @@ public class adminmain_view extends javax.swing.JFrame {
         new adminnew_view().setVisible(true);
         titlecreateedit.setText("Editar un usuario administrador");
         createoredit.setVisible(false);
-        DAO_admin.fillfields(singleton.admin.buscarDniAdmin(dni));
+        selected = singleton.admin.buscarDniAdmin(dni);
+        DAO_admin.fillfields(selected);
     }//GEN-LAST:event_edit_adminActionPerformed
-
+    public static int selected;
     private void view_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_adminActionPerformed
         // TODO add your handling code here:
         singleton.admin.printadmin();

@@ -9,6 +9,7 @@ import app.classes.fecha;
 import app.classes.singleton_global;
 import app.modules.users.model.classes.admin;
 import app.modules.users.model.classes.singleton;
+import static app.modules.users.view.adminmain_view.selected;
 import app.modules.users.view.adminnew_view;
 import static app.modules.users.view.adminnew_view.*;
 import app.utils.validate;
@@ -326,11 +327,21 @@ public class DAO_admin {
             String datecont = aux.calendartostring(adminnew_view.addcontr.getCalendar(), 0);
             float salary = Float.parseFloat(adminnew_view.addsalary.getText());
             int activity = Integer.parseInt(adminnew_view.addactivity.getText());
-
-            admin admincreate = new admin(dni, name, surname, mobile, email, datebirthday,
-                    nameuser, passwd, avatar, status, datecont, salary, activity);
-            singleton.admin.editadmin(admincreate);
-
+            
+            singleton.admin.getAdmin(selected).setDni(dni);
+            singleton.admin.getAdmin(selected).setName(name);
+            singleton.admin.getAdmin(selected).setSubname(surname);
+            singleton.admin.getAdmin(selected).setMobile(mobile);
+            singleton.admin.getAdmin(selected).setEmail(email);
+            singleton.admin.getAdmin(selected).setDate_birthday(datebirthday);
+            singleton.admin.getAdmin(selected).setUser(nameuser);
+            singleton.admin.getAdmin(selected).setPass(passwd);
+            singleton.admin.getAdmin(selected).setAvatar(avatar);
+            singleton.admin.getAdmin(selected).setState(status);
+            singleton.admin.getAdmin(selected).setHiring_date(datecont);
+            singleton.admin.getAdmin(selected).setSalary(salary);
+            singleton.admin.getAdmin(selected).setActivity(activity);
+            
             val = true;
         }
         return val;

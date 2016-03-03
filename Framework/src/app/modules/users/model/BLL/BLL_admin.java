@@ -60,8 +60,8 @@ public class BLL_admin {
         DAO_admin.pidefechacontratacion();
     }
     
-    public static void Modificar(){
-        
+    public static boolean Modificar(){
+        return DAO_admin.saveeditadmin();
     }
     
 }

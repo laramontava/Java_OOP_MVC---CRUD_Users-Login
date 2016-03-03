@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package app.modules.users.admin;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
@@ -12,8 +11,7 @@ import app.modules.users.view.manageadmin_view;
 import  app.modules.users.model.classes.admin;
 import app.modules.pager.pagina;
 import app.modules.users.model.classes.singleton;
-import static app.modules.users.model.classes.singleton.admin;
-import app.utils.functions.*;
+import static app.modules.users.view.manageadmin_view.combo;
 import static app.utils.functions.getCadenaAleatoria1;
 import static app.utils.functions.getCadenaAleatoria2;
 
@@ -114,10 +112,10 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
         admin _admin = null;
         java.util.Date date= new java.util.Date();
         for(int i=1;i<=2000;i++) {
-            //_admin = new admin(i, getCadenaAleatoria1(4), getCadenaAleatoria2(8), new Timestamp(date.getTime()));
+            _admin = new admin(getCadenaAleatoria1(4), getCadenaAleatoria2(8));
             addRow(_admin);
             datosaux.add(_admin);
-            //singleton.admin.add(_admin);
+            singleton.admin.getAdmins().add(_admin);
             singleton.admin.AddAdmin(_admin);
             try {
                 Thread.sleep(1); //1 milliseconds
@@ -127,7 +125,7 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
         }
     }
 
-    /*public void filtrar() {
+    public void filtrar() {
         datos.clear();
         int cont=0;
         
@@ -144,7 +142,7 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
             System.out.println("word selected: " + nom);
             pagina.initLinkBox();
         }
-    }*/
+    }
 
     public admin buscar(String u) {
         datos.clear();

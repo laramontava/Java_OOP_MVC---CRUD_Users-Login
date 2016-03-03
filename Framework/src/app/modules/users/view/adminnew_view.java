@@ -6,7 +6,9 @@
 package app.modules.users.view;
 
 import app.modules.users.model.BLL.BLL_admin;
+import static app.modules.users.model.DAO.DAO_admin.Green;
 import static app.modules.users.view.adminmain_view.statusnewadmin;
+import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Calendar;
@@ -80,7 +82,6 @@ public class adminnew_view extends javax.swing.JFrame {
         canceladmin = new javax.swing.JButton();
         titlecreateedit = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jlblcancel = new javax.swing.JLabel();
         jlblcreate = new javax.swing.JLabel();
         nameuser_validate = new javax.swing.JLabel();
         password_validate = new javax.swing.JLabel();
@@ -379,21 +380,18 @@ public class adminnew_view extends javax.swing.JFrame {
         getContentPane().add(titlecreateedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 11, -1, -1));
 
         jLabel7.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel7AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
         });
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 42, 9));
 
-        jlblcancel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jlblcancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 182, 20));
-
         jlblcreate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jlblcreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 489, 168, 20));
+        getContentPane().add(jlblcreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 489, 290, 20));
 
         nameuser_validate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(nameuser_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 28, 20));
@@ -490,9 +488,7 @@ public class adminnew_view extends javax.swing.JFrame {
             }
         });
         getContentPane().add(chaval1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, -1, -1));
-
-        createoredit.setText("jLabel11");
-        getContentPane().add(createoredit, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
+        getContentPane().add(createoredit, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 40, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -521,11 +517,23 @@ public class adminnew_view extends javax.swing.JFrame {
                 new adminmain_view().setVisible(true);
                 this.setVisible(false);
                 statusnewadmin.setText("Admin creado correctamente");
+                statusnewadmin.setForeground(Green);
+            }else{
+                jlblcreate.setText("Asegúrate de que hayas introducido bien los datos");
+                jlblcreate.setForeground(Color.red);
+            }
         }else{
-            jlblcreate.setText("Hay errores");
-        }
-        }else{
-            BLL_admin.Modificar();
+            if(BLL_admin.Modificar()){
+                new adminmain_view().setVisible(true);
+                dispose();
+                statusnewadmin.setText("Admin editado correctamente");
+                statusnewadmin.setForeground(Green);
+            }else{
+                jlblcreate.setText("Asegúrate de que hayas introducido bien los datos");
+                jlblcreate.setForeground(Color.red);
+            }
+            //BLL_admin.Modificar();
+            
         }
     }//GEN-LAST:event_createadminActionPerformed
 
@@ -539,9 +547,18 @@ public class adminnew_view extends javax.swing.JFrame {
         } catch (InterruptedException ex) {
             Logger.getLogger(adminnew_view.class.getName()).log(Level.SEVERE, null, ex);
         }*/
-        new adminmain_view().setVisible(true);
-        this.setVisible(false);
-        statusnewadmin.setText("Se ha cancelado la creación de un nuevo admin");
+        if(createoredit.isVisible()){
+            new adminmain_view().setVisible(true);
+            this.setVisible(false);
+            statusnewadmin.setText("Se ha cancelado la creación de un nuevo admin");
+            statusnewadmin.setForeground(Color.red);
+        } else{
+            new adminmain_view().setVisible(true);
+            this.setVisible(false);
+            statusnewadmin.setText("Se ha cancelado la modificación de un admin");
+            statusnewadmin.setForeground(Color.RED);
+        }
+        
     }//GEN-LAST:event_canceladminActionPerformed
 
     private void jLabel7AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel7AncestorAdded
@@ -728,7 +745,7 @@ public class adminnew_view extends javax.swing.JFrame {
 
     private void canceladminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canceladminMouseClicked
         // TODO add your handling code here:
-        jlblcancel.setText("Cancelando creación de admin");
+        
     }//GEN-LAST:event_canceladminMouseClicked
 
     private void addsalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsalaryActionPerformed
@@ -865,7 +882,6 @@ public class adminnew_view extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel jlblcancel;
     private javax.swing.JLabel jlblcreate;
     public static javax.swing.JLabel mobile_validate;
     public static javax.swing.JLabel name_validate;
