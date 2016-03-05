@@ -3,17 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/pager/LinkViewRadioButtonUI.java</file>
-            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/admin/miniSimpleTableModel_admin.java</file>
-            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/utils/functions.java</file>
-            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/model/BLL/BLL_admin.java</file>
+            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/ppalmain.java</file>
+            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/miniSimpleTableModel_admin.java</file>
+            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/view/interfaz_actor.java</file>
             <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/view/adminnew_view.java</file>
-            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/model/BLL/Arraylist_admin.java</file>
-            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/model/classes/admin.java</file>
             <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/view/manageadmin_view.java</file>
             <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/view/adminmain_view.java</file>
-            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/Main.java</file>
-            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/model/DAO/DAO_admin.java</file>
+            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/view/interfaz_actorp.java</file>
+            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/pager/pagina.java</file>
         </group>
     </open-files>
 </project-private>

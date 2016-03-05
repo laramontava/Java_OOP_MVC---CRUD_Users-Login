@@ -15,18 +15,10 @@ import javax.swing.ButtonModel;
 import javax.swing.JRadioButton;
 import javax.swing.RowFilter;
 import javax.swing.table.TableModel;
-import app.modules.users.view.manageadmin_view;
-import app.modules.users.admin.miniSimpleTableModel_admin;
+import app.modules.users.view.interfaz_actor;
+import app.modules.users.miniSimpleTableModel_admin;
 import app.ppalmain;
-/*
-import pager.modules.actores.interfaz_actor;
-import pager.modules.actores.miniSimpleTableModel_actor;
-import pager.modules.pelis.interfaz_peli;
-import pager.modules.pelis.miniSimpleTableModel_peli;
-import pager.modules.socios.interfaz_socio;
-import pager.modules.socios.miniSimpleTableModel_socio;
-import pager.ppal;
-*/
+
 public class pagina {
     public static final LinkViewRadioButtonUI ui = new LinkViewRadioButtonUI();
     public static int LR_PAGE_SIZE = 5;
@@ -40,7 +32,7 @@ public class pagina {
         int rowCount = 0;
         switch (ppalmain.singleton_vtna){
             case "interfaz_actor":
-                    rowCount = ((miniSimpleTableModel_admin)app.modules.users.view.manageadmin_view.TABLA.getModel()).getRowCount();
+                    rowCount = ((miniSimpleTableModel_admin)app.modules.users.view.interfaz_actor.TABLA.getModel()).getRowCount();
                     break;
         }
         
@@ -50,15 +42,15 @@ public class pagina {
         box.setBorder(BorderFactory.createEmptyBorder(2,2,2,2));
         switch (ppalmain.singleton_vtna){
             case "interfaz_actor":
-                    manageadmin_view.jPanel4.setLayout(new BorderLayout());
-                    manageadmin_view.jPanel4.add(pagina.box);
+                    interfaz_actor.jPanel4.setLayout(new BorderLayout());
+                    interfaz_actor.jPanel4.add(pagina.box);
                     break;
         }   
     }
     public static void initLinkBox() {
         switch (ppalmain.singleton_vtna){
             case "interfaz_actor":
-                    app.modules.users.view.manageadmin_view.sorter.setRowFilter(new RowFilter<TableModel, Integer>() {
+                    app.modules.users.view.interfaz_actor.sorter.setRowFilter(new RowFilter<TableModel, Integer>() {
                         @Override public boolean include(RowFilter.Entry<? extends TableModel, ? extends Integer> entry) {
                             int ti = currentPageIndex - 1;
                             int ei = entry.getIdentifier();
@@ -75,7 +67,7 @@ public class pagina {
         int rowCount = 0;
         switch (ppalmain.singleton_vtna){
             case "interfaz_actor":
-                rowCount = ((miniSimpleTableModel_admin)app.modules.users.view.manageadmin_view.TABLA.getModel()).getRowCount();
+                rowCount = ((miniSimpleTableModel_admin)app.modules.users.view.interfaz_actor.TABLA.getModel()).getRowCount();
                 break;
         }
 
@@ -91,11 +83,11 @@ public class pagina {
             switch (ppalmain.singleton_vtna){
             case "interfaz_actor":
                 //actualizar botones y caja: desactivarlos
-                app.modules.users.view.manageadmin_view.primero.setEnabled(false);
-                app.modules.users.view.manageadmin_view.ANTERIOR.setEnabled(false);
-                app.modules.users.view.manageadmin_view.SIGUIENTE.setEnabled(false);
-                app.modules.users.view.manageadmin_view.ultimo.setEnabled(false);
-                app.modules.users.view.manageadmin_view.CAJA.setText("");
+                app.modules.users.view.interfaz_actor.primero.setEnabled(false);
+                app.modules.users.view.interfaz_actor.ANTERIOR.setEnabled(false);
+                app.modules.users.view.interfaz_actor.SIGUIENTE.setEnabled(false);
+                app.modules.users.view.interfaz_actor.ultimo.setEnabled(false);
+                app.modules.users.view.interfaz_actor.CAJA.setText("");
                 break;
             
             }
@@ -113,11 +105,11 @@ public class pagina {
             switch (ppalmain.singleton_vtna){
             case "interfaz_actor":
                 //actualizar botones y caja: desactivarlos
-                app.modules.users.view.manageadmin_view.primero.setEnabled(false);
-                app.modules.users.view.manageadmin_view.ANTERIOR.setEnabled(false);
-                app.modules.users.view.manageadmin_view.SIGUIENTE.setEnabled(false);
-                app.modules.users.view.manageadmin_view.ultimo.setEnabled(false);
-                app.modules.users.view.manageadmin_view.CAJA.setText("");
+                app.modules.users.view.interfaz_actor.primero.setEnabled(false);
+                app.modules.users.view.interfaz_actor.ANTERIOR.setEnabled(false);
+                app.modules.users.view.interfaz_actor.SIGUIENTE.setEnabled(false);
+                app.modules.users.view.interfaz_actor.ultimo.setEnabled(false);
+                app.modules.users.view.interfaz_actor.CAJA.setText("");
                 break;
             
             }
@@ -134,11 +126,11 @@ public class pagina {
         }else if(rowCount>itemsPerPage) {
             switch (ppalmain.singleton_vtna){
                 case "interfaz_actor":
-                    app.modules.users.view.manageadmin_view.primero.setEnabled(currentPageIndex>1);
-                    app.modules.users.view.manageadmin_view.ANTERIOR.setEnabled(currentPageIndex>1);
-                    app.modules.users.view.manageadmin_view.SIGUIENTE.setEnabled(currentPageIndex<maxPageIndex);
-                    app.modules.users.view.manageadmin_view.ultimo.setEnabled(currentPageIndex<maxPageIndex);
-                    app.modules.users.view.manageadmin_view.CAJA.setText(Integer.toString(currentPageIndex) + String.format(" / %d", maxPageIndex));
+                    app.modules.users.view.interfaz_actor.primero.setEnabled(currentPageIndex>1);
+                    app.modules.users.view.interfaz_actor.ANTERIOR.setEnabled(currentPageIndex>1);
+                    app.modules.users.view.interfaz_actor.SIGUIENTE.setEnabled(currentPageIndex<maxPageIndex);
+                    app.modules.users.view.interfaz_actor.ultimo.setEnabled(currentPageIndex<maxPageIndex);
+                    app.modules.users.view.interfaz_actor.CAJA.setText(Integer.toString(currentPageIndex) + String.format(" / %d", maxPageIndex));
                     break;
             }
 

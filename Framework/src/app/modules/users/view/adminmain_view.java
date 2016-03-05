@@ -263,7 +263,9 @@ public class adminmain_view extends javax.swing.JFrame {
     public static int selected;
     private void view_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_adminActionPerformed
         // TODO add your handling code here:
-        singleton.admin.printadmin();
+        //singleton.admin.printadmin();
+        dispose();
+        new interfaz_actor().setVisible(true);
     }//GEN-LAST:event_view_adminActionPerformed
 
     /**
