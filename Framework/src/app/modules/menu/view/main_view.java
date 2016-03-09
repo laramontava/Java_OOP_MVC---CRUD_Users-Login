@@ -7,14 +7,15 @@ package app.modules.menu.view;
 
 import app.modules.config.view.config_view;
 import app.modules.users.view.adminmain_view;
+import app.utils.config_save;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
-
+//import app.modules.users.model.BLL.lib_ficheros.*;
 /**
  *
- * @author 1º DAW
+ * @author Lara
  */
 public class main_view extends javax.swing.JFrame {
 
@@ -152,6 +153,8 @@ public class main_view extends javax.swing.JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 JOptionPane.showMessageDialog(null,"Saliendo de la aplicación");
+                config_save.GenerateJsonautoconf();
+                
                 dispose();
                 System.exit(0);
             }

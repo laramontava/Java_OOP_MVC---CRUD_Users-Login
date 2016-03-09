@@ -2,20 +2,38 @@
 <list>
   <Admin>
     <dni>12345678Z</dni>
+    <name>Nana</name>
+    <surname>ZSellés</surname>
+    <mobile>650123478</mobile>
+    <email>ejemplo@ej.com</email>
+    <datebirthday>13/03/1981</datebirthday>
+    <age>0</age>
+    <username>NanananaB</username>
+    <password>jPasswordField1</password>
+    <avatar>image.jpg</avatar>
+    <state>Offline</state>
+    <ventajas>106.7</ventajas>
+    <hiringdate>01/03/2016</hiringdate>
+    <yearsservice>0</yearsservice>
+    <salary>123.234</salary>
+    <activity>2134</activity>
+  </Admin>
+  <Admin>
+    <dni>00000000T</dni>
     <name>Pepe</name>
-    <surname>Juan</surname>
-    <mobile>6345345345</mobile>
-    <email>asd@asd.asd</email>
-    <datebirthday>01/01/1900</datebirthday>
-    <age>116</age>
-    <username>sad</username>
-    <password>asd</password>
-    <avatar>asd</avatar>
+    <surname>Sellés</surname>
+    <mobile>650123478</mobile>
+    <email>ejemplo@ej.com</email>
+    <datebirthday>08/03/1972</datebirthday>
+    <age>0</age>
+    <username>Nombre de usuario</username>
+    <password>jPasswordField1</password>
+    <avatar>image.jpg</avatar>
     <state>Online</state>
-    <ventajas>6.15</ventajas>
-    <hiringdate>12/12/2000</hiringdate>
-    <yearsservice>15</yearsservice>
-    <salary>124.0</salary>
-    <activity>123</activity>
+    <ventajas>11.7</ventajas>
+    <hiringdate>06/03/2013</hiringdate>
+    <yearsservice>0</yearsservice>
+    <salary>234.0</salary>
+    <activity>234</activity>
   </Admin>
 </list>

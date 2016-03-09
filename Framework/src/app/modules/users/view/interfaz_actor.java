@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package app.modules.users.view;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -18,14 +13,13 @@ import app.modules.pager.pagina;
 import app.modules.users.miniSimpleTableModel_admin;
 import static app.modules.users.model.classes.singleton.admin;
 import app.ppalmain;
+import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
-import javax.swing.table.DefaultTableModel;
 /**
  *
- * @author 1º DAW
+ * @author Lara
  */
 public class interfaz_actor extends javax.swing.JFrame {
-    //List <admin> adminlist;
     public static TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(new miniSimpleTableModel_admin());
     public static AutocompleteJComboBox combo = null;
     /**
@@ -50,8 +44,8 @@ public class interfaz_actor extends javax.swing.JFrame {
         TABLA.setFillsViewportHeight(true);
         TABLA.setRowSorter(sorter);
 
-//        pagina.inicializa();
-//        pagina.initLinkBox();
+        pagina.inicializa();
+        pagina.initLinkBox();
         
         jLabel3.setText(String.valueOf(admin.getAdmins().size()));
         
@@ -83,7 +77,7 @@ public class interfaz_actor extends javax.swing.JFrame {
         });
     }
     public static void comboActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        System.out.println("word selected: " + ((JComboBox)combo).getSelectedItem());
+    //    System.out.println("word selected: " + ((JComboBox)combo).getSelectedItem());
         pagina.currentPageIndex = 1;
         ((miniSimpleTableModel_admin)TABLA.getModel()).filtrar();
     } 
@@ -108,11 +102,11 @@ public class interfaz_actor extends javax.swing.JFrame {
         CAJA = new javax.swing.JTextField();
         primero = new javax.swing.JButton();
         ultimo = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        searchby = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -204,8 +198,6 @@ public class interfaz_actor extends javax.swing.JFrame {
         });
         jPanel2.add(ultimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
 
-        jLabel1.setText("Filtra First Name");
-
         jLabel3.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -241,6 +233,8 @@ public class interfaz_actor extends javax.swing.JFrame {
             .addGap(0, 32, Short.MAX_VALUE)
         );
 
+        searchby.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First name", "DNI" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -252,9 +246,9 @@ public class interfaz_actor extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(3, 3, 3)
+                                .addComponent(searchby, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -293,7 +287,7 @@ public class interfaz_actor extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(searchby, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(33, 33, 33))
@@ -333,8 +327,6 @@ public class interfaz_actor extends javax.swing.JFrame {
         pagina.initLinkBox();
     }//GEN-LAST:event_ultimoActionPerformed
 
-    
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;
     public static javax.swing.JTextField CAJA;
@@ -342,7 +334,6 @@ public class interfaz_actor extends javax.swing.JFrame {
     public static javax.swing.JTable TABLA;
     private javax.swing.JButton jButton1;
     public static javax.swing.JComboBox jComboBox1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     public static javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
@@ -352,6 +343,7 @@ public class interfaz_actor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JButton primero;
+    public static javax.swing.JComboBox<String> searchby;
     public static javax.swing.JButton ultimo;
     // End of variables declaration//GEN-END:variables
 }

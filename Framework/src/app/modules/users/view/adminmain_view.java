@@ -15,7 +15,6 @@ import static app.modules.users.view.adminnew_view.titlecreateedit;
 import app.utils.functions;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
 /**
  *
  * @author 1º DAW
@@ -43,6 +42,10 @@ public class adminmain_view extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        createdummies = new javax.swing.JButton();
         create_admin = new javax.swing.JButton();
         edit_admin = new javax.swing.JButton();
         view_admin = new javax.swing.JButton();
@@ -54,6 +57,42 @@ public class adminmain_view extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         statusnewadmin = new javax.swing.JLabel();
+        dummies = new javax.swing.JButton();
+
+        jLabel2.setText("¿Cuántos dummies quieres crear?");
+
+        jTextField1.setText("jTextField1");
+
+        createdummies.setText("Crear");
+        createdummies.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createdummiesActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createdummies))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(createdummies)
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -139,7 +178,7 @@ public class adminmain_view extends javax.swing.JFrame {
                 open_admin_fileActionPerformed(evt);
             }
         });
-        getContentPane().add(open_admin_file, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 166, 75, -1));
+        getContentPane().add(open_admin_file, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 75, -1));
 
         delete_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/user_delete_b.png"))); // NOI18N
         delete_admin.setText("Eliminar");
@@ -157,7 +196,7 @@ public class adminmain_view extends javax.swing.JFrame {
                 delete_adminActionPerformed(evt);
             }
         });
-        getContentPane().add(delete_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 166, 75, -1));
+        getContentPane().add(delete_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 75, -1));
 
         save_admin_file.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/save.png"))); // NOI18N
         save_admin_file.setText("Guardar");
@@ -175,7 +214,7 @@ public class adminmain_view extends javax.swing.JFrame {
                 save_admin_fileActionPerformed(evt);
             }
         });
-        getContentPane().add(save_admin_file, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 166, 75, -1));
+        getContentPane().add(save_admin_file, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 75, -1));
 
         create_admin1.setBackground(new java.awt.Color(255, 0, 153));
         create_admin1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/return2.png"))); // NOI18N
@@ -208,6 +247,14 @@ public class adminmain_view extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 288, 42, 9));
         getContentPane().add(statusnewadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 360, 20));
+
+        dummies.setText("Add dummies");
+        dummies.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dummiesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(dummies, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -268,6 +315,15 @@ public class adminmain_view extends javax.swing.JFrame {
         new interfaz_actor().setVisible(true);
     }//GEN-LAST:event_view_adminActionPerformed
 
+    private void dummiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dummiesActionPerformed
+        // TODO add your handling code here:
+        app.modules.users.model.utils.dummies.LoadDummies();
+    }//GEN-LAST:event_dummiesActionPerformed
+
+    private void createdummiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createdummiesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createdummiesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -306,10 +362,15 @@ public class adminmain_view extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton create_admin;
     public static javax.swing.JButton create_admin1;
+    private javax.swing.JButton createdummies;
     public static javax.swing.JButton delete_admin;
+    public static javax.swing.JButton dummies;
     public static javax.swing.JButton edit_admin;
+    private javax.swing.JFrame jFrame1;
     public static javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField jTextField1;
     public static javax.swing.JButton open_admin_file;
     public static javax.swing.JButton save_admin_file;
     public static javax.swing.JButton sort_admin;

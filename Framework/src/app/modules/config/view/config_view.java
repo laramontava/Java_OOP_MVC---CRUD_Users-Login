@@ -11,7 +11,7 @@ import java.awt.event.WindowEvent;
 
 /**
  *
- * @author 1º DAW
+ * @author Lara
  */
 public class config_view extends javax.swing.JFrame {
 
@@ -73,6 +73,7 @@ public class config_view extends javax.swing.JFrame {
         language_group = new javax.swing.ButtonGroup();
         dummiesactivate = new javax.swing.JDialog();
         jLabel8 = new javax.swing.JLabel();
+        activatedesactivate = new javax.swing.JButton();
         date = new javax.swing.JFrame();
         jLabel2 = new javax.swing.JLabel();
         dateformat5 = new javax.swing.JRadioButton();
@@ -316,21 +317,35 @@ public class config_view extends javax.swing.JFrame {
 
         jLabel8.setText("Activar o desactivar los dummies");
 
+        activatedesactivate.setText("Activar");
+        activatedesactivate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activatedesactivateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout dummiesactivateLayout = new javax.swing.GroupLayout(dummiesactivate.getContentPane());
         dummiesactivate.getContentPane().setLayout(dummiesactivateLayout);
         dummiesactivateLayout.setHorizontalGroup(
             dummiesactivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dummiesactivateLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8)
+                .addGroup(dummiesactivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dummiesactivateLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8))
+                    .addGroup(dummiesactivateLayout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(activatedesactivate)))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         dummiesactivateLayout.setVerticalGroup(
             dummiesactivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dummiesactivateLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
                 .addComponent(jLabel8)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(activatedesactivate)
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         jLabel2.setText("Elige un formato de fecha");
@@ -527,29 +542,27 @@ public class config_view extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(conf_data, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(conf_decimal, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(25, 25, 25)
-                                .addComponent(conf_theme, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(conf_format, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addComponent(conf_currency, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(conf_language, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(conf_dummies, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(create_admin1)))
+                .addContainerGap()
+                .addComponent(create_admin1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(conf_data, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(conf_decimal, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(conf_theme, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(conf_format, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(conf_currency, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(conf_language, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(conf_dummies, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -592,6 +605,9 @@ public class config_view extends javax.swing.JFrame {
 
     private void conf_dummiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conf_dummiesActionPerformed
         // TODO add your handling code here:
+        dummiesactivate.setVisible(true);
+        dummiesactivate.setSize(280,220);
+        dummiesactivate.setLocationRelativeTo(null);
     }//GEN-LAST:event_conf_dummiesActionPerformed
 
     private void conf_dataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conf_dataActionPerformed
@@ -625,6 +641,21 @@ public class config_view extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_jLabel3AncestorAdded
+    boolean state = false;
+    private void activatedesactivateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activatedesactivateActionPerformed
+        // TODO add your handling code here:
+        
+        if(!state){
+            app.modules.users.view.adminmain_view.dummies.setVisible(true);
+            activatedesactivate.setText("Desactivar");
+            state = true;
+        } else{
+            app.modules.users.view.adminmain_view.dummies.setVisible(false);
+            activatedesactivate.setText("Activar");
+            state = false;
+        }
+        
+    }//GEN-LAST:event_activatedesactivateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -662,6 +693,7 @@ public class config_view extends javax.swing.JFrame {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton activatedesactivate;
     private javax.swing.JRadioButton castellano;
     public static javax.swing.JButton conf_currency;
     public static javax.swing.JButton conf_data;

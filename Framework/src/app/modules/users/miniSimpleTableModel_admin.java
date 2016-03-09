@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 package app.modules.users;
+
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
 import app.modules.users.view.interfaz_actor;
-import  app.modules.users.model.classes.admin;
+import app.modules.users.model.classes.admin;
 import app.modules.pager.pagina;
 import app.modules.users.model.BLL.lib_ficheros.json;
 import app.modules.users.model.classes.singleton;
@@ -20,6 +21,7 @@ import static app.utils.functions.getCadenaAleatoria2;
 import javax.swing.table.DefaultTableModel;
 
 public class miniSimpleTableModel_admin extends AbstractTableModel {
+
     public static ArrayList<admin> datos = new ArrayList<admin>();
     public static ArrayList<admin> datosaux = new ArrayList<admin>();
     String[] columnas = {"dni", "first_name", "last_name", "hiring_date"};
@@ -93,7 +95,7 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
             case 2:
                 fila.setSubname(value.toString());
                 break;
-            
+
             case 3:
                 fila.setHiring_date(value.toString());
                 break;
@@ -114,31 +116,44 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
             addRow(singleton.admin.getAdmins().get(i));
             datosaux.add(singleton.admin.getAdmins().get(i));
         }
-     
+
     }
 
     public void filtrar() {
         datos.clear();
-        int cont=0;
-        
-        String nom=(String) ((JComboBox)combo).getSelectedItem();   
-        if(nom!=null){
-            for(int i=0;i<datosaux.size();i++) {
-                if(datosaux.get(i).getName().toLowerCase().startsWith(nom.toLowerCase())){
+        int cont = 0;
+
+        String nom = (String) ((JComboBox) combo).getSelectedItem();
+        if (interfaz_actor.searchby.getSelectedItem().toString() == "First name") {
+            if (nom != null) {
+                for (int i = 0; i < datosaux.size(); i++) {
+                    if (datosaux.get(i).getName().toLowerCase().startsWith(nom.toLowerCase())) {
+                        addRow(datosaux.get(i));
+                        cont++;
+                    }
+                }
+                interfaz_actor.jLabel3.setText(String.valueOf(cont));
+                //        System.out.println("word selected: " + nom);
+                pagina.initLinkBox();
+            }
+        } else if (nom != null) {
+            for (int i = 0; i < datosaux.size(); i++) {
+                if (datosaux.get(i).getDni().toLowerCase().startsWith(nom.toLowerCase())) {
                     addRow(datosaux.get(i));
                     cont++;
                 }
             }
             interfaz_actor.jLabel3.setText(String.valueOf(cont));
-            System.out.println("word selected: " + nom);
+            //        System.out.println("word selected: " + nom);
             pagina.initLinkBox();
         }
+
     }
 
     public admin buscar(String u) {
         datos.clear();
         cargar();
-        
+
         String res;
         for (int i = 0; i < datos.size(); i++) {
             res = datos.get(i).toString();
@@ -166,4 +181,3 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
         fireTableDataChanged();
     }
 }
-
