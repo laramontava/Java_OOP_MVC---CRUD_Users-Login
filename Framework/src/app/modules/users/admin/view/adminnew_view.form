@@ -455,7 +455,7 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/users/view/img/addfile.png"/>
+          <Image iconType="3" name="/app/modules/users/admin/view/img/addfile.png"/>
         </Property>
       </Properties>
       <Events>
@@ -476,7 +476,7 @@
           <Color blue="99" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/users/view/img/accept.png"/>
+          <Image iconType="3" name="/app/modules/users/admin/view/img/accept.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Crear"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -508,7 +508,7 @@
           <Color blue="99" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/users/view/img/cancel.png"/>
+          <Image iconType="3" name="/app/modules/users/admin/view/img/cancel.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Descartar"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

@@ -7,6 +7,9 @@ package app.modules.users.admin.model.DAO;
 
 import app.classes.fecha;
 import app.classes.singleton_global;
+import static app.classes.singleton_global.Green;
+import static app.classes.singleton_global.cancel;
+import static app.classes.singleton_global.ok;
 import app.modules.users.admin.model.classes.admin;
 import app.modules.users.admin.model.classes.singleton;
 import static app.modules.users.admin.view.adminmain_view.selected;
@@ -15,7 +18,6 @@ import static app.modules.users.admin.view.adminnew_view.*;
 import app.utils.validate;
 import java.awt.Color;
 import java.util.Calendar;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,9 +26,7 @@ import javax.swing.JOptionPane;
  */
 public class DAO_admin {
 
-    public static ImageIcon cancel = new ImageIcon("src/app/modules/users/view/img/error.png");
-    public static ImageIcon ok = new ImageIcon("src/app/modules/users/view/img/done.png");
-    public static Color Green = new Color(3, 133, 3);
+    
 
     public static boolean pidedni() {
         int modulo, dninum;

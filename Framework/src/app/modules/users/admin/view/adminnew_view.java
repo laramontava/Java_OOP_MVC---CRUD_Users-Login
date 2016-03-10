@@ -5,9 +5,9 @@
  */
 package app.modules.users.admin.view;
 
+import static app.classes.singleton_global.Green;
 import app.modules.users.admin.model.BLL.BLL_admin;
-import static app.modules.users.admin.model.DAO.DAO_admin.Green;
-import static app.modules.users.admin.view.adminmain_view.statusnewadmin;
+import static app.modules.users.admin.view.adminmanage_view.statusnewadmin;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -330,7 +330,7 @@ public class adminnew_view extends javax.swing.JFrame {
         getContentPane().add(avatar_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
         getContentPane().add(state_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/addfile.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/addfile.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -339,7 +339,7 @@ public class adminnew_view extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 39, 30));
 
         createadmin.setBackground(new java.awt.Color(255, 0, 153));
-        createadmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/accept.png"))); // NOI18N
+        createadmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/accept.png"))); // NOI18N
         createadmin.setToolTipText("Crear");
         createadmin.setBorder(null);
         createadmin.setContentAreaFilled(false);
@@ -355,7 +355,7 @@ public class adminnew_view extends javax.swing.JFrame {
         getContentPane().add(createadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 75, -1));
 
         canceladmin.setBackground(new java.awt.Color(255, 0, 153));
-        canceladmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/cancel.png"))); // NOI18N
+        canceladmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/cancel.png"))); // NOI18N
         canceladmin.setToolTipText("Descartar");
         canceladmin.setBorder(null);
         canceladmin.setContentAreaFilled(false);
@@ -514,7 +514,7 @@ public class adminnew_view extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(createoredit.isVisible()){
             if(BLL_admin.adminsave()){
-                new adminmain_view().setVisible(true);
+                new adminmanage_view().setVisible(true);
                 this.setVisible(false);
                 statusnewadmin.setText("Admin creado correctamente");
                 statusnewadmin.setForeground(Green);
@@ -524,7 +524,7 @@ public class adminnew_view extends javax.swing.JFrame {
             }
         }else{
             if(BLL_admin.Modificar()){
-                new adminmain_view().setVisible(true);
+                new adminmanage_view().setVisible(true);
                 dispose();
                 statusnewadmin.setText("Admin editado correctamente");
                 statusnewadmin.setForeground(Green);
@@ -532,8 +532,6 @@ public class adminnew_view extends javax.swing.JFrame {
                 jlblcreate.setText("Asegúrate de que hayas introducido bien los datos");
                 jlblcreate.setForeground(Color.red);
             }
-            //BLL_admin.Modificar();
-            
         }
     }//GEN-LAST:event_createadminActionPerformed
 
@@ -548,12 +546,12 @@ public class adminnew_view extends javax.swing.JFrame {
             Logger.getLogger(adminnew_view.class.getName()).log(Level.SEVERE, null, ex);
         }*/
         if(createoredit.isVisible()){
-            new adminmain_view().setVisible(true);
+            new adminmanage_view().setVisible(true);
             this.setVisible(false);
             statusnewadmin.setText("Se ha cancelado la creación de un nuevo admin");
             statusnewadmin.setForeground(Color.red);
         } else{
-            new adminmain_view().setVisible(true);
+            new adminmanage_view().setVisible(true);
             this.setVisible(false);
             statusnewadmin.setText("Se ha cancelado la modificación de un admin");
             statusnewadmin.setForeground(Color.RED);
@@ -568,7 +566,7 @@ public class adminnew_view extends javax.swing.JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 dispose();
-                new adminmain_view().setVisible(true);
+                new adminmanage_view().setVisible(true);
             }
         });
     }//GEN-LAST:event_jLabel7AncestorAdded

@@ -183,5 +183,14 @@ public class Arraylist_admin {
             }
         }
     }
-
+    
+    public void savejson(){
+        json.GenerateJson();
+    }
+    public void savetxt(){
+        txt.Generatetxt();
+    }
+    public void savexml(){
+        xml.Generatexml();
+    }
 }
