@@ -6,7 +6,8 @@
 package app.modules.menu.view;
 
 import app.modules.config.view.config_view;
-import app.modules.users.view.adminmain_view;
+import app.modules.users.admin.view.adminmain_view;
+import app.modules.users.admin.view.adminmanage_view;
 import app.utils.config_save;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -163,7 +164,8 @@ public class main_view extends javax.swing.JFrame {
 
     private void admin_main2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admin_main2ActionPerformed
         // TODO add your handling code here:
-        new adminmain_view().setVisible(true);
+        //new adminmain_view().setVisible(true);
+        new adminmanage_view().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_admin_main2ActionPerformed
 

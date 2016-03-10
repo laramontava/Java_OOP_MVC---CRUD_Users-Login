@@ -3,14 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/admin/view/interfaz_actor.java</file>
             <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/ppalmain.java</file>
             <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/config/view/config_view.java</file>
-            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/view/interfaz_actor.java</file>
-            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/miniSimpleTableModel_admin.java</file>
-            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/view/adminnew_view.java</file>
+            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/admin/model/utils/pager/pagina.java</file>
+            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/admin/view/adminmain_view.java</file>
+            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/admin/view/adminnew_view.java</file>
             <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/menu/view/main_view.java</file>
-            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/view/adminmain_view.java</file>
-            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/pager/pagina.java</file>
+            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/admin/model/classes/miniSimpleTableModel_admin.java</file>
+            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/Main.java</file>
+            <file>file:/C:/Users/1º%20DAW/laramontava-examen/Framework/src/app/modules/users/admin/model/BLL/lib_ficheros/json.java</file>
         </group>
     </open-files>
 </project-private>

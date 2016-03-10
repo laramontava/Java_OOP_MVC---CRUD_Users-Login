@@ -1,20 +1,20 @@
 package app;
 
 
-import app.classes.configuration;
-import app.classes.idioma;
+import app.modules.config.model.configuration;
+import app.modules.config.model.idioma;
 import app.classes.singleton_global;
 import app.modules.menu.view.main_view;
-import app.modules.users.model.BLL.Arraylist_admin;
-import app.modules.users.model.BLL.Arraylist_client;
-import app.modules.users.model.BLL.Arraylist_userreg;
-import app.modules.users.model.BLL.lib_ficheros.json;
-import app.modules.users.model.BLL.lib_ficheros.txt;
-import app.modules.users.model.BLL.lib_ficheros.xml;
-import app.modules.users.model.classes.admin;
-import app.modules.users.model.classes.client;
-import app.modules.users.model.classes.registered_user;
-import app.modules.users.model.classes.singleton;
+import app.modules.users.admin.model.BLL.Arraylist_admin;
+import app.modules.users.admin.model.BLL.Arraylist_client;
+import app.modules.users.admin.model.BLL.Arraylist_userreg;
+import app.modules.users.admin.model.BLL.lib_ficheros.json;
+import app.modules.users.admin.model.BLL.lib_ficheros.txt;
+import app.modules.users.admin.model.BLL.lib_ficheros.xml;
+import app.modules.users.admin.model.classes.admin;
+import app.modules.users.admin.model.classes.client;
+import app.modules.users.admin.model.classes.registered_user;
+import app.modules.users.admin.model.classes.singleton;
 import app.utils.config_save;
 
 /*

@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-import app.classes.configuration;
+import app.modules.config.model.configuration;
 
 public class format {
 	

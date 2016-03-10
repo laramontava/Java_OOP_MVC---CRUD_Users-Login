@@ -646,11 +646,11 @@ public class config_view extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if(!state){
-            app.modules.users.view.adminmain_view.dummies.setVisible(true);
+            app.modules.users.admin.view.adminmain_view.dummies.setVisible(true);
             activatedesactivate.setText("Desactivar");
             state = true;
         } else{
-            app.modules.users.view.adminmain_view.dummies.setVisible(false);
+            app.modules.users.admin.view.adminmain_view.dummies.setVisible(false);
             activatedesactivate.setText("Activar");
             state = false;
         }
