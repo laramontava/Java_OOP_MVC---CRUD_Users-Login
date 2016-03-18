@@ -96,7 +96,6 @@ public class adminmain_view extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         create_admin.setBackground(new java.awt.Color(255, 0, 153));
-        create_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/user_add_b.png"))); // NOI18N
         create_admin.setText("Crear");
         create_admin.setToolTipText("Crea un nuevo usuario administrador");
         create_admin.setActionCommand("");
@@ -114,7 +113,6 @@ public class adminmain_view extends javax.swing.JFrame {
         getContentPane().add(create_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 71, 75, -1));
         create_admin.getAccessibleContext().setAccessibleDescription("");
 
-        edit_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/user_edit.png"))); // NOI18N
         edit_admin.setText("Editar");
         edit_admin.setToolTipText("Edita un admin ya existente");
         edit_admin.setBorder(null);
@@ -131,7 +129,6 @@ public class adminmain_view extends javax.swing.JFrame {
         });
         getContentPane().add(edit_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 71, 75, -1));
 
-        view_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/user_view.png"))); // NOI18N
         view_admin.setText("Visualizar");
         view_admin.setToolTipText("Ver todos los usuarios admin");
         view_admin.setBorder(null);
@@ -148,7 +145,6 @@ public class adminmain_view extends javax.swing.JFrame {
         });
         getContentPane().add(view_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 71, 75, -1));
 
-        sort_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/user_sort.png"))); // NOI18N
         sort_admin.setText("Ordenar");
         sort_admin.setToolTipText("Ordenar los usuarios admin");
         sort_admin.setBorder(null);
@@ -160,7 +156,6 @@ public class adminmain_view extends javax.swing.JFrame {
         sort_admin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(sort_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 71, 75, -1));
 
-        open_admin_file.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/file_add.png"))); // NOI18N
         open_admin_file.setText("Abrir");
         open_admin_file.setToolTipText("Abrir archivo con usuarios admin creados");
         open_admin_file.setActionCommand("");
@@ -178,7 +173,6 @@ public class adminmain_view extends javax.swing.JFrame {
         });
         getContentPane().add(open_admin_file, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 75, -1));
 
-        delete_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/user_delete_b.png"))); // NOI18N
         delete_admin.setText("Eliminar");
         delete_admin.setToolTipText("Eliminar un usuario admin");
         delete_admin.setActionCommand("");
@@ -196,7 +190,6 @@ public class adminmain_view extends javax.swing.JFrame {
         });
         getContentPane().add(delete_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 75, -1));
 
-        save_admin_file.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/save.png"))); // NOI18N
         save_admin_file.setText("Guardar");
         save_admin_file.setToolTipText("Guardar los usuarios admins creados");
         save_admin_file.setActionCommand("");
@@ -215,7 +208,6 @@ public class adminmain_view extends javax.swing.JFrame {
         getContentPane().add(save_admin_file, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 75, -1));
 
         create_admin1.setBackground(new java.awt.Color(255, 0, 153));
-        create_admin1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/return2.png"))); // NOI18N
         create_admin1.setToolTipText("Volver atrás");
         create_admin1.setBorder(null);
         create_admin1.setContentAreaFilled(false);

@@ -83,9 +83,6 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="0" red="ff" type="rgb"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/users/view/img/user_add_b.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Crear"/>
         <Property name="toolTipText" type="java.lang.String" value="Crea un nuevo usuario administrador"/>
         <Property name="actionCommand" type="java.lang.String" value=""/>
@@ -117,9 +114,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="edit_admin">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/users/view/img/user_edit.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Editar"/>
         <Property name="toolTipText" type="java.lang.String" value="Edita un admin ya existente"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -148,9 +142,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="view_admin">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/users/view/img/user_view.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Visualizar"/>
         <Property name="toolTipText" type="java.lang.String" value="Ver todos los usuarios admin"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -179,9 +170,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="sort_admin">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/users/view/img/user_sort.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Ordenar"/>
         <Property name="toolTipText" type="java.lang.String" value="Ordenar los usuarios admin"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -207,9 +195,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="open_admin_file">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/users/view/img/file_add.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Abrir"/>
         <Property name="toolTipText" type="java.lang.String" value="Abrir archivo con usuarios admin creados"/>
         <Property name="actionCommand" type="java.lang.String" value=""/>
@@ -239,9 +224,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="delete_admin">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/users/view/img/user_delete_b.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
         <Property name="toolTipText" type="java.lang.String" value="Eliminar un usuario admin"/>
         <Property name="actionCommand" type="java.lang.String" value=""/>
@@ -271,9 +253,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="save_admin_file">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/users/view/img/save.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Guardar"/>
         <Property name="toolTipText" type="java.lang.String" value="Guardar los usuarios admins creados"/>
         <Property name="actionCommand" type="java.lang.String" value=""/>
@@ -305,9 +284,6 @@
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="0" red="ff" type="rgb"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/users/view/img/return2.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Volver atr&#xe1;s"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

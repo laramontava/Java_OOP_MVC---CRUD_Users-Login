@@ -1,6 +1,8 @@
 package app.modules.users.admin.view;
+
+import app.classes.singleton_global;
 import app.modules.menu.view.main_view;
-import app.modules.users.admin.model.DAO.DAO_admin;
+import app.modules.users.admin.model.BLL.BLL_admin;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -12,46 +14,72 @@ import app.modules.users.admin.model.utils.autocomplete.AutocompleteJComboBox;
 import app.modules.users.admin.model.utils.autocomplete.StringSearchable;
 import app.modules.users.admin.model.utils.pager.pagina;
 import app.modules.users.admin.model.classes.miniSimpleTableModel_admin;
+import static app.modules.users.admin.model.classes.miniSimpleTableModel_admin.datos;
 import app.modules.users.admin.model.classes.singleton;
 import static app.modules.users.admin.model.classes.singleton.admin;
 import static app.modules.users.admin.view.adminnew_view.*;
 import app.ppalmain;
-import app.utils.functions;
+import java.awt.Point;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JTable;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
+
 /**
  *
  * @author Lara
  */
 public class adminmanage_view extends javax.swing.JFrame {
+
     public static TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(new miniSimpleTableModel_admin());
     public static AutocompleteJComboBox combo = null;
+
+    //public static int selected;
     /**
      * Creates new form interfaz_actor
      */
     public adminmanage_view() {
         initComponents();
-        
-       
-        try{
+
+        try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        }catch(Exception e){}
-        
+        } catch (Exception e) {
+        }
+
         this.setLocationRelativeTo(null);
         this.setTitle("Gestión Actores");
         this.setResizable(false);
-        
-        ppalmain.singleton_vtna="interfaz_actor";
-        
-        TABLA.setModel( new miniSimpleTableModel_admin() );
-        ((miniSimpleTableModel_admin)TABLA.getModel()).cargar();
+
+        ppalmain.singleton_vtna = "interfaz_actor";
+        //
+        TABLA.setModel(new miniSimpleTableModel_admin());
+        ((miniSimpleTableModel_admin) TABLA.getModel()).cargar();
         TABLA.setFillsViewportHeight(true);
         TABLA.setRowSorter(sorter);
+        TABLA.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent me) {
+                JTable table = (JTable) me.getSource();
+                Point p = me.getPoint();
 
+                int row = table.rowAtPoint(p);
+                if (me.getClickCount() == 2) {
+                    if (BLL_admin.Modificar()) {
+                        dispose();
+                        new adminnew_view().setVisible(true);
+                        BLL_admin.LlenarCampos();
+                        titlecreateedit.setText("Editar un usuario administrador");
+                        createoredit.setVisible(false);
+                    }
+                }
+            }
+        });
+
+        //
         pagina.inicializa();
         pagina.initLinkBox();
-        
+
         jLabel3.setText(String.valueOf(admin.getAdmins().size()));
-        
+
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             @Override
@@ -60,30 +88,38 @@ public class adminmanage_view extends javax.swing.JFrame {
                 new main_view().setVisible(true);
             }
         });
-          
+
         List<String> myWords = new ArrayList<String>();
-        for(int i=0;i<=admin.getAdmins().size()-1;i++) {
+        for (int i = 0; i <= admin.getAdmins().size() - 1; i++) {
             myWords.add(admin.getAdmins().get(i).getName());
         }
 
-	StringSearchable searchable = new StringSearchable(myWords);
-	combo = new AutocompleteJComboBox(searchable);
+        StringSearchable searchable = new StringSearchable(myWords);
+        combo = new AutocompleteJComboBox(searchable);
         //JPanel5 se utiliza solamente para que JPanel3 que contendrá combo, no se redimensione
         jPanel3.setLayout(new java.awt.BorderLayout());
         jPanel3.add(combo);
-        
+
         combo.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboActionPerformed(evt);
             }
         });
+        /*   TABLA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TABLAMouseClicked(evt);
+            }
+        });*/
     }
-    public static void comboActionPerformed(java.awt.event.ActionEvent evt) {                                            
-    //    System.out.println("word selected: " + ((JComboBox)combo).getSelectedItem());
+    public static int selected;
+
+    public static void comboActionPerformed(java.awt.event.ActionEvent evt) {
+        //    System.out.println("word selected: " + ((JComboBox)combo).getSelectedItem());
         pagina.currentPageIndex = 1;
-        ((miniSimpleTableModel_admin)TABLA.getModel()).filtrar();
-    } 
+        ((miniSimpleTableModel_admin) TABLA.getModel()).filtrar();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -110,7 +146,6 @@ public class adminmanage_view extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         searchby = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
         create_admin = new javax.swing.JButton();
         statusnewadmin = new javax.swing.JLabel();
         edit_admin = new javax.swing.JButton();
@@ -134,6 +169,7 @@ public class adminmanage_view extends javax.swing.JFrame {
 
             }
         ));
+        TABLA.setSelectionForeground(new java.awt.Color(255, 153, 51));
         jScrollPane1.setViewportView(TABLA);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -246,18 +282,9 @@ public class adminmanage_view extends javax.swing.JFrame {
 
         searchby.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First name", "DNI" }));
 
-        jButton2.setText("Dummies");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         create_admin.setBackground(new java.awt.Color(255, 0, 153));
-        create_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/user_add_b.png"))); // NOI18N
-        create_admin.setText("Crear");
+        create_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/user_add.png"))); // NOI18N
         create_admin.setToolTipText("Crea un nuevo usuario administrador");
-        create_admin.setActionCommand("");
         create_admin.setBorder(null);
         create_admin.setContentAreaFilled(false);
         create_admin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -271,7 +298,6 @@ public class adminmanage_view extends javax.swing.JFrame {
         });
 
         edit_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/user_edit.png"))); // NOI18N
-        edit_admin.setText("Editar");
         edit_admin.setToolTipText("Edita un admin ya existente");
         edit_admin.setBorder(null);
         edit_admin.setBorderPainted(false);
@@ -286,10 +312,8 @@ public class adminmanage_view extends javax.swing.JFrame {
             }
         });
 
-        delete_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/user_delete_b.png"))); // NOI18N
-        delete_admin.setText("Eliminar");
+        delete_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/user_delete.png"))); // NOI18N
         delete_admin.setToolTipText("Eliminar un usuario admin");
-        delete_admin.setActionCommand("");
         delete_admin.setBorder(null);
         delete_admin.setBorderPainted(false);
         delete_admin.setContentAreaFilled(false);
@@ -303,21 +327,31 @@ public class adminmanage_view extends javax.swing.JFrame {
             }
         });
 
-        savejson.setText("JSON");
+        savejson.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/filejson.png"))); // NOI18N
+        savejson.setBorder(null);
+        savejson.setBorderPainted(false);
+        savejson.setContentAreaFilled(false);
         savejson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 savejsonActionPerformed(evt);
             }
         });
 
-        savetxt.setText("TXT");
+        savetxt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/filetxt.png"))); // NOI18N
+        savetxt.setToolTipText("Descargar txt con todos los admins");
+        savetxt.setBorder(null);
+        savetxt.setBorderPainted(false);
+        savetxt.setContentAreaFilled(false);
         savetxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 savetxtActionPerformed(evt);
             }
         });
 
-        savexml.setText("XML");
+        savexml.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/filexml.png"))); // NOI18N
+        savexml.setBorder(null);
+        savexml.setBorderPainted(false);
+        savexml.setContentAreaFilled(false);
         savexml.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 savexmlActionPerformed(evt);
@@ -348,78 +382,67 @@ public class adminmanage_view extends javax.swing.JFrame {
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(statusnewadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(61, 61, 61)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addContainerGap())))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(create_admin)
                                 .addGap(18, 18, 18)
-                                .addComponent(edit_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(edit_admin)
                                 .addGap(18, 18, 18)
-                                .addComponent(delete_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(209, 209, 209)
+                                .addComponent(delete_admin)
+                                .addGap(18, 18, 18)
+                                .addComponent(statusnewadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(savejson)
                                 .addGap(18, 18, 18)
-                                .addComponent(savetxt)
-                                .addGap(18, 18, 18)
                                 .addComponent(savexml)
-                                .addContainerGap(168, Short.MAX_VALUE))))))
+                                .addGap(18, 18, 18)
+                                .addComponent(savetxt)
+                                .addGap(80, 80, 80))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(delete_admin)
-                            .addComponent(edit_admin)
-                            .addComponent(create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(savejson)
-                            .addComponent(savetxt)
-                            .addComponent(savexml))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(statusnewadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(searchby, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addGap(19, 19, 19))
+                            .addComponent(edit_admin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(create_admin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(delete_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(savexml, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(savejson)
+                            .addComponent(savetxt)))
+                    .addComponent(statusnewadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(searchby, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -431,7 +454,7 @@ public class adminmanage_view extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        pagina.itemsPerPage=Integer.parseInt(jComboBox1.getSelectedItem().toString());
+        pagina.itemsPerPage = Integer.parseInt(jComboBox1.getSelectedItem().toString());
         pagina.currentPageIndex = 1;
         pagina.initLinkBox();
     }//GEN-LAST:event_jComboBox1ActionPerformed
@@ -456,30 +479,40 @@ public class adminmanage_view extends javax.swing.JFrame {
         pagina.initLinkBox();
     }//GEN-LAST:event_ultimoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        app.modules.users.admin.model.utils.dummies.LoadDummies();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void create_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_adminActionPerformed
         // TODO add your handling code here:
         new adminnew_view().setVisible(true);
         dispose();
     }//GEN-LAST:event_create_adminActionPerformed
-
+    /*private void TABLAMouseClicked(java.awt.event.MouseEvent evt) {
+        //singleton.pager.selectadmin();
+        selected= TABLA.getSelectedRow();
+    }*/
     private void edit_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_adminActionPerformed
         // TODO add your handling code here:
-        String dni =  functions.validatestring("Type dni", "");
+        if (BLL_admin.Modificar()) {
+            this.dispose();
+            new adminnew_view().setVisible(true);
+            BLL_admin.LlenarCampos();
+            //titlecreateedit.setText("Editar un usuario administrador");
+            titlecreateedit.setText(singleton_global.translate.getProperty("edittit"));
+            createoredit.setVisible(false);
+        }
+        /*    String dni =  functions.validatestring("Type dni", "");
+        JOptionPane.showMessageDialog(null, dni);
         dispose();
         new adminnew_view().setVisible(true);
         titlecreateedit.setText("Editar un usuario administrador");
         createoredit.setVisible(false);
         selected = singleton.admin.buscarDniAdmin(dni);
-        DAO_admin.fillfields(selected);
+        JOptionPane.showMessageDialog(null, selected);
+        DAO_admin.fillfields(selected);*/
     }//GEN-LAST:event_edit_adminActionPerformed
 
     private void delete_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_adminActionPerformed
         // TODO add your handling code here:
+        BLL_admin.Delete();
+        //datos.size();
     }//GEN-LAST:event_delete_adminActionPerformed
 
     private void savejsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savejsonActionPerformed
@@ -496,7 +529,7 @@ public class adminmanage_view extends javax.swing.JFrame {
         // TODO add your handling code here:
         singleton.admin.savexml();
     }//GEN-LAST:event_savexmlActionPerformed
-    public static int selected;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;
     public static javax.swing.JTextField CAJA;
@@ -506,7 +539,6 @@ public class adminmanage_view extends javax.swing.JFrame {
     public static javax.swing.JButton delete_admin;
     public static javax.swing.JButton edit_admin;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     public static javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel2;
     public static javax.swing.JLabel jLabel3;

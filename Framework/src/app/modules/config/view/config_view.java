@@ -5,6 +5,7 @@
  */
 package app.modules.config.view;
 
+import app.classes.singleton_global;
 import app.modules.menu.view.main_view;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -21,12 +22,22 @@ public class config_view extends javax.swing.JFrame {
     public config_view() {
         initComponents();
         confpage();
+        conf_data.setText(singleton_global.translate.getProperty("date"));
+        conf_decimal.setText(singleton_global.translate.getProperty("decimal"));
+        conf_theme.setText(singleton_global.translate.getProperty("theme"));
+        conf_format.setText(singleton_global.translate.getProperty("format"));
+        conf_currency.setText(singleton_global.translate.getProperty("currency"));
+        conf_language.setText(singleton_global.translate.getProperty("language"));
         
+        languageformat.setSize(280, 220);
+        languageformat.setLocationRelativeTo(null);
     }
-    private void confpage(){
+
+    private void confpage() {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -87,7 +98,7 @@ public class config_view extends javax.swing.JFrame {
         conf_currency = new javax.swing.JButton();
         conf_language = new javax.swing.JButton();
         conf_dummies = new javax.swing.JButton();
-        create_admin1 = new javax.swing.JButton();
+        return_main = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         date_group.add(dateformat1);
@@ -277,16 +288,34 @@ public class config_view extends javax.swing.JFrame {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
+        languageformat.setAlwaysOnTop(true);
+        languageformat.setModal(true);
+
         jLabel7.setText("Elige un idioma");
 
         language_group.add(english);
         english.setText("English");
+        english.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                englishActionPerformed(evt);
+            }
+        });
 
         language_group.add(castellano);
         castellano.setText("Castellano");
+        castellano.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                castellanoActionPerformed(evt);
+            }
+        });
 
         language_group.add(valencia);
         valencia.setText("Valencià");
+        valencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                valenciaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout languageformatLayout = new javax.swing.GroupLayout(languageformat.getContentPane());
         languageformat.getContentPane().setLayout(languageformatLayout);
@@ -508,18 +537,18 @@ public class config_view extends javax.swing.JFrame {
             }
         });
 
-        create_admin1.setBackground(new java.awt.Color(255, 0, 153));
-        create_admin1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/view/img/return2.png"))); // NOI18N
-        create_admin1.setToolTipText("Volver atrás");
-        create_admin1.setBorder(null);
-        create_admin1.setContentAreaFilled(false);
-        create_admin1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        create_admin1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        create_admin1.setIconTextGap(-3);
-        create_admin1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        create_admin1.addActionListener(new java.awt.event.ActionListener() {
+        return_main.setBackground(new java.awt.Color(255, 0, 153));
+        return_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/return2.png"))); // NOI18N
+        return_main.setToolTipText("Volver atrás");
+        return_main.setBorder(null);
+        return_main.setContentAreaFilled(false);
+        return_main.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        return_main.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        return_main.setIconTextGap(-3);
+        return_main.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        return_main.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                create_admin1ActionPerformed(evt);
+                return_mainActionPerformed(evt);
             }
         });
 
@@ -543,7 +572,7 @@ public class config_view extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(create_admin1)
+                .addComponent(return_main)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -553,8 +582,8 @@ public class config_view extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(conf_theme, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(conf_format, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addComponent(conf_format, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(conf_currency, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -569,7 +598,7 @@ public class config_view extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(create_admin1)
+                .addComponent(return_main)
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(conf_format, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -601,34 +630,37 @@ public class config_view extends javax.swing.JFrame {
 
     private void conf_languageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conf_languageActionPerformed
         // TODO add your handling code here:
+        languageformat.setVisible(true);
+        languageformat.setSize(280, 220);
+        languageformat.setLocationRelativeTo(null);
     }//GEN-LAST:event_conf_languageActionPerformed
 
     private void conf_dummiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conf_dummiesActionPerformed
         // TODO add your handling code here:
         dummiesactivate.setVisible(true);
-        dummiesactivate.setSize(280,220);
+        dummiesactivate.setSize(280, 220);
         dummiesactivate.setLocationRelativeTo(null);
     }//GEN-LAST:event_conf_dummiesActionPerformed
 
     private void conf_dataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conf_dataActionPerformed
         // TODO add your handling code here:
         date.setVisible(true);
-        date.setSize(280,220);
+        date.setSize(280, 220);
         date.setLocationRelativeTo(null);
     }//GEN-LAST:event_conf_dataActionPerformed
 
     private void conf_decimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conf_decimalActionPerformed
         // TODO add your handling code here:
         decimalsformat.setVisible(true);
-        decimalsformat.setSize(280,220);
+        decimalsformat.setSize(280, 220);
         decimalsformat.setLocationRelativeTo(null);
     }//GEN-LAST:event_conf_decimalActionPerformed
 
-    private void create_admin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_admin1ActionPerformed
+    private void return_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_return_mainActionPerformed
         // TODO add your handling code here:
         new main_view().setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_create_admin1ActionPerformed
+    }//GEN-LAST:event_return_mainActionPerformed
 
     private void jLabel3AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel3AncestorAdded
         // TODO add your handling code here:
@@ -644,26 +676,68 @@ public class config_view extends javax.swing.JFrame {
     boolean state = false;
     private void activatedesactivateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activatedesactivateActionPerformed
         // TODO add your handling code here:
-        
-        if(!state){
+
+        if (!state) {
             app.modules.users.admin.view.adminmain_view.dummies.setVisible(true);
             activatedesactivate.setText("Desactivar");
             state = true;
-        } else{
+        } else {
             app.modules.users.admin.view.adminmain_view.dummies.setVisible(false);
             activatedesactivate.setText("Activar");
             state = false;
         }
-        
+
     }//GEN-LAST:event_activatedesactivateActionPerformed
 
+    private void englishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_englishActionPerformed
+        // TODO add your handling code here:
+        singleton_global.conf.setLanguage("english");
+        singleton_global.translate.setIdioma("english");
+        singleton_global.translate.getIdioma();
+        
+        conf_data.setText(singleton_global.translate.getProperty("date"));
+        conf_decimal.setText(singleton_global.translate.getProperty("decimal"));
+        conf_theme.setText(singleton_global.translate.getProperty("theme"));
+        conf_format.setText(singleton_global.translate.getProperty("format"));
+        conf_currency.setText(singleton_global.translate.getProperty("currency"));
+        conf_language.setText(singleton_global.translate.getProperty("language"));
+    }//GEN-LAST:event_englishActionPerformed
+
+    private void castellanoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castellanoActionPerformed
+        // TODO add your handling code here:
+        singleton_global.conf.setLanguage("castellano");
+        singleton_global.translate.setIdioma("castellano");
+        singleton_global.translate.getIdioma();
+        
+        conf_data.setText(singleton_global.translate.getProperty("date"));
+        conf_decimal.setText(singleton_global.translate.getProperty("decimal"));
+        conf_theme.setText(singleton_global.translate.getProperty("theme"));
+        conf_format.setText(singleton_global.translate.getProperty("format"));
+        conf_currency.setText(singleton_global.translate.getProperty("currency"));
+        conf_language.setText(singleton_global.translate.getProperty("language"));
+    }//GEN-LAST:event_castellanoActionPerformed
+
+    private void valenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valenciaActionPerformed
+        // TODO add your handling code here:
+        singleton_global.conf.setLanguage("valencia");
+        singleton_global.translate.setIdioma("valencia");
+        singleton_global.translate.getIdioma();
+        
+        conf_data.setText(singleton_global.translate.getProperty("date"));
+        conf_decimal.setText(singleton_global.translate.getProperty("decimal"));
+        conf_theme.setText(singleton_global.translate.getProperty("theme"));
+        conf_format.setText(singleton_global.translate.getProperty("format"));
+        conf_currency.setText(singleton_global.translate.getProperty("currency"));
+        conf_language.setText(singleton_global.translate.getProperty("language"));
+    }//GEN-LAST:event_valenciaActionPerformed
+    
     /**
      * @param args the command line arguments
      */
-   /* public static void main(String args[]) {
+    /* public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          *
         try {
@@ -702,7 +776,6 @@ public class config_view extends javax.swing.JFrame {
     public static javax.swing.JButton conf_format;
     public static javax.swing.JButton conf_language;
     public static javax.swing.JButton conf_theme;
-    private javax.swing.JButton create_admin1;
     private javax.swing.ButtonGroup currency_group;
     private javax.swing.JDialog currencyformat;
     private javax.swing.JFrame date;
@@ -741,6 +814,7 @@ public class config_view extends javax.swing.JFrame {
     private javax.swing.JRadioButton libra;
     private javax.swing.JRadioButton metal;
     private javax.swing.JRadioButton nimbus;
+    private javax.swing.JButton return_main;
     private javax.swing.ButtonGroup theme_group;
     private javax.swing.JDialog themeformat;
     private javax.swing.JRadioButton txt;

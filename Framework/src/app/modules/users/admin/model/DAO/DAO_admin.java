@@ -12,21 +12,20 @@ import static app.classes.singleton_global.cancel;
 import static app.classes.singleton_global.ok;
 import app.modules.users.admin.model.classes.admin;
 import app.modules.users.admin.model.classes.singleton;
+import app.modules.users.admin.model.utils.pager.pagina;
 import static app.modules.users.admin.view.adminmain_view.selected;
+import static app.modules.users.admin.view.adminmanage_view.TABLA;
 import app.modules.users.admin.view.adminnew_view;
 import static app.modules.users.admin.view.adminnew_view.*;
 import app.utils.validate;
 import java.awt.Color;
 import java.util.Calendar;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author Lara
  */
 public class DAO_admin {
-
-    
 
     public static boolean pidedni() {
         int modulo, dninum;
@@ -43,6 +42,7 @@ public class DAO_admin {
         if (correct == false) {
             val = false;
             adminnew_view.dni_validate.setIcon(cancel);
+            adminnew_view.adddni.setForeground(Color.RED);
         }
         if (correct == true) {
             for (int i = 0; i < 8; i++) {
@@ -55,9 +55,11 @@ public class DAO_admin {
             if (String.valueOf(numcalc).equals(dniletra)) {
                 val = true;
                 adminnew_view.dni_validate.setIcon(ok);
+                adminnew_view.adddni.setForeground(Green);
             } else {
                 val = false;
                 adminnew_view.dni_validate.setIcon(cancel);
+                adminnew_view.adddni.setForeground(Color.RED);
             }
 
         }
@@ -204,21 +206,19 @@ public class DAO_admin {
             val = true;
             Calendar date = adminnew_view.adddatebirthday.getCalendar();
             fecha fe = new fecha();
-            //Calendar datesystem = new GregorianCalendar();
             Calendar datesystem = fe.fechasystem();
 
             if (date.after(datesystem)) {
-                JOptionPane.showMessageDialog(null, singleton_global.translate.getProperty("future"));
+                jlblcreate.setText(singleton_global.translate.getProperty("future"));
                 val = false;
             }
             if (val == true) {
                 fecha resta = new fecha();
-                //resta.restafechas(date, datesystem, "años");
                 resultado = resta.restafechas(date, datesystem, "years");
 
                 if (resultado < 18) {
                     val = false;
-                    JOptionPane.showMessageDialog(null, "You aren't 18");
+                    jlblcreate.setText(singleton_global.translate.getProperty("menor"));
                 }
             }
         } catch (Exception e) {
@@ -249,16 +249,13 @@ public class DAO_admin {
             Calendar datebirthday = adminnew_view.adddatebirthday.getCalendar();
 
             if (date.after(datesystem)) {
-                //JOptionPane.showMessageDialog(null, singleton_global.translate.getProperty("future"));
-                JOptionPane.showMessageDialog(null, "Futuro");
+                jlblcreate.setText(singleton_global.translate.getProperty("future"));
                 val = false;
             }
 
             years = diferencia.restafechas(date, datebirthday, "years");
-            //if (years < 18) {
             if (diferencia.restafechas(date, datebirthday, "years") <= 18) {
-                //JOptionPane.showMessageDialog(null, singleton_global.translate.getProperty("menor"));
-                JOptionPane.showMessageDialog(null, "Menor para ser contratado");
+                jlblcreate.setText(singleton_global.translate.getProperty("menor"));
                 val = false;
             }
             if (val == true) {
@@ -306,7 +303,7 @@ public class DAO_admin {
         }
         return val;
     }
-    
+
     public static boolean saveeditadmin() {
         boolean val = false;
         if (pidedni() && pidenombre() && pideapellidos() && pidefechanacimiento()
@@ -327,28 +324,28 @@ public class DAO_admin {
             String datecont = aux.calendartostring(adminnew_view.addcontr.getCalendar(), 0);
             float salary = Float.parseFloat(adminnew_view.addsalary.getText());
             int activity = Integer.parseInt(adminnew_view.addactivity.getText());
-            
-            singleton.admin.getAdmin(selected).setDni(dni);
-            singleton.admin.getAdmin(selected).setName(name);
-            singleton.admin.getAdmin(selected).setSubname(surname);
-            singleton.admin.getAdmin(selected).setMobile(mobile);
-            singleton.admin.getAdmin(selected).setEmail(email);
-            singleton.admin.getAdmin(selected).setDate_birthday(datebirthday);
-            singleton.admin.getAdmin(selected).setUser(nameuser);
-            singleton.admin.getAdmin(selected).setPass(passwd);
-            singleton.admin.getAdmin(selected).setAvatar(avatar);
-            singleton.admin.getAdmin(selected).setState(status);
-            singleton.admin.getAdmin(selected).setHiring_date(datecont);
-            singleton.admin.getAdmin(selected).setSalary(salary);
-            singleton.admin.getAdmin(selected).setActivity(activity);
-            
+            int inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
+            selected = TABLA.getSelectedRow();
+            int selected1 = inicio + selected;
+            singleton.admin.getAdmin(selected1).setDni(dni);
+            singleton.admin.getAdmin(selected1).setName(name);
+            singleton.admin.getAdmin(selected1).setSubname(surname);
+            singleton.admin.getAdmin(selected1).setMobile(mobile);
+            singleton.admin.getAdmin(selected1).setEmail(email);
+            singleton.admin.getAdmin(selected1).setDate_birthday(datebirthday);
+            singleton.admin.getAdmin(selected1).setUser(nameuser);
+            singleton.admin.getAdmin(selected1).setPass(passwd);
+            singleton.admin.getAdmin(selected1).setAvatar(avatar);
+            singleton.admin.getAdmin(selected1).setState(status);
+            singleton.admin.getAdmin(selected1).setHiring_date(datecont);
+            singleton.admin.getAdmin(selected1).setSalary(salary);
+            singleton.admin.getAdmin(selected1).setActivity(activity);
             val = true;
         }
         return val;
     }
-    
+
     public static void fillfields(int pos) {
-        System.out.println("Entra función de rellenar - 5");
         fecha aux = new fecha();
         adddni.setText(singleton.admin.getAdmin(pos).getDni());
         addname.setText(singleton.admin.getAdmin(pos).getName());
@@ -365,4 +362,3 @@ public class DAO_admin {
         addactivity.setText(String.valueOf(singleton.admin.getAdmin(pos).getActivity()));
     }
 }
-

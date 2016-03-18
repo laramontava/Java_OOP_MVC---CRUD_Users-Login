@@ -63,7 +63,6 @@ public class Arraylist_admin {
             JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
         } else {
             pos = -1;
-            //nipaadmind = functions_users.finddniadmin();
             pos = adminfind(admind);
             if (pos != -1) {
                 //admins.get(pos);
@@ -102,7 +101,6 @@ public class Arraylist_admin {
             }
         }
     }
-    //Collections.sort(AL_cli); compareto user => dni
 
     public void adminsearch(admin pideadmin) {
         if (admins.isEmpty()) {
@@ -118,11 +116,11 @@ public class Arraylist_admin {
     }
 
     public int buscarDniAdmin(String dni) {
-
         int pos = 0;
         for (int i = 0; i <= admins.size() - 1; i++) {
-            if (admins.get(i).getDni()==dni) {
-                System.out.println("Entra al if");
+            //if (admins.get(i).getDni()==dni) {
+            //if (admins.get(i).getDni() == null ? dni == null : admins.get(i).getDni().equals(dni)) {
+            if (admins.get(i).getDni().equals(dni)) {
                 pos = i;
             }
         }
@@ -142,7 +140,8 @@ public class Arraylist_admin {
         if (admins.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
         } else {
-            pideadmin = functions_users.finddniadmin();
+            //pideadmin = ;
+            //pideadmin = functions_users.finddniadmin();
             //pideadmin = functions.validatestring("Introdudce DNI del admin que quiers eliminar", "Delete");
             for (int i = 0; i <= admins.size() - 1; i++) {
                 if ((admins.get(i)).equals(pideadmin)) {
@@ -151,7 +150,13 @@ public class Arraylist_admin {
             }
         }
     }
-
+    public void DeleteA(admin pideadmin) {
+        for (int i = 0; i <= admins.size() - 1; i++) {
+            if ((admins.get(i)).equals(pideadmin)) {
+                admins.remove(i);
+            }
+        }
+    }
     public void openfiles() {
         switch (singleton_global.conf.getFormat()) {
             case "json":

@@ -333,6 +333,10 @@
     <Component class="javax.swing.ButtonGroup" name="currency_group">
     </Component>
     <Container class="javax.swing.JDialog" name="languageformat">
+      <Properties>
+        <Property name="alwaysOnTop" type="boolean" value="true"/>
+        <Property name="modal" type="boolean" value="true"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -378,6 +382,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="English"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="englishActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="castellano">
           <Properties>
@@ -386,6 +393,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Castellano"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="castellanoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="valencia">
           <Properties>
@@ -394,6 +404,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Valenci&#xe0;"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="valenciaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -556,7 +569,7 @@
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="create_admin1" min="-2" max="-2" attributes="0"/>
+              <Component id="return_main" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
@@ -567,8 +580,8 @@
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Component id="conf_theme" min="-2" pref="75" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="conf_format" min="-2" pref="82" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <Component id="conf_format" min="-2" pref="80" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
@@ -586,7 +599,7 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jLabel3" min="-2" pref="6" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="create_admin1" min="-2" max="-2" attributes="0"/>
+              <Component id="return_main" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="conf_format" max="32767" attributes="0"/>
@@ -788,13 +801,13 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="create_admin1">
+    <Component class="javax.swing.JButton" name="return_main">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/users/view/img/return2.png"/>
+          <Image iconType="3" name="/app/modules/users/admin/view/img/return2.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Volver atr&#xe1;s"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -809,7 +822,7 @@
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="create_admin1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="return_mainActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">

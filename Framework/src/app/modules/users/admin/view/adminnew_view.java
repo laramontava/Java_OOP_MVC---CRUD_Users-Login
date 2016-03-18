@@ -15,7 +15,6 @@ import java.util.Calendar;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-
 /**
  *
  * @author 1º DAW
@@ -35,6 +34,7 @@ public class adminnew_view extends javax.swing.JFrame {
         confpage();
         
     }
+
     private void confpage(){
         this.setLocationRelativeTo(null);
         this.setSize(590,541);
@@ -50,7 +50,7 @@ public class adminnew_view extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jlblname = new javax.swing.JLabel();
         addname = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         addsurname = new javax.swing.JTextField();
@@ -99,14 +99,14 @@ public class adminnew_view extends javax.swing.JFrame {
         validate_cont = new javax.swing.JLabel();
         chaval1 = new javax.swing.JButton();
         createoredit = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Nombre");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 70, 20));
+        jlblname.setText("Nombre");
+        getContentPane().add(jlblname, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 70, 20));
 
-        addname.setText("Pepe");
         addname.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 addnameFocusLost(evt);
@@ -133,7 +133,6 @@ public class adminnew_view extends javax.swing.JFrame {
         jLabel2.setText("Apellidos");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 70, 20));
 
-        addsurname.setText("Sellés");
         addsurname.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 addsurnameFocusLost(evt);
@@ -160,7 +159,6 @@ public class adminnew_view extends javax.swing.JFrame {
         jLabel3.setText("DNI");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 70, 20));
 
-        adddni.setText("12345678Z");
         adddni.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 adddniFocusLost(evt);
@@ -187,7 +185,6 @@ public class adminnew_view extends javax.swing.JFrame {
         jLabel4.setText("Teléfono");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 70, 20));
 
-        addmobile.setText("650123478");
         addmobile.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 addmobileFocusLost(evt);
@@ -214,7 +211,6 @@ public class adminnew_view extends javax.swing.JFrame {
         jLabel5.setText("Email");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 70, 20));
 
-        addemail.setText("ejemplo@ej.com");
         addemail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 addemailFocusLost(evt);
@@ -246,23 +242,14 @@ public class adminnew_view extends javax.swing.JFrame {
         adddatebirthday.setMaxSelectableDate(new java.util.Date(32503680084000L));
         adddatebirthday.setMinSelectableDate(new java.util.Date(-2208985677000L));
         getContentPane().add(adddatebirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 130, -1));
-
-        dni_validate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(dni_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 28, 20));
-
-        name_validate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(name_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 28, 20));
-
-        surname_validate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(surname_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 28, 20));
-
-        mobile_validate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(mobile_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 30, 20));
 
         jLabel12.setText("Usuario");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 60, 20));
 
-        addnameuser.setText("Nombre de usuario");
         addnameuser.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 addnameuserFocusLost(evt);
@@ -289,7 +276,6 @@ public class adminnew_view extends javax.swing.JFrame {
         jLabel13.setText("Contraseña");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 70, 20));
 
-        addpassword.setText("jPasswordField1");
         addpassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 addpasswordFocusLost(evt);
@@ -324,8 +310,6 @@ public class adminnew_view extends javax.swing.JFrame {
 
         add_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Online", "Offline" }));
         getContentPane().add(add_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 134, -1));
-
-        email_validate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(email_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 30, 20));
         getContentPane().add(avatar_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
         getContentPane().add(state_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -376,8 +360,9 @@ public class adminnew_view extends javax.swing.JFrame {
         getContentPane().add(canceladmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, 75, -1));
 
         titlecreateedit.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        titlecreateedit.setText("Crear un usuario administrador");
-        getContentPane().add(titlecreateedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 11, -1, -1));
+        titlecreateedit.setText("Crear un administrador");
+        titlecreateedit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(titlecreateedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 11, 240, -1));
 
         jLabel7.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
@@ -389,14 +374,8 @@ public class adminnew_view extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 42, 9));
-
-        jlblcreate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(jlblcreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 489, 290, 20));
-
-        nameuser_validate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(nameuser_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 28, 20));
-
-        password_validate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(password_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 28, 20));
 
         jLabel8.setText("F. contratación");
@@ -459,14 +438,8 @@ public class adminnew_view extends javax.swing.JFrame {
             }
         });
         getContentPane().add(addactivity, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 128, -1));
-
-        validateactivity.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(validateactivity, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 30, 20));
-
-        validatesalary.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(validatesalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 30, 20));
-
-        validatebirthday.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(validatebirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 30, 20));
 
         chaval.setText("nacimiento");
@@ -476,8 +449,6 @@ public class adminnew_view extends javax.swing.JFrame {
             }
         });
         getContentPane().add(chaval, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, -1, -1));
-
-        validate_cont.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(validate_cont, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 30, 20));
 
         chaval1.setText("contr");
@@ -489,6 +460,14 @@ public class adminnew_view extends javax.swing.JFrame {
         });
         getContentPane().add(chaval1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, -1, -1));
         getContentPane().add(createoredit, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 40, 20));
+
+        jButton2.setText("Add dummies");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 470, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -509,7 +488,7 @@ public class adminnew_view extends javax.swing.JFrame {
             addavatar.setText(fileurl);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
     private void createadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createadminActionPerformed
         // TODO add your handling code here:
         if(createoredit.isVisible()){
@@ -519,17 +498,17 @@ public class adminnew_view extends javax.swing.JFrame {
                 statusnewadmin.setText("Admin creado correctamente");
                 statusnewadmin.setForeground(Green);
             }else{
-                jlblcreate.setText("Asegúrate de que hayas introducido bien los datos");
+                jlblcreate.setText("Asegúrate de haber introducido bien los datos");
                 jlblcreate.setForeground(Color.red);
             }
         }else{
-            if(BLL_admin.Modificar()){
+            if(BLL_admin.Modificaradmin()){
                 new adminmanage_view().setVisible(true);
                 dispose();
                 statusnewadmin.setText("Admin editado correctamente");
                 statusnewadmin.setForeground(Green);
             }else{
-                jlblcreate.setText("Asegúrate de que hayas introducido bien los datos");
+                jlblcreate.setText("Asegúrate de haber introducido bien los datos");
                 jlblcreate.setForeground(Color.red);
             }
         }
@@ -806,6 +785,13 @@ public class adminnew_view extends javax.swing.JFrame {
         BLL_admin.Contratacion();
     }//GEN-LAST:event_chaval1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        app.modules.users.admin.model.utils.dummies.LoadDummies();
+        this.dispose();
+        new adminmanage_view().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -865,7 +851,7 @@ public class adminnew_view extends javax.swing.JFrame {
     public static javax.swing.JLabel dni_validate;
     public static javax.swing.JLabel email_validate;
     public static javax.swing.JButton jButton1;
-    public static javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     public static javax.swing.JLabel jLabel12;
     public static javax.swing.JLabel jLabel13;
@@ -880,7 +866,8 @@ public class adminnew_view extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel jlblcreate;
+    public static javax.swing.JLabel jlblcreate;
+    public static javax.swing.JLabel jlblname;
     public static javax.swing.JLabel mobile_validate;
     public static javax.swing.JLabel name_validate;
     public static javax.swing.JLabel nameuser_validate;

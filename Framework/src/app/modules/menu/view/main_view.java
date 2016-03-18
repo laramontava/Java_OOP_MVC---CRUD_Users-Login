@@ -5,8 +5,8 @@
  */
 package app.modules.menu.view;
 
+import app.classes.singleton_global;
 import app.modules.config.view.config_view;
-import app.modules.users.admin.view.adminmain_view;
 import app.modules.users.admin.view.adminmanage_view;
 import app.utils.config_save;
 import java.awt.event.WindowAdapter;
@@ -26,6 +26,10 @@ public class main_view extends javax.swing.JFrame {
     public main_view() {
         initComponents();
         confpage();
+        btnadmin_main.setText(singleton_global.translate.getProperty("admin"));
+        btnclient_main.setText(singleton_global.translate.getProperty("client"));
+        btnreguser_main.setText(singleton_global.translate.getProperty("registered_user"));
+        btnconf_main.setText(singleton_global.translate.getProperty("config"));
     }
     private void confpage(){
         this.setSize(409,343);
@@ -43,10 +47,10 @@ public class main_view extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        admin_main = new javax.swing.JButton();
-        conf_main = new javax.swing.JButton();
-        admin_main2 = new javax.swing.JButton();
-        admin_main3 = new javax.swing.JButton();
+        btnclient_main = new javax.swing.JButton();
+        btnconf_main = new javax.swing.JButton();
+        btnadmin_main = new javax.swing.JButton();
+        btnreguser_main = new javax.swing.JButton();
         background_main = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,76 +73,76 @@ public class main_view extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(365, 0, 42, 11);
 
-        admin_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/client.png"))); // NOI18N
-        admin_main.setText("Cliente");
-        admin_main.setToolTipText("Conviértete en cliente y consigue descuentos en tus compras");
-        admin_main.setActionCommand("");
-        admin_main.setBorder(null);
-        admin_main.setContentAreaFilled(false);
-        admin_main.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        admin_main.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        admin_main.setIconTextGap(-1);
-        admin_main.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(admin_main);
-        admin_main.setBounds(30, 120, 90, 80);
+        btnclient_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/client.png"))); // NOI18N
+        btnclient_main.setText("Cliente");
+        btnclient_main.setToolTipText("Conviértete en cliente y consigue descuentos en tus compras");
+        btnclient_main.setActionCommand("");
+        btnclient_main.setBorder(null);
+        btnclient_main.setContentAreaFilled(false);
+        btnclient_main.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnclient_main.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnclient_main.setIconTextGap(-1);
+        btnclient_main.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(btnclient_main);
+        btnclient_main.setBounds(30, 120, 90, 80);
 
-        conf_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/config.png"))); // NOI18N
-        conf_main.setText("Configuración");
-        conf_main.setToolTipText("Modifica la aplicación a tu gusto");
-        conf_main.setActionCommand("");
-        conf_main.setBorder(null);
-        conf_main.setContentAreaFilled(false);
-        conf_main.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        conf_main.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        conf_main.setIconTextGap(-3);
-        conf_main.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/config_press.png"))); // NOI18N
-        conf_main.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/config_press.png"))); // NOI18N
-        conf_main.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        conf_main.addActionListener(new java.awt.event.ActionListener() {
+        btnconf_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/config.png"))); // NOI18N
+        btnconf_main.setText("Configuración");
+        btnconf_main.setToolTipText("Modifica la aplicación a tu gusto");
+        btnconf_main.setActionCommand("");
+        btnconf_main.setBorder(null);
+        btnconf_main.setContentAreaFilled(false);
+        btnconf_main.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnconf_main.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnconf_main.setIconTextGap(-3);
+        btnconf_main.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/config_press.png"))); // NOI18N
+        btnconf_main.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/config_press.png"))); // NOI18N
+        btnconf_main.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnconf_main.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                conf_mainActionPerformed(evt);
+                btnconf_mainActionPerformed(evt);
             }
         });
-        getContentPane().add(conf_main);
-        conf_main.setBounds(310, 230, 90, 80);
+        getContentPane().add(btnconf_main);
+        btnconf_main.setBounds(310, 230, 90, 80);
 
-        admin_main2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/admin.png"))); // NOI18N
-        admin_main2.setText("Administrador");
-        admin_main2.setToolTipText("Usuarios con permiso de administración");
-        admin_main2.setActionCommand("");
-        admin_main2.setBorder(null);
-        admin_main2.setContentAreaFilled(false);
-        admin_main2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        admin_main2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        admin_main2.setIconTextGap(-1);
-        admin_main2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/admin_press.png"))); // NOI18N
-        admin_main2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/admin_press.png"))); // NOI18N
-        admin_main2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        admin_main2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnadmin_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/admin.png"))); // NOI18N
+        btnadmin_main.setText("Administrador");
+        btnadmin_main.setToolTipText("Usuarios con permiso de administración");
+        btnadmin_main.setActionCommand("");
+        btnadmin_main.setBorder(null);
+        btnadmin_main.setContentAreaFilled(false);
+        btnadmin_main.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnadmin_main.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnadmin_main.setIconTextGap(-1);
+        btnadmin_main.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/admin_press.png"))); // NOI18N
+        btnadmin_main.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/admin_press.png"))); // NOI18N
+        btnadmin_main.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnadmin_main.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                admin_main2MouseEntered(evt);
+                btnadmin_mainMouseEntered(evt);
             }
         });
-        admin_main2.addActionListener(new java.awt.event.ActionListener() {
+        btnadmin_main.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                admin_main2ActionPerformed(evt);
+                btnadmin_mainActionPerformed(evt);
             }
         });
-        getContentPane().add(admin_main2);
-        admin_main2.setBounds(30, 21, 90, 80);
+        getContentPane().add(btnadmin_main);
+        btnadmin_main.setBounds(30, 21, 90, 80);
 
-        admin_main3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/registered.png"))); // NOI18N
-        admin_main3.setText("Registrado");
-        admin_main3.setToolTipText("Regístrate para conseguir puntos con tu actividad y aumentar tu nivel de karma");
-        admin_main3.setActionCommand("");
-        admin_main3.setBorder(null);
-        admin_main3.setContentAreaFilled(false);
-        admin_main3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        admin_main3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        admin_main3.setIconTextGap(-1);
-        admin_main3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(admin_main3);
-        admin_main3.setBounds(30, 220, 90, 80);
+        btnreguser_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/registered.png"))); // NOI18N
+        btnreguser_main.setText("Registrado");
+        btnreguser_main.setToolTipText("Regístrate para conseguir puntos con tu actividad y aumentar tu nivel de karma");
+        btnreguser_main.setActionCommand("");
+        btnreguser_main.setBorder(null);
+        btnreguser_main.setContentAreaFilled(false);
+        btnreguser_main.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnreguser_main.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnreguser_main.setIconTextGap(-1);
+        btnreguser_main.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(btnreguser_main);
+        btnreguser_main.setBounds(30, 220, 90, 80);
 
         background_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/background_main.png"))); // NOI18N
         getContentPane().add(background_main);
@@ -146,7 +150,7 @@ public class main_view extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded
         // TODO add your handling code here:
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -161,24 +165,24 @@ public class main_view extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_jLabel2AncestorAdded
-
-    private void admin_main2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admin_main2ActionPerformed
+    
+    private void btnadmin_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadmin_mainActionPerformed
         // TODO add your handling code here:
         //new adminmain_view().setVisible(true);
         new adminmanage_view().setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_admin_main2ActionPerformed
+    }//GEN-LAST:event_btnadmin_mainActionPerformed
 
-    private void conf_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conf_mainActionPerformed
+    private void btnconf_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconf_mainActionPerformed
         // TODO add your handling code here:
         new config_view().setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_conf_mainActionPerformed
+    }//GEN-LAST:event_btnconf_mainActionPerformed
 
-    private void admin_main2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_admin_main2MouseEntered
+    private void btnadmin_mainMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnadmin_mainMouseEntered
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_admin_main2MouseEntered
+    }//GEN-LAST:event_btnadmin_mainMouseEntered
     
     /**
      * @param args the command line arguments
@@ -216,11 +220,11 @@ public class main_view extends javax.swing.JFrame {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton admin_main;
-    public static javax.swing.JButton admin_main2;
-    public static javax.swing.JButton admin_main3;
     private javax.swing.JLabel background_main;
-    public static javax.swing.JButton conf_main;
+    public static javax.swing.JButton btnadmin_main;
+    public static javax.swing.JButton btnclient_main;
+    public static javax.swing.JButton btnconf_main;
+    public static javax.swing.JButton btnreguser_main;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

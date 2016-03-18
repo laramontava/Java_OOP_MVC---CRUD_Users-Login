@@ -11,8 +11,10 @@ import javax.swing.table.AbstractTableModel;
 import app.modules.users.admin.model.classes.admin;
 import app.modules.users.admin.model.utils.pager.pagina;
 import app.modules.users.admin.model.classes.singleton;
+import static app.modules.users.admin.model.classes.singleton.admin;
 import app.modules.users.admin.view.adminmanage_view;
 import static app.modules.users.admin.view.adminmanage_view.combo;
+import static app.modules.users.admin.view.adminmanage_view.jLabel3;
 
 public class miniSimpleTableModel_admin extends AbstractTableModel {
 
@@ -25,7 +27,7 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
     public String getColumnName(int col) {
         return columnas[col].toString();
     }
-
+    
     //Devuelve el numero de filas
     @Override
     public int getRowCount() {
@@ -172,6 +174,8 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
 
     public void removeRow(int fila) {
         datos.remove(fila);
+        jLabel3.setText(String.valueOf(admin.getAdmins().size()-1));
         fireTableDataChanged();
+        pagina.initLinkBox();
     }
 }
