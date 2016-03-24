@@ -1,9 +1,9 @@
 package app;
 
-
 import app.modules.config.model.configuration;
 import app.modules.config.model.idioma;
 import app.classes.singleton_global;
+import app.modules.menu.controller.menu_controller;
 import app.modules.menu.view.main_view;
 import app.modules.users.admin.model.BLL.Arraylist_admin;
 import app.modules.users.admin.model.BLL.Arraylist_client;
@@ -25,7 +25,7 @@ import app.utils.config_save;
 
 /**
  *
- * @author 1º DAW
+ * @author Lara
  */
 public class ppalmain {
     
@@ -82,7 +82,8 @@ public class ppalmain {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new main_view().setVisible(true);
+                //new main_view().setVisible(true);
+                new menu_controller(new main_view()).Iniciar();
             }
         });
     }

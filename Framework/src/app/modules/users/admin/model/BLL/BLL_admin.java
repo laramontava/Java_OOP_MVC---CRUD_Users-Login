@@ -119,6 +119,7 @@ public class BLL_admin {
                 pos = singleton.admin.buscarDniAdmin(dni);
                 ((miniSimpleTableModel_admin) TABLA.getModel()).removeRow(selected1);
                 singleton.admin.DeleteA(singleton.admin.getAdmin(pos));
+                statusnewadmin.setText("Usuario eliminado correctamente");
             }
         } else {
             statusnewadmin.setText("No hay ningún usuario administrador");

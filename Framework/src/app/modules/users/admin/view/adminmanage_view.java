@@ -512,7 +512,6 @@ public class adminmanage_view extends javax.swing.JFrame {
     private void delete_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_adminActionPerformed
         // TODO add your handling code here:
         BLL_admin.Delete();
-        //datos.size();
     }//GEN-LAST:event_delete_adminActionPerformed
 
     private void savejsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savejsonActionPerformed
