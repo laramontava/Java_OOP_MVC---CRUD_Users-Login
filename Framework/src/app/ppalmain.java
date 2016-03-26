@@ -83,7 +83,7 @@ public class ppalmain {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 //new main_view().setVisible(true);
-                new menu_controller(new main_view()).Iniciar();
+                new menu_controller(new main_view(),0).Iniciar(0);
             }
         });
     }

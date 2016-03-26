@@ -5,11 +5,6 @@
  */
 package app.modules.config.view;
 
-import app.classes.singleton_global;
-import app.modules.menu.view.main_view;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
 /**
  *
  * @author Lara
@@ -21,23 +16,7 @@ public class config_view extends javax.swing.JFrame {
      */
     public config_view() {
         initComponents();
-        confpage();
-        conf_data.setText(singleton_global.translate.getProperty("date"));
-        conf_decimal.setText(singleton_global.translate.getProperty("decimal"));
-        conf_theme.setText(singleton_global.translate.getProperty("theme"));
-        conf_format.setText(singleton_global.translate.getProperty("format"));
-        conf_currency.setText(singleton_global.translate.getProperty("currency"));
-        conf_language.setText(singleton_global.translate.getProperty("language"));
-        
-        languageformat.setSize(280, 220);
-        languageformat.setLocationRelativeTo(null);
     }
-
-    private void confpage() {
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,13 +63,15 @@ public class config_view extends javax.swing.JFrame {
         language_group = new javax.swing.ButtonGroup();
         dummiesactivate = new javax.swing.JDialog();
         jLabel8 = new javax.swing.JLabel();
-        activatedesactivate = new javax.swing.JButton();
+        dummieon = new javax.swing.JRadioButton();
+        dummieoff = new javax.swing.JRadioButton();
         date = new javax.swing.JFrame();
         jLabel2 = new javax.swing.JLabel();
         dateformat5 = new javax.swing.JRadioButton();
         dateformat6 = new javax.swing.JRadioButton();
         dateformat7 = new javax.swing.JRadioButton();
         dateformat8 = new javax.swing.JRadioButton();
+        dummies_group = new javax.swing.ButtonGroup();
         conf_data = new javax.swing.JButton();
         conf_decimal = new javax.swing.JButton();
         conf_theme = new javax.swing.JButton();
@@ -295,27 +276,12 @@ public class config_view extends javax.swing.JFrame {
 
         language_group.add(english);
         english.setText("English");
-        english.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                englishActionPerformed(evt);
-            }
-        });
 
         language_group.add(castellano);
         castellano.setText("Castellano");
-        castellano.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                castellanoActionPerformed(evt);
-            }
-        });
 
         language_group.add(valencia);
         valencia.setText("Valencià");
-        valencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                valenciaActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout languageformatLayout = new javax.swing.GroupLayout(languageformat.getContentPane());
         languageformat.getContentPane().setLayout(languageformatLayout);
@@ -346,25 +312,22 @@ public class config_view extends javax.swing.JFrame {
 
         jLabel8.setText("Activar o desactivar los dummies");
 
-        activatedesactivate.setText("Activar");
-        activatedesactivate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                activatedesactivateActionPerformed(evt);
-            }
-        });
+        dummies_group.add(dummieon);
+        dummieon.setText("Activar");
+
+        dummies_group.add(dummieoff);
+        dummieoff.setText("Desactivar");
 
         javax.swing.GroupLayout dummiesactivateLayout = new javax.swing.GroupLayout(dummiesactivate.getContentPane());
         dummiesactivate.getContentPane().setLayout(dummiesactivateLayout);
         dummiesactivateLayout.setHorizontalGroup(
             dummiesactivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dummiesactivateLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(dummiesactivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dummiesactivateLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel8))
-                    .addGroup(dummiesactivateLayout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(activatedesactivate)))
+                    .addComponent(dummieoff)
+                    .addComponent(dummieon)
+                    .addComponent(jLabel8))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         dummiesactivateLayout.setVerticalGroup(
@@ -372,9 +335,11 @@ public class config_view extends javax.swing.JFrame {
             .addGroup(dummiesactivateLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8)
-                .addGap(40, 40, 40)
-                .addComponent(activatedesactivate)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(dummieon)
+                .addGap(18, 18, 18)
+                .addComponent(dummieoff)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jLabel2.setText("Elige un formato de fecha");
@@ -435,11 +400,6 @@ public class config_view extends javax.swing.JFrame {
         conf_data.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         conf_data.setIconTextGap(-1);
         conf_data.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        conf_data.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                conf_dataActionPerformed(evt);
-            }
-        });
 
         conf_decimal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/config/view/img/decimals.png"))); // NOI18N
         conf_decimal.setText("Decimales");
@@ -451,11 +411,6 @@ public class config_view extends javax.swing.JFrame {
         conf_decimal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         conf_decimal.setIconTextGap(5);
         conf_decimal.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        conf_decimal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                conf_decimalActionPerformed(evt);
-            }
-        });
 
         conf_theme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/config/view/img/theme.png"))); // NOI18N
         conf_theme.setText("Tema");
@@ -467,11 +422,6 @@ public class config_view extends javax.swing.JFrame {
         conf_theme.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         conf_theme.setIconTextGap(-1);
         conf_theme.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        conf_theme.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                conf_themeActionPerformed(evt);
-            }
-        });
 
         conf_format.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/config/view/img/format.png"))); // NOI18N
         conf_format.setText("Formato");
@@ -483,11 +433,6 @@ public class config_view extends javax.swing.JFrame {
         conf_format.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         conf_format.setIconTextGap(-1);
         conf_format.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        conf_format.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                conf_formatActionPerformed(evt);
-            }
-        });
 
         conf_currency.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/config/view/img/currency.png"))); // NOI18N
         conf_currency.setText("Moneda");
@@ -499,11 +444,6 @@ public class config_view extends javax.swing.JFrame {
         conf_currency.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         conf_currency.setIconTextGap(-1);
         conf_currency.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        conf_currency.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                conf_currencyActionPerformed(evt);
-            }
-        });
 
         conf_language.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/config/view/img/language.png"))); // NOI18N
         conf_language.setText("Idioma");
@@ -515,11 +455,6 @@ public class config_view extends javax.swing.JFrame {
         conf_language.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         conf_language.setIconTextGap(-1);
         conf_language.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        conf_language.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                conf_languageActionPerformed(evt);
-            }
-        });
 
         conf_dummies.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/config/view/img/dummies.png"))); // NOI18N
         conf_dummies.setText("Dummies");
@@ -531,11 +466,6 @@ public class config_view extends javax.swing.JFrame {
         conf_dummies.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         conf_dummies.setIconTextGap(-1);
         conf_dummies.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        conf_dummies.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                conf_dummiesActionPerformed(evt);
-            }
-        });
 
         return_main.setBackground(new java.awt.Color(255, 0, 153));
         return_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/return2.png"))); // NOI18N
@@ -546,21 +476,6 @@ public class config_view extends javax.swing.JFrame {
         return_main.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         return_main.setIconTextGap(-3);
         return_main.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        return_main.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                return_mainActionPerformed(evt);
-            }
-        });
-
-        jLabel3.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel3AncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -616,159 +531,8 @@ public class config_view extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void conf_themeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conf_themeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_conf_themeActionPerformed
-
-    private void conf_formatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conf_formatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_conf_formatActionPerformed
-
-    private void conf_currencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conf_currencyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_conf_currencyActionPerformed
-
-    private void conf_languageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conf_languageActionPerformed
-        // TODO add your handling code here:
-        languageformat.setVisible(true);
-        languageformat.setSize(280, 220);
-        languageformat.setLocationRelativeTo(null);
-    }//GEN-LAST:event_conf_languageActionPerformed
-
-    private void conf_dummiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conf_dummiesActionPerformed
-        // TODO add your handling code here:
-        dummiesactivate.setVisible(true);
-        dummiesactivate.setSize(280, 220);
-        dummiesactivate.setLocationRelativeTo(null);
-    }//GEN-LAST:event_conf_dummiesActionPerformed
-
-    private void conf_dataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conf_dataActionPerformed
-        // TODO add your handling code here:
-        date.setVisible(true);
-        date.setSize(280, 220);
-        date.setLocationRelativeTo(null);
-    }//GEN-LAST:event_conf_dataActionPerformed
-
-    private void conf_decimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conf_decimalActionPerformed
-        // TODO add your handling code here:
-        decimalsformat.setVisible(true);
-        decimalsformat.setSize(280, 220);
-        decimalsformat.setLocationRelativeTo(null);
-    }//GEN-LAST:event_conf_decimalActionPerformed
-
-    private void return_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_return_mainActionPerformed
-        // TODO add your handling code here:
-        new main_view().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_return_mainActionPerformed
-
-    private void jLabel3AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel3AncestorAdded
-        // TODO add your handling code here:
-        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                dispose();
-                new main_view().setVisible(true);
-            }
-        });
-    }//GEN-LAST:event_jLabel3AncestorAdded
-    boolean state = false;
-    private void activatedesactivateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activatedesactivateActionPerformed
-        // TODO add your handling code here:
-
-        if (!state) {
-            app.modules.users.admin.view.adminmain_view.dummies.setVisible(true);
-            activatedesactivate.setText("Desactivar");
-            state = true;
-        } else {
-            app.modules.users.admin.view.adminmain_view.dummies.setVisible(false);
-            activatedesactivate.setText("Activar");
-            state = false;
-        }
-
-    }//GEN-LAST:event_activatedesactivateActionPerformed
-
-    private void englishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_englishActionPerformed
-        // TODO add your handling code here:
-        singleton_global.conf.setLanguage("english");
-        singleton_global.translate.setIdioma("english");
-        singleton_global.translate.getIdioma();
-        
-        conf_data.setText(singleton_global.translate.getProperty("date"));
-        conf_decimal.setText(singleton_global.translate.getProperty("decimal"));
-        conf_theme.setText(singleton_global.translate.getProperty("theme"));
-        conf_format.setText(singleton_global.translate.getProperty("format"));
-        conf_currency.setText(singleton_global.translate.getProperty("currency"));
-        conf_language.setText(singleton_global.translate.getProperty("language"));
-    }//GEN-LAST:event_englishActionPerformed
-
-    private void castellanoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castellanoActionPerformed
-        // TODO add your handling code here:
-        singleton_global.conf.setLanguage("castellano");
-        singleton_global.translate.setIdioma("castellano");
-        singleton_global.translate.getIdioma();
-        
-        conf_data.setText(singleton_global.translate.getProperty("date"));
-        conf_decimal.setText(singleton_global.translate.getProperty("decimal"));
-        conf_theme.setText(singleton_global.translate.getProperty("theme"));
-        conf_format.setText(singleton_global.translate.getProperty("format"));
-        conf_currency.setText(singleton_global.translate.getProperty("currency"));
-        conf_language.setText(singleton_global.translate.getProperty("language"));
-    }//GEN-LAST:event_castellanoActionPerformed
-
-    private void valenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valenciaActionPerformed
-        // TODO add your handling code here:
-        singleton_global.conf.setLanguage("valencia");
-        singleton_global.translate.setIdioma("valencia");
-        singleton_global.translate.getIdioma();
-        
-        conf_data.setText(singleton_global.translate.getProperty("date"));
-        conf_decimal.setText(singleton_global.translate.getProperty("decimal"));
-        conf_theme.setText(singleton_global.translate.getProperty("theme"));
-        conf_format.setText(singleton_global.translate.getProperty("format"));
-        conf_currency.setText(singleton_global.translate.getProperty("currency"));
-        conf_language.setText(singleton_global.translate.getProperty("language"));
-    }//GEN-LAST:event_valenciaActionPerformed
-    
-    /**
-     * @param args the command line arguments
-     */
-    /* public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         *
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(config_view.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(config_view.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(config_view.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(config_view.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new config_view().setVisible(true);
-            }
-        });
-    }*/
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton activatedesactivate;
-    private javax.swing.JRadioButton castellano;
+    public static javax.swing.JRadioButton castellano;
     public static javax.swing.JButton conf_currency;
     public static javax.swing.JButton conf_data;
     public static javax.swing.JButton conf_decimal;
@@ -777,48 +541,51 @@ public class config_view extends javax.swing.JFrame {
     public static javax.swing.JButton conf_language;
     public static javax.swing.JButton conf_theme;
     private javax.swing.ButtonGroup currency_group;
-    private javax.swing.JDialog currencyformat;
+    public static javax.swing.JDialog currencyformat;
     private javax.swing.JFrame date;
     private javax.swing.ButtonGroup date_group;
-    private javax.swing.JDialog dateformat;
-    private javax.swing.JRadioButton dateformat1;
-    private javax.swing.JRadioButton dateformat2;
-    private javax.swing.JRadioButton dateformat3;
-    private javax.swing.JRadioButton dateformat4;
+    public static javax.swing.JDialog dateformat;
+    public static javax.swing.JRadioButton dateformat1;
+    public static javax.swing.JRadioButton dateformat2;
+    public static javax.swing.JRadioButton dateformat3;
+    public static javax.swing.JRadioButton dateformat4;
     private javax.swing.JRadioButton dateformat5;
     private javax.swing.JRadioButton dateformat6;
     private javax.swing.JRadioButton dateformat7;
     private javax.swing.JRadioButton dateformat8;
-    private javax.swing.JRadioButton decimals1;
-    private javax.swing.JRadioButton decimals2;
-    private javax.swing.JRadioButton decimals3;
+    public static javax.swing.JRadioButton decimals1;
+    public static javax.swing.JRadioButton decimals2;
+    public static javax.swing.JRadioButton decimals3;
     private javax.swing.ButtonGroup decimals_group;
-    private javax.swing.JDialog decimalsformat;
-    private javax.swing.JRadioButton dolar;
-    private javax.swing.JDialog dummiesactivate;
-    private javax.swing.JRadioButton english;
-    private javax.swing.JRadioButton euro;
-    private javax.swing.JDialog fileformat;
+    public static javax.swing.JDialog decimalsformat;
+    public static javax.swing.JRadioButton dolar;
+    public static javax.swing.JRadioButton dummieoff;
+    public static javax.swing.JRadioButton dummieon;
+    private javax.swing.ButtonGroup dummies_group;
+    public static javax.swing.JDialog dummiesactivate;
+    public static javax.swing.JRadioButton english;
+    public static javax.swing.JRadioButton euro;
+    public static javax.swing.JDialog fileformat;
     private javax.swing.ButtonGroup formatfile_group;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    public static javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    public static javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JRadioButton json;
+    public static javax.swing.JRadioButton json;
     private javax.swing.ButtonGroup language_group;
-    private javax.swing.JDialog languageformat;
-    private javax.swing.JRadioButton libra;
-    private javax.swing.JRadioButton metal;
-    private javax.swing.JRadioButton nimbus;
-    private javax.swing.JButton return_main;
+    public static javax.swing.JDialog languageformat;
+    public static javax.swing.JRadioButton libra;
+    public static javax.swing.JRadioButton metal;
+    public static javax.swing.JRadioButton nimbus;
+    public static javax.swing.JButton return_main;
     private javax.swing.ButtonGroup theme_group;
-    private javax.swing.JDialog themeformat;
-    private javax.swing.JRadioButton txt;
-    private javax.swing.JRadioButton valencia;
-    private javax.swing.JRadioButton xml;
+    public static javax.swing.JDialog themeformat;
+    public static javax.swing.JRadioButton txt;
+    public static javax.swing.JRadioButton valencia;
+    public static javax.swing.JRadioButton xml;
     // End of variables declaration//GEN-END:variables
 }
