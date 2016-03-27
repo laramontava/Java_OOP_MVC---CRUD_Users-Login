@@ -138,16 +138,13 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
             combo = new AutocompleteJComboBox(searchable);
             jPanel3.setLayout(new java.awt.BorderLayout());
             jPanel3.add(combo);
-            
-            /*
+
             combo.addActionListener(new java.awt.event.ActionListener() {
                 @Override
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     comboActionPerformed(evt);
                 }
-            });*/
-            
-            
+            });
 
             adminmanage_view.create_admin.setActionCommand("btnCrear");
             adminmanage_view.create_admin.addActionListener(this);
@@ -188,6 +185,15 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
 
             adminmanage_view.searchby.setActionCommand("Search");
             adminmanage_view.searchby.addMouseListener(this);
+        } else if (op == 1) {
+            ppalmain.singleton_vtna = "adminnew_view";
+            Crear.setVisible(true);
+            Crear.setLocationRelativeTo(null);
+            Crear.setSize(590, 541);
+            Crear.setResizable(false);
+        }
+        else if (op == 2) {
+            
         }
     }
 
@@ -205,6 +211,7 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
             case btnModificar:
                 break;
             case btnEliminar:
+                BLL_admin.Delete();
                 break;
             case btnGuardarJson:
                 singleton.admin.savejson();

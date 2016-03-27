@@ -121,7 +121,7 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
         int cont = 0;
 
         String nom = (String) ((JComboBox) combo).getSelectedItem();
-        if (adminmanage_view.searchby.getSelectedItem().toString() == "First name") {
+        //if (adminmanage_view.searchby.getSelectedItem().toString() == "First name") {
             if (nom != null) {
                 for (int i = 0; i < datosaux.size(); i++) {
                     if (datosaux.get(i).getName().toLowerCase().startsWith(nom.toLowerCase())) {
@@ -133,8 +133,8 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
                 //        System.out.println("word selected: " + nom);
                 pagina.initLinkBox();
             }
-        } else if(adminmanage_view.searchby.getSelectedItem().toString() == "DNI"){
-            if (nom != null) {
+        //} else if(adminmanage_view.searchby.getSelectedItem().toString() == "DNI"){
+        /*    if (nom != null) {
             for (int i = 0; i < datosaux.size(); i++) {
                 if (datosaux.get(i).getDni().toLowerCase().startsWith(nom.toLowerCase())) {
                     addRow(datosaux.get(i));
@@ -144,7 +144,7 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
             adminmanage_view.jLabel3.setText(String.valueOf(cont));
             pagina.initLinkBox();
             }
-        }
+        }*/
     }
 
     public admin buscar(String u) {

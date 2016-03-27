@@ -301,11 +301,6 @@ public class adminmanage_view extends javax.swing.JFrame {
         delete_admin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         delete_admin.setIconTextGap(-1);
         delete_admin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        delete_admin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                delete_adminActionPerformed(evt);
-            }
-        });
 
         savejson.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/filejson.png"))); // NOI18N
         savejson.setBorder(null);
@@ -457,11 +452,6 @@ public class adminmanage_view extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, selected);
         DAO_admin.fillfields(selected);*/
     }//GEN-LAST:event_edit_adminActionPerformed
-
-    private void delete_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_adminActionPerformed
-        // TODO add your handling code here:
-//        BLL_admin.Delete();
-    }//GEN-LAST:event_delete_adminActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
