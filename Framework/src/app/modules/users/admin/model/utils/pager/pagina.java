@@ -12,6 +12,7 @@ import javax.swing.JRadioButton;
 import javax.swing.RowFilter;
 import javax.swing.table.TableModel;
 import app.modules.users.admin.view.adminmanage_view;
+import app.modules.users.admin.controller.admin_controller;
 import app.modules.users.admin.model.classes.miniSimpleTableModel_admin;
 
 public class pagina {
@@ -40,7 +41,8 @@ public class pagina {
 
     public static void initLinkBox() {
 
-        app.modules.users.admin.view.adminmanage_view.sorter.setRowFilter(new RowFilter<TableModel, Integer>() {
+        //app.modules.users.admin.view.adminmanage_view.sorter.setRowFilter(new RowFilter<TableModel, Integer>() {
+        app.modules.users.admin.controller.admin_controller.sorter.setRowFilter(new RowFilter<TableModel, Integer>() {
             @Override
             public boolean include(RowFilter.Entry<? extends TableModel, ? extends Integer> entry) {
                 int ti = currentPageIndex - 1;

@@ -18,6 +18,8 @@ import static app.modules.menu.view.main_view.btnadmin_main;
 import static app.modules.menu.view.main_view.btnclient_main;
 import static app.modules.menu.view.main_view.btnconf_main;
 import static app.modules.menu.view.main_view.btnreguser_main;
+import app.modules.users.admin.controller.admin_controller;
+import app.modules.users.admin.view.adminmanage_view;
 import app.ppalmain;
 import app.utils.config_save;
 import java.awt.event.ActionEvent;
@@ -205,7 +207,8 @@ public class menu_controller implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (Option.valueOf(e.getActionCommand())) {
             case btn_adminmain:
-                //controller admin
+                new admin_controller(new adminmanage_view(),0).Iniciar(0);
+                mainview.dispose();
                 break;
             case btn_clientmain:
                 JOptionPane.showMessageDialog(null, "Cli");
