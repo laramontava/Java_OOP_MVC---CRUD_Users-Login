@@ -5,6 +5,8 @@
  */
 package app.modules.users.admin.controller;
 
+import app.classes.singleton_global;
+import static app.classes.singleton_global.Green;
 import app.modules.menu.controller.menu_controller;
 import app.modules.menu.view.main_view;
 import app.modules.users.admin.model.BLL.BLL_admin;
@@ -17,12 +19,16 @@ import app.modules.users.admin.model.utils.pager.pagina;
 import app.modules.users.admin.view.adminmanage_view;
 import static app.modules.users.admin.view.adminmanage_view.TABLA;
 import static app.modules.users.admin.view.adminmanage_view.jComboBox1;
-import static app.modules.users.admin.view.adminmanage_view.jPanel3;
+import static app.modules.users.admin.view.adminmanage_view.statusnewadmin;
 import app.modules.users.admin.view.adminnew_view;
-import static app.modules.users.admin.view.adminnew_view.createoredit;
+import static app.modules.users.admin.view.adminnew_view.addavatar;
+import static app.modules.users.admin.view.adminnew_view.adddummies;
+import static app.modules.users.admin.view.adminnew_view.avataradd;
+import static app.modules.users.admin.view.adminnew_view.jlblcreate;
 import static app.modules.users.admin.view.adminnew_view.titlecreateedit;
 import app.ppalmain;
 import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
+import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,11 +43,14 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import static app.modules.users.admin.view.adminmanage_view.searchby;
 
 /**
  *
@@ -55,6 +64,10 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
     public static adminnew_view Crear;
     public static TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(new miniSimpleTableModel_admin());
     public static AutocompleteJComboBox combo = null;
+    int dia, mes, anyo;
+    private FileNameExtensionFilter filter = new FileNameExtensionFilter
+        ("Archivo de imagen","jpg","png","gif");
+    String rutaimagen="";
 
     public admin_controller(JFrame option, int i) {
         if (i == 0) {
@@ -82,7 +95,21 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
         ultimo,
         ComboPager,
         tableAdmin,
-        Search
+        Search,
+        //
+        jtxtDni,
+        jtxtName,
+        jtxtSurname,
+        jtxtMobile,
+        jtxtEmail,
+        jtxtNameUser,
+        jtxtPasswd,
+        jtxtSalary,
+        jtxtActivity,
+        btnDummies,
+        btnCreate,
+        btnCancel,
+        btnAvatar
     }
 
     public void Iniciar(int op) {
@@ -106,10 +133,11 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                     if (me.getClickCount() == 2) {
                         if (BLL_admin.Modificar()) {
                             TableAdmin.dispose();
-                            new adminnew_view().setVisible(true);
+                            //meh new adminnew_view().setVisible(true);
+                            new admin_controller(new adminnew_view(), 2).Iniciar(2);
                             BLL_admin.LlenarCampos();
                             titlecreateedit.setText("Editar un usuario administrador");
-                            createoredit.setVisible(false);
+                            adddummies.setVisible(false);
                         }
                     }
                 }
@@ -136,8 +164,8 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
 
             StringSearchable searchable = new StringSearchable(myWords);
             combo = new AutocompleteJComboBox(searchable);
-            jPanel3.setLayout(new java.awt.BorderLayout());
-            jPanel3.add(combo);
+            searchby.setLayout(new java.awt.BorderLayout());
+            searchby.add(combo);
 
             combo.addActionListener(new java.awt.event.ActionListener() {
                 @Override
@@ -183,22 +211,137 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
             adminmanage_view.TABLA.setName("tableAdmin");
             adminmanage_view.TABLA.addMouseListener(this);
 
-            adminmanage_view.searchby.setActionCommand("Search");
-            adminmanage_view.searchby.addMouseListener(this);
         } else if (op == 1) {
             ppalmain.singleton_vtna = "adminnew_view";
             Crear.setVisible(true);
             Crear.setLocationRelativeTo(null);
             Crear.setSize(590, 541);
             Crear.setResizable(false);
-        }
-        else if (op == 2) {
-            
+
+            adminnew_view.adddni.setActionCommand("jtxtDni");
+            adminnew_view.adddni.addKeyListener(this);
+            adminnew_view.adddni.addActionListener(this);
+
+            adminnew_view.addname.setActionCommand("jtxtName");
+            adminnew_view.addname.addKeyListener(this);
+            adminnew_view.addname.addActionListener(this);
+
+            adminnew_view.addsurname.setActionCommand("jtxtSurname");
+            adminnew_view.addsurname.addKeyListener(this);
+            adminnew_view.addsurname.addActionListener(this);
+
+            adminnew_view.addmobile.setActionCommand("jtxtMobile");
+            adminnew_view.addmobile.addKeyListener(this);
+            adminnew_view.addmobile.addActionListener(this);
+
+            adminnew_view.addemail.setActionCommand("jtxtEmail");
+            adminnew_view.addemail.addKeyListener(this);
+            adminnew_view.addemail.addActionListener(this);
+
+            adminnew_view.addnameuser.setActionCommand("jtxtNameUser");
+            adminnew_view.addnameuser.addKeyListener(this);
+            adminnew_view.addnameuser.addActionListener(this);
+
+            adminnew_view.addpassword.setActionCommand("jtxtPasswd");
+            adminnew_view.addpassword.addKeyListener(this);
+            adminnew_view.addpassword.addActionListener(this);
+
+            adminnew_view.addsalary.setActionCommand("jtxtSalary");
+            adminnew_view.addsalary.addKeyListener(this);
+            adminnew_view.addsalary.addActionListener(this);
+
+            adminnew_view.addactivity.setActionCommand("jtxtActivity");
+            adminnew_view.addactivity.addKeyListener(this);
+            adminnew_view.addactivity.addActionListener(this);
+
+            adminnew_view.adddummies.setActionCommand("btnDummies");
+            adminnew_view.adddummies.addActionListener(this);
+
+            adminnew_view.createadmin.setActionCommand("btnCreate");
+            adminnew_view.createadmin.addActionListener(this);
+
+            adminnew_view.canceladmin.setActionCommand("btnCancel");
+            adminnew_view.canceladmin.addActionListener(this);
+
+            adminnew_view.avataradd.setActionCommand("btnAvatar");
+            adminnew_view.avataradd.addActionListener(this);
+
+            Crear.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    Crear.dispose();
+                    new admin_controller(new adminmanage_view(), 0).Iniciar(0);
+                }
+            });
+        } else if (op == 2) {
+            ppalmain.singleton_vtna = "adminnew_view";
+            Modificar.setVisible(true);
+            Modificar.setLocationRelativeTo(null);
+            Modificar.setSize(590, 541);
+            Modificar.setResizable(false);
+            adddummies.setVisible(false);
+            BLL_admin.LlenarCampos();
+
+            titlecreateedit.setText(singleton_global.translate.getProperty("edittit"));
+
+            adminnew_view.adddni.setActionCommand("jtxtDni");
+            adminnew_view.adddni.addKeyListener(this);
+            adminnew_view.adddni.addActionListener(this);
+
+            adminnew_view.addname.setActionCommand("jtxtName");
+            adminnew_view.addname.addKeyListener(this);
+            adminnew_view.addname.addActionListener(this);
+
+            adminnew_view.addsurname.setActionCommand("jtxtSurname");
+            adminnew_view.addsurname.addKeyListener(this);
+            adminnew_view.addsurname.addActionListener(this);
+
+            adminnew_view.addmobile.setActionCommand("jtxtMobile");
+            adminnew_view.addmobile.addKeyListener(this);
+            adminnew_view.addmobile.addActionListener(this);
+
+            adminnew_view.addemail.setActionCommand("jtxtEmail");
+            adminnew_view.addemail.addKeyListener(this);
+            adminnew_view.addemail.addActionListener(this);
+
+            adminnew_view.addnameuser.setActionCommand("jtxtNameUser");
+            adminnew_view.addnameuser.addKeyListener(this);
+            adminnew_view.addnameuser.addActionListener(this);
+
+            adminnew_view.addpassword.setActionCommand("jtxtPasswd");
+            adminnew_view.addpassword.addKeyListener(this);
+            adminnew_view.addpassword.addActionListener(this);
+
+            adminnew_view.addsalary.setActionCommand("jtxtSalary");
+            adminnew_view.addsalary.addKeyListener(this);
+            adminnew_view.addsalary.addActionListener(this);
+
+            adminnew_view.addactivity.setActionCommand("jtxtActivity");
+            adminnew_view.addactivity.addKeyListener(this);
+            adminnew_view.addactivity.addActionListener(this);
+
+            adminnew_view.adddummies.setActionCommand("btnDummies");
+            adminnew_view.adddummies.addActionListener(this);
+
+            adminnew_view.createadmin.setActionCommand("btnCreate");
+            adminnew_view.createadmin.addActionListener(this);
+
+            adminnew_view.canceladmin.setActionCommand("btnCancel");
+            adminnew_view.canceladmin.addActionListener(this);
+
+            Modificar.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    Modificar.dispose();
+                    new admin_controller(new adminmanage_view(), 0).Iniciar(0);
+                }
+            });
         }
     }
 
     public static void comboActionPerformed(java.awt.event.ActionEvent evt) {
-        //    System.out.println("word selected: " + ((JComboBox)combo).getSelectedItem());
         pagina.currentPageIndex = 1;
         ((miniSimpleTableModel_admin) TABLA.getModel()).filtrar();
     }
@@ -207,8 +350,14 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
     public void actionPerformed(ActionEvent e) {
         switch (admin_controller.Option.valueOf(e.getActionCommand())) {
             case btnCrear:
+                new admin_controller(new adminnew_view(), 1).Iniciar(1);
+                TableAdmin.dispose();
                 break;
             case btnModificar:
+                if (BLL_admin.Modificar()) {
+                    new admin_controller(new adminnew_view(), 2).Iniciar(2);
+                    TableAdmin.dispose();
+                }
                 break;
             case btnEliminar:
                 BLL_admin.Delete();
@@ -247,6 +396,82 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                 pagina.currentPageIndex = 1;
                 pagina.initLinkBox();
                 break;
+            case jtxtDni: //validaciones
+                BLL_admin.DniValidate();
+                break;
+            case jtxtName:
+                BLL_admin.NameValidate();
+                break;
+            case jtxtSurname:
+                BLL_admin.SurnameValidate();
+                break;
+            case jtxtMobile:
+                BLL_admin.MobileValidate();
+                break;
+            case jtxtEmail:
+                BLL_admin.EmailValidate();
+                break;
+            case jtxtNameUser:
+                BLL_admin.UserNameValidate();
+                break;
+            case jtxtPasswd:
+                BLL_admin.PasswordValidate();
+                break;
+            case jtxtSalary:
+                BLL_admin.SalaryValidate();
+                break;
+            case jtxtActivity:
+                BLL_admin.ActivityValidate();
+                break;
+            case btnDummies:
+                app.modules.users.admin.model.utils.dummies.LoadDummies();
+                Crear.dispose();
+                new admin_controller(new adminmanage_view(), 0).Iniciar(0);
+                break;
+            case btnCreate:
+                if (adddummies.isVisible()) {
+                    if (BLL_admin.adminsave()) {
+                        new admin_controller(new adminmanage_view(), 0).Iniciar(0);
+                        Crear.dispose();
+                        statusnewadmin.setText("Admin creado correctamente");
+                        statusnewadmin.setForeground(Green);
+                    } else {
+                        jlblcreate.setText("Asegúrate de haber introducido bien los datos");
+                        jlblcreate.setForeground(Color.red);
+                    }
+                } else if (BLL_admin.Modificaradmin()) {
+                    new admin_controller(new adminmanage_view(), 0).Iniciar(0);
+                    Modificar.dispose();
+                    statusnewadmin.setText("Admin editado correctamente");
+                    statusnewadmin.setForeground(Green);
+                } else {
+                    jlblcreate.setText("Asegúrate de haber introducido bien los datos");
+                    jlblcreate.setForeground(Color.red);
+                }
+                break;
+            case btnCancel:
+                if (adddummies.isVisible()) {
+                    new admin_controller(new adminmanage_view(), 0).Iniciar(0);
+                    Crear.dispose();
+                    statusnewadmin.setText("Se ha cancelado la creación de un nuevo admin");
+                    statusnewadmin.setForeground(Color.red);
+                } else {
+                    new admin_controller(new adminmanage_view(), 0).Iniciar(0);
+                    Modificar.dispose();
+                    statusnewadmin.setText("Se ha cancelado la modificación de un admin");
+                    statusnewadmin.setForeground(Color.RED);
+                }
+                break;
+            case btnAvatar:
+                JFileChooser dlg = new JFileChooser();
+                dlg.setFileFilter(filter);
+                int option = dlg.showOpenDialog(avataradd);
+                if (option == JFileChooser.APPROVE_OPTION) {
+                    String filename = dlg.getSelectedFile().getPath();
+                    String fileurl = dlg.getSelectedFile().toString();
+                    addavatar.setText(fileurl);
+                }
+                break;
         }
     }
 
@@ -264,7 +489,7 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
 
     @Override
     public void keyPressed(KeyEvent es) {
-
+        
     }
 
     @Override
@@ -279,14 +504,14 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                 if (ef.getClickCount() == 2) {
                     if (BLL_admin.Modificar()) {
                         TableAdmin.dispose();
-                        new adminnew_view().setVisible(true);
+                    //meh    new adminnew_view().setVisible(true);
+                        new admin_controller(new adminnew_view(), 2).Iniciar(2);
                         BLL_admin.LlenarCampos();
                         titlecreateedit.setText("Editar un usuario administrador");
-                        createoredit.setVisible(false);
+                        adddummies.setVisible(false);
                     }
                 }
                 break;
-
         }
     }
 

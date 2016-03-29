@@ -20,26 +20,26 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author 1º DAW
  */
 public class adminnew_view extends javax.swing.JFrame {
-    Calendar fnac;
+/*    Calendar fnac;
     int dia, mes, anyo;
     private FileNameExtensionFilter filter = new FileNameExtensionFilter
         ("Archivo de imagen","jpg","png","gif");
-    String rutaimagen;
+    String rutaimagen;*/
     /**
      * Creates new form newadmin_view
      */
     public adminnew_view() {
         initComponents();
-        rutaimagen="";
-        confpage();
+     //   rutaimagen="";
+     //   confpage();
         
     }
 
-    private void confpage(){
+  /*  private void confpage(){
         this.setLocationRelativeTo(null);
         this.setSize(590,541);
         this.setResizable(false);
-    }
+    }*/
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,7 +77,7 @@ public class adminnew_view extends javax.swing.JFrame {
         email_validate = new javax.swing.JLabel();
         avatar_validate = new javax.swing.JLabel();
         state_validate = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        avataradd = new javax.swing.JButton();
         createadmin = new javax.swing.JButton();
         canceladmin = new javax.swing.JButton();
         titlecreateedit = new javax.swing.JLabel();
@@ -95,11 +95,9 @@ public class adminnew_view extends javax.swing.JFrame {
         validateactivity = new javax.swing.JLabel();
         validatesalary = new javax.swing.JLabel();
         validatebirthday = new javax.swing.JLabel();
-        chaval = new javax.swing.JButton();
         validate_cont = new javax.swing.JLabel();
-        chaval1 = new javax.swing.JButton();
         createoredit = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        adddummies = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -314,13 +312,13 @@ public class adminnew_view extends javax.swing.JFrame {
         getContentPane().add(avatar_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
         getContentPane().add(state_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/addfile.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        avataradd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/addfile.png"))); // NOI18N
+        avataradd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                avataraddActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 39, 30));
+        getContentPane().add(avataradd, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 39, 30));
 
         createadmin.setBackground(new java.awt.Color(255, 0, 153));
         createadmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/accept.png"))); // NOI18N
@@ -331,11 +329,6 @@ public class adminnew_view extends javax.swing.JFrame {
         createadmin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         createadmin.setIconTextGap(-3);
         createadmin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        createadmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createadminActionPerformed(evt);
-            }
-        });
         getContentPane().add(createadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 75, -1));
 
         canceladmin.setBackground(new java.awt.Color(255, 0, 153));
@@ -352,25 +345,20 @@ public class adminnew_view extends javax.swing.JFrame {
                 canceladminMouseClicked(evt);
             }
         });
-        canceladmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                canceladminActionPerformed(evt);
-            }
-        });
         getContentPane().add(canceladmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, 75, -1));
 
         titlecreateedit.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         titlecreateedit.setText("Crear un administrador");
         titlecreateedit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(titlecreateedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 11, 240, -1));
+        getContentPane().add(titlecreateedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 11, 290, -1));
 
         jLabel7.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel7AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 42, 9));
@@ -441,283 +429,212 @@ public class adminnew_view extends javax.swing.JFrame {
         getContentPane().add(validateactivity, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 30, 20));
         getContentPane().add(validatesalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 30, 20));
         getContentPane().add(validatebirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 30, 20));
-
-        chaval.setText("nacimiento");
-        chaval.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chavalActionPerformed(evt);
-            }
-        });
-        getContentPane().add(chaval, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, -1, -1));
         getContentPane().add(validate_cont, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 30, 20));
-
-        chaval1.setText("contr");
-        chaval1.setActionCommand("");
-        chaval1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chaval1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(chaval1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, -1, -1));
         getContentPane().add(createoredit, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 40, 20));
 
-        jButton2.setText("Add dummies");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 470, -1, -1));
+        adddummies.setText("Add dummies");
+        getContentPane().add(adddummies, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void addmobileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addmobileActionPerformed
         // TODO add your handling code here:
-        BLL_admin.MobileValidate();
+     //   BLL_admin.MobileValidate();
     }//GEN-LAST:event_addmobileActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void avataraddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avataraddActionPerformed
         // TODO add your handling code here:
-        JFileChooser dlg= new JFileChooser();
+   /*     JFileChooser dlg= new JFileChooser();
         dlg.setFileFilter(filter);
         int option = dlg.showOpenDialog(this);
         if(option==JFileChooser.APPROVE_OPTION){
             String filename = dlg.getSelectedFile().getPath();
             String fileurl = dlg.getSelectedFile().toString();
             addavatar.setText(fileurl);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-    
-    private void createadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createadminActionPerformed
-        // TODO add your handling code here:
-        if(createoredit.isVisible()){
-            if(BLL_admin.adminsave()){
-                new adminmanage_view().setVisible(true);
-                this.setVisible(false);
-                statusnewadmin.setText("Admin creado correctamente");
-                statusnewadmin.setForeground(Green);
-            }else{
-                jlblcreate.setText("Asegúrate de haber introducido bien los datos");
-                jlblcreate.setForeground(Color.red);
-            }
-        }else{
-            if(BLL_admin.Modificaradmin()){
-                new adminmanage_view().setVisible(true);
-                dispose();
-                statusnewadmin.setText("Admin editado correctamente");
-                statusnewadmin.setForeground(Green);
-            }else{
-                jlblcreate.setText("Asegúrate de haber introducido bien los datos");
-                jlblcreate.setForeground(Color.red);
-            }
-        }
-    }//GEN-LAST:event_createadminActionPerformed
-
-    private void canceladminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canceladminActionPerformed
-        /*try {
-            // TODO add your handling code here:
-            //JOptionPane.showMessageDialog(null, "El admin no se ha creado");
-            
-            jlblcancel.setText("Cancelando...");
-            Thread.sleep(1000);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(adminnew_view.class.getName()).log(Level.SEVERE, null, ex);
         }*/
-        if(createoredit.isVisible()){
-            new adminmanage_view().setVisible(true);
-            this.setVisible(false);
-            statusnewadmin.setText("Se ha cancelado la creación de un nuevo admin");
-            statusnewadmin.setForeground(Color.red);
-        } else{
-            new adminmanage_view().setVisible(true);
-            this.setVisible(false);
-            statusnewadmin.setText("Se ha cancelado la modificación de un admin");
-            statusnewadmin.setForeground(Color.RED);
-        }
-        
-    }//GEN-LAST:event_canceladminActionPerformed
-
+    }//GEN-LAST:event_avataraddActionPerformed
+    
     private void jLabel7AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel7AncestorAdded
         // TODO add your handling code here:
-        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+   /*     this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 dispose();
                 new adminmanage_view().setVisible(true);
             }
-        });
+        });*/
     }//GEN-LAST:event_jLabel7AncestorAdded
 
     private void adddniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adddniActionPerformed
         // TODO add your handling code here: Validar DNI
-        BLL_admin.DniValidate();
+  //      BLL_admin.DniValidate();
     }//GEN-LAST:event_adddniActionPerformed
 
     private void addnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addnameActionPerformed
         // TODO add your handling code here: Validar nombre
-        BLL_admin.NameValidate();
+ //       BLL_admin.NameValidate();
     }//GEN-LAST:event_addnameActionPerformed
 
     private void addnameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addnameFocusLost
         // TODO add your handling code here:
-        BLL_admin.NameValidate();
+  //      BLL_admin.NameValidate();
     }//GEN-LAST:event_addnameFocusLost
 
     private void addnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addnameKeyPressed
         // TODO add your handling code here:
-        BLL_admin.NameValidate();
+  //      BLL_admin.NameValidate();
     }//GEN-LAST:event_addnameKeyPressed
 
     private void addnameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addnameKeyReleased
         // TODO add your handling code here:
-        BLL_admin.NameValidate();
+//        BLL_admin.NameValidate();
     }//GEN-LAST:event_addnameKeyReleased
 
     private void addnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addnameKeyTyped
         // TODO add your handling code here:
-        BLL_admin.NameValidate();
+  //      BLL_admin.NameValidate();
     }//GEN-LAST:event_addnameKeyTyped
 
     private void addsurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsurnameActionPerformed
         // TODO add your handling code here:
-        BLL_admin.SurnameValidate();
+  //      BLL_admin.SurnameValidate();
     }//GEN-LAST:event_addsurnameActionPerformed
 
     private void addsurnameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addsurnameFocusLost
         // TODO add your handling code here:
-        BLL_admin.SurnameValidate();
+  //      BLL_admin.SurnameValidate();
     }//GEN-LAST:event_addsurnameFocusLost
 
     private void addsurnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addsurnameKeyPressed
         // TODO add your handling code here:
-        BLL_admin.SurnameValidate();
+  //      BLL_admin.SurnameValidate();
     }//GEN-LAST:event_addsurnameKeyPressed
 
     private void addsurnameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addsurnameKeyReleased
         // TODO add your handling code here:
-        BLL_admin.SurnameValidate();
+  //      BLL_admin.SurnameValidate();
     }//GEN-LAST:event_addsurnameKeyReleased
 
     private void addsurnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addsurnameKeyTyped
         // TODO add your handling code here:
-        BLL_admin.SurnameValidate();
+   //     BLL_admin.SurnameValidate();
     }//GEN-LAST:event_addsurnameKeyTyped
 
     private void addmobileFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addmobileFocusLost
         // TODO add your handling code here:
-        BLL_admin.MobileValidate();
+    //    BLL_admin.MobileValidate();
     }//GEN-LAST:event_addmobileFocusLost
 
     private void addmobileKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addmobileKeyPressed
         // TODO add your handling code here:
-        BLL_admin.MobileValidate();
+   //     BLL_admin.MobileValidate();
     }//GEN-LAST:event_addmobileKeyPressed
 
     private void addmobileKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addmobileKeyReleased
         // TODO add your handling code here:
-        BLL_admin.MobileValidate();
+   //     BLL_admin.MobileValidate();
     }//GEN-LAST:event_addmobileKeyReleased
 
     private void addmobileKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addmobileKeyTyped
         // TODO add your handling code here:
-        BLL_admin.MobileValidate();
+   //     BLL_admin.MobileValidate();
     }//GEN-LAST:event_addmobileKeyTyped
 
     private void addemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addemailActionPerformed
         // TODO add your handling code here:
-        BLL_admin.EmailValidate();
+   //     BLL_admin.EmailValidate();
     }//GEN-LAST:event_addemailActionPerformed
 
     private void addemailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addemailFocusLost
         // TODO add your handling code here:
-        BLL_admin.EmailValidate();
+  //      BLL_admin.EmailValidate();
     }//GEN-LAST:event_addemailFocusLost
 
     private void addemailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addemailKeyPressed
         // TODO add your handling code here:
-        BLL_admin.EmailValidate();
+  //      BLL_admin.EmailValidate();
     }//GEN-LAST:event_addemailKeyPressed
 
     private void addemailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addemailKeyReleased
         // TODO add your handling code here:
-        BLL_admin.EmailValidate();
+  //      BLL_admin.EmailValidate();
     }//GEN-LAST:event_addemailKeyReleased
 
     private void addemailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addemailKeyTyped
         // TODO add your handling code here:
-        BLL_admin.EmailValidate();
+  //      BLL_admin.EmailValidate();
     }//GEN-LAST:event_addemailKeyTyped
 
     private void addnameuserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addnameuserFocusLost
         // TODO add your handling code here:
-        BLL_admin.UserNameValidate();
+ //       BLL_admin.UserNameValidate();
     }//GEN-LAST:event_addnameuserFocusLost
 
     private void addnameuserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addnameuserKeyPressed
         // TODO add your handling code here:
-        BLL_admin.UserNameValidate();
+   //     BLL_admin.UserNameValidate();
     }//GEN-LAST:event_addnameuserKeyPressed
 
     private void addnameuserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addnameuserKeyReleased
         // TODO add your handling code here:
-        BLL_admin.UserNameValidate();
+  //      BLL_admin.UserNameValidate();
     }//GEN-LAST:event_addnameuserKeyReleased
 
     private void addnameuserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addnameuserKeyTyped
         // TODO add your handling code here:
-        BLL_admin.UserNameValidate();
+  //      BLL_admin.UserNameValidate();
     }//GEN-LAST:event_addnameuserKeyTyped
 
     private void addnameuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addnameuserActionPerformed
         // TODO add your handling code here:
-        BLL_admin.UserNameValidate();
+  //      BLL_admin.UserNameValidate();
     }//GEN-LAST:event_addnameuserActionPerformed
 
     private void addpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addpasswordActionPerformed
         // TODO add your handling code here:
-        BLL_admin.PasswordValidate();
+   //     BLL_admin.PasswordValidate();
     }//GEN-LAST:event_addpasswordActionPerformed
 
     private void addpasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addpasswordFocusLost
         // TODO add your handling code here:
-        BLL_admin.PasswordValidate();
+   //     BLL_admin.PasswordValidate();
     }//GEN-LAST:event_addpasswordFocusLost
 
     private void addpasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addpasswordKeyPressed
         // TODO add your handling code here:
-        BLL_admin.PasswordValidate();
+   //     BLL_admin.PasswordValidate();
     }//GEN-LAST:event_addpasswordKeyPressed
 
     private void addpasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addpasswordKeyReleased
         // TODO add your handling code here:
-        BLL_admin.PasswordValidate();
+ //       BLL_admin.PasswordValidate();
     }//GEN-LAST:event_addpasswordKeyReleased
 
     private void addpasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addpasswordKeyTyped
         // TODO add your handling code here:
-        BLL_admin.PasswordValidate();
+  //      BLL_admin.PasswordValidate();
     }//GEN-LAST:event_addpasswordKeyTyped
 
     private void adddniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_adddniFocusLost
         // TODO add your handling code here:
-        BLL_admin.DniValidate();
+  //      BLL_admin.DniValidate();
     }//GEN-LAST:event_adddniFocusLost
 
     private void adddniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adddniKeyPressed
         // TODO add your handling code here:
-        BLL_admin.DniValidate();
+   //     BLL_admin.DniValidate();
     }//GEN-LAST:event_adddniKeyPressed
 
     private void adddniKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adddniKeyReleased
         // TODO add your handling code here:
-        BLL_admin.DniValidate();
+   //     BLL_admin.DniValidate();
     }//GEN-LAST:event_adddniKeyReleased
 
     private void adddniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adddniKeyTyped
         // TODO add your handling code here:
-        BLL_admin.DniValidate();
+    //    BLL_admin.DniValidate();
     }//GEN-LAST:event_adddniKeyTyped
 
     private void canceladminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canceladminMouseClicked
@@ -727,70 +644,53 @@ public class adminnew_view extends javax.swing.JFrame {
 
     private void addsalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsalaryActionPerformed
         // TODO add your handling code here:
-        BLL_admin.SalaryValidate();
+  //      BLL_admin.SalaryValidate();
     }//GEN-LAST:event_addsalaryActionPerformed
 
     private void addsalaryFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addsalaryFocusLost
         // TODO add your handling code here:
-        BLL_admin.SalaryValidate();
+  //      BLL_admin.SalaryValidate();
     }//GEN-LAST:event_addsalaryFocusLost
 
     private void addsalaryKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addsalaryKeyPressed
         // TODO add your handling code here:
-        BLL_admin.SalaryValidate();
+   //     BLL_admin.SalaryValidate();
     }//GEN-LAST:event_addsalaryKeyPressed
 
     private void addsalaryKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addsalaryKeyReleased
         // TODO add your handling code here:
-        BLL_admin.SalaryValidate();
+   //     BLL_admin.SalaryValidate();
     }//GEN-LAST:event_addsalaryKeyReleased
 
     private void addsalaryKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addsalaryKeyTyped
         // TODO add your handling code here:
-        BLL_admin.SalaryValidate();
+   //     BLL_admin.SalaryValidate();
     }//GEN-LAST:event_addsalaryKeyTyped
 
     private void addactivityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addactivityActionPerformed
         // TODO add your handling code here:
-        BLL_admin.ActivityValidate();
+   //     BLL_admin.ActivityValidate();
     }//GEN-LAST:event_addactivityActionPerformed
 
     private void addactivityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addactivityFocusLost
         // TODO add your handling code here:
-        BLL_admin.ActivityValidate();
+   //     BLL_admin.ActivityValidate();
     }//GEN-LAST:event_addactivityFocusLost
 
     private void addactivityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addactivityKeyPressed
         // TODO add your handling code here:
-        BLL_admin.ActivityValidate();
+    //    BLL_admin.ActivityValidate();
     }//GEN-LAST:event_addactivityKeyPressed
 
     private void addactivityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addactivityKeyReleased
         // TODO add your handling code here:
-        BLL_admin.ActivityValidate();
+  //      BLL_admin.ActivityValidate();
     }//GEN-LAST:event_addactivityKeyReleased
 
     private void addactivityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addactivityKeyTyped
         // TODO add your handling code here:
-        BLL_admin.ActivityValidate();
+   //     BLL_admin.ActivityValidate();
     }//GEN-LAST:event_addactivityKeyTyped
-
-    private void chavalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chavalActionPerformed
-        // TODO add your handling code here:
-        BLL_admin.DateBirthdayValidate();
-    }//GEN-LAST:event_chavalActionPerformed
-
-    private void chaval1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chaval1ActionPerformed
-        // TODO add your handling code here:
-        BLL_admin.Contratacion();
-    }//GEN-LAST:event_chaval1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        app.modules.users.admin.model.utils.dummies.LoadDummies();
-        this.dispose();
-        new adminmanage_view().setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -835,6 +735,7 @@ public class adminnew_view extends javax.swing.JFrame {
     public static com.toedter.calendar.JDateChooser addcontr;
     public static com.toedter.calendar.JDateChooser adddatebirthday;
     public static javax.swing.JTextField adddni;
+    public static javax.swing.JButton adddummies;
     public static javax.swing.JTextField addemail;
     public static javax.swing.JTextField addmobile;
     public static javax.swing.JTextField addname;
@@ -843,15 +744,12 @@ public class adminnew_view extends javax.swing.JFrame {
     public static javax.swing.JTextField addsalary;
     public static javax.swing.JTextField addsurname;
     public static javax.swing.JLabel avatar_validate;
+    public static javax.swing.JButton avataradd;
     public static javax.swing.JButton canceladmin;
-    private javax.swing.JButton chaval;
-    private javax.swing.JButton chaval1;
     public static javax.swing.JButton createadmin;
     public static javax.swing.JLabel createoredit;
     public static javax.swing.JLabel dni_validate;
     public static javax.swing.JLabel email_validate;
-    public static javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     public static javax.swing.JLabel jLabel12;
     public static javax.swing.JLabel jLabel13;
