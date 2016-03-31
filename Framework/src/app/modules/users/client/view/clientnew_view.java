@@ -3,43 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package app.modules.users.admin.view;
-
-import static app.classes.singleton_global.Green;
-import app.modules.users.admin.model.BLL.BLL_client;
-import static app.modules.users.admin.view.adminmanage_view.statusnewadmin;
-import java.awt.Color;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.util.Calendar;
-import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
+package app.modules.users.client.view;
 
 /**
  *
- * @author 1º DAW
+ * @author Lara
  */
-public class adminnew_view extends javax.swing.JFrame {
-/*    Calendar fnac;
-    int dia, mes, anyo;
-    private FileNameExtensionFilter filter = new FileNameExtensionFilter
-        ("Archivo de imagen","jpg","png","gif");
-    String rutaimagen;*/
-    /**
-     * Creates new form newadmin_view
-     */
-    public adminnew_view() {
+public class clientnew_view extends javax.swing.JFrame {
+    public clientnew_view() {
         initComponents();
-     //   rutaimagen="";
-     //   confpage();
-        
     }
-
-  /*  private void confpage(){
-        this.setLocationRelativeTo(null);
-        this.setSize(590,541);
-        this.setResizable(false);
-    }*/
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,13 +46,13 @@ public class adminnew_view extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         addavatar = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        add_status = new javax.swing.JComboBox<>();
+        addpremium = new javax.swing.JComboBox<>();
         email_validate = new javax.swing.JLabel();
         avatar_validate = new javax.swing.JLabel();
         state_validate = new javax.swing.JLabel();
         avataradd = new javax.swing.JButton();
-        createadmin = new javax.swing.JButton();
-        canceladmin = new javax.swing.JButton();
+        createclient = new javax.swing.JButton();
+        cancelclient = new javax.swing.JButton();
         titlecreateedit = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jlblcreate = new javax.swing.JLabel();
@@ -88,16 +61,22 @@ public class adminnew_view extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
-        addcontr = new com.toedter.calendar.JDateChooser();
-        addsalary = new javax.swing.JTextField();
+        addshopping = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        addactivity = new javax.swing.JTextField();
+        adddesc = new javax.swing.JTextField();
         validateactivity = new javax.swing.JLabel();
         validatesalary = new javax.swing.JLabel();
         validatebirthday = new javax.swing.JLabel();
         validate_cont = new javax.swing.JLabel();
         createoredit = new javax.swing.JLabel();
         adddummies = new javax.swing.JButton();
+        addreg = new com.toedter.calendar.JDateChooser();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        add_status = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        addtype = new javax.swing.JTextField();
+        addyearsservice = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -155,7 +134,7 @@ public class adminnew_view extends javax.swing.JFrame {
         getContentPane().add(addsurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 132, -1));
 
         jLabel3.setText("DNI");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 70, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 80, 20));
 
         adddni.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -306,126 +285,116 @@ public class adminnew_view extends javax.swing.JFrame {
         jLabel15.setText("Estado");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 60, 20));
 
-        add_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Online", "Offline" }));
-        getContentPane().add(add_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 134, -1));
+        addpremium.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Premium", "Standard" }));
+        getContentPane().add(addpremium, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 130, -1));
         getContentPane().add(email_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 30, 20));
         getContentPane().add(avatar_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
         getContentPane().add(state_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         avataradd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/addfile.png"))); // NOI18N
-        avataradd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                avataraddActionPerformed(evt);
-            }
-        });
         getContentPane().add(avataradd, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 39, 30));
 
-        createadmin.setBackground(new java.awt.Color(255, 0, 153));
-        createadmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/accept.png"))); // NOI18N
-        createadmin.setToolTipText("Crear");
-        createadmin.setBorder(null);
-        createadmin.setContentAreaFilled(false);
-        createadmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        createadmin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        createadmin.setIconTextGap(-3);
-        createadmin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(createadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 75, -1));
+        createclient.setBackground(new java.awt.Color(255, 0, 153));
+        createclient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/accept.png"))); // NOI18N
+        createclient.setToolTipText("Crear");
+        createclient.setBorder(null);
+        createclient.setContentAreaFilled(false);
+        createclient.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        createclient.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        createclient.setIconTextGap(-3);
+        createclient.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(createclient, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 450, 75, -1));
 
-        canceladmin.setBackground(new java.awt.Color(255, 0, 153));
-        canceladmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/cancel.png"))); // NOI18N
-        canceladmin.setToolTipText("Descartar");
-        canceladmin.setBorder(null);
-        canceladmin.setContentAreaFilled(false);
-        canceladmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        canceladmin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        canceladmin.setIconTextGap(-3);
-        canceladmin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        canceladmin.addMouseListener(new java.awt.event.MouseAdapter() {
+        cancelclient.setBackground(new java.awt.Color(255, 0, 153));
+        cancelclient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/cancel.png"))); // NOI18N
+        cancelclient.setToolTipText("Descartar");
+        cancelclient.setBorder(null);
+        cancelclient.setContentAreaFilled(false);
+        cancelclient.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cancelclient.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        cancelclient.setIconTextGap(-3);
+        cancelclient.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        cancelclient.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                canceladminMouseClicked(evt);
+                cancelclientMouseClicked(evt);
             }
         });
-        getContentPane().add(canceladmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, 75, -1));
+        getContentPane().add(cancelclient, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 450, 75, -1));
 
         titlecreateedit.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        titlecreateedit.setText("Crear un administrador");
+        titlecreateedit.setText("Crear un cliente");
         titlecreateedit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(titlecreateedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 11, 290, -1));
+        getContentPane().add(titlecreateedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 11, 260, -1));
 
         jLabel7.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel7AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
         });
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 42, 9));
-        getContentPane().add(jlblcreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 489, 290, 20));
+        getContentPane().add(jlblcreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 290, 20));
         getContentPane().add(nameuser_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 28, 20));
         getContentPane().add(password_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 28, 20));
 
-        jLabel8.setText("F. contratación");
+        jLabel8.setText("F. registro");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 80, 20));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 310, 384, 10));
 
-        jLabel9.setText("Salario base");
+        jLabel9.setText("Compras");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 70, 20));
 
-        addcontr.setDateFormatString("dd-MM-yyyy");
-        addcontr.setMaxSelectableDate(new java.util.Date(32503680118000L));
-        addcontr.setMinSelectableDate(new java.util.Date(-2208985643000L));
-        getContentPane().add(addcontr, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 130, -1));
-
-        addsalary.addFocusListener(new java.awt.event.FocusAdapter() {
+        addshopping.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                addsalaryFocusLost(evt);
+                addshoppingFocusLost(evt);
             }
         });
-        addsalary.addActionListener(new java.awt.event.ActionListener() {
+        addshopping.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addsalaryActionPerformed(evt);
+                addshoppingActionPerformed(evt);
             }
         });
-        addsalary.addKeyListener(new java.awt.event.KeyAdapter() {
+        addshopping.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                addsalaryKeyPressed(evt);
+                addshoppingKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                addsalaryKeyReleased(evt);
+                addshoppingKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                addsalaryKeyTyped(evt);
+                addshoppingKeyTyped(evt);
             }
         });
-        getContentPane().add(addsalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, 120, -1));
+        getContentPane().add(addshopping, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, 120, -1));
 
-        jLabel10.setText("Actividad");
+        jLabel10.setText("Años de servicio");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 80, 20));
 
-        addactivity.addFocusListener(new java.awt.event.FocusAdapter() {
+        adddesc.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                addactivityFocusLost(evt);
+                adddescFocusLost(evt);
             }
         });
-        addactivity.addActionListener(new java.awt.event.ActionListener() {
+        adddesc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addactivityActionPerformed(evt);
+                adddescActionPerformed(evt);
             }
         });
-        addactivity.addKeyListener(new java.awt.event.KeyAdapter() {
+        adddesc.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                addactivityKeyPressed(evt);
+                adddescKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                addactivityKeyReleased(evt);
+                adddescKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                addactivityKeyTyped(evt);
+                adddescKeyTyped(evt);
             }
         });
-        getContentPane().add(addactivity, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 128, -1));
+        getContentPane().add(adddesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 120, -1));
         getContentPane().add(validateactivity, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 30, 20));
         getContentPane().add(validatesalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 30, 20));
         getContentPane().add(validatebirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 30, 20));
@@ -433,27 +402,33 @@ public class adminnew_view extends javax.swing.JFrame {
         getContentPane().add(createoredit, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 40, 20));
 
         adddummies.setText("Add dummies");
-        getContentPane().add(adddummies, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, -1, -1));
+        getContentPane().add(adddummies, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 470, -1, -1));
+
+        addreg.setDateFormatString("dd-MM-yyyy");
+        addreg.setMaxSelectableDate(new java.util.Date(32503680118000L));
+        addreg.setMinSelectableDate(new java.util.Date(-2208985643000L));
+        getContentPane().add(addreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 130, -1));
+
+        jLabel1.setText("Descuento");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 70, 20));
+
+        jLabel11.setText("Premium");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 90, 20));
+
+        add_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Online", "Offline" }));
+        getContentPane().add(add_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 134, -1));
+
+        jLabel16.setText("Tipo");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, 70, 20));
+        getContentPane().add(addtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 120, -1));
+        getContentPane().add(addyearsservice, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 130, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void addmobileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addmobileActionPerformed
-        // TODO add your handling code here:
-     //   BLL_admin.MobileValidate();
+    
     }//GEN-LAST:event_addmobileActionPerformed
-
-    private void avataraddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avataraddActionPerformed
-        // TODO add your handling code here:
-   /*     JFileChooser dlg= new JFileChooser();
-        dlg.setFileFilter(filter);
-        int option = dlg.showOpenDialog(this);
-        if(option==JFileChooser.APPROVE_OPTION){
-            String filename = dlg.getSelectedFile().getPath();
-            String fileurl = dlg.getSelectedFile().toString();
-            addavatar.setText(fileurl);
-        }*/
-    }//GEN-LAST:event_avataraddActionPerformed
     
     private void jLabel7AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel7AncestorAdded
         // TODO add your handling code here:
@@ -637,60 +612,60 @@ public class adminnew_view extends javax.swing.JFrame {
     //    BLL_admin.DniValidate();
     }//GEN-LAST:event_adddniKeyTyped
 
-    private void canceladminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canceladminMouseClicked
+    private void cancelclientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelclientMouseClicked
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_canceladminMouseClicked
+    }//GEN-LAST:event_cancelclientMouseClicked
 
-    private void addsalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsalaryActionPerformed
+    private void addshoppingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addshoppingActionPerformed
         // TODO add your handling code here:
   //      BLL_admin.SalaryValidate();
-    }//GEN-LAST:event_addsalaryActionPerformed
+    }//GEN-LAST:event_addshoppingActionPerformed
 
-    private void addsalaryFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addsalaryFocusLost
+    private void addshoppingFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addshoppingFocusLost
         // TODO add your handling code here:
   //      BLL_admin.SalaryValidate();
-    }//GEN-LAST:event_addsalaryFocusLost
+    }//GEN-LAST:event_addshoppingFocusLost
 
-    private void addsalaryKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addsalaryKeyPressed
+    private void addshoppingKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addshoppingKeyPressed
         // TODO add your handling code here:
    //     BLL_admin.SalaryValidate();
-    }//GEN-LAST:event_addsalaryKeyPressed
+    }//GEN-LAST:event_addshoppingKeyPressed
 
-    private void addsalaryKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addsalaryKeyReleased
+    private void addshoppingKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addshoppingKeyReleased
         // TODO add your handling code here:
    //     BLL_admin.SalaryValidate();
-    }//GEN-LAST:event_addsalaryKeyReleased
+    }//GEN-LAST:event_addshoppingKeyReleased
 
-    private void addsalaryKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addsalaryKeyTyped
+    private void addshoppingKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addshoppingKeyTyped
         // TODO add your handling code here:
    //     BLL_admin.SalaryValidate();
-    }//GEN-LAST:event_addsalaryKeyTyped
+    }//GEN-LAST:event_addshoppingKeyTyped
 
-    private void addactivityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addactivityActionPerformed
+    private void adddescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adddescActionPerformed
         // TODO add your handling code here:
    //     BLL_admin.ActivityValidate();
-    }//GEN-LAST:event_addactivityActionPerformed
+    }//GEN-LAST:event_adddescActionPerformed
 
-    private void addactivityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addactivityFocusLost
+    private void adddescFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_adddescFocusLost
         // TODO add your handling code here:
    //     BLL_admin.ActivityValidate();
-    }//GEN-LAST:event_addactivityFocusLost
+    }//GEN-LAST:event_adddescFocusLost
 
-    private void addactivityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addactivityKeyPressed
+    private void adddescKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adddescKeyPressed
         // TODO add your handling code here:
     //    BLL_admin.ActivityValidate();
-    }//GEN-LAST:event_addactivityKeyPressed
+    }//GEN-LAST:event_adddescKeyPressed
 
-    private void addactivityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addactivityKeyReleased
+    private void adddescKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adddescKeyReleased
         // TODO add your handling code here:
   //      BLL_admin.ActivityValidate();
-    }//GEN-LAST:event_addactivityKeyReleased
+    }//GEN-LAST:event_adddescKeyReleased
 
-    private void addactivityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addactivityKeyTyped
+    private void adddescKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adddescKeyTyped
         // TODO add your handling code here:
    //     BLL_admin.ActivityValidate();
-    }//GEN-LAST:event_addactivityKeyTyped
+    }//GEN-LAST:event_adddescKeyTyped
 
     /**
      * @param args the command line arguments
@@ -730,10 +705,9 @@ public class adminnew_view extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JComboBox<String> add_status;
-    public static javax.swing.JTextField addactivity;
     public static javax.swing.JTextField addavatar;
-    public static com.toedter.calendar.JDateChooser addcontr;
     public static com.toedter.calendar.JDateChooser adddatebirthday;
+    public static javax.swing.JTextField adddesc;
     public static javax.swing.JTextField adddni;
     public static javax.swing.JButton adddummies;
     public static javax.swing.JTextField addemail;
@@ -741,20 +715,27 @@ public class adminnew_view extends javax.swing.JFrame {
     public static javax.swing.JTextField addname;
     public static javax.swing.JTextField addnameuser;
     public static javax.swing.JPasswordField addpassword;
-    public static javax.swing.JTextField addsalary;
+    public static javax.swing.JComboBox<String> addpremium;
+    public static com.toedter.calendar.JDateChooser addreg;
+    public static javax.swing.JTextField addshopping;
     public static javax.swing.JTextField addsurname;
+    public static javax.swing.JTextField addtype;
+    public static javax.swing.JTextField addyearsservice;
     public static javax.swing.JLabel avatar_validate;
     public static javax.swing.JButton avataradd;
-    public static javax.swing.JButton canceladmin;
-    public static javax.swing.JButton createadmin;
+    public static javax.swing.JButton cancelclient;
+    public static javax.swing.JButton createclient;
     public static javax.swing.JLabel createoredit;
     public static javax.swing.JLabel dni_validate;
     public static javax.swing.JLabel email_validate;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     public static javax.swing.JLabel jLabel12;
     public static javax.swing.JLabel jLabel13;
     public static javax.swing.JLabel jLabel14;
     public static javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     public static javax.swing.JLabel jLabel2;
     public static javax.swing.JLabel jLabel3;
     public static javax.swing.JLabel jLabel4;

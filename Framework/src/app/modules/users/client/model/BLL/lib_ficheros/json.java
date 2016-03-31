@@ -1,4 +1,4 @@
-package app.modules.users.admin.model.BLL.lib_ficheros;
+package app.modules.users.client.model.BLL.lib_ficheros;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -9,10 +9,8 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 
 import app.classes.singleton_global;
-import app.modules.users.admin.model.classes.admin;
-import app.modules.users.admin.model.classes.client;
-import app.modules.users.admin.model.classes.registered_user;
-import app.modules.users.admin.model.classes.singleton;
+import app.modules.users.client.model.classes.client;
+import app.modules.users.client.model.classes.singleton_client;
 
 import java.io.File;
 import java.io.FileReader;
@@ -28,7 +26,7 @@ public class json {
 	      try {
 	          XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
 	          xstreamjson.setMode(XStream.NO_REFERENCES);
-	          xstreamjson.alias("Admin", admin.class);
+	          xstreamjson.alias("Client", client.class);
 	          
 	          JFileChooser fileChooser = new JFileChooser();
 	          int seleccion = fileChooser.showSaveDialog(null);
@@ -38,7 +36,7 @@ public class json {
 	                PATH=PATH+ ".json";
 	                
 	                Gson gson = new Gson();
-		            String json = gson.toJson(singleton.admin.getAdmins());
+		            String json = gson.toJson(singleton_client.client.getClients());
 		            FileWriter fileXml = new FileWriter(PATH);
 	                fileXml.write(json.toString());
 	                fileXml.close(); 
@@ -51,12 +49,12 @@ public class json {
     }
 	 public static void OpenJson() {
 		 String PATH = null;
-	    	admin e1=new admin("");
+	    	client e1=new client("");
 	    	
 	        try {
 	        	  XStream xstream = new XStream(new JettisonMappedXmlDriver());
 		          xstream.setMode(XStream.NO_REFERENCES);
-				  xstream.alias("Admin", admin.class);
+				  xstream.alias("Client", client.class);
 				  
 				  JFileChooser fileChooser = new JFileChooser();
 				  fileChooser.setAcceptAllFileFilterUsed(false);
@@ -66,7 +64,7 @@ public class json {
 		                File JFC = fileChooser.getSelectedFile();
 		                PATH = JFC.getAbsolutePath();
 		               
-		                singleton.admin.getAdmins().clear();
+		                singleton_client.client.getClients().clear();
 		                
 		                JsonReader lector = new JsonReader(new FileReader(PATH));
 		                JsonParser parseador = new JsonParser();
@@ -75,8 +73,8 @@ public class json {
 		            	Gson json = new Gson();
 		            	JsonArray lista = raiz.getAsJsonArray();
 		            	for (JsonElement elemento : lista) {
-		            		e1 = json.fromJson(elemento, admin.class);
-		            		singleton.admin.getAdmins().add(e1);
+		            		e1 = json.fromJson(elemento, client.class);
+		            		singleton_client.client.getClients().add(e1);
 		            	}
 		          } 
 	        } catch (Exception e) {
@@ -89,14 +87,14 @@ public class json {
 	      try {
 	          XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
 	          xstreamjson.setMode(XStream.NO_REFERENCES);
-	          xstreamjson.alias("Admin", admin.class);
+	          xstreamjson.alias("Client", client.class);
 	          
 	          if(!singleton_global.conf.getDummies())
-	                PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_admin/admin.json";
+	                PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/client/model/files/files_client/client.json";
 	          else
-				  PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_dummies_admin/admin.json";
+				  PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_dummies_client/client.json";
 	                Gson gson = new Gson();
-		            String json = gson.toJson(singleton.admin.getAdmins());
+		            String json = gson.toJson(singleton_client.client.getClients());
 		            FileWriter fileXml = new FileWriter(PATH);
 	                fileXml.write(json.toString());
 	                fileXml.close(); 
@@ -107,21 +105,21 @@ public class json {
     }
 	 public static void OpenJsonauto() {
 		 String PATH = null;
-	    	admin e1=new admin("");
+	    	client e1=new client("");
 	    	
 	        try {
 	        	  XStream xstream = new XStream(new JettisonMappedXmlDriver());
 		          xstream.setMode(XStream.NO_REFERENCES);
-				  xstream.alias("Admin", admin.class);
+				  xstream.alias("Client", client.class);
 				  if(!singleton_global.conf.getDummies())
-					  PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/admin/model/files/files_admin/admin.json";
+					  PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/client/model/files/files_client/client.json";
 				  else
-					  PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/admin/model/files/files_dummies_admin/admin.json";
+					  PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/client/model/files/files_dummies_client/client.json";
 		          File path = new File(PATH);
 		          if (path.exists()) {
 		               
 		               
-		                singleton.admin.getAdmins().clear();
+		                singleton_client.client.getClients().clear();
 		                
 		                JsonReader lector = new JsonReader(new FileReader(PATH));
 		                JsonParser parseador = new JsonParser();
@@ -130,8 +128,8 @@ public class json {
 		            	Gson json = new Gson();
 		            	JsonArray lista = raiz.getAsJsonArray();
 		            	for (JsonElement elemento : lista) {
-		            		e1 = json.fromJson(elemento, admin.class);
-		            		singleton.admin.getAdmins().add(e1);
+		            		e1 = json.fromJson(elemento, client.class);
+		            		singleton_client.client.getClients().add(e1);
 		            	}
 		          } 
 	        } catch (Exception e) {
@@ -139,68 +137,5 @@ public class json {
 	        }
 
 	    }
-	 /*------------------------------------*/
-	
-	 public static void GenerateJsonreguser(){
-		 String PATH = null;
-	      try {
-	          XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
-	          xstreamjson.setMode(XStream.NO_REFERENCES);
-	          xstreamjson.alias("Registered_user", registered_user.class);
-	          
-	          JFileChooser fileChooser = new JFileChooser();
-	          int seleccion = fileChooser.showSaveDialog(null);
-	          if (seleccion == JFileChooser.APPROVE_OPTION) {
-	                File JFC = fileChooser.getSelectedFile();
-	                PATH = JFC.getAbsolutePath();
-	                PATH=PATH+ ".json";
-	                
-	                Gson gson = new Gson();
-		            String json = gson.toJson(singleton.reguser.getUserreg());
-		            FileWriter fileXml = new FileWriter(PATH);
-	                fileXml.write(json.toString());
-	                fileXml.close(); 
-	                
-	                JOptionPane.showMessageDialog(null, "Archivo JSON guardado con exito", "Archivo JSON", JOptionPane.INFORMATION_MESSAGE);
-	          }
-       } catch (Exception e) {
-       	JOptionPane.showMessageDialog(null, "Error al grabar el JSON", "Error", JOptionPane.ERROR_MESSAGE);
-       }
-    }
 	 
-	 public static void OpenJsonreguser() {
-		 String PATH = null;
-	    	registered_user e1=new registered_user("");
-	    	
-	        try {
-	        	  XStream xstream = new XStream(new JettisonMappedXmlDriver());
-		          xstream.setMode(XStream.NO_REFERENCES);
-				  xstream.alias("Registered_user", registered_user.class);
-				  
-				  JFileChooser fileChooser = new JFileChooser();
-				  fileChooser.setAcceptAllFileFilterUsed(false);
-	              fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("JSON (*.json)", "json"));
-		          int seleccion = fileChooser.showOpenDialog(null);
-		          if (seleccion == JFileChooser.APPROVE_OPTION) {
-		                File JFC = fileChooser.getSelectedFile();
-		                PATH = JFC.getAbsolutePath();
-		               
-		                singleton.reguser.getUserreg().clear();
-		                
-		                JsonReader lector = new JsonReader(new FileReader(PATH));
-		                JsonParser parseador = new JsonParser();
-		                JsonElement raiz = parseador.parse(lector);
-		            		  
-		            	Gson json = new Gson();
-		            	JsonArray lista = raiz.getAsJsonArray();
-		            	for (JsonElement elemento : lista) {
-		            		e1 = json.fromJson(elemento, registered_user.class);
-		            		singleton.reguser.getUserreg().add(e1);
-		            	}
-		          } 
-	        } catch (Exception e) {
-	        	JOptionPane.showMessageDialog(null, "Error al leer el JSON", "Error", JOptionPane.ERROR_MESSAGE);
-	        }
-
-	    }
 }

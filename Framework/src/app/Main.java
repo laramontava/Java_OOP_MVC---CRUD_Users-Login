@@ -1,12 +1,12 @@
 package app;
 
-import javax.swing.JOptionPane;
+/*import javax.swing.JOptionPane;
 
 import app.modules.config.model.configuration;
 import app.modules.config.model.idioma;
 import app.classes.singleton_global;
 import app.modules.users.admin.model.BLL.Arraylist_admin;
-import app.modules.users.admin.model.BLL.Arraylist_client;
+import app.modules.users.client.model.BLL.Arraylist_client;
 import app.modules.users.admin.model.BLL.Arraylist_userreg;
 import app.modules.users.admin.model.BLL.lib_ficheros.json;
 import app.modules.users.admin.model.BLL.lib_ficheros.txt;
@@ -16,6 +16,7 @@ import app.modules.users.admin.model.classes.client;
 import app.modules.users.admin.model.classes.registered_user;
 import app.modules.users.admin.model.classes.singleton;
 import app.modules.users.admin.model.utils.dummies;
+import app.modules.users.client.model.classes.singleton_client;
 import app.utils.config_save;
 import app.utils.menus;
 import app.utils.theme;
@@ -34,7 +35,7 @@ public class Main {
         client pidecliente = new client();
         registered_user pideregistrado = new registered_user();
         singleton.admin = new Arraylist_admin();
-        singleton.client = new Arraylist_client();
+        singleton_client.client = new Arraylist_client();
         singleton.reguser = new Arraylist_userreg();
 
         switch (singleton_global.conf.getFormat()) {
@@ -148,49 +149,49 @@ public class Main {
                         option2 = menus.mainmenu(tipo2, singleton_global.translate.getProperty("Preghacer"), "Client main");
                         switch (option2) {
                             case 0:
-                                singleton.client.AddClient(pidecliente);
+                                singleton_client.client.AddClient(pidecliente);
                                 //pidecliente=functions_users.pideclient(conf, translate);
                                 break;
                             case 1:
-                                singleton.client.EditClient(pidecliente);
+                                singleton_client.client.EditClient(pidecliente);
                                 /*if(pidecliente==null){
 						JOptionPane.showMessageDialog(null, translate.getProperty("creatc"));
 					}
 					else{
 						functions_users.cambiauser(pidecliente, conf, translate);
-					}*/
+					}*
                                 break;
                             case 2:
-                                singleton.client.PrintClient();
+                                singleton_client.client.PrintClient();
                                 /*	if(pidecliente==null){
 						JOptionPane.showMessageDialog(null, translate.getProperty("creatc"));
 					}
 					else{
 						JOptionPane.showMessageDialog(null, pidecliente.toString());
-					}*/
+					}*
                                 break;
                             case 3://search ---
-                                singleton.client.clientsearch(pidecliente);
+                                singleton_client.client.clientsearch(pidecliente);
                                 break;
                             case 4://order  ---
                                 option2 = menus.mainmenu(tipo8, "¿Por qué quieres ordenar?", "Ordenar");
                                 switch (option2) {
                                     case 0://DNI
-                                        singleton.client.orderby(0);
+                                        singleton_client.client.orderby(0);
                                         break;
                                     case 1://name
-                                        singleton.client.orderby(1);
+                                        singleton_client.client.orderby(1);
                                         break;
                                     case 2:
-                                        singleton.client.orderby(2);
+                                        singleton_client.client.orderby(2);
                                         break;
                                 }
                                 break;
                             case 5://delete ---
-                                singleton.client.DeleteClient(pidecliente);
+                                singleton_client.client.DeleteClient(pidecliente);
                                 break;
                             case 6://open
-                                singleton.client.openfiles();
+                                singleton_client.client.openfiles();
                                 break;
                             case 7://save
 
@@ -214,7 +215,7 @@ public class Main {
 					}
 					else{
 						functions_users.cambiauser(pideregistrado, singleton_global.conf, translate);
-					}*/
+					}*
                                 break;
                             case 2://print out  ---
                                 singleton.reguser.PrintUserreg();
@@ -223,7 +224,7 @@ public class Main {
 					}
 					else{
 						JOptionPane.showMessageDialog(null, pideregistrado.toString());
-					}*/
+					}*
                                 break;
                             case 3://search ---
                                 singleton.reguser.UserregSearch(pideregistrado);
@@ -422,4 +423,4 @@ public class Main {
 
         JOptionPane.showMessageDialog(null, singleton_global.translate.getProperty("goodbye"));
     }
-}
+}*/

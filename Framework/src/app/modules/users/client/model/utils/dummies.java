@@ -1,7 +1,7 @@
-package app.modules.users.admin.model.utils;
+package app.modules.users.client.model.utils;
 
-import app.modules.users.admin.model.classes.admin;
-import app.modules.users.admin.model.classes.singleton;
+import app.modules.users.client.model.classes.client;
+import app.modules.users.client.model.classes.singleton_client;
 import app.utils.functions;
 
 public class dummies {
@@ -14,10 +14,11 @@ public class dummies {
         for (int i = 0; i < num; i++) {
         	int DNI = (int)(Math.random()*100000000);
         	dnidummie=letra(DNI);
-            admin ad = new admin(dnidummie,RandomNombre(),RandomSurname(),"888888888","dummie@dummie.com",
-            		"26/09/1990","Dummie","1234","Avatar","Offline","12/12/2014",700.78f,500);
+            client ad = new client(dnidummie, RandomNombre(), RandomSurname(), "888888888", "dummie@dummie.com", "26/09/1990",
+			"Dummie", "1234", "Avatar.jpg", "Offline", "12/12/2014", 700.78f,
+			"Premium", "Tipo");
             
-            singleton.admin.AddDummies(ad);
+            singleton_client.client.AddDummies(ad);
         }
     }
 	

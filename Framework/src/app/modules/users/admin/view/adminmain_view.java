@@ -8,6 +8,7 @@ package app.modules.users.admin.view;
 import app.modules.menu.view.main_view;
 import app.modules.users.admin.model.DAO.DAO_admin;
 import app.modules.users.admin.model.classes.singleton;
+import static app.modules.users.admin.view.adminmanage_view.selected;
 import static app.modules.users.admin.view.adminnew_view.createoredit;
 import static app.modules.users.admin.view.adminnew_view.titlecreateedit;
 import app.utils.functions;
@@ -297,7 +298,7 @@ public class adminmain_view extends javax.swing.JFrame {
         selected = singleton.admin.buscarDniAdmin(dni);
         DAO_admin.fillfields(selected);
     }//GEN-LAST:event_edit_adminActionPerformed
-    public static int selected;
+//    public static int selected;
     private void view_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_adminActionPerformed
         // TODO add your handling code here:
         //singleton.admin.printadmin();

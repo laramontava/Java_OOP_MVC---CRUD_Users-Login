@@ -4,11 +4,11 @@ import javax.swing.JOptionPane;
 import app.classes.singleton_global;
 import app.modules.users.admin.model.utils.core.kernel;
 import app.modules.users.admin.model.classes.admin;
-import app.modules.users.admin.model.classes.client;
+import app.modules.users.client.model.classes.client;
 import app.modules.users.admin.model.classes.registered_user;
 import app.modules.users.admin.model.classes.singleton;
 import app.modules.users.admin.model.classes.users;
-import app.modules.users.admin.view.adminnew_view;
+import app.modules.users.client.model.classes.singleton_client;
 import app.utils.functions;
 import app.utils.menus;
 
@@ -68,7 +68,7 @@ public class functions_users {
 		singleton.dni=kernel.pedirdatos("dni",singleton_global.translate.getProperty("dni"),"DNI");
 		return new registered_user(singleton.dni);
 	}
-	public static client pideclient(){
+/*	public static client pideclient(){
 		String dni, name, subname, mobile, email, date_birthday, user, pass, avatar, state;
 		float shopping;
 		String up_date, client_type;
@@ -101,12 +101,12 @@ public class functions_users {
 		state=menus.menustate(singleton_global.translate.getProperty("state"), "State");
 		up_date=kernel.yearsservice(singleton_global.translate.getProperty("up_date")+formatdate,"Hiring date",date_birthday);
 		shopping=functions.validatefloat(singleton_global.translate.getProperty("shopping"), "Shopping");
-		premium=menus.validateboolean(singleton_global.translate.getProperty("premium"), "Premium");
+		premium=menus.validatestring(singleton_global.translate.getProperty("premium"), "Premium");
 		client_type=functions.validatestring(singleton_global.translate.getProperty("clienttype"), "Client type");
 		
 		return new client(dni,name,subname,mobile,email,date_birthday,user,pass,avatar,state,up_date,shopping,premium,
 				client_type);
-	}
+	}*/
 
 	public static registered_user pideregistrado(){
 		String dni, name, subname, mobile, email, date_birthday, user, pass, avatar, state;
@@ -155,7 +155,7 @@ public class functions_users {
 	public static void savedniclient (client clientd, users user){
 		int pos = -1;
 		clientd = functions_users.finddniclient();
-		pos = singleton.client.ClientFind(clientd);
+		pos = singleton_client.client.ClientFind(clientd);
 		if (pos != -1) {
 			JOptionPane.showMessageDialog(null, "Error");
 		}else {
@@ -289,7 +289,7 @@ public class functions_users {
 				((client)type).setShopping(functions.validatefloat(singleton_global.translate.getProperty("shopping"), "Shop"));
 				break;
 			case 13:
-				((client)type).setPremium(menus.validateboolean(singleton_global.translate.getProperty("premium"), "Premium"));
+//				((client)type).setPremium(menus.validateboolean(singleton_global.translate.getProperty("premium"), "Premium"));
 				break;
 			case 14:
 				((client)type).setClient_type(functions.validatestring(singleton_global.translate.getProperty("clienttype"), "Client Type"));

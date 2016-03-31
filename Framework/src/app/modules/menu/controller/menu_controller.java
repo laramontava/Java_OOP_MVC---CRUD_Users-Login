@@ -20,6 +20,8 @@ import static app.modules.menu.view.main_view.btnconf_main;
 import static app.modules.menu.view.main_view.btnreguser_main;
 import app.modules.users.admin.controller.admin_controller;
 import app.modules.users.admin.view.adminmanage_view;
+import app.modules.users.client.controller.client_controller;
+import app.modules.users.client.view.clientmanage_view;
 import app.ppalmain;
 import app.utils.config_save;
 import java.awt.event.ActionEvent;
@@ -200,7 +202,7 @@ public class menu_controller implements ActionListener {
                     new menu_controller(new main_view(), 0).Iniciar(0);
                 }
             });
-        }
+        } 
     }
 
     @Override
@@ -211,7 +213,8 @@ public class menu_controller implements ActionListener {
                 mainview.dispose();
                 break;
             case btn_clientmain:
-                JOptionPane.showMessageDialog(null, "Cli");
+                new client_controller(new clientmanage_view(),0).Iniciar(0);
+                mainview.dispose();
                 break;
             case btn_regusermain:
                 JOptionPane.showMessageDialog(null, "reg");

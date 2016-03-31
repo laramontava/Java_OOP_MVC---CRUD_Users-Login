@@ -3,69 +3,68 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package app.modules.users.admin.model.BLL;
+package app.modules.users.client.model.BLL;
 
-import app.modules.users.admin.model.DAO.DAO_admin;
-import app.modules.users.admin.model.classes.miniSimpleTableModel_admin;
-import app.modules.users.admin.model.classes.singleton;
-import app.modules.users.admin.model.utils.pager.pagina;
-//import static app.modules.users.admin.view.adminmain_view.selected;
-import static app.modules.users.admin.view.adminmanage_view.TABLA;
+import app.modules.users.client.model.DAO.DAO_client;
+import app.modules.users.client.model.classes.miniSimpleTableModel_client;
+import app.modules.users.client.model.classes.singleton_client;
+import app.modules.users.client.model.utils.pager.pagina;
+import static app.modules.users.client.view.clientmanage_view.TABLA;
 import static app.modules.users.admin.view.adminmanage_view.selected;
-import static app.modules.users.admin.view.adminmanage_view.statusnewadmin;
+import static app.modules.users.client.view.clientmanage_view.statusnewadmin;
 
 /**
  *
  * @author Lara
  */
-public class BLL_admin {
+public class BLL_client {
 
     public static void DniValidate() {
-        DAO_admin.pidedni();
+        DAO_client.pidedni();
     }
 
     public static void NameValidate() {
-        DAO_admin.pidenombre();
+        DAO_client.pidenombre();
     }
 
     public static void SurnameValidate() {
-        DAO_admin.pideapellidos();
+        DAO_client.pideapellidos();
     }
 
     public static void MobileValidate() {
-        DAO_admin.pidetelefono();
+        DAO_client.pidetelefono();
     }
 
     public static void EmailValidate() {
-        DAO_admin.pideemail();
+        DAO_client.pideemail();
     }
 
     public static void UserNameValidate() {
-        DAO_admin.pideusuario();
+        DAO_client.pideusuario();
     }
 
     public static void PasswordValidate() {
-        DAO_admin.pidecontrasenya();
+        DAO_client.pidecontrasenya();
     }
 
     public static boolean adminsave() {
-        return DAO_admin.saveadmin();
+        return DAO_client.saveclient();
     }
 
     public static void DateBirthdayValidate() {
-        DAO_admin.pidefechanacimiento();
+        DAO_client.pidefechanacimiento();
     }
 
     public static void SalaryValidate() {
-        DAO_admin.pidesalario();
+        DAO_client.pidecompras();
     }
 
     public static void ActivityValidate() {
-        DAO_admin.pideactividad();
+        DAO_client.pidetipo();
     }
 
     public static void Contratacion() {
-        DAO_admin.pidefechacontratacion();
+        DAO_client.pidefecharegistro();
     }
 
     public static boolean Modificar() {
@@ -74,7 +73,7 @@ public class BLL_admin {
         String ID;
         boolean correct = false;
         int n, selected, inicio, selected1;
-        if (((miniSimpleTableModel_admin) TABLA.getModel()).getRowCount() != 0) {
+        if (((miniSimpleTableModel_client) TABLA.getModel()).getRowCount() != 0) {
             inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
             selected = TABLA.getSelectedRow();
             selected1 = inicio + selected;
@@ -92,13 +91,13 @@ public class BLL_admin {
         return correct;
     }
     public static boolean Modificaradmin(){
-        return DAO_admin.saveeditadmin();
+        return DAO_client.saveeditclient();
     }
     public static void LlenarCampos() {
         int inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
             selected = TABLA.getSelectedRow();
         int selected1 = inicio + selected;
-        DAO_admin.fillfields(selected1);
+        DAO_client.fillfields(selected1);
     }
 
     public static void Delete() {
@@ -106,7 +105,7 @@ public class BLL_admin {
         int pos = 0;
         String ID;
         int n, selected, inicio, selected1;
-        if (((miniSimpleTableModel_admin) TABLA.getModel()).getRowCount() != 0) {
+        if (((miniSimpleTableModel_client) TABLA.getModel()).getRowCount() != 0) {
             //int selected = TABLA.getSelectedRow();//sustituir
             inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la página en cuestión
             selected = TABLA.getSelectedRow(); //nos situamos en la fila
@@ -116,9 +115,9 @@ public class BLL_admin {
                 statusnewadmin.setText("Debes seleccionar un admin para eliminarlo");
             } else {
                 dni = (String) TABLA.getModel().getValueAt(selected1, 0);
-                pos = singleton.admin.buscarDniAdmin(dni);
-                ((miniSimpleTableModel_admin) TABLA.getModel()).removeRow(selected1);
-                singleton.admin.DeleteA(singleton.admin.getAdmin(pos));
+                pos = singleton_client.client.buscarDniClient(dni);
+                ((miniSimpleTableModel_client) TABLA.getModel()).removeRow(selected1);
+                singleton_client.client.DeleteC(singleton_client.client.getClient(pos));
                 statusnewadmin.setText("Usuario eliminado correctamente");
             }
         } else {

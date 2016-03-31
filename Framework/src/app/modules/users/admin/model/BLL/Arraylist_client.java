@@ -1,6 +1,6 @@
 package app.modules.users.admin.model.BLL;
 
-import java.util.ArrayList;
+/*import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.JOptionPane;
 import app.classes.singleton_global;
@@ -129,3 +129,4 @@ public class Arraylist_client {
 		}
 	}
 }
+*/

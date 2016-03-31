@@ -8,7 +8,6 @@ import app.classes.singleton_global;
 import app.modules.users.admin.view.adminnew_view;
 import app.utils.functions;
 import app.utils.validate;
-import java.awt.Color;
 
 public class kernel {
 

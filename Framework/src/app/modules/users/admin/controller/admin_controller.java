@@ -9,7 +9,7 @@ import app.classes.singleton_global;
 import static app.classes.singleton_global.Green;
 import app.modules.menu.controller.menu_controller;
 import app.modules.menu.view.main_view;
-import app.modules.users.admin.model.BLL.BLL_admin;
+import app.modules.users.admin.model.BLL.BLL_client;
 import app.modules.users.admin.model.classes.miniSimpleTableModel_admin;
 import app.modules.users.admin.model.classes.singleton;
 import static app.modules.users.admin.model.classes.singleton.admin;
@@ -65,6 +65,7 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
     public static TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(new miniSimpleTableModel_admin());
     public static AutocompleteJComboBox combo = null;
     int dia, mes, anyo;
+    public static int selected;
     private FileNameExtensionFilter filter = new FileNameExtensionFilter
         ("Archivo de imagen","jpg","png","gif");
     String rutaimagen="";
@@ -131,11 +132,11 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
 
                     int row = table.rowAtPoint(p);
                     if (me.getClickCount() == 2) {
-                        if (BLL_admin.Modificar()) {
+                        if (BLL_client.Modificar()) {
                             TableAdmin.dispose();
                             //meh new adminnew_view().setVisible(true);
                             new admin_controller(new adminnew_view(), 2).Iniciar(2);
-                            BLL_admin.LlenarCampos();
+                            BLL_client.LlenarCampos();
                             titlecreateedit.setText("Editar un usuario administrador");
                             adddummies.setVisible(false);
                         }
@@ -281,7 +282,7 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
             Modificar.setSize(590, 541);
             Modificar.setResizable(false);
             adddummies.setVisible(false);
-            BLL_admin.LlenarCampos();
+            BLL_client.LlenarCampos();
 
             titlecreateedit.setText(singleton_global.translate.getProperty("edittit"));
 
@@ -354,13 +355,13 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                 TableAdmin.dispose();
                 break;
             case btnModificar:
-                if (BLL_admin.Modificar()) {
+                if (BLL_client.Modificar()) {
                     new admin_controller(new adminnew_view(), 2).Iniciar(2);
                     TableAdmin.dispose();
                 }
                 break;
             case btnEliminar:
-                BLL_admin.Delete();
+                BLL_client.Delete();
                 break;
             case btnGuardarJson:
                 singleton.admin.savejson();
@@ -397,31 +398,31 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                 pagina.initLinkBox();
                 break;
             case jtxtDni: //validaciones
-                BLL_admin.DniValidate();
+                BLL_client.DniValidate();
                 break;
             case jtxtName:
-                BLL_admin.NameValidate();
+                BLL_client.NameValidate();
                 break;
             case jtxtSurname:
-                BLL_admin.SurnameValidate();
+                BLL_client.SurnameValidate();
                 break;
             case jtxtMobile:
-                BLL_admin.MobileValidate();
+                BLL_client.MobileValidate();
                 break;
             case jtxtEmail:
-                BLL_admin.EmailValidate();
+                BLL_client.EmailValidate();
                 break;
             case jtxtNameUser:
-                BLL_admin.UserNameValidate();
+                BLL_client.UserNameValidate();
                 break;
             case jtxtPasswd:
-                BLL_admin.PasswordValidate();
+                BLL_client.PasswordValidate();
                 break;
             case jtxtSalary:
-                BLL_admin.SalaryValidate();
+                BLL_client.SalaryValidate();
                 break;
             case jtxtActivity:
-                BLL_admin.ActivityValidate();
+                BLL_client.ActivityValidate();
                 break;
             case btnDummies:
                 app.modules.users.admin.model.utils.dummies.LoadDummies();
@@ -430,7 +431,7 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                 break;
             case btnCreate:
                 if (adddummies.isVisible()) {
-                    if (BLL_admin.adminsave()) {
+                    if (BLL_client.adminsave()) {
                         new admin_controller(new adminmanage_view(), 0).Iniciar(0);
                         Crear.dispose();
                         statusnewadmin.setText("Admin creado correctamente");
@@ -439,7 +440,7 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                         jlblcreate.setText("Asegúrate de haber introducido bien los datos");
                         jlblcreate.setForeground(Color.red);
                     }
-                } else if (BLL_admin.Modificaradmin()) {
+                } else if (BLL_client.Modificaradmin()) {
                     new admin_controller(new adminmanage_view(), 0).Iniciar(0);
                     Modificar.dispose();
                     statusnewadmin.setText("Admin editado correctamente");
@@ -502,11 +503,11 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
         switch (Option.valueOf(ef.getComponent().getName())) {
             case tableAdmin:
                 if (ef.getClickCount() == 2) {
-                    if (BLL_admin.Modificar()) {
+                    if (BLL_client.Modificar()) {
                         TableAdmin.dispose();
                     //meh    new adminnew_view().setVisible(true);
                         new admin_controller(new adminnew_view(), 2).Iniciar(2);
-                        BLL_admin.LlenarCampos();
+                        BLL_client.LlenarCampos();
                         titlecreateedit.setText("Editar un usuario administrador");
                         adddummies.setVisible(false);
                     }

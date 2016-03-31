@@ -3,25 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package app.modules.users.admin.model.classes;
+package app.modules.users.client.model.classes;
 
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
-//import app.modules.users.admin.model.classes.admin;
-import app.modules.users.admin.model.utils.pager.pagina;
-//import app.modules.users.admin.model.classes.singleton;
-import static app.modules.users.admin.model.classes.singleton.admin;
-import app.modules.users.admin.view.adminmanage_view;
-//import static app.modules.users.admin.view.adminmanage_view.combo;
-import static app.modules.users.admin.controller.admin_controller.combo;
-import static app.modules.users.admin.view.adminmanage_view.jLabel3;
+import app.modules.users.client.model.utils.pager.pagina;
+import static app.modules.users.client.model.classes.singleton_client.client;
+import app.modules.users.client.view.clientmanage_view;
+import static app.modules.users.client.controller.client_controller.combo;
+import static app.modules.users.client.view.clientmanage_view.jLabel3;
 
-public class miniSimpleTableModel_admin extends AbstractTableModel {
+public class miniSimpleTableModel_client extends AbstractTableModel {
 
-    public static ArrayList<admin> datos = new ArrayList<admin>();
-    public static ArrayList<admin> datosaux = new ArrayList<admin>();
-    String[] columnas = {"dni", "first_name", "last_name", "hiring_date"};
+    public static ArrayList<client> datos = new ArrayList<client>();
+    public static ArrayList<client> datosaux = new ArrayList<client>();
+    String[] columnas = {"dni", "first_name", "last_name"};
 
     ////////////////////estos métodos son necesarios para que jtable funcione/////////////////////
     @Override
@@ -46,7 +43,7 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
     public Object getValueAt(int row, int col) {
 
         Object dev = null;
-        admin fila = (admin) datos.get(row);
+        client fila = (client) datos.get(row);
 
         switch (col) {
             case 0:
@@ -61,9 +58,6 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
                 dev = fila.getSubname();
                 break;
 
-            case 3:
-                dev = fila.getHiring_date();
-                break;
 
         }
         return dev;
@@ -78,7 +72,7 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
     //Actualiza un objeto de una fila y columna
     @Override
     public void setValueAt(Object value, int row, int col) {
-        admin fila = (admin) datos.get(row);
+        client fila = (client) datos.get(row);
 
         switch (col) {
             case 0:
@@ -93,27 +87,24 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
                 fila.setSubname(value.toString());
                 break;
 
-            case 3:
-                fila.setHiring_date(value.toString());
-                break;
 
         }
         fireTableCellUpdated(row, col);
     }
 
-    public void addRow(admin usu) {
+    public void addRow(client usu) {
         datos.add(usu);
         fireTableDataChanged();
     }
 
     public void cargar() {
+        System.out.println("Entra cargar");
         datos.clear();
         datosaux.clear();
-        for (int i = 0; i < singleton.admin.getAdmins().size(); i++) {
-            addRow(singleton.admin.getAdmins().get(i));
-            datosaux.add(singleton.admin.getAdmins().get(i));
+       for (int i = 0; i < singleton_client.client.getClients().size(); i++) {
+            addRow(singleton_client.client.getClients().get(i));
+            datosaux.add(singleton_client.client.getClients().get(i));
         }
-
     }
 
     public void filtrar() {
@@ -129,13 +120,13 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
                         cont++;
                     }
                 }
-                adminmanage_view.jLabel3.setText(String.valueOf(cont));
+                clientmanage_view.jLabel3.setText(String.valueOf(cont));
                 //        System.out.println("word selected: " + nom);
                 pagina.initLinkBox();
             } 
     }
 
-    public admin buscar(String u) {
+    public client buscar(String u) {
         datos.clear();
         cargar();
 
@@ -149,7 +140,7 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
         return null;
     }
 
-    public int buscaUsuario(admin u) {
+    public int buscaUsuario(client u) {
         datos.clear();
         cargar();
 
@@ -163,7 +154,7 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
 
     public void removeRow(int fila) {
         datos.remove(fila);
-        jLabel3.setText(String.valueOf(admin.getAdmins().size()-1));
+        jLabel3.setText(String.valueOf(client.getClients().size()-1));
         fireTableDataChanged();
         pagina.initLinkBox();
     }

@@ -44,7 +44,7 @@ public class Arraylist_admin {
         }*/
         for (int i = 0; i <= admins.size() - 1; i++) {
             if ((admins.get(i)).equals(admind)) {
-                JOptionPane.showMessageDialog(null, "Ya existe ese deneí");
+                JOptionPane.showMessageDialog(null, "Ya existe ese DNI");
                 asd = false;
             }
         }

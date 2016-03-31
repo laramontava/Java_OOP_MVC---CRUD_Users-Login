@@ -6,15 +6,16 @@ import app.classes.singleton_global;
 import app.modules.menu.controller.menu_controller;
 import app.modules.menu.view.main_view;
 import app.modules.users.admin.model.BLL.Arraylist_admin;
-import app.modules.users.admin.model.BLL.Arraylist_client;
 import app.modules.users.admin.model.BLL.Arraylist_userreg;
 import app.modules.users.admin.model.BLL.lib_ficheros.json;
 import app.modules.users.admin.model.BLL.lib_ficheros.txt;
 import app.modules.users.admin.model.BLL.lib_ficheros.xml;
 import app.modules.users.admin.model.classes.admin;
-import app.modules.users.admin.model.classes.client;
+import app.modules.users.client.model.classes.client;
 import app.modules.users.admin.model.classes.registered_user;
 import app.modules.users.admin.model.classes.singleton;
+import app.modules.users.client.model.BLL.Arraylist_client;
+import app.modules.users.client.model.classes.singleton_client;
 import app.utils.config_save;
 
 /*
@@ -42,7 +43,7 @@ public class ppalmain {
         client pidecliente = new client();
         registered_user pideregistrado = new registered_user();
         singleton.admin = new Arraylist_admin();
-        singleton.client = new Arraylist_client();
+        singleton_client.client = new Arraylist_client();
         singleton.reguser = new Arraylist_userreg();
         switch (singleton_global.conf.getFormat()) {
             case "json":

@@ -17,9 +17,37 @@ public class validate {
         private static final String plantilla_salario="[0-9]+(\\.[0-9]{1,3})?";
         private static final String plantilla_numeroentero="[0-9]{0,6}";
 	
+        private static final String plantilla_compras="[0-9]+(\\.[0-9]{1,3})?";
+        private static final String plantilla_tipo="^[a-záéíóúñA-ZÁÉÍÓÚÑ\\s]*$";
+        
+        
 	public static boolean validaNombre(String nombre){
         Pattern pattern=Pattern.compile(plantilla_nombre);
         Matcher matcher = pattern.matcher(nombre);
+		if(matcher.matches()){
+		return true;
+			
+		  } else{
+                    return false; 
+                }
+                    
+	}
+        
+        public static boolean validaTipo(String tipo){
+        Pattern pattern=Pattern.compile(plantilla_tipo);
+        Matcher matcher = pattern.matcher(tipo);
+		if(matcher.matches()){
+		return true;
+			
+		  } else{
+                    return false; 
+                }
+                    
+	}
+        
+        public static boolean validaCompras(String compras){
+        Pattern pattern=Pattern.compile(plantilla_compras);
+        Matcher matcher = pattern.matcher(compras);
 		if(matcher.matches()){
 		return true;
 			
