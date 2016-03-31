@@ -9,7 +9,7 @@ import app.classes.singleton_global;
 import static app.classes.singleton_global.Green;
 import app.modules.menu.controller.menu_controller;
 import app.modules.menu.view.main_view;
-import app.modules.users.admin.model.BLL.BLL_client;
+import app.modules.users.admin.model.BLL.BLL_admin;
 import app.modules.users.admin.model.classes.miniSimpleTableModel_admin;
 import app.modules.users.admin.model.classes.singleton;
 import static app.modules.users.admin.model.classes.singleton.admin;
@@ -132,11 +132,11 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
 
                     int row = table.rowAtPoint(p);
                     if (me.getClickCount() == 2) {
-                        if (BLL_client.Modificar()) {
+                        if (BLL_admin.Modificar()) {
                             TableAdmin.dispose();
                             //meh new adminnew_view().setVisible(true);
                             new admin_controller(new adminnew_view(), 2).Iniciar(2);
-                            BLL_client.LlenarCampos();
+                            BLL_admin.LlenarCampos();
                             titlecreateedit.setText("Editar un usuario administrador");
                             adddummies.setVisible(false);
                         }
@@ -218,6 +218,7 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
             Crear.setLocationRelativeTo(null);
             Crear.setSize(590, 541);
             Crear.setResizable(false);
+            
 
             adminnew_view.adddni.setActionCommand("jtxtDni");
             adminnew_view.adddni.addKeyListener(this);
@@ -282,7 +283,7 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
             Modificar.setSize(590, 541);
             Modificar.setResizable(false);
             adddummies.setVisible(false);
-            BLL_client.LlenarCampos();
+            BLL_admin.LlenarCampos();
 
             titlecreateedit.setText(singleton_global.translate.getProperty("edittit"));
 
@@ -355,13 +356,13 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                 TableAdmin.dispose();
                 break;
             case btnModificar:
-                if (BLL_client.Modificar()) {
+                if (BLL_admin.Modificar()) {
                     new admin_controller(new adminnew_view(), 2).Iniciar(2);
                     TableAdmin.dispose();
                 }
                 break;
             case btnEliminar:
-                BLL_client.Delete();
+                BLL_admin.Delete();
                 break;
             case btnGuardarJson:
                 singleton.admin.savejson();
@@ -398,31 +399,31 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                 pagina.initLinkBox();
                 break;
             case jtxtDni: //validaciones
-                BLL_client.DniValidate();
+                BLL_admin.DniValidate();
                 break;
             case jtxtName:
-                BLL_client.NameValidate();
+                BLL_admin.NameValidate();
                 break;
             case jtxtSurname:
-                BLL_client.SurnameValidate();
+                BLL_admin.SurnameValidate();
                 break;
             case jtxtMobile:
-                BLL_client.MobileValidate();
+                BLL_admin.MobileValidate();
                 break;
             case jtxtEmail:
-                BLL_client.EmailValidate();
+                BLL_admin.EmailValidate();
                 break;
             case jtxtNameUser:
-                BLL_client.UserNameValidate();
+                BLL_admin.UserNameValidate();
                 break;
             case jtxtPasswd:
-                BLL_client.PasswordValidate();
+                BLL_admin.PasswordValidate();
                 break;
             case jtxtSalary:
-                BLL_client.SalaryValidate();
+                BLL_admin.SalaryValidate();
                 break;
             case jtxtActivity:
-                BLL_client.ActivityValidate();
+                BLL_admin.ActivityValidate();
                 break;
             case btnDummies:
                 app.modules.users.admin.model.utils.dummies.LoadDummies();
@@ -431,7 +432,7 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                 break;
             case btnCreate:
                 if (adddummies.isVisible()) {
-                    if (BLL_client.adminsave()) {
+                    if (BLL_admin.adminsave()) {
                         new admin_controller(new adminmanage_view(), 0).Iniciar(0);
                         Crear.dispose();
                         statusnewadmin.setText("Admin creado correctamente");
@@ -440,7 +441,7 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                         jlblcreate.setText("Asegúrate de haber introducido bien los datos");
                         jlblcreate.setForeground(Color.red);
                     }
-                } else if (BLL_client.Modificaradmin()) {
+                } else if (BLL_admin.Modificaradmin()) {
                     new admin_controller(new adminmanage_view(), 0).Iniciar(0);
                     Modificar.dispose();
                     statusnewadmin.setText("Admin editado correctamente");
@@ -503,11 +504,11 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
         switch (Option.valueOf(ef.getComponent().getName())) {
             case tableAdmin:
                 if (ef.getClickCount() == 2) {
-                    if (BLL_client.Modificar()) {
+                    if (BLL_admin.Modificar()) {
                         TableAdmin.dispose();
                     //meh    new adminnew_view().setVisible(true);
                         new admin_controller(new adminnew_view(), 2).Iniciar(2);
-                        BLL_client.LlenarCampos();
+                        BLL_admin.LlenarCampos();
                         titlecreateedit.setText("Editar un usuario administrador");
                         adddummies.setVisible(false);
                     }

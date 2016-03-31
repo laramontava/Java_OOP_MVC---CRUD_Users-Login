@@ -11,7 +11,7 @@ import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 import app.classes.singleton_global;
 import app.modules.users.admin.model.classes.admin;
 import app.modules.users.admin.model.classes.client;
-import app.modules.users.admin.model.classes.registered_user;
+//import app.modules.users.admin.model.classes.registered_user;
 import app.modules.users.admin.model.classes.singleton;
 
 import java.io.File;
@@ -139,7 +139,7 @@ public class json {
 	        }
 
 	    }
-	 /*------------------------------------*/
+	 /*------------------------------------
 	
 	 public static void GenerateJsonreguser(){
 		 String PATH = null;
@@ -202,5 +202,5 @@ public class json {
 	        	JOptionPane.showMessageDialog(null, "Error al leer el JSON", "Error", JOptionPane.ERROR_MESSAGE);
 	        }
 
-	    }
+	    }*/
 }

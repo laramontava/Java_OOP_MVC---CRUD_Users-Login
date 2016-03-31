@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package app.modules.users.client.model.DAO;
+package app.modules.users.registered_user.model.DAO;
 
 import app.classes.fecha;
 import app.classes.singleton_global;
 import static app.classes.singleton_global.Green;
 import static app.classes.singleton_global.cancel;
 import static app.classes.singleton_global.ok;
-import app.modules.users.client.model.classes.client;
-import app.modules.users.client.model.classes.singleton_client;
-import app.modules.users.client.model.utils.pager.pagina;
-import static app.modules.users.client.view.clientmanage_view.TABLA;
-import app.modules.users.client.view.regusernew_view;
-import static app.modules.users.client.view.regusernew_view.*;
+import app.modules.users.registered_user.model.classes.registered_user;
+import app.modules.users.registered_user.model.classes.singleton_reguser;
+import app.modules.users.registered_user.model.utils.pager.pagina;
+import static app.modules.users.registered_user.view.regusermanage_view.TABLA;
+import app.modules.users.registered_user.view.regusernew_view;
+import static app.modules.users.registered_user.view.regusernew_view.*;
 import app.utils.validate;
 import java.awt.Color;
 import java.util.Calendar;
@@ -24,7 +24,7 @@ import java.util.Calendar;
  *
  * @author Lara
  */
-public class DAO_client {
+public class DAO_reguser {
     public static int selectedcli;
     public static boolean pidedni() {
         int modulo, dninum;
@@ -167,31 +167,31 @@ public class DAO_client {
         return val;
     }
 
-    public static boolean pidecompras() {
+    public static boolean pideactividad() {
         boolean val = false;
-        if (regusernew_view.addshopping.getText().isEmpty()) {
+        if (regusernew_view.addactivity.getText().isEmpty()) {
             regusernew_view.validatesalary.setIcon(cancel);
-        } else if (!validate.validaCompras(regusernew_view.addshopping.getText())) {
+        } else if (!validate.validaCompras(regusernew_view.addactivity.getText())) {
             regusernew_view.validatesalary.setIcon(cancel);
-            regusernew_view.addshopping.setForeground(Color.RED);
+            regusernew_view.addactivity.setForeground(Color.RED);
         } else {
             regusernew_view.validatesalary.setIcon(ok);
-            regusernew_view.addshopping.setForeground(Green);
+            regusernew_view.addactivity.setForeground(Green);
             val = true;
         }
         return val;
     }
 
-    public static boolean pidetipo() {
+    public static boolean pidepuntos() {
         boolean val = false;
-        if (regusernew_view.addtype.getText().isEmpty()) {
+        if (regusernew_view.addpoints.getText().isEmpty()) {
             regusernew_view.validateactivity.setIcon(cancel);
-        } else if (!validate.validaTipo(regusernew_view.addtype.getText())) {
+        } else if (!validate.validaTipo(regusernew_view.addpoints.getText())) {
             regusernew_view.validateactivity.setIcon(cancel);
-            regusernew_view.addtype.setForeground(Color.RED);
+            regusernew_view.addpoints.setForeground(Color.RED);
         } else {
             regusernew_view.validateactivity.setIcon(ok);
-            regusernew_view.addtype.setForeground(Green);
+            regusernew_view.addpoints.setForeground(Green);
             val = true;
         }
         return val;
@@ -232,52 +232,13 @@ public class DAO_client {
         return val;
     }
 
-    public static boolean pidefecharegistro() {
-        String s = "";
-        boolean val = true;
-        int years = 0;
-        try {
-            val = true;
-            //s = validatefecha(message, title);
-            fecha datefecha = new fecha();
-            Calendar date = regusernew_view.addreg.getCalendar();
-            fecha fe = new fecha();
-            //Calendar datesystem = new GregorianCalendar();
-            Calendar datesystem = fe.fechasystem();
-            fecha diferencia = new fecha();
-            Calendar datebirthday = regusernew_view.adddatebirthday.getCalendar();
+    
 
-            if (date.after(datesystem)) {
-                jlblcreate.setText(singleton_global.translate.getProperty("future"));
-                val = false;
-            }
-
-            years = diferencia.restafechas(date, datebirthday, "years");
-            if (diferencia.restafechas(date, datebirthday, "years") <= 18) {
-                jlblcreate.setText(singleton_global.translate.getProperty("menor"));
-                val = false;
-            }
-            if (val == true) {
-                fecha resta = new fecha();
-                resta.restafechas(date, datesystem, "years");
-            }
-        } catch (Exception e) {
-            val = false;
-        }
-        if (val) {
-            regusernew_view.validate_cont.setIcon(ok);
-        } else {
-            regusernew_view.validate_cont.setIcon(cancel);
-        }
-        return val;
-
-    }
-
-    public static boolean saveclient() {
+    public static boolean savereguser() {
         boolean val = false;
         if (pidedni() && pidenombre() && pideapellidos() && pidefechanacimiento()
                 && pidetelefono() && pideemail() && pideusuario() && pidecontrasenya()
-                && pidefecharegistro() && pidecompras() && pidetipo()) {
+                && pideactividad()) {
 
             String dni = regusernew_view.adddni.getText();
             String name = regusernew_view.addname.getText();
@@ -290,26 +251,24 @@ public class DAO_client {
             String passwd = regusernew_view.addpassword.getText();
             String avatar = regusernew_view.addavatar.getText();
             String status = regusernew_view.add_status.getSelectedItem().toString();
-            String up_date = aux.calendartostring(regusernew_view.addreg.getCalendar(), 0);
-            float shopping = Float.parseFloat(regusernew_view.addshopping.getText());
-            String premium = regusernew_view.addpremium.getSelectedItem().toString();
-            String clienttype = regusernew_view.addtype.getText();
+            int activity = Integer.parseInt(regusernew_view.addactivity.getText());
+        //    String karma = regusernew_view.addkarma.getSelectedItem().toString();
+        //    int points = Integer.parseInt(regusernew_view.addpoints.getText());
 
-            client clientcreate = new client(dni, name, surname, mobile, email, datebirthday,
-			nameuser, passwd, avatar, status, up_date, shopping,
-			premium, clienttype);
-            singleton_client.client.AddClient(clientcreate);
+            registered_user regusercreate = new registered_user(dni, name, surname, mobile, email, datebirthday,
+			nameuser, passwd, avatar, status, activity);
+            singleton_reguser.reguser.AddUserreg(regusercreate);
 
             val = true;
         }
         return val;
     }
 
-    public static boolean saveeditclient() {
+    public static boolean saveeditreguser() {
         boolean val = false;
         if (pidedni() && pidenombre() && pideapellidos() && pidefechanacimiento()
                 && pidetelefono() && pideemail() && pideusuario() && pidecontrasenya()
-                && pidefecharegistro() && pidecompras() && pidetipo()) {
+                && pideactividad()) {
 
             String dni = regusernew_view.adddni.getText();
             String name = regusernew_view.addname.getText();
@@ -322,27 +281,21 @@ public class DAO_client {
             String passwd = regusernew_view.addpassword.getText();
             String avatar = regusernew_view.addavatar.getText();
             String status = regusernew_view.add_status.getSelectedItem().toString();
-            String update = aux.calendartostring(regusernew_view.addreg.getCalendar(), 0);
-            float shopping = Float.parseFloat(regusernew_view.addshopping.getText());
-            String premium = regusernew_view.addpremium.getSelectedItem().toString();
-            String type = regusernew_view.addtype.getText();
+            int activity = Integer.parseInt(regusernew_view.addactivity.getText());
             int inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
             selectedcli = TABLA.getSelectedRow();
             int selected1 = inicio + selectedcli;
-            singleton_client.client.getClient(selected1).setDni(dni);
-            singleton_client.client.getClient(selected1).setName(name);
-            singleton_client.client.getClient(selected1).setSubname(surname);
-            singleton_client.client.getClient(selected1).setMobile(mobile);
-            singleton_client.client.getClient(selected1).setEmail(email);
-            singleton_client.client.getClient(selected1).setDate_birthday(datebirthday);
-            singleton_client.client.getClient(selected1).setUser(nameuser);
-            singleton_client.client.getClient(selected1).setPass(passwd);
-            singleton_client.client.getClient(selected1).setAvatar(avatar);
-            singleton_client.client.getClient(selected1).setState(status);
-            singleton_client.client.getClient(selected1).setUp_date(update);
-            singleton_client.client.getClient(selected1).setShopping(shopping);
-            singleton_client.client.getClient(selected1).setPremium(premium);
-            singleton_client.client.getClient(selected1).setClient_type(type);
+            singleton_reguser.reguser.getClient(selected1).setDni(dni);
+            singleton_reguser.reguser.getClient(selected1).setName(name);
+            singleton_reguser.reguser.getClient(selected1).setSubname(surname);
+            singleton_reguser.reguser.getClient(selected1).setMobile(mobile);
+            singleton_reguser.reguser.getClient(selected1).setEmail(email);
+            singleton_reguser.reguser.getClient(selected1).setDate_birthday(datebirthday);
+            singleton_reguser.reguser.getClient(selected1).setUser(nameuser);
+            singleton_reguser.reguser.getClient(selected1).setPass(passwd);
+            singleton_reguser.reguser.getClient(selected1).setAvatar(avatar);
+            singleton_reguser.reguser.getClient(selected1).setState(status);
+            singleton_reguser.reguser.getClient(selected1).setActivity(activity);
             val = true;
         }
         return val;
@@ -350,27 +303,28 @@ public class DAO_client {
 
     public static void fillfields(int pos) {
         fecha aux = new fecha();
-        adddni.setText(singleton_client.client.getClient(pos).getDni());
-        addname.setText(singleton_client.client.getClient(pos).getName());
-        addsurname.setText(singleton_client.client.getClient(pos).getSubname());
-        addmobile.setText(singleton_client.client.getClient(pos).getMobile());
-        addemail.setText(singleton_client.client.getClient(pos).getEmail());
-        adddatebirthday.setCalendar(aux.stringtocalendar(singleton_client.client.getClient(pos).getDate_birthday()));
-        addnameuser.setText(singleton_client.client.getClient(pos).getUser());
-        addpassword.setText(singleton_client.client.getClient(pos).getPass());
-        addavatar.setText(singleton_client.client.getClient(pos).getAvatar());
-        add_status.setSelectedItem(singleton_client.client.getClient(pos).getState());
-        addreg.setCalendar(aux.stringtocalendar(singleton_client.client.getClient(pos).getUp_date()));
-        addshopping.setText(String.valueOf(singleton_client.client.getClient(pos).getShopping()));
-        addpremium.setSelectedItem(singleton_client.client.getClient(pos).getPremium());
-        addtype.setText(String.valueOf(singleton_client.client.getClient(pos).getClient_type()));
-        if("Premium".equals(singleton_client.client.getClient(pos).getPremium())){
-            adddesc.setText("10%");
-        }else{
-            adddesc.setText("0%");
+        adddni.setText(singleton_reguser.reguser.getClient(pos).getDni());
+        addname.setText(singleton_reguser.reguser.getClient(pos).getName());
+        addsurname.setText(singleton_reguser.reguser.getClient(pos).getSubname());
+        addmobile.setText(singleton_reguser.reguser.getClient(pos).getMobile());
+        addemail.setText(singleton_reguser.reguser.getClient(pos).getEmail());
+        adddatebirthday.setCalendar(aux.stringtocalendar(singleton_reguser.reguser.getClient(pos).getDate_birthday()));
+        addnameuser.setText(singleton_reguser.reguser.getClient(pos).getUser());
+        addpassword.setText(singleton_reguser.reguser.getClient(pos).getPass());
+        addavatar.setText(singleton_reguser.reguser.getClient(pos).getAvatar());
+        add_status.setSelectedItem(singleton_reguser.reguser.getClient(pos).getState());
+        addactivity.setText(Integer.toString(singleton_reguser.reguser.getClient(pos).getActivity()));
+        
+        if(singleton_reguser.reguser.getClient(pos).getActivity()<=999){
+            addkarma.setSelectedItem("Bajo");
+            addpoints.setText(Integer.toString(singleton_reguser.reguser.getClient(pos).getActivity()*5));
+        }else if((singleton_reguser.reguser.getClient(pos).getActivity()>=1000)&&
+                (singleton_reguser.reguser.getClient(pos).getActivity()<=4999)){
+            addkarma.setSelectedItem("Medio");
+            addpoints.setText(Integer.toString(singleton_reguser.reguser.getClient(pos).getActivity()*7));
+        }else if(singleton_reguser.reguser.getClient(pos).getActivity()>=5000){
+            addkarma.setSelectedItem("Alto");
+            addpoints.setText(Integer.toString(singleton_reguser.reguser.getClient(pos).getActivity()*10));
         }
-        fecha years = new fecha();
-	addyearsservice.setText(Integer.toString(years.restafechas(years.stringtocalendar(singleton_client.client.getClient(pos).getUp_date()), years.fechasystem(), "years")));
-      
     }
 }

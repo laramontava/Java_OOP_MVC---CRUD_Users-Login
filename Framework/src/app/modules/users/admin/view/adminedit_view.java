@@ -6,7 +6,7 @@
 package app.modules.users.admin.view;
 
 import app.modules.users.admin.model.BLL.Arraylist_admin;
-import app.modules.users.admin.model.BLL.BLL_client;
+import app.modules.users.admin.model.BLL.BLL_admin;
 import app.modules.users.admin.model.classes.admin;
 import java.awt.Color;
 import javax.swing.text.StyleConstants;

@@ -21,7 +21,9 @@ import static app.modules.menu.view.main_view.btnreguser_main;
 import app.modules.users.admin.controller.admin_controller;
 import app.modules.users.admin.view.adminmanage_view;
 import app.modules.users.client.controller.client_controller;
+import app.modules.users.registered_user.controller.reguser_controller;
 import app.modules.users.client.view.clientmanage_view;
+import app.modules.users.registered_user.view.regusermanage_view;
 import app.ppalmain;
 import app.utils.config_save;
 import java.awt.event.ActionEvent;
@@ -217,7 +219,8 @@ public class menu_controller implements ActionListener {
                 mainview.dispose();
                 break;
             case btn_regusermain:
-                JOptionPane.showMessageDialog(null, "reg");
+                new reguser_controller(new regusermanage_view(),0).Iniciar(0);
+                mainview.dispose();
                 break;
             case btn_confmain:
                 mainview.dispose();

@@ -1,6 +1,7 @@
-package app.modules.users.admin.model.classes;
+package app.modules.users.registered_user.model.classes;
 
-/*import java.io.Serializable;
+import app.modules.users.admin.model.classes.users;
+import java.io.Serializable;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @SuppressWarnings("serial")
@@ -114,4 +115,4 @@ public class registered_user extends users implements Serializable {
 		}
 		return points;
 	}
-}*/
+}

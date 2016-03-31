@@ -1,12 +1,9 @@
-package app.modules.users.admin.model.BLL;
+package app.modules.users.registered_user.model.BLL;
 
-/*import java.util.ArrayList;
-import java.util.Collections;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import app.modules.users.admin.model.DAO.functions_users;
-import app.modules.users.admin.model.classes.orderdatebirthday;
-import app.modules.users.admin.model.classes.ordername;
-import app.modules.users.admin.model.classes.registered_user;
+import app.modules.users.registered_user.model.classes.registered_user;
 
 public class Arraylist_userreg {
 
@@ -23,10 +20,6 @@ public class Arraylist_userreg {
     public void setUserreg(ArrayList<registered_user> rusers) {
         this.rusers = rusers;
     }
-
-    public ArrayList<registered_user> getRegusers() {
-        return rusers;
-    }
     
     public void AddUserreg(registered_user ruserd) {
         boolean asd = true;
@@ -40,7 +33,7 @@ public class Arraylist_userreg {
 		else{
 			ruserd = functions_users.pideregistrado();
 			rusers.add(ruserd);
-		}*
+		}*/
 
         for (int i = 0; i <= rusers.size() - 1; i++) {
             if ((rusers.get(i)).equals(ruserd)) {
@@ -52,8 +45,16 @@ public class Arraylist_userreg {
             rusers.add(ruserd);
         }
     }
-
-    public void EditUserreg(registered_user ruserd) {
+    
+    public registered_user getClient(int pos) {
+        return rusers.get(pos);
+    }
+    
+    public void AddDummies(registered_user ruserd) {
+        rusers.add(ruserd);
+    }
+    
+/*    public void EditUserreg(registered_user ruserd) {
         int pos = -1;
         if (rusers.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay ning�n usuario registrado creado");
@@ -70,9 +71,9 @@ public class Arraylist_userreg {
             }
         }
 
-    }
+    }*/
 
-    public void PrintUserreg() {
+/*    public void PrintUserreg() {
         if (rusers.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay ning�n usuario registrado creado");
         } else {
@@ -80,28 +81,11 @@ public class Arraylist_userreg {
                 JOptionPane.showMessageDialog(null, rusers.get(i).toString());
             }
         }
-    }
+    }*/
 
-    public void orderby(int i) {
-        if (rusers.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No hay ning�n usuario registrado creado");
-        } else {
-            switch (i) {
-                case 0:
-                    Collections.sort(rusers);
-                    break;
-                case 1:
-                    Collections.sort(rusers, new ordername());
-                    break;
-                case 2:
-                    Collections.sort(rusers, new orderdatebirthday());
-                    break;
-            }
-        }
-    }
     //Collections.sort(AL_cli); compareto user => dni
 
-    public void UserregSearch(registered_user ruserd) {
+ /*   public void UserregSearch(registered_user ruserd) {
         if (rusers.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay ning�n usuario registrado creado");
         } else {
@@ -112,7 +96,7 @@ public class Arraylist_userreg {
                 }
             }
         }
-    }
+    }*/
 
     public int UserregFind(registered_user ruserd) {
         for (int i = 0; i <= rusers.size() - 1; i++) {
@@ -122,8 +106,28 @@ public class Arraylist_userreg {
         }
         return -1;
     }
+    
+    public int buscarDniRegUser(String dni) {
+        int pos = 0;
+        for (int i = 0; i <= rusers.size() - 1; i++) {
+            if (rusers.get(i).getDni().equals(dni)) {
+                pos = i;
+            }
+        }
+        return pos;
+    }
 
-    public void DeleteUserreg(registered_user ruserd) {
+    public void DeleteRU(registered_user pidereguser) {
+        for (int i = 0; i <= rusers.size() - 1; i++) {
+            if ((rusers.get(i)).equals(pidereguser)) {
+                rusers.remove(i);
+            }
+        }
+    }
+    
+    
+    
+/*    public void DeleteUserreg(registered_user ruserd) {
         if (rusers.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay ning�n usuario registrado creado");
         } else {
@@ -134,5 +138,5 @@ public class Arraylist_userreg {
                 }
             }
         }
-    }
-}*/
+    }*/
+}

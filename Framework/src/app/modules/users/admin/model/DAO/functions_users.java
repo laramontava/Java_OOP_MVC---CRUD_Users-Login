@@ -5,7 +5,7 @@ import app.classes.singleton_global;
 import app.modules.users.admin.model.utils.core.kernel;
 import app.modules.users.admin.model.classes.admin;
 import app.modules.users.client.model.classes.client;
-import app.modules.users.admin.model.classes.registered_user;
+//import app.modules.users.admin.model.classes.registered_user;
 import app.modules.users.admin.model.classes.singleton;
 import app.modules.users.admin.model.classes.users;
 import app.modules.users.client.model.classes.singleton_client;
@@ -64,10 +64,10 @@ public class functions_users {
 		singleton.dni=kernel.pedirdatos("dni",singleton_global.translate.getProperty("dni"),"DNI");
 		return new client(singleton.dni);
 	}
-	public static registered_user finddniuserreg(){
+/*	public static registered_user finddniuserreg(){
 		singleton.dni=kernel.pedirdatos("dni",singleton_global.translate.getProperty("dni"),"DNI");
 		return new registered_user(singleton.dni);
-	}
+	}*/
 /*	public static client pideclient(){
 		String dni, name, subname, mobile, email, date_birthday, user, pass, avatar, state;
 		float shopping;
@@ -108,7 +108,7 @@ public class functions_users {
 				client_type);
 	}*/
 
-	public static registered_user pideregistrado(){
+/*	public static registered_user pideregistrado(){
 		String dni, name, subname, mobile, email, date_birthday, user, pass, avatar, state;
 		int activity;
 		String formatdate="";
@@ -338,5 +338,5 @@ public class functions_users {
 				break;
 			}
 		}
-	}
+	}*/
 }

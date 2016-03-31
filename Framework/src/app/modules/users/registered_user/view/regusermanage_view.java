@@ -1,123 +1,13 @@
-package app.modules.users.admin.view;
-
-import app.classes.singleton_global;
-import app.modules.menu.view.main_view;
-import app.modules.users.admin.model.BLL.BLL_admin;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.UIManager;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
-import app.modules.users.admin.model.utils.autocomplete.AutocompleteJComboBox;
-import app.modules.users.admin.model.utils.autocomplete.StringSearchable;
-import app.modules.users.admin.model.utils.pager.pagina;
-import app.modules.users.admin.model.classes.miniSimpleTableModel_admin;
-import static app.modules.users.admin.model.classes.miniSimpleTableModel_admin.datos;
-import app.modules.users.admin.model.classes.singleton;
-import static app.modules.users.admin.model.classes.singleton.admin;
-import static app.modules.users.admin.view.adminnew_view.*;
-import app.ppalmain;
-import java.awt.Point;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.JTable;
-import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
+package app.modules.users.registered_user.view;
 
 /**
  *
  * @author Lara
  */
-public class adminmanage_view extends javax.swing.JFrame {
-
-//    public static TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(new miniSimpleTableModel_admin());
-//    public static AutocompleteJComboBox combo = null;
-
-    //public static int selected;
-    /**
-     * Creates new form interfaz_actor
-     */
-    public adminmanage_view() {
+public class regusermanage_view extends javax.swing.JFrame {
+    
+    public regusermanage_view() {
         initComponents();
-
-/*        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-        }
-
-        this.setLocationRelativeTo(null);
-        this.setTitle("Gestión Actores");
-        this.setResizable(false);
-
-        ppalmain.singleton_vtna = "interfaz_actor";
-        //
-        TABLA.setModel(new miniSimpleTableModel_admin());
-        ((miniSimpleTableModel_admin) TABLA.getModel()).cargar();
-        TABLA.setFillsViewportHeight(true);
-        TABLA.setRowSorter(sorter);
-        TABLA.addMouseListener(new MouseAdapter() {
-            public void mousePressed(MouseEvent me) {
-                JTable table = (JTable) me.getSource();
-                Point p = me.getPoint();
-
-                int row = table.rowAtPoint(p);
-                if (me.getClickCount() == 2) {
-                    if (BLL_admin.Modificar()) {
-                        dispose();
-                        new adminnew_view().setVisible(true);
-                        BLL_admin.LlenarCampos();
-                        titlecreateedit.setText("Editar un usuario administrador");
-                        createoredit.setVisible(false);
-                    }
-                }
-            }
-        });
-
-        //
-        pagina.inicializa();
-        pagina.initLinkBox();
-
-        jLabel3.setText(String.valueOf(admin.getAdmins().size()));
-
-        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                dispose();
-                new main_view().setVisible(true);
-            }
-        });
-
-        List<String> myWords = new ArrayList<String>();
-        for (int i = 0; i <= admin.getAdmins().size() - 1; i++) {
-            myWords.add(admin.getAdmins().get(i).getName());
-        }
-
-        StringSearchable searchable = new StringSearchable(myWords);
-        combo = new AutocompleteJComboBox(searchable);
-        //JPanel5 se utiliza solamente para que JPanel3 que contendrá combo, no se redimensione
-        jPanel3.setLayout(new java.awt.BorderLayout());
-        jPanel3.add(combo);
-
-        combo.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboActionPerformed(evt);
-            }
-        });
-        /*   TABLA.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TABLAMouseClicked(evt);
-            }
-        });*/
-    }
-    public static int selected;
-
-    /*public static void comboActionPerformed(java.awt.event.ActionEvent evt) {
-        //    System.out.println("word selected: " + ((JComboBox)combo).getSelectedItem());
-        pagina.currentPageIndex = 1;
-        ((miniSimpleTableModel_admin) TABLA.getModel()).filtrar();
     }
 
     /**
@@ -190,18 +80,8 @@ public class adminmanage_view extends javax.swing.JFrame {
         );
 
         jButton1.setText("Volver");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "5", "10", "15", "20", "50", "100" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
 
         jLabel2.setText("Show entries:");
 
@@ -209,19 +89,9 @@ public class adminmanage_view extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ANTERIOR.setText("<");
-        ANTERIOR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ANTERIORActionPerformed(evt);
-            }
-        });
         jPanel2.add(ANTERIOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
         SIGUIENTE.setText(">");
-        SIGUIENTE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SIGUIENTEActionPerformed(evt);
-            }
-        });
         jPanel2.add(SIGUIENTE, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
 
         CAJA.setEditable(false);
@@ -230,19 +100,9 @@ public class adminmanage_view extends javax.swing.JFrame {
         jPanel2.add(CAJA, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 80, 30));
 
         primero.setText("|<");
-        primero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                primeroActionPerformed(evt);
-            }
-        });
         jPanel2.add(primero, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
 
         ultimo.setText(">|");
-        ultimo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ultimoActionPerformed(evt);
-            }
-        });
         jPanel2.add(ultimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
 
         jLabel3.setText("jLabel3");
@@ -289,11 +149,6 @@ public class adminmanage_view extends javax.swing.JFrame {
         create_admin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         create_admin.setIconTextGap(-1);
         create_admin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        create_admin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                create_adminActionPerformed(evt);
-            }
-        });
 
         edit_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/user_edit.png"))); // NOI18N
         edit_admin.setToolTipText("Edita un admin ya existente");
@@ -304,11 +159,6 @@ public class adminmanage_view extends javax.swing.JFrame {
         edit_admin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         edit_admin.setIconTextGap(-1);
         edit_admin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        edit_admin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edit_adminActionPerformed(evt);
-            }
-        });
 
         delete_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/user_delete.png"))); // NOI18N
         delete_admin.setToolTipText("Eliminar un usuario admin");
@@ -319,42 +169,22 @@ public class adminmanage_view extends javax.swing.JFrame {
         delete_admin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         delete_admin.setIconTextGap(-1);
         delete_admin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        delete_admin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                delete_adminActionPerformed(evt);
-            }
-        });
 
         savejson.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/filejson.png"))); // NOI18N
         savejson.setBorder(null);
         savejson.setBorderPainted(false);
         savejson.setContentAreaFilled(false);
-        savejson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                savejsonActionPerformed(evt);
-            }
-        });
 
         savetxt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/filetxt.png"))); // NOI18N
         savetxt.setToolTipText("Descargar txt con todos los admins");
         savetxt.setBorder(null);
         savetxt.setBorderPainted(false);
         savetxt.setContentAreaFilled(false);
-        savetxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                savetxtActionPerformed(evt);
-            }
-        });
 
         savexml.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/users/admin/view/img/filexml.png"))); // NOI18N
         savexml.setBorder(null);
         savexml.setBorderPainted(false);
         savexml.setContentAreaFilled(false);
-        savexml.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                savexmlActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("First name:");
 
@@ -447,87 +277,6 @@ public class adminmanage_view extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   //     this.dispose();
-   //     new main_view().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-    //    pagina.itemsPerPage = Integer.parseInt(jComboBox1.getSelectedItem().toString());
-   //     pagina.currentPageIndex = 1;
-   //     pagina.initLinkBox();
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void ANTERIORActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANTERIORActionPerformed
-    //    pagina.currentPageIndex -= 1;
-    //    pagina.initLinkBox();
-    }//GEN-LAST:event_ANTERIORActionPerformed
-
-    private void SIGUIENTEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIGUIENTEActionPerformed
-    //    pagina.currentPageIndex += 1;
-   //     pagina.initLinkBox();
-    }//GEN-LAST:event_SIGUIENTEActionPerformed
-
-    private void primeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_primeroActionPerformed
-    //    pagina.currentPageIndex = 1;
-    //    pagina.initLinkBox();
-    }//GEN-LAST:event_primeroActionPerformed
-
-    private void ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultimoActionPerformed
-    //    pagina.currentPageIndex = pagina.maxPageIndex;
-    //    pagina.initLinkBox();
-    }//GEN-LAST:event_ultimoActionPerformed
-
-    private void create_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_adminActionPerformed
-        // TODO add your handling code here:
-   //     new adminnew_view().setVisible(true);
-    //    dispose();
-    }//GEN-LAST:event_create_adminActionPerformed
-    /*private void TABLAMouseClicked(java.awt.event.MouseEvent evt) {
-        //singleton.pager.selectadmin();
-        selected= TABLA.getSelectedRow();
-    }*/
-    private void edit_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_adminActionPerformed
-        // TODO add your handling code here:
- /*       if (BLL_admin.Modificar()) {
-            this.dispose();
-            new adminnew_view().setVisible(true);
-            BLL_admin.LlenarCampos();
-            //titlecreateedit.setText("Editar un usuario administrador");
-            titlecreateedit.setText(singleton_global.translate.getProperty("edittit"));
-            createoredit.setVisible(false);
-        }*/
-        /*    String dni =  functions.validatestring("Type dni", "");
-        JOptionPane.showMessageDialog(null, dni);
-        dispose();
-        new adminnew_view().setVisible(true);
-        titlecreateedit.setText("Editar un usuario administrador");
-        createoredit.setVisible(false);
-        selected = singleton.admin.buscarDniAdmin(dni);
-        JOptionPane.showMessageDialog(null, selected);
-        DAO_admin.fillfields(selected);*/
-    }//GEN-LAST:event_edit_adminActionPerformed
-
-    private void delete_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_adminActionPerformed
-        // TODO add your handling code here:
-    //    BLL_admin.Delete();
-    }//GEN-LAST:event_delete_adminActionPerformed
-
-    private void savejsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savejsonActionPerformed
-        // TODO add your handling code here:
-    //    singleton.admin.savejson();
-    }//GEN-LAST:event_savejsonActionPerformed
-
-    private void savetxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savetxtActionPerformed
-        // TODO add your handling code here:
-    //    singleton.admin.savetxt();
-    }//GEN-LAST:event_savetxtActionPerformed
-
-    private void savexmlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savexmlActionPerformed
-        // TODO add your handling code here:
-    //    singleton.admin.savexml();
-    }//GEN-LAST:event_savexmlActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;

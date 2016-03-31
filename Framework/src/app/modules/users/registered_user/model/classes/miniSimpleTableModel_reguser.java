@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package app.modules.users.client.model.classes;
+package app.modules.users.registered_user.model.classes;
 
-import static app.modules.users.client.controller.client_controller.combo;
+import static app.modules.users.registered_user.controller.reguser_controller.combo;
+import static app.modules.users.registered_user.model.classes.singleton_reguser.reguser;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
-import app.modules.users.client.model.utils.pager.pagina;
-import static app.modules.users.client.model.classes.singleton_client.client;
-import app.modules.users.client.view.clientmanage_view;
-import static app.modules.users.client.view.clientmanage_view.jLabel3;
+import app.modules.users.registered_user.model.utils.pager.pagina;
+import app.modules.users.registered_user.view.regusermanage_view;
+import static app.modules.users.registered_user.view.regusermanage_view.jLabel3;
 
-public class miniSimpleTableModel_client extends AbstractTableModel {
+public class miniSimpleTableModel_reguser extends AbstractTableModel {
 
-    public static ArrayList<client> datos = new ArrayList<client>();
-    public static ArrayList<client> datosaux = new ArrayList<client>();
+    public static ArrayList<registered_user> datos = new ArrayList<registered_user>();
+    public static ArrayList<registered_user> datosaux = new ArrayList<registered_user>();
     String[] columnas = {"dni", "first_name", "last_name"};
 
     ////////////////////estos métodos son necesarios para que jtable funcione/////////////////////
@@ -43,7 +43,7 @@ public class miniSimpleTableModel_client extends AbstractTableModel {
     public Object getValueAt(int row, int col) {
 
         Object dev = null;
-        client fila = (client) datos.get(row);
+        registered_user fila = (registered_user) datos.get(row);
 
         switch (col) {
             case 0:
@@ -72,7 +72,7 @@ public class miniSimpleTableModel_client extends AbstractTableModel {
     //Actualiza un objeto de una fila y columna
     @Override
     public void setValueAt(Object value, int row, int col) {
-        client fila = (client) datos.get(row);
+        registered_user fila = (registered_user) datos.get(row);
 
         switch (col) {
             case 0:
@@ -92,7 +92,7 @@ public class miniSimpleTableModel_client extends AbstractTableModel {
         fireTableCellUpdated(row, col);
     }
 
-    public void addRow(client usu) {
+    public void addRow(registered_user usu) {
         datos.add(usu);
         fireTableDataChanged();
     }
@@ -101,9 +101,9 @@ public class miniSimpleTableModel_client extends AbstractTableModel {
         System.out.println("Entra cargar");
         datos.clear();
         datosaux.clear();
-       for (int i = 0; i < singleton_client.client.getClients().size(); i++) {
-            addRow(singleton_client.client.getClients().get(i));
-            datosaux.add(singleton_client.client.getClients().get(i));
+       for (int i = 0; i < singleton_reguser.reguser.getUserreg().size(); i++) {
+            addRow(singleton_reguser.reguser.getUserreg().get(i));
+            datosaux.add(singleton_reguser.reguser.getUserreg().get(i));
         }
     }
 
@@ -120,13 +120,13 @@ public class miniSimpleTableModel_client extends AbstractTableModel {
                         cont++;
                     }
                 }
-                clientmanage_view.jLabel3.setText(String.valueOf(cont));
+                regusermanage_view.jLabel3.setText(String.valueOf(cont));
                 //        System.out.println("word selected: " + nom);
                 pagina.initLinkBox();
             } 
     }
 
-    public client buscar(String u) {
+    public registered_user buscar(String u) {
         datos.clear();
         cargar();
 
@@ -140,7 +140,7 @@ public class miniSimpleTableModel_client extends AbstractTableModel {
         return null;
     }
 
-    public int buscaUsuario(client u) {
+    public int buscaUsuario(registered_user u) {
         datos.clear();
         cargar();
 
@@ -154,7 +154,7 @@ public class miniSimpleTableModel_client extends AbstractTableModel {
 
     public void removeRow(int fila) {
         datos.remove(fila);
-        jLabel3.setText(String.valueOf(client.getClients().size()-1));
+        jLabel3.setText(String.valueOf(reguser.getUserreg().size()-1));
         fireTableDataChanged();
         pagina.initLinkBox();
     }

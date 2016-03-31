@@ -66,7 +66,7 @@ public class Arraylist_admin {
             pos = adminfind(admind);
             if (pos != -1) {
                 //admins.get(pos);
-                functions_users.cambiauser(admins.get(pos));
+//                functions_users.cambiauser(admins.get(pos));
                 //admins.set(pos, admind);
             } else {
                 JOptionPane.showMessageDialog(null, "Existe");

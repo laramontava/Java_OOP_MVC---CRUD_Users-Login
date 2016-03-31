@@ -9,8 +9,8 @@ package app.modules.users.client.view;
  *
  * @author Lara
  */
-public class clientnew_view extends javax.swing.JFrame {
-    public clientnew_view() {
+public class regusernew_view extends javax.swing.JFrame {
+    public regusernew_view() {
         initComponents();
     }
     
