@@ -413,7 +413,7 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                 BLL_reguser.ActivityValidate();
                 break;
             case btnDummies:
-                app.modules.users.client.model.utils.dummies.LoadDummies();
+                app.modules.users.registered_user.model.utils.dummies.LoadDummies();
                 Crear.dispose();
                 new reguser_controller(new regusermanage_view(), 0).Iniciar(0);
                 break;
