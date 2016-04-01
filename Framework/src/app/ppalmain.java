@@ -1,7 +1,7 @@
 package app;
 
-import app.modules.config.model.configuration;
-import app.modules.config.model.idioma;
+import app.modules.menu.model.configuration;
+import app.modules.menu.model.idioma;
 import app.classes.singleton_global;
 import app.modules.menu.controller.menu_controller;
 import app.modules.menu.view.main_view;

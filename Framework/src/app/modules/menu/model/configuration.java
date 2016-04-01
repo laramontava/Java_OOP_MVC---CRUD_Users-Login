@@ -1,4 +1,4 @@
-package app.modules.config.model;
+package app.modules.menu.model;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 

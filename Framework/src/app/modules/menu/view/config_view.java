@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package app.modules.config.view;
+package app.modules.menu.view;
 
 /**
  *
@@ -390,7 +390,7 @@ public class config_view extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        conf_data.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/config/view/img/calendar.png"))); // NOI18N
+        conf_data.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/calendar.png"))); // NOI18N
         conf_data.setText("Fecha");
         conf_data.setToolTipText("Modifica el formato de fecha");
         conf_data.setActionCommand("");
@@ -401,7 +401,7 @@ public class config_view extends javax.swing.JFrame {
         conf_data.setIconTextGap(-1);
         conf_data.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        conf_decimal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/config/view/img/decimals.png"))); // NOI18N
+        conf_decimal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/decimals.png"))); // NOI18N
         conf_decimal.setText("Decimales");
         conf_decimal.setToolTipText("Elige la cantidad de decimales");
         conf_decimal.setActionCommand("");
@@ -412,7 +412,7 @@ public class config_view extends javax.swing.JFrame {
         conf_decimal.setIconTextGap(5);
         conf_decimal.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        conf_theme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/config/view/img/theme.png"))); // NOI18N
+        conf_theme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/theme.png"))); // NOI18N
         conf_theme.setText("Tema");
         conf_theme.setToolTipText("Cambia el tema de la aplicación");
         conf_theme.setActionCommand("");
@@ -423,7 +423,7 @@ public class config_view extends javax.swing.JFrame {
         conf_theme.setIconTextGap(-1);
         conf_theme.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        conf_format.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/config/view/img/format.png"))); // NOI18N
+        conf_format.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/format.png"))); // NOI18N
         conf_format.setText("Formato");
         conf_format.setToolTipText("Elige el formato de archivo con el que quieres trabajar");
         conf_format.setActionCommand("");
@@ -434,7 +434,7 @@ public class config_view extends javax.swing.JFrame {
         conf_format.setIconTextGap(-1);
         conf_format.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        conf_currency.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/config/view/img/currency.png"))); // NOI18N
+        conf_currency.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/currency.png"))); // NOI18N
         conf_currency.setText("Moneda");
         conf_currency.setToolTipText("Cambia la moneda con la que quieres trabajar");
         conf_currency.setActionCommand("");
@@ -445,7 +445,7 @@ public class config_view extends javax.swing.JFrame {
         conf_currency.setIconTextGap(-1);
         conf_currency.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        conf_language.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/config/view/img/language.png"))); // NOI18N
+        conf_language.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/language.png"))); // NOI18N
         conf_language.setText("Idioma");
         conf_language.setToolTipText("Cambia el idioma de la aplicación");
         conf_language.setActionCommand("");
@@ -456,7 +456,7 @@ public class config_view extends javax.swing.JFrame {
         conf_language.setIconTextGap(-1);
         conf_language.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        conf_dummies.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/config/view/img/dummies.png"))); // NOI18N
+        conf_dummies.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/dummies.png"))); // NOI18N
         conf_dummies.setText("Dummies");
         conf_dummies.setToolTipText("Activa o desactiva el modo demo");
         conf_dummies.setActionCommand("");

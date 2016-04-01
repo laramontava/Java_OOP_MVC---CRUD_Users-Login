@@ -1,7 +1,7 @@
 package app.classes;
 
-import app.modules.config.model.idioma;
-import app.modules.config.model.configuration;
+import app.modules.menu.model.idioma;
+import app.modules.menu.model.configuration;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 

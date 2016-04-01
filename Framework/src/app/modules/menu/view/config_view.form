@@ -705,7 +705,7 @@
     <Component class="javax.swing.JButton" name="conf_data">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/config/view/img/calendar.png"/>
+          <Image iconType="3" name="/app/modules/menu/view/img/calendar.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Fecha"/>
         <Property name="toolTipText" type="java.lang.String" value="Modifica el formato de fecha"/>
@@ -728,7 +728,7 @@
     <Component class="javax.swing.JButton" name="conf_decimal">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/config/view/img/decimals.png"/>
+          <Image iconType="3" name="/app/modules/menu/view/img/decimals.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Decimales"/>
         <Property name="toolTipText" type="java.lang.String" value="Elige la cantidad de decimales"/>
@@ -751,7 +751,7 @@
     <Component class="javax.swing.JButton" name="conf_theme">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/config/view/img/theme.png"/>
+          <Image iconType="3" name="/app/modules/menu/view/img/theme.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Tema"/>
         <Property name="toolTipText" type="java.lang.String" value="Cambia el tema de la aplicaci&#xf3;n"/>
@@ -774,7 +774,7 @@
     <Component class="javax.swing.JButton" name="conf_format">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/config/view/img/format.png"/>
+          <Image iconType="3" name="/app/modules/menu/view/img/format.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Formato"/>
         <Property name="toolTipText" type="java.lang.String" value="Elige el formato de archivo con el que quieres trabajar"/>
@@ -797,7 +797,7 @@
     <Component class="javax.swing.JButton" name="conf_currency">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/config/view/img/currency.png"/>
+          <Image iconType="3" name="/app/modules/menu/view/img/currency.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Moneda"/>
         <Property name="toolTipText" type="java.lang.String" value="Cambia la moneda con la que quieres trabajar"/>
@@ -820,7 +820,7 @@
     <Component class="javax.swing.JButton" name="conf_language">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/config/view/img/language.png"/>
+          <Image iconType="3" name="/app/modules/menu/view/img/language.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Idioma"/>
         <Property name="toolTipText" type="java.lang.String" value="Cambia el idioma de la aplicaci&#xf3;n"/>
@@ -843,7 +843,7 @@
     <Component class="javax.swing.JButton" name="conf_dummies">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/app/modules/config/view/img/dummies.png"/>
+          <Image iconType="3" name="/app/modules/menu/view/img/dummies.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Dummies"/>
         <Property name="toolTipText" type="java.lang.String" value="Activa o desactiva el modo demo"/>

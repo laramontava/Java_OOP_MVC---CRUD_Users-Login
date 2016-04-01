@@ -10,7 +10,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
-import app.modules.config.model.configuration;
+import app.modules.menu.model.configuration;
 import app.classes.singleton_global;
 
 public class config_save {

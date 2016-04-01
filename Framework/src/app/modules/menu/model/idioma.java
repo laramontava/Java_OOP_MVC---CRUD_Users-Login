@@ -1,4 +1,4 @@
-package app.modules.config.model;
+package app.modules.menu.model;
 
 import java.io.IOException;
 import java.util.Properties;

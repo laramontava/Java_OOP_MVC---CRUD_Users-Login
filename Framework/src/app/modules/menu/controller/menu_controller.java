@@ -6,13 +6,13 @@
 package app.modules.menu.controller;
 
 import app.classes.singleton_global;
-import app.modules.config.view.config_view;
-import static app.modules.config.view.config_view.conf_currency;
-import static app.modules.config.view.config_view.conf_data;
-import static app.modules.config.view.config_view.conf_decimal;
-import static app.modules.config.view.config_view.conf_format;
-import static app.modules.config.view.config_view.conf_language;
-import static app.modules.config.view.config_view.conf_theme;
+import app.modules.menu.view.config_view;
+import static app.modules.menu.view.config_view.conf_currency;
+import static app.modules.menu.view.config_view.conf_data;
+import static app.modules.menu.view.config_view.conf_decimal;
+import static app.modules.menu.view.config_view.conf_format;
+import static app.modules.menu.view.config_view.conf_language;
+import static app.modules.menu.view.config_view.conf_theme;
 import app.modules.menu.view.main_view;
 import static app.modules.menu.view.main_view.btnadmin_main;
 import static app.modules.menu.view.main_view.btnclient_main;
