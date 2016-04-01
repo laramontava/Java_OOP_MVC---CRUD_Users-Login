@@ -3,6 +3,9 @@ package app.modules.users.registered_user.model.BLL;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import app.modules.users.admin.model.DAO.functions_users;
+import app.modules.users.registered_user.model.BLL.lib_ficheros.json;
+import app.modules.users.registered_user.model.BLL.lib_ficheros.txt;
+import app.modules.users.registered_user.model.BLL.lib_ficheros.xml;
 import app.modules.users.registered_user.model.classes.registered_user;
 
 public class Arraylist_userreg {
@@ -139,4 +142,14 @@ public class Arraylist_userreg {
             }
         }
     }*/
+    
+    public void savejson(){
+        json.GenerateJson();
+    }
+    public void savetxt(){
+        txt.Generatetxt();
+    }
+    public void savexml(){
+        xml.Generatexml();
+    }
 }

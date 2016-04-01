@@ -182,21 +182,6 @@ public class DAO_reguser {
         return val;
     }
 
-    public static boolean pidepuntos() {
-        boolean val = false;
-        if (regusernew_view.addpoints.getText().isEmpty()) {
-            regusernew_view.validateactivity.setIcon(cancel);
-        } else if (!validate.validaTipo(regusernew_view.addpoints.getText())) {
-            regusernew_view.validateactivity.setIcon(cancel);
-            regusernew_view.addpoints.setForeground(Color.RED);
-        } else {
-            regusernew_view.validateactivity.setIcon(ok);
-            regusernew_view.addpoints.setForeground(Green);
-            val = true;
-        }
-        return val;
-    }
-
     public static boolean pidefechanacimiento() {
         String s = "";
         boolean val = true;

@@ -9,8 +9,8 @@ package app.modules.users.client.view;
  *
  * @author Lara
  */
-public class regusernew_view extends javax.swing.JFrame {
-    public regusernew_view() {
+public class clientnew_view extends javax.swing.JFrame {
+    public clientnew_view() {
         initComponents();
     }
     
@@ -336,7 +336,7 @@ public class regusernew_view extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 42, 9));
-        getContentPane().add(jlblcreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 290, 20));
+        getContentPane().add(jlblcreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 290, 20));
         getContentPane().add(nameuser_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 28, 20));
         getContentPane().add(password_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 28, 20));
 
@@ -395,7 +395,7 @@ public class regusernew_view extends javax.swing.JFrame {
             }
         });
         getContentPane().add(adddesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 120, -1));
-        getContentPane().add(validateactivity, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 30, 20));
+        getContentPane().add(validateactivity, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, 30, 20));
         getContentPane().add(validatesalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 30, 20));
         getContentPane().add(validatebirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 30, 20));
         getContentPane().add(validate_cont, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 30, 20));

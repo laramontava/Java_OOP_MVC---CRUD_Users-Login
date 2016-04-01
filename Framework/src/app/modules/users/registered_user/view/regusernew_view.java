@@ -63,10 +63,8 @@ public class regusernew_view extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         addactivity = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        validateactivity = new javax.swing.JLabel();
         validatesalary = new javax.swing.JLabel();
         validatebirthday = new javax.swing.JLabel();
-        validate_cont = new javax.swing.JLabel();
         createoredit = new javax.swing.JLabel();
         adddummies = new javax.swing.JButton();
         add_status = new javax.swing.JComboBox<>();
@@ -366,10 +364,8 @@ public class regusernew_view extends javax.swing.JFrame {
 
         jLabel10.setText("Karma");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 80, 20));
-        getContentPane().add(validateactivity, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 30, 20));
-        getContentPane().add(validatesalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 30, 20));
+        getContentPane().add(validatesalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 30, 20));
         getContentPane().add(validatebirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 30, 20));
-        getContentPane().add(validate_cont, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 30, 20));
         getContentPane().add(createoredit, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 40, 20));
 
         adddummies.setText("Add dummies");
@@ -721,8 +717,6 @@ public class regusernew_view extends javax.swing.JFrame {
     public static javax.swing.JLabel state_validate;
     public static javax.swing.JLabel surname_validate;
     public static javax.swing.JLabel titlecreateedit;
-    public static javax.swing.JLabel validate_cont;
-    public static javax.swing.JLabel validateactivity;
     public static javax.swing.JLabel validatebirthday;
     public static javax.swing.JLabel validatesalary;
     // End of variables declaration//GEN-END:variables

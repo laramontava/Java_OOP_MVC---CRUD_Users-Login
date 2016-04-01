@@ -10,6 +10,7 @@ import app.modules.menu.controller.menu_controller;
 import app.modules.menu.view.main_view;
 import app.modules.users.registered_user.model.BLL.BLL_reguser;
 import app.modules.users.registered_user.model.classes.miniSimpleTableModel_reguser;
+import app.modules.users.registered_user.model.classes.singleton_reguser;
 import static app.modules.users.registered_user.model.classes.singleton_reguser.reguser;
 import app.modules.users.registered_user.model.utils.autocomplete.AutocompleteJComboBox;
 import app.modules.users.registered_user.model.utils.autocomplete.StringSearchable;
@@ -308,7 +309,7 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
             regusernew_view.addpassword.addKeyListener(this);
             regusernew_view.addpassword.addActionListener(this);
 
-            regusernew_view.addactivity.setActionCommand("jtxtSalary");
+            regusernew_view.addactivity.setActionCommand("jtxtShopping");
             regusernew_view.addactivity.addKeyListener(this);
             regusernew_view.addactivity.addActionListener(this);
 
@@ -355,13 +356,13 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                 BLL_reguser.Delete();
                 break;
             case btnGuardarJson:
-//                singleton_reguser.reguser.savejson();
+                singleton_reguser.reguser.savejson();
                 break;
             case btnGuardarXml:
-//                singleton_client.client.savexml();
+                singleton_reguser.reguser.savexml();
                 break;
             case btnGuardarTxt:
-//                singleton_client.client.savetxt();
+                singleton_reguser.reguser.savetxt();
                 break;
             case btnVolver:
                 new menu_controller(new main_view(), 0).Iniciar(0);

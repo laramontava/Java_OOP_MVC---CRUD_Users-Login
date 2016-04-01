@@ -45,12 +45,12 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import static app.modules.users.client.view.clientmanage_view.searchby;
 import app.modules.users.client.view.clientmanage_view;
-import app.modules.users.client.view.regusernew_view;
-import static app.modules.users.client.view.regusernew_view.addavatar;
-import static app.modules.users.client.view.regusernew_view.adddummies;
-import static app.modules.users.client.view.regusernew_view.avataradd;
-import static app.modules.users.client.view.regusernew_view.jlblcreate;
-import static app.modules.users.client.view.regusernew_view.titlecreateedit;
+import app.modules.users.client.view.clientnew_view;
+import static app.modules.users.client.view.clientnew_view.addavatar;
+import static app.modules.users.client.view.clientnew_view.adddummies;
+import static app.modules.users.client.view.clientnew_view.avataradd;
+import static app.modules.users.client.view.clientnew_view.jlblcreate;
+import static app.modules.users.client.view.clientnew_view.titlecreateedit;
 
 /**
  *
@@ -60,8 +60,8 @@ public class client_controller implements ActionListener, FocusListener, KeyList
 
     public static JTable tabla = null;
     public static clientmanage_view TableClient;
-    public static regusernew_view Modificar;
-    public static regusernew_view Crear;
+    public static clientnew_view Modificar;
+    public static clientnew_view Crear;
     public static TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(new miniSimpleTableModel_client());
     public static AutocompleteJComboBox combo = null;
     int dia, mes, anyo;
@@ -75,10 +75,10 @@ public class client_controller implements ActionListener, FocusListener, KeyList
             TableClient = (clientmanage_view) option;
         }
         if (i == 1) {
-            Crear = (regusernew_view) option;
+            Crear = (clientnew_view) option;
         }
         if (i == 2) {
-            Modificar = (regusernew_view) option;
+            Modificar = (clientnew_view) option;
         }
     }
 
@@ -136,7 +136,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                         if (BLL_client.Modificar()) {
                             TableClient.dispose();
                             //meh new adminnew_view().setVisible(true);
-                            new client_controller(new regusernew_view(), 2).Iniciar(2);
+                            new client_controller(new clientnew_view(), 2).Iniciar(2);
                             BLL_client.LlenarCampos();
                             titlecreateedit.setText("Editar un cliente");
                             adddummies.setVisible(false);
@@ -220,56 +220,56 @@ public class client_controller implements ActionListener, FocusListener, KeyList
             Crear.setSize(590, 571);
             Crear.setResizable(false);
             
-            regusernew_view.adddesc.setEditable(false);
-            regusernew_view.addyearsservice.setEditable(false);
+            clientnew_view.adddesc.setEditable(false);
+            clientnew_view.addyearsservice.setEditable(false);
 
-            regusernew_view.adddni.setActionCommand("jtxtDni");
-            regusernew_view.adddni.addKeyListener(this);
-            regusernew_view.adddni.addActionListener(this);
+            clientnew_view.adddni.setActionCommand("jtxtDni");
+            clientnew_view.adddni.addKeyListener(this);
+            clientnew_view.adddni.addActionListener(this);
 
-            regusernew_view.addname.setActionCommand("jtxtName");
-            regusernew_view.addname.addKeyListener(this);
-            regusernew_view.addname.addActionListener(this);
+            clientnew_view.addname.setActionCommand("jtxtName");
+            clientnew_view.addname.addKeyListener(this);
+            clientnew_view.addname.addActionListener(this);
 
-            regusernew_view.addsurname.setActionCommand("jtxtSurname");
-            regusernew_view.addsurname.addKeyListener(this);
-            regusernew_view.addsurname.addActionListener(this);
+            clientnew_view.addsurname.setActionCommand("jtxtSurname");
+            clientnew_view.addsurname.addKeyListener(this);
+            clientnew_view.addsurname.addActionListener(this);
 
-            regusernew_view.addmobile.setActionCommand("jtxtMobile");
-            regusernew_view.addmobile.addKeyListener(this);
-            regusernew_view.addmobile.addActionListener(this);
+            clientnew_view.addmobile.setActionCommand("jtxtMobile");
+            clientnew_view.addmobile.addKeyListener(this);
+            clientnew_view.addmobile.addActionListener(this);
 
-            regusernew_view.addemail.setActionCommand("jtxtEmail");
-            regusernew_view.addemail.addKeyListener(this);
-            regusernew_view.addemail.addActionListener(this);
+            clientnew_view.addemail.setActionCommand("jtxtEmail");
+            clientnew_view.addemail.addKeyListener(this);
+            clientnew_view.addemail.addActionListener(this);
 
-            regusernew_view.addnameuser.setActionCommand("jtxtNameUser");
-            regusernew_view.addnameuser.addKeyListener(this);
-            regusernew_view.addnameuser.addActionListener(this);
+            clientnew_view.addnameuser.setActionCommand("jtxtNameUser");
+            clientnew_view.addnameuser.addKeyListener(this);
+            clientnew_view.addnameuser.addActionListener(this);
 
-            regusernew_view.addpassword.setActionCommand("jtxtPasswd");
-            regusernew_view.addpassword.addKeyListener(this);
-            regusernew_view.addpassword.addActionListener(this);
+            clientnew_view.addpassword.setActionCommand("jtxtPasswd");
+            clientnew_view.addpassword.addKeyListener(this);
+            clientnew_view.addpassword.addActionListener(this);
 
-            regusernew_view.avataradd.setActionCommand("btnAvatar");
-            regusernew_view.avataradd.addActionListener(this);
+            clientnew_view.avataradd.setActionCommand("btnAvatar");
+            clientnew_view.avataradd.addActionListener(this);
 
-            regusernew_view.addshopping.setActionCommand("jtxtShopping");
-            regusernew_view.addshopping.addKeyListener(this);
-            regusernew_view.addshopping.addActionListener(this);
+            clientnew_view.addshopping.setActionCommand("jtxtShopping");
+            clientnew_view.addshopping.addKeyListener(this);
+            clientnew_view.addshopping.addActionListener(this);
 
-            regusernew_view.addtype.setActionCommand("jtxtType");
-            regusernew_view.addtype.addKeyListener(this);
-            regusernew_view.addtype.addActionListener(this);
+            clientnew_view.addtype.setActionCommand("jtxtType");
+            clientnew_view.addtype.addKeyListener(this);
+            clientnew_view.addtype.addActionListener(this);
 
-            regusernew_view.adddummies.setActionCommand("btnDummies");
-            regusernew_view.adddummies.addActionListener(this);
+            clientnew_view.adddummies.setActionCommand("btnDummies");
+            clientnew_view.adddummies.addActionListener(this);
 
-            regusernew_view.createclient.setActionCommand("btnCreate");
-            regusernew_view.createclient.addActionListener(this);
+            clientnew_view.createclient.setActionCommand("btnCreate");
+            clientnew_view.createclient.addActionListener(this);
 
-            regusernew_view.cancelclient.setActionCommand("btnCancel");
-            regusernew_view.cancelclient.addActionListener(this);
+            clientnew_view.cancelclient.setActionCommand("btnCancel");
+            clientnew_view.cancelclient.addActionListener(this);
 
             Crear.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             addWindowListener(new WindowAdapter() {
@@ -287,54 +287,54 @@ public class client_controller implements ActionListener, FocusListener, KeyList
             Modificar.setResizable(false);
             adddummies.setVisible(false);
             BLL_client.LlenarCampos();
-            regusernew_view.adddesc.setEditable(false);
-            regusernew_view.addyearsservice.setEditable(false);
+            clientnew_view.adddesc.setEditable(false);
+            clientnew_view.addyearsservice.setEditable(false);
             titlecreateedit.setText(singleton_global.translate.getProperty("edittit"));
 
-            regusernew_view.adddni.setActionCommand("jtxtDni");
-            regusernew_view.adddni.addKeyListener(this);
-            regusernew_view.adddni.addActionListener(this);
+            clientnew_view.adddni.setActionCommand("jtxtDni");
+            clientnew_view.adddni.addKeyListener(this);
+            clientnew_view.adddni.addActionListener(this);
 
-            regusernew_view.addname.setActionCommand("jtxtName");
-            regusernew_view.addname.addKeyListener(this);
-            regusernew_view.addname.addActionListener(this);
+            clientnew_view.addname.setActionCommand("jtxtName");
+            clientnew_view.addname.addKeyListener(this);
+            clientnew_view.addname.addActionListener(this);
 
-            regusernew_view.addsurname.setActionCommand("jtxtSurname");
-            regusernew_view.addsurname.addKeyListener(this);
-            regusernew_view.addsurname.addActionListener(this);
+            clientnew_view.addsurname.setActionCommand("jtxtSurname");
+            clientnew_view.addsurname.addKeyListener(this);
+            clientnew_view.addsurname.addActionListener(this);
 
-            regusernew_view.addmobile.setActionCommand("jtxtMobile");
-            regusernew_view.addmobile.addKeyListener(this);
-            regusernew_view.addmobile.addActionListener(this);
+            clientnew_view.addmobile.setActionCommand("jtxtMobile");
+            clientnew_view.addmobile.addKeyListener(this);
+            clientnew_view.addmobile.addActionListener(this);
 
-            regusernew_view.addemail.setActionCommand("jtxtEmail");
-            regusernew_view.addemail.addKeyListener(this);
-            regusernew_view.addemail.addActionListener(this);
+            clientnew_view.addemail.setActionCommand("jtxtEmail");
+            clientnew_view.addemail.addKeyListener(this);
+            clientnew_view.addemail.addActionListener(this);
 
-            regusernew_view.addnameuser.setActionCommand("jtxtNameUser");
-            regusernew_view.addnameuser.addKeyListener(this);
-            regusernew_view.addnameuser.addActionListener(this);
+            clientnew_view.addnameuser.setActionCommand("jtxtNameUser");
+            clientnew_view.addnameuser.addKeyListener(this);
+            clientnew_view.addnameuser.addActionListener(this);
 
-            regusernew_view.addpassword.setActionCommand("jtxtPasswd");
-            regusernew_view.addpassword.addKeyListener(this);
-            regusernew_view.addpassword.addActionListener(this);
+            clientnew_view.addpassword.setActionCommand("jtxtPasswd");
+            clientnew_view.addpassword.addKeyListener(this);
+            clientnew_view.addpassword.addActionListener(this);
 
-            regusernew_view.addshopping.setActionCommand("jtxtSalary");
-            regusernew_view.addshopping.addKeyListener(this);
-            regusernew_view.addshopping.addActionListener(this);
+            clientnew_view.addshopping.setActionCommand("jtxtSalary");
+            clientnew_view.addshopping.addKeyListener(this);
+            clientnew_view.addshopping.addActionListener(this);
 
-            regusernew_view.adddesc.setActionCommand("jtxtActivity");
-            regusernew_view.adddesc.addKeyListener(this);
-            regusernew_view.adddesc.addActionListener(this);
+            clientnew_view.adddesc.setActionCommand("jtxtActivity");
+            clientnew_view.adddesc.addKeyListener(this);
+            clientnew_view.adddesc.addActionListener(this);
 
-            regusernew_view.adddummies.setActionCommand("btnDummies");
-            regusernew_view.adddummies.addActionListener(this);
+            clientnew_view.adddummies.setActionCommand("btnDummies");
+            clientnew_view.adddummies.addActionListener(this);
 
-            regusernew_view.createclient.setActionCommand("btnCreate");
-            regusernew_view.createclient.addActionListener(this);
+            clientnew_view.createclient.setActionCommand("btnCreate");
+            clientnew_view.createclient.addActionListener(this);
 
-            regusernew_view.cancelclient.setActionCommand("btnCancel");
-            regusernew_view.cancelclient.addActionListener(this);
+            clientnew_view.cancelclient.setActionCommand("btnCancel");
+            clientnew_view.cancelclient.addActionListener(this);
 
             Modificar.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             addWindowListener(new WindowAdapter() {
@@ -356,12 +356,12 @@ public class client_controller implements ActionListener, FocusListener, KeyList
     public void actionPerformed(ActionEvent e) {
         switch (client_controller.Option.valueOf(e.getActionCommand())) {
             case btnCrear:
-                new client_controller(new regusernew_view(), 1).Iniciar(1);
+                new client_controller(new clientnew_view(), 1).Iniciar(1);
                 TableClient.dispose();
                 break;
             case btnModificar:
                 if (BLL_client.Modificar()) {
-                    new client_controller(new regusernew_view(), 2).Iniciar(2);
+                    new client_controller(new clientnew_view(), 2).Iniciar(2);
                     TableClient.dispose();
                 }
                 break;
@@ -508,7 +508,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     if (BLL_client.Modificar()) {
                         TableClient.dispose();
                         //meh    new adminnew_view().setVisible(true);
-                        new client_controller(new regusernew_view(), 2).Iniciar(2);
+                        new client_controller(new clientnew_view(), 2).Iniciar(2);
                         BLL_client.LlenarCampos();
                         titlecreateedit.setText("Editar un usuario administrador");
                         adddummies.setVisible(false);
