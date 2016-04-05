@@ -62,6 +62,12 @@
         </Property>
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="iconTextGap" type="int" value="-1"/>
+        <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/app/modules/menu/view/img/client_press.png"/>
+        </Property>
+        <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/app/modules/menu/view/img/client_press.png"/>
+        </Property>
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
       <AuxValues>
@@ -158,6 +164,12 @@
         </Property>
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="iconTextGap" type="int" value="-1"/>
+        <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/app/modules/menu/view/img/registered_press.png"/>
+        </Property>
+        <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/app/modules/menu/view/img/registered_press.png"/>
+        </Property>
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
       <AuxValues>

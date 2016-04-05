@@ -110,7 +110,7 @@ public class xml {
             XStream xstream = new XStream();
             Annotations.configureAliases(xstream, registered_user.class);
  
-            PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_admin/admin.xml";
+            PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/registered_user/model/files/files_registereduser/reguser.xml";
             singleton_reguser.reguser.setUserreg((ArrayList <registered_user>)xstream.fromXML(new FileReader(PATH)));
         } catch (Exception e1) {
         	

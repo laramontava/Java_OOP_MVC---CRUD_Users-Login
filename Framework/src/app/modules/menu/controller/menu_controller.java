@@ -19,6 +19,8 @@ import static app.modules.menu.view.main_view.btnclient_main;
 import static app.modules.menu.view.main_view.btnconf_main;
 import static app.modules.menu.view.main_view.btnreguser_main;
 import app.modules.users.admin.controller.admin_controller;
+import app.modules.users.admin.model.BLL.Arraylist_admin;
+import app.modules.users.admin.model.classes.singleton;
 import app.modules.users.admin.view.adminmanage_view;
 import app.modules.users.client.controller.client_controller;
 import app.modules.users.registered_user.controller.reguser_controller;
@@ -26,6 +28,7 @@ import app.modules.users.client.view.clientmanage_view;
 import app.modules.users.registered_user.view.regusermanage_view;
 import app.ppalmain;
 import app.utils.config_save;
+import app.utils.theme;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -72,6 +75,8 @@ public class menu_controller implements ActionListener {
         conf_decimal3,
         conf_theme1,
         conf_theme2,
+        conf_theme3,
+        conf_theme4,
         conf_format1,
         conf_format2,
         conf_format3,
@@ -93,6 +98,7 @@ public class menu_controller implements ActionListener {
             mainview.setSize(409, 343);
             mainview.setLocationRelativeTo(null);
             mainview.setResizable(false);
+            theme.temaElegido(singleton_global.conf.getTheme());
 
             btnadmin_main.setText(singleton_global.translate.getProperty("admin"));
             btnclient_main.setText(singleton_global.translate.getProperty("client"));
@@ -124,6 +130,8 @@ public class menu_controller implements ActionListener {
 
             config_view.languageformat.setSize(280, 220);
             config_view.languageformat.setLocationRelativeTo(null);
+
+            theme.temaElegido(singleton_global.conf.getTheme());
 
             conf_data.setText(singleton_global.translate.getProperty("date"));
             conf_decimal.setText(singleton_global.translate.getProperty("decimal"));
@@ -165,7 +173,11 @@ public class menu_controller implements ActionListener {
 
             config_view.metal.setActionCommand("conf_theme1");
             config_view.metal.addActionListener(this);
-            config_view.nimbus.setActionCommand("conf_theme2");
+            config_view.windows.setActionCommand("conf_theme2");
+            config_view.windows.addActionListener(this);
+            config_view.motif.setActionCommand("conf_theme3");
+            config_view.motif.addActionListener(this);
+            config_view.nimbus.setActionCommand("conf_theme4");
             config_view.nimbus.addActionListener(this);
 
             config_view.json.setActionCommand("conf_format1");
@@ -204,22 +216,22 @@ public class menu_controller implements ActionListener {
                     new menu_controller(new main_view(), 0).Iniciar(0);
                 }
             });
-        } 
+        }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (Option.valueOf(e.getActionCommand())) {
             case btn_adminmain:
-                new admin_controller(new adminmanage_view(),0).Iniciar(0);
+                new admin_controller(new adminmanage_view(), 0).Iniciar(0);
                 mainview.dispose();
                 break;
             case btn_clientmain:
-                new client_controller(new clientmanage_view(),0).Iniciar(0);
+                new client_controller(new clientmanage_view(), 0).Iniciar(0);
                 mainview.dispose();
                 break;
             case btn_regusermain:
-                new reguser_controller(new regusermanage_view(),0).Iniciar(0);
+                new reguser_controller(new regusermanage_view(), 0).Iniciar(0);
                 mainview.dispose();
                 break;
             case btn_confmain:
@@ -232,16 +244,19 @@ public class menu_controller implements ActionListener {
                 config_view.dateformat.setLocationRelativeTo(null);
                 break;
             case conf_data1:
-                JOptionPane.showMessageDialog(null, "data1");
+                singleton_global.conf.setDate('a');
+                //app.modules.users.admin.view.adminnew_view.adddatebirthday.setDateFormatString("dd/MM/yyyy");
                 break;
             case conf_data2:
-                JOptionPane.showMessageDialog(null, "data2");
+                singleton_global.conf.setDate('b');
+
+                //app.modules.users.admin.view.adminnew_view.adddatebirthday.setDateFormatString("dd-MM-yyyy");
                 break;
             case conf_data3:
-                JOptionPane.showMessageDialog(null, "data3");
+                singleton_global.conf.setDate('c');
                 break;
             case conf_data4:
-                JOptionPane.showMessageDialog(null, "data4");
+                singleton_global.conf.setDate('d');
                 break;
             case btn_decimal:
                 config_view.decimalsformat.setVisible(true);
@@ -263,10 +278,24 @@ public class menu_controller implements ActionListener {
                 config_view.themeformat.setLocationRelativeTo(null);
                 break;
             case conf_theme1:
-                JOptionPane.showMessageDialog(null, "theme1");
+                singleton_global.conf.setTheme(0);
+                theme.temaElegido(singleton_global.conf.getTheme());
+                config_view.themeformat.dispose();
                 break;
             case conf_theme2:
-                JOptionPane.showMessageDialog(null, "theme2");
+                singleton_global.conf.setTheme(1);
+                theme.temaElegido(singleton_global.conf.getTheme());
+                config_view.themeformat.dispose();
+                break;
+            case conf_theme3:
+                singleton_global.conf.setTheme(2);
+                theme.temaElegido(singleton_global.conf.getTheme());
+                config_view.themeformat.dispose();
+                break;
+            case conf_theme4:
+                singleton_global.conf.setTheme(3);
+                theme.temaElegido(singleton_global.conf.getTheme());
+                config_view.themeformat.dispose();
                 break;
             case btn_format:
                 config_view.fileformat.setVisible(true);
@@ -274,13 +303,16 @@ public class menu_controller implements ActionListener {
                 config_view.fileformat.setLocationRelativeTo(null);
                 break;
             case conf_format1:
-                JOptionPane.showMessageDialog(null, "format1");
+                singleton_global.conf.setFormat("json");
+                config_view.fileformat.dispose();
                 break;
             case conf_format2:
-                JOptionPane.showMessageDialog(null, "format2");
+                singleton_global.conf.setFormat("txt");
+                config_view.fileformat.dispose();
                 break;
             case conf_format3:
-                JOptionPane.showMessageDialog(null, "format3");
+                singleton_global.conf.setFormat("xml");
+                config_view.fileformat.dispose();
                 break;
             case btn_currency:
                 config_view.currencyformat.setVisible(true);
@@ -288,13 +320,16 @@ public class menu_controller implements ActionListener {
                 config_view.currencyformat.setLocationRelativeTo(null);
                 break;
             case conf_currency1:
-                JOptionPane.showMessageDialog(null, "euro");
+                singleton_global.conf.setCurrency('e');
+                config_view.currencyformat.dispose();
                 break;
             case conf_currency2:
-                JOptionPane.showMessageDialog(null, "dolar");
+                singleton_global.conf.setCurrency('d');
+                config_view.currencyformat.dispose();
                 break;
             case conf_currency3:
-                JOptionPane.showMessageDialog(null, "libra");
+                singleton_global.conf.setCurrency('l');
+                config_view.currencyformat.dispose();
                 break;
             case btn_language:
                 config_view.languageformat.setVisible(true);
@@ -312,6 +347,8 @@ public class menu_controller implements ActionListener {
                 conf_format.setText(singleton_global.translate.getProperty("format"));
                 conf_currency.setText(singleton_global.translate.getProperty("currency"));
                 conf_language.setText(singleton_global.translate.getProperty("language"));
+                
+                config_view.languageformat.dispose();
                 break;
             case conf_language2:
                 singleton_global.conf.setLanguage("castellano");
@@ -324,6 +361,8 @@ public class menu_controller implements ActionListener {
                 conf_format.setText(singleton_global.translate.getProperty("format"));
                 conf_currency.setText(singleton_global.translate.getProperty("currency"));
                 conf_language.setText(singleton_global.translate.getProperty("language"));
+                
+                config_view.languageformat.dispose();
                 break;
             case conf_language3:
                 singleton_global.conf.setLanguage("valencia");
@@ -336,6 +375,8 @@ public class menu_controller implements ActionListener {
                 conf_format.setText(singleton_global.translate.getProperty("format"));
                 conf_currency.setText(singleton_global.translate.getProperty("currency"));
                 conf_language.setText(singleton_global.translate.getProperty("language"));
+                
+                config_view.languageformat.dispose();
                 break;
             case btn_dummies:
                 config_view.dummiesactivate.setVisible(true);
@@ -343,10 +384,20 @@ public class menu_controller implements ActionListener {
                 config_view.dummiesactivate.setLocationRelativeTo(null);
                 break;
             case conf_dummieson:
-                JOptionPane.showMessageDialog(null, "on");
+                singleton_global.conf.setDummies(true);
+                singleton.admin = new Arraylist_admin();
+                app.modules.users.admin.model.BLL.lib_ficheros.json.OpenJsonauto();
+                app.modules.users.admin.model.BLL.lib_ficheros.txt.Opentxtauto();
+                app.modules.users.admin.model.BLL.lib_ficheros.xml.Openxmlauto();
+                config_view.dummiesactivate.dispose();
                 break;
             case conf_dummiesoff:
-                JOptionPane.showMessageDialog(null, "off");
+                singleton_global.conf.setDummies(false);
+                singleton.admin = new Arraylist_admin();
+                app.modules.users.admin.model.BLL.lib_ficheros.json.OpenJsonauto();
+                app.modules.users.admin.model.BLL.lib_ficheros.txt.Opentxtauto();
+                app.modules.users.admin.model.BLL.lib_ficheros.xml.Openxmlauto();
+                config_view.dummiesactivate.dispose();
                 break;
             case btn_return:
                 conf.dispose();

@@ -85,9 +85,9 @@ public class txt {
         try {
             File f;
             if(!singleton_global.conf.getDummies())
-            	PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_admin/admin.txt";
+            	PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/client/model/files/files_client/client.txt";
             else
-            	PATH=new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_dummies_admin/admin.txt";
+            	PATH=new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/client/model/files/files_client/client.txt";
                 f = new File(PATH);
                 FileInputStream fi=new FileInputStream(f);
     			ObjectInputStream oi=new ObjectInputStream(fi);

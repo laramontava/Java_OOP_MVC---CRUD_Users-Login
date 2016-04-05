@@ -114,7 +114,7 @@ public class json {
 				  if(!singleton_global.conf.getDummies())
 					  PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/client/model/files/files_client/client.json";
 				  else
-					  PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/client/model/files/files_dummies_client/client.json";
+					  PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/client/model/files/files_client/client.json";
 		          File path = new File(PATH);
 		          if (path.exists()) {
 		               

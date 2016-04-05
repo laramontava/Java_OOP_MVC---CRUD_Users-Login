@@ -51,12 +51,18 @@ public class ppalmain {
         switch (singleton_global.conf.getFormat()) {
             case "json":
                 json.OpenJsonauto();
+                app.modules.users.client.model.BLL.lib_ficheros.json.OpenJsonauto();
+                app.modules.users.registered_user.model.BLL.lib_ficheros.json.OpenJsonauto();
                 break;
             case "txt":
                 txt.Opentxtauto();
+                app.modules.users.client.model.BLL.lib_ficheros.txt.Opentxtauto();
+                app.modules.users.registered_user.model.BLL.lib_ficheros.txt.Opentxtauto();
                 break;
             case "xml":
                 xml.Openxmlauto();
+                app.modules.users.client.model.BLL.lib_ficheros.xml.Openxmlauto();
+                app.modules.users.registered_user.model.BLL.lib_ficheros.xml.Openxmlauto();
                 break;
         }
         

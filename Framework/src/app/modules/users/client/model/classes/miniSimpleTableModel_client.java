@@ -98,7 +98,6 @@ public class miniSimpleTableModel_client extends AbstractTableModel {
     }
 
     public void cargar() {
-        System.out.println("Entra cargar");
         datos.clear();
         datosaux.clear();
        for (int i = 0; i < singleton_client.client.getClients().size(); i++) {

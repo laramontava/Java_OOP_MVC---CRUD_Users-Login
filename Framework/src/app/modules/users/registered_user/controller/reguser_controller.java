@@ -423,7 +423,7 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                     if (BLL_reguser.adminsave()) {
                         new reguser_controller(new regusermanage_view(), 0).Iniciar(0);
                         Crear.dispose();
-                        statusnewadmin.setText("Admin creado correctamente");
+                        statusnewadmin.setText("Usuario creado correctamente");
                         statusnewadmin.setForeground(Green);
                     } else {
                         jlblcreate.setText("Asegúrate de haber introducido bien los datos");
@@ -432,7 +432,7 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                 } else if (BLL_reguser.Modificaradmin()) {
                     new reguser_controller(new regusermanage_view(), 0).Iniciar(0);
                     Modificar.dispose();
-                    statusnewadmin.setText("Admin editado correctamente");
+                    statusnewadmin.setText("Usuario editado correctamente");
                     statusnewadmin.setForeground(Green);
                 } else {
                     jlblcreate.setText("Asegúrate de haber introducido bien los datos");
@@ -443,12 +443,12 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                 if (adddummies.isVisible()) {
                     new reguser_controller(new regusermanage_view(), 0).Iniciar(0);
                     Crear.dispose();
-                    statusnewadmin.setText("Se ha cancelado la creación de un nuevo admin");
+                    statusnewadmin.setText("Se ha cancelado la creación de un nuevo usuario");
                     statusnewadmin.setForeground(Color.red);
                 } else {
                     new reguser_controller(new regusermanage_view(), 0).Iniciar(0);
                     Modificar.dispose();
-                    statusnewadmin.setText("Se ha cancelado la modificación de un admin");
+                    statusnewadmin.setText("Se ha cancelado la modificación de un usuario");
                     statusnewadmin.setForeground(Color.RED);
                 }
                 break;

@@ -110,7 +110,7 @@ public class xml {
             XStream xstream = new XStream();
             Annotations.configureAliases(xstream, client.class);
  
-            PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_admin/admin.xml";
+            PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/client/model/files/files_client/client.xml";
             singleton_client.client.setClients((ArrayList <client>)xstream.fromXML(new FileReader(PATH)));
         } catch (Exception e1) {
         	

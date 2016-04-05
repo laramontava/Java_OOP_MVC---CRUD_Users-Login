@@ -280,10 +280,10 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                 }
             });
         } else if (op == 2) {
-            ppalmain.singleton_vtna = "adminnew_view";
+            ppalmain.singleton_vtna = "clientnew_view";
             Modificar.setVisible(true);
             Modificar.setLocationRelativeTo(null);
-            Modificar.setSize(590, 541);
+            Modificar.setSize(590, 571);
             Modificar.setResizable(false);
             adddummies.setVisible(false);
             BLL_client.LlenarCampos();
@@ -436,7 +436,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     if (BLL_client.adminsave()) {
                         new client_controller(new clientmanage_view(), 0).Iniciar(0);
                         Crear.dispose();
-                        statusnewadmin.setText("Admin creado correctamente");
+                        statusnewadmin.setText("Cliente creado correctamente");
                         statusnewadmin.setForeground(Green);
                     } else {
                         jlblcreate.setText("Asegúrate de haber introducido bien los datos");
@@ -445,7 +445,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                 } else if (BLL_client.Modificaradmin()) {
                     new client_controller(new clientmanage_view(), 0).Iniciar(0);
                     Modificar.dispose();
-                    statusnewadmin.setText("Admin editado correctamente");
+                    statusnewadmin.setText("Cliente editado correctamente");
                     statusnewadmin.setForeground(Green);
                 } else {
                     jlblcreate.setText("Asegúrate de haber introducido bien los datos");
@@ -456,12 +456,12 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                 if (adddummies.isVisible()) {
                     new client_controller(new clientmanage_view(), 0).Iniciar(0);
                     Crear.dispose();
-                    statusnewadmin.setText("Se ha cancelado la creación de un nuevo admin");
+                    statusnewadmin.setText("Se ha cancelado la creación de un nuevo cliente");
                     statusnewadmin.setForeground(Color.red);
                 } else {
                     new client_controller(new clientmanage_view(), 0).Iniciar(0);
                     Modificar.dispose();
-                    statusnewadmin.setText("Se ha cancelado la modificación de un admin");
+                    statusnewadmin.setText("Se ha cancelado la modificación de un cliente");
                     statusnewadmin.setForeground(Color.RED);
                 }
                 break;
@@ -510,7 +510,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                         //meh    new adminnew_view().setVisible(true);
                         new client_controller(new clientnew_view(), 2).Iniciar(2);
                         BLL_client.LlenarCampos();
-                        titlecreateedit.setText("Editar un usuario administrador");
+                        titlecreateedit.setText("Editar un cliente");
                         adddummies.setVisible(false);
                     }
                 }

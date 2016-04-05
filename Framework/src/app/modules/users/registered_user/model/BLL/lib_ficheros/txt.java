@@ -88,9 +88,9 @@ public class txt {
         try {
             File f;
             if (!singleton_global.conf.getDummies()) {
-                PATH = new java.io.File(".").getCanonicalPath() + "/src/app/modules/users/files/files_admin/admin.txt";
+                PATH = new java.io.File(".").getCanonicalPath() + "/src/app/modules/users/registered_user/model/files/files_registereduser/reguser.txt";
             } else {
-                PATH = new java.io.File(".").getCanonicalPath() + "/src/app/modules/users/files/files_dummies_admin/admin.txt";
+                PATH = new java.io.File(".").getCanonicalPath() + "/src/app/modules/users/registered_user/model/files/files_registereduser/reguser.txt";
             }
             f = new File(PATH);
             FileInputStream fi = new FileInputStream(f);

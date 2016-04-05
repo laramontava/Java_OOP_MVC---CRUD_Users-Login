@@ -41,6 +41,8 @@ public class config_view extends javax.swing.JFrame {
         decimals_group = new javax.swing.ButtonGroup();
         themeformat = new javax.swing.JDialog();
         metal = new javax.swing.JRadioButton();
+        windows = new javax.swing.JRadioButton();
+        motif = new javax.swing.JRadioButton();
         nimbus = new javax.swing.JRadioButton();
         theme_group = new javax.swing.ButtonGroup();
         fileformat = new javax.swing.JDialog();
@@ -169,8 +171,15 @@ public class config_view extends javax.swing.JFrame {
         theme_group.add(metal);
         metal.setText("Metal");
 
+        theme_group.add(windows);
+        windows.setText("GTK - Windows");
+
+        theme_group.add(motif);
+        motif.setText("CDE/Motif");
+
         theme_group.add(nimbus);
         nimbus.setText("Nimbus");
+        nimbus.setActionCommand("Nimbus");
 
         javax.swing.GroupLayout themeformatLayout = new javax.swing.GroupLayout(themeformat.getContentPane());
         themeformat.getContentPane().setLayout(themeformatLayout);
@@ -180,17 +189,23 @@ public class config_view extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(themeformatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(metal)
+                    .addComponent(windows)
+                    .addComponent(motif)
                     .addComponent(nimbus))
-                .addContainerGap(183, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         themeformatLayout.setVerticalGroup(
             themeformatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(themeformatLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
+                .addGap(17, 17, 17)
                 .addComponent(metal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(windows)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(motif)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nimbus)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         formatfile_group.add(json);
@@ -580,12 +595,14 @@ public class config_view extends javax.swing.JFrame {
     public static javax.swing.JDialog languageformat;
     public static javax.swing.JRadioButton libra;
     public static javax.swing.JRadioButton metal;
+    public static javax.swing.JRadioButton motif;
     public static javax.swing.JRadioButton nimbus;
     public static javax.swing.JButton return_main;
     private javax.swing.ButtonGroup theme_group;
     public static javax.swing.JDialog themeformat;
     public static javax.swing.JRadioButton txt;
     public static javax.swing.JRadioButton valencia;
+    public static javax.swing.JRadioButton windows;
     public static javax.swing.JRadioButton xml;
     // End of variables declaration//GEN-END:variables
 }

@@ -22,7 +22,7 @@ public class configuration {
 	public configuration() {
 		super();
 		this.date ='a';//
-		this.currency = '�';
+		this.currency = 'e';
 		this.decimal = 2;
 		this.language = "english";
 		this.format = "json";

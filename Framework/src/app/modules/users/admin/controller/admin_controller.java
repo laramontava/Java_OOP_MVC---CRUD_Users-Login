@@ -51,6 +51,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import static app.modules.users.admin.view.adminmanage_view.searchby;
+import app.utils.theme;
 
 /**
  *
@@ -120,7 +121,11 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
             TableAdmin.setTitle("Gestión de administradores");
             TableAdmin.setLocationRelativeTo(null);
             TableAdmin.setResizable(false);
-
+            theme.temaElegido(singleton_global.conf.getTheme());
+            adminmanage_view.create_admin.setToolTipText(singleton_global.translate.getProperty("CreateuserT"));
+            adminmanage_view.edit_admin.setToolTipText(singleton_global.translate.getProperty("EditUser"));
+            adminmanage_view.delete_admin.setToolTipText(singleton_global.translate.getProperty("DeleteUser"));
+            
             TableAdmin.TABLA.setModel(new miniSimpleTableModel_admin());
             ((miniSimpleTableModel_admin) TABLA.getModel()).cargar();
             TableAdmin.TABLA.setFillsViewportHeight(true);
@@ -218,8 +223,14 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
             Crear.setLocationRelativeTo(null);
             Crear.setSize(590, 541);
             Crear.setResizable(false);
-            
-
+            theme.temaElegido(singleton_global.conf.getTheme());
+            if(singleton_global.conf.getCurrency()=='e'){
+                adminnew_view.currency.setText("€");
+            } else if(singleton_global.conf.getCurrency()=='d'){
+                adminnew_view.currency.setText("$");
+            }else if(singleton_global.conf.getCurrency()=='l'){
+                adminnew_view.currency.setText("£");
+            }
             adminnew_view.adddni.setActionCommand("jtxtDni");
             adminnew_view.adddni.addKeyListener(this);
             adminnew_view.adddni.addActionListener(this);
@@ -284,9 +295,18 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
             Modificar.setResizable(false);
             adddummies.setVisible(false);
             BLL_admin.LlenarCampos();
-
+            theme.temaElegido(singleton_global.conf.getTheme());
+            
             titlecreateedit.setText(singleton_global.translate.getProperty("edittit"));
-
+            
+            if(singleton_global.conf.getCurrency()=='e'){
+                adminnew_view.currency.setText("€");
+            } else if(singleton_global.conf.getCurrency()=='d'){
+                adminnew_view.currency.setText("$");
+            }else if(singleton_global.conf.getCurrency()=='l'){
+                adminnew_view.currency.setText("£");
+            }
+            
             adminnew_view.adddni.setActionCommand("jtxtDni");
             adminnew_view.adddni.addKeyListener(this);
             adminnew_view.adddni.addActionListener(this);

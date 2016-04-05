@@ -49,6 +49,8 @@ public class main_view extends javax.swing.JFrame {
         btnclient_main.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnclient_main.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnclient_main.setIconTextGap(-1);
+        btnclient_main.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/client_press.png"))); // NOI18N
+        btnclient_main.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/client_press.png"))); // NOI18N
         btnclient_main.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(btnclient_main);
         btnclient_main.setBounds(30, 120, 90, 80);
@@ -92,6 +94,8 @@ public class main_view extends javax.swing.JFrame {
         btnreguser_main.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnreguser_main.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnreguser_main.setIconTextGap(-1);
+        btnreguser_main.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/registered_press.png"))); // NOI18N
+        btnreguser_main.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/registered_press.png"))); // NOI18N
         btnreguser_main.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(btnreguser_main);
         btnreguser_main.setBounds(30, 220, 90, 80);

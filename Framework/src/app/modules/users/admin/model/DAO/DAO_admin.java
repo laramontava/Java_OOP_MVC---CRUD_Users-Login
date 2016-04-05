@@ -14,7 +14,6 @@ import static app.modules.users.admin.controller.admin_controller.selected;
 import app.modules.users.admin.model.classes.admin;
 import app.modules.users.admin.model.classes.singleton;
 import app.modules.users.admin.model.utils.pager.pagina;
-//import static app.modules.users.admin.view.adminmain_view.selected;
 import static app.modules.users.admin.view.adminmanage_view.TABLA;
 import app.modules.users.admin.view.adminnew_view;
 import static app.modules.users.admin.view.adminnew_view.*;
@@ -287,7 +286,16 @@ public class DAO_admin {
             String mobile = adminnew_view.addmobile.getText();
             String email = adminnew_view.addemail.getText();
             fecha aux = new fecha();
-            String datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 0);
+            String datebirthday ="";
+            if(singleton_global.conf.getDate()=='a'){
+                datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 0);
+            } else if(singleton_global.conf.getDate()=='b'){
+                datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 1);
+            } else if(singleton_global.conf.getDate()=='c'){
+                datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 2);
+            } else {
+                datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 3);
+            }
             String nameuser = adminnew_view.addnameuser.getText();
             String passwd = adminnew_view.addpassword.getText();
             String avatar = adminnew_view.addavatar.getText();

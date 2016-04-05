@@ -98,6 +98,7 @@ public class adminnew_view extends javax.swing.JFrame {
         validate_cont = new javax.swing.JLabel();
         createoredit = new javax.swing.JLabel();
         adddummies = new javax.swing.JButton();
+        currency = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -353,12 +354,12 @@ public class adminnew_view extends javax.swing.JFrame {
         getContentPane().add(titlecreateedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 11, 290, -1));
 
         jLabel7.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel7AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 42, 9));
@@ -399,7 +400,7 @@ public class adminnew_view extends javax.swing.JFrame {
                 addsalaryKeyTyped(evt);
             }
         });
-        getContentPane().add(addsalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, 120, -1));
+        getContentPane().add(addsalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, 100, -1));
 
         jLabel10.setText("Actividad");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 80, 20));
@@ -434,6 +435,9 @@ public class adminnew_view extends javax.swing.JFrame {
 
         adddummies.setText("Add dummies");
         getContentPane().add(adddummies, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, -1, -1));
+
+        currency.setText("€");
+        getContentPane().add(currency, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 20, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -748,6 +752,7 @@ public class adminnew_view extends javax.swing.JFrame {
     public static javax.swing.JButton canceladmin;
     public static javax.swing.JButton createadmin;
     public static javax.swing.JLabel createoredit;
+    public static javax.swing.JLabel currency;
     public static javax.swing.JLabel dni_validate;
     public static javax.swing.JLabel email_validate;
     private javax.swing.JLabel jLabel10;

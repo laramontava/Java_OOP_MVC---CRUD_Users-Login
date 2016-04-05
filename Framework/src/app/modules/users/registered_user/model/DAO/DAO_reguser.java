@@ -231,14 +231,22 @@ public class DAO_reguser {
             String mobile = regusernew_view.addmobile.getText();
             String email = regusernew_view.addemail.getText();
             fecha aux = new fecha();
-            String datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 0);
+            String datebirthday="";
+            if(singleton_global.conf.getDate()=='a'){
+                datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 0);
+            } else if(singleton_global.conf.getDate()=='b'){
+                datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 1);
+            } else if(singleton_global.conf.getDate()=='c'){
+                datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 2);
+            } else {
+                datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 3);
+            }
+            
             String nameuser = regusernew_view.addnameuser.getText();
             String passwd = regusernew_view.addpassword.getText();
             String avatar = regusernew_view.addavatar.getText();
             String status = regusernew_view.add_status.getSelectedItem().toString();
             int activity = Integer.parseInt(regusernew_view.addactivity.getText());
-        //    String karma = regusernew_view.addkarma.getSelectedItem().toString();
-        //    int points = Integer.parseInt(regusernew_view.addpoints.getText());
 
             registered_user regusercreate = new registered_user(dni, name, surname, mobile, email, datebirthday,
 			nameuser, passwd, avatar, status, activity);
@@ -261,7 +269,16 @@ public class DAO_reguser {
             String mobile = regusernew_view.addmobile.getText();
             String email = regusernew_view.addemail.getText();
             fecha aux = new fecha();
-            String datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 0);
+            String datebirthday = "";
+            if(singleton_global.conf.getDate()=='a'){
+                datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 0);
+            } else if(singleton_global.conf.getDate()=='b'){
+                datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 1);
+            } else if(singleton_global.conf.getDate()=='c'){
+                datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 2);
+            } else {
+                datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 3);
+            }
             String nameuser = regusernew_view.addnameuser.getText();
             String passwd = regusernew_view.addpassword.getText();
             String avatar = regusernew_view.addavatar.getText();

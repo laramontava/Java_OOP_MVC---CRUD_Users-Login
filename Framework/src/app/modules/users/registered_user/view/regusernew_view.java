@@ -374,6 +374,7 @@ public class regusernew_view extends javax.swing.JFrame {
         add_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Online", "Offline" }));
         getContentPane().add(add_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 134, -1));
 
+        addpoints.setEditable(false);
         addpoints.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 addpointsFocusLost(evt);
