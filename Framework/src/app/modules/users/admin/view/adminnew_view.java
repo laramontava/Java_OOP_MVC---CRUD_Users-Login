@@ -11,7 +11,10 @@ import static app.modules.users.admin.view.adminmanage_view.statusnewadmin;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -99,6 +102,7 @@ public class adminnew_view extends javax.swing.JFrame {
         createoredit = new javax.swing.JLabel();
         adddummies = new javax.swing.JButton();
         currency = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -439,6 +443,14 @@ public class adminnew_view extends javax.swing.JFrame {
         currency.setText("€");
         getContentPane().add(currency, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 20, 20));
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -696,6 +708,15 @@ public class adminnew_view extends javax.swing.JFrame {
    //     BLL_admin.ActivityValidate();
     }//GEN-LAST:event_addactivityKeyTyped
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            // TODO add your handling code here:
+            app.modules.users.admin.model.utils.dummiesbbdd.cargarDatosEF();
+        } catch (SQLException ex) {
+            Logger.getLogger(adminnew_view.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -755,6 +776,7 @@ public class adminnew_view extends javax.swing.JFrame {
     public static javax.swing.JLabel currency;
     public static javax.swing.JLabel dni_validate;
     public static javax.swing.JLabel email_validate;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     public static javax.swing.JLabel jLabel12;
     public static javax.swing.JLabel jLabel13;
