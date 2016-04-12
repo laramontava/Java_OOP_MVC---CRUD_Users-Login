@@ -7,6 +7,7 @@ package app.modules.users.admin.model.BLL;
 
 import app.classes.ConnectionBBDD;
 import app.modules.users.admin.model.DAO.DAO_admin;
+import app.modules.users.admin.model.classes.admin;
 import app.modules.users.admin.model.classes.miniSimpleTableModel_admin;
 import app.modules.users.admin.model.classes.singleton;
 import app.modules.users.admin.model.utils.pager.pagina;
@@ -147,6 +148,16 @@ public class BLL_admin {
         ConnectionBBDD _conexion_DB = new ConnectionBBDD();
         _con = _conexion_DB.AbrirConexion();
         correct = DAO_admin.crearAdmin(_con);
+        _conexion_DB.CerrarConexion(_con);
+        return correct;
+    }
+    
+    public static boolean mostrarAdminBBDD(){
+        boolean correct = false;
+        Connection _con = null;
+        ConnectionBBDD _conexion_DB = new ConnectionBBDD();
+        _con = _conexion_DB.AbrirConexion();
+        DAO_admin.mostrarAdmin(_con);
         _conexion_DB.CerrarConexion(_con);
         return correct;
     }

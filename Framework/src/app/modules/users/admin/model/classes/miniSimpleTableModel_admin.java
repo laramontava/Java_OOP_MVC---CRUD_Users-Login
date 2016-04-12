@@ -8,13 +8,11 @@ package app.modules.users.admin.model.classes;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
-//import app.modules.users.admin.model.classes.admin;
 import app.modules.users.admin.model.utils.pager.pagina;
-//import app.modules.users.admin.model.classes.singleton;
 import static app.modules.users.admin.model.classes.singleton.admin;
 import app.modules.users.admin.view.adminmanage_view;
-//import static app.modules.users.admin.view.adminmanage_view.combo;
 import static app.modules.users.admin.controller.admin_controller.combo;
+import app.modules.users.admin.model.BLL.BLL_admin;
 import static app.modules.users.admin.view.adminmanage_view.jLabel3;
 
 public class miniSimpleTableModel_admin extends AbstractTableModel {
@@ -109,6 +107,7 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
     public void cargar() {
         datos.clear();
         datosaux.clear();
+        BLL_admin.mostrarAdminBBDD();
         for (int i = 0; i < singleton.admin.getAdmins().size(); i++) {
             addRow(singleton.admin.getAdmins().get(i));
             datosaux.add(singleton.admin.getAdmins().get(i));

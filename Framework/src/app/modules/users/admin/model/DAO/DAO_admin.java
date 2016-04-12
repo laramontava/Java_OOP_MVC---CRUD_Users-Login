@@ -22,6 +22,7 @@ import app.utils.validate;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -456,5 +457,51 @@ public class DAO_admin {
         }
         return correct;
     }
+    
+    public static boolean mostrarAdmin(Connection _con) {
+        boolean correct = false;
+        ResultSet rs = null;
+        PreparedStatement stmt = null;
+       
+        singleton.admin.getAdmins().clear();
+        try {
+            stmt = _con.prepareStatement("SELECT * FROM admin");
+            rs = stmt.executeQuery();
 
+            admin ad = null;
+
+            while (rs.next()) {
+                                
+                ad = new admin();
+                ad.setDni(rs.getString("dni"));
+                ad.setName(rs.getString("name"));
+                ad.setSubname(rs.getString("subname"));
+                ad.setMobile(rs.getString("mobile"));
+                ad.setEmail(rs.getString("email"));
+                ad.setDate_birthday(rs.getString("date_birthday"));
+                ad.setUser(rs.getString("user"));
+                ad.setPass(rs.getString("pass"));
+                ad.setAvatar(rs.getString("avatar"));
+                ad.setState(rs.getString("state"));
+                ad.setHiring_date(rs.getString("hiring_date"));
+                ad.setSalary(rs.getFloat("salary"));
+                ad.setActivity(rs.getInt("activity"));
+                singleton.admin.AddAdmin(ad);
+                correct = true;
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ha habido un problema al obtener los usuarios!");
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Ha habido un error Logger!");
+                }
+            }
+        }
+        return correct;
+    }
+    
+    
 }
