@@ -238,6 +238,6 @@ public abstract class users implements Comparable<users>, Serializable{
 	public abstract float calcularventajas();
 	public int calculateage(String fecha){
 		fecha age = new fecha(fecha);
-		return age.restafechas(age.stringtocalendar(fecha), age.fechasystem(), "a�os");
+		return age.restafechas(age.stringtocalendar(fecha), age.fechasystem(), "years");
 	}
 }

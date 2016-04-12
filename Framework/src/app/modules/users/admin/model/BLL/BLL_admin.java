@@ -5,6 +5,7 @@
  */
 package app.modules.users.admin.model.BLL;
 
+import app.classes.ConnectionBBDD;
 import app.modules.users.admin.model.DAO.DAO_admin;
 import app.modules.users.admin.model.classes.miniSimpleTableModel_admin;
 import app.modules.users.admin.model.classes.singleton;
@@ -13,6 +14,9 @@ import app.modules.users.admin.model.utils.pager.pagina;
 import static app.modules.users.admin.view.adminmanage_view.TABLA;
 import static app.modules.users.admin.view.adminmanage_view.selected;
 import static app.modules.users.admin.view.adminmanage_view.statusnewadmin;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  *
@@ -124,5 +128,26 @@ public class BLL_admin {
         } else {
             statusnewadmin.setText("No hay ningún usuario administrador");
         }
+    }
+    /*---- BBDD ----*/
+    public static boolean guardarDatosAdminBBDD() throws SQLException{
+        boolean e = false;
+        Connection _con = null;
+        ConnectionBBDD _conexion_DB = new ConnectionBBDD();
+        
+        _con = _conexion_DB.AbrirConexion();
+        DAO_admin.guardarDatosAdmin(_con);
+        _conexion_DB.CerrarConexion(_con);
+        return e;
+    }
+    
+    public static boolean crearAdminBBDD() throws SQLException{
+        boolean correct = false;
+        Connection _con = null;
+        ConnectionBBDD _conexion_DB = new ConnectionBBDD();
+        _con = _conexion_DB.AbrirConexion();
+        correct = DAO_admin.crearAdmin(_con);
+        _conexion_DB.CerrarConexion(_con);
+        return correct;
     }
 }

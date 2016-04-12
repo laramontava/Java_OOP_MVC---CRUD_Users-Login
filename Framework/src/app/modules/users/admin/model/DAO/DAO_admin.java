@@ -5,6 +5,7 @@
  */
 package app.modules.users.admin.model.DAO;
 
+import app.classes.ConnectionBBDD;
 import app.classes.fecha;
 import app.classes.singleton_global;
 import static app.classes.singleton_global.Green;
@@ -19,7 +20,11 @@ import app.modules.users.admin.view.adminnew_view;
 import static app.modules.users.admin.view.adminnew_view.*;
 import app.utils.validate;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Calendar;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -286,16 +291,17 @@ public class DAO_admin {
             String mobile = adminnew_view.addmobile.getText();
             String email = adminnew_view.addemail.getText();
             fecha aux = new fecha();
-            String datebirthday ="";
-            if(singleton_global.conf.getDate()=='a'){
+            String datebirthday = "";
+            datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 0);
+            /*if (singleton_global.conf.getDate() == 'a') {
                 datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 0);
-            } else if(singleton_global.conf.getDate()=='b'){
+            } else if (singleton_global.conf.getDate() == 'b') {
                 datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 1);
-            } else if(singleton_global.conf.getDate()=='c'){
+            } else if (singleton_global.conf.getDate() == 'c') {
                 datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 2);
             } else {
                 datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 3);
-            }
+            }*/
             String nameuser = adminnew_view.addnameuser.getText();
             String passwd = adminnew_view.addpassword.getText();
             String avatar = adminnew_view.addavatar.getText();
@@ -370,4 +376,85 @@ public class DAO_admin {
         addsalary.setText(String.valueOf(singleton.admin.getAdmin(pos).getSalary()));
         addactivity.setText(String.valueOf(singleton.admin.getAdmin(pos).getActivity()));
     }
+
+    /* ---- BBDD ----*/
+    public static boolean guardarDatosAdmin(Connection _con) throws SQLException {
+        /*Connection _con = null;
+        ConnectionBBDD _conexion_DB = new ConnectionBBDD();
+        
+        int resultado = 0;
+
+        _con = _conexion_DB.AbrirConexion();*/ //pasar a BLL abres llamas al dao y cierras (?) nipa
+        /*    admin admind = new admin("00000000T", "Nana", "Maya", "666666666", "asd@asd.asd", "12/12/1900",
+                    "miau", "123", "av.jpg", "offline", "12/02/2016", 53423, 999);*/
+        boolean correct = false;
+        PreparedStatement stmt = null;
+        for (int i = 0; i < singleton.admin.getAdmins().size(); i++) {
+            stmt = _con.prepareStatement("INSERT INTO admin"
+                    + "(dni,name,subname,mobile,email,date_birthday,age,user,pass"
+                    + ",avatar,state,hiring_date,years_service,salary,activity) "
+                    + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            stmt.setString(1, singleton.admin.getAdmins().get(i).getDni());
+            stmt.setString(2, singleton.admin.getAdmins().get(i).getName());
+            stmt.setString(3, singleton.admin.getAdmins().get(i).getSubname());
+            stmt.setString(4, singleton.admin.getAdmins().get(i).getMobile());
+            stmt.setString(5, singleton.admin.getAdmins().get(i).getEmail());
+            stmt.setString(6, singleton.admin.getAdmins().get(i).getDate_birthday());
+            stmt.setInt(7, singleton.admin.getAdmins().get(i).getAge());
+            stmt.setString(8, singleton.admin.getAdmins().get(i).getUser());
+            stmt.setString(9, singleton.admin.getAdmins().get(i).getPass());
+            stmt.setString(10, singleton.admin.getAdmins().get(i).getAvatar());
+            stmt.setString(11, singleton.admin.getAdmins().get(i).getState());
+            stmt.setString(12, singleton.admin.getAdmins().get(i).getHiring_date());
+            stmt.setInt(13, singleton.admin.getAdmins().get(i).getYears_service());
+            stmt.setFloat(14, singleton.admin.getAdmins().get(i).getSalary());
+            stmt.setInt(15, singleton.admin.getAdmins().get(i).getActivity());
+
+            stmt.executeUpdate();
+            correct = true;
+        }
+        //_conexion_DB.CerrarConexion(_con);
+        return correct;
+    }
+
+    public static boolean crearAdmin(Connection _con) throws SQLException {
+        boolean correct = false;
+        PreparedStatement stmt = null;
+        if (pidedni() && pidenombre() && pideapellidos() && pidefechanacimiento()
+                && pidetelefono() && pideemail() && pideusuario() && pidecontrasenya()
+                && pidefechacontratacion() && pidesalario() && pideactividad()) {
+            fecha data = new fecha();
+            admin ad = new admin(adminnew_view.adddni.getText(), adminnew_view.addname.getText(), adminnew_view.addsurname.getText(),
+                    adminnew_view.addmobile.getText(), adminnew_view.addemail.getText(), data.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 0),
+                    adminnew_view.addnameuser.getText(), adminnew_view.addpassword.getText(), adminnew_view.addavatar.getText(),
+                    adminnew_view.add_status.getSelectedItem().toString(), data.calendartostring(adminnew_view.addcontr.getCalendar(), 0), Float.parseFloat(adminnew_view.addsalary.getText()),
+                    Integer.parseInt(adminnew_view.addactivity.getText()));
+            
+                stmt = _con.prepareStatement("INSERT INTO admin"
+                    + "(dni,name,subname,mobile,email,date_birthday,age,user,pass"
+                    + ",avatar,state,hiring_date,years_service,salary,activity) "
+                    + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                stmt.setString(1, ad.getDni());
+                stmt.setString(2, ad.getName());
+                stmt.setString(3, ad.getSubname());
+                stmt.setString(4, ad.getMobile());
+                stmt.setString(5, ad.getEmail());
+                stmt.setString(6, ad.getDate_birthday());
+                stmt.setInt(7, ad.getAge());
+                stmt.setString(8, ad.getUser());
+                stmt.setString(9, ad.getPass());
+                stmt.setString(10, ad.getAvatar());
+                stmt.setString(11, ad.getState());
+                stmt.setString(12, ad.getHiring_date());
+                stmt.setInt(13, ad.getYears_service());
+                stmt.setFloat(14, ad.getSalary());
+                stmt.setInt(15, ad.getActivity());
+                
+                stmt.executeUpdate();
+                JOptionPane.showMessageDialog(null, "El usuario se ha registrado correctamente");
+                correct = true;
+        }
+        return correct;
+    }
+
 }

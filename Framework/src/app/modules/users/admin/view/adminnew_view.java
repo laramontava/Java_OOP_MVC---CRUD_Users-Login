@@ -711,7 +711,7 @@ public class adminnew_view extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             // TODO add your handling code here:
-            app.modules.users.admin.model.utils.dummiesbbdd.cargarDatosEF();
+            app.modules.users.admin.model.BLL.BLL_admin.crearAdminBBDD();
         } catch (SQLException ex) {
             Logger.getLogger(adminnew_view.class.getName()).log(Level.SEVERE, null, ex);
         }

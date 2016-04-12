@@ -52,6 +52,9 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import static app.modules.users.admin.view.adminmanage_view.searchby;
 import app.utils.theme;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -67,9 +70,8 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
     public static AutocompleteJComboBox combo = null;
     int dia, mes, anyo;
     public static int selected;
-    private FileNameExtensionFilter filter = new FileNameExtensionFilter
-        ("Archivo de imagen","jpg","png","gif");
-    String rutaimagen="";
+    private FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de imagen", "jpg", "png", "gif");
+    String rutaimagen = "";
 
     public admin_controller(JFrame option, int i) {
         if (i == 0) {
@@ -125,7 +127,7 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
             adminmanage_view.create_admin.setToolTipText(singleton_global.translate.getProperty("CreateuserT"));
             adminmanage_view.edit_admin.setToolTipText(singleton_global.translate.getProperty("EditUser"));
             adminmanage_view.delete_admin.setToolTipText(singleton_global.translate.getProperty("DeleteUser"));
-            
+
             TableAdmin.TABLA.setModel(new miniSimpleTableModel_admin());
             ((miniSimpleTableModel_admin) TABLA.getModel()).cargar();
             TableAdmin.TABLA.setFillsViewportHeight(true);
@@ -224,11 +226,11 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
             Crear.setSize(590, 541);
             Crear.setResizable(false);
             theme.temaElegido(singleton_global.conf.getTheme());
-            if(singleton_global.conf.getCurrency()=='e'){
+            if (singleton_global.conf.getCurrency() == 'e') {
                 adminnew_view.currency.setText("€");
-            } else if(singleton_global.conf.getCurrency()=='d'){
+            } else if (singleton_global.conf.getCurrency() == 'd') {
                 adminnew_view.currency.setText("$");
-            }else if(singleton_global.conf.getCurrency()=='l'){
+            } else if (singleton_global.conf.getCurrency() == 'l') {
                 adminnew_view.currency.setText("£");
             }
             adminnew_view.adddni.setActionCommand("jtxtDni");
@@ -296,17 +298,17 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
             adddummies.setVisible(false);
             BLL_admin.LlenarCampos();
             theme.temaElegido(singleton_global.conf.getTheme());
-            
+
             titlecreateedit.setText(singleton_global.translate.getProperty("edittit"));
-            
-            if(singleton_global.conf.getCurrency()=='e'){
+
+            if (singleton_global.conf.getCurrency() == 'e') {
                 adminnew_view.currency.setText("€");
-            } else if(singleton_global.conf.getCurrency()=='d'){
+            } else if (singleton_global.conf.getCurrency() == 'd') {
                 adminnew_view.currency.setText("$");
-            }else if(singleton_global.conf.getCurrency()=='l'){
+            } else if (singleton_global.conf.getCurrency() == 'l') {
                 adminnew_view.currency.setText("£");
             }
-            
+
             adminnew_view.adddni.setActionCommand("jtxtDni");
             adminnew_view.adddni.addKeyListener(this);
             adminnew_view.adddni.addActionListener(this);
@@ -452,15 +454,33 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                 break;
             case btnCreate:
                 if (adddummies.isVisible()) {
-                    if (BLL_admin.adminsave()) {
-                        new admin_controller(new adminmanage_view(), 0).Iniciar(0);
-                        Crear.dispose();
-                        statusnewadmin.setText("Admin creado correctamente");
-                        statusnewadmin.setForeground(Green);
-                    } else {
-                        jlblcreate.setText("Asegúrate de haber introducido bien los datos");
-                        jlblcreate.setForeground(Color.red);
-                    }
+                    System.out.println("1");
+            try {
+                //if (BLL_admin.adminsave()) {
+                if (BLL_admin.crearAdminBBDD()) {
+                    System.out.println("2");
+                    /*    try {
+                    System.out.println("3");
+                    
+                    BLL_admin.crearAdminBBDD();
+                    System.out.println("4");
+                    } catch (SQLException ex) {
+                    Logger.getLogger(admin_controller.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("5");
+                    }*/
+                    System.out.println("6");
+                    new admin_controller(new adminmanage_view(), 0).Iniciar(0);
+                    Crear.dispose();
+                    statusnewadmin.setText("Admin creado correctamente");
+                    statusnewadmin.setForeground(Green);
+                } else {
+                    jlblcreate.setText("Asegúrate de haber introducido bien los datos");
+                    jlblcreate.setForeground(Color.red);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(admin_controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
                 } else if (BLL_admin.Modificaradmin()) {
                     new admin_controller(new adminmanage_view(), 0).Iniciar(0);
                     Modificar.dispose();
@@ -511,7 +531,7 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
 
     @Override
     public void keyPressed(KeyEvent es) {
-        
+
     }
 
     @Override
@@ -526,7 +546,7 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                 if (ef.getClickCount() == 2) {
                     if (BLL_admin.Modificar()) {
                         TableAdmin.dispose();
-                    //meh    new adminnew_view().setVisible(true);
+                        //meh    new adminnew_view().setVisible(true);
                         new admin_controller(new adminnew_view(), 2).Iniciar(2);
                         BLL_admin.LlenarCampos();
                         titlecreateedit.setText("Editar un usuario administrador");
