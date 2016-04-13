@@ -5,7 +5,6 @@
  */
 package app.modules.users.admin.model.DAO;
 
-import app.classes.ConnectionBBDD;
 import app.classes.fecha;
 import app.classes.singleton_global;
 import static app.classes.singleton_global.Green;
@@ -245,11 +244,9 @@ public class DAO_admin {
         int years = 0;
         try {
             val = true;
-            //s = validatefecha(message, title);
             fecha datefecha = new fecha();
             Calendar date = adminnew_view.addcontr.getCalendar();
             fecha fe = new fecha();
-            //Calendar datesystem = new GregorianCalendar();
             Calendar datesystem = fe.fechasystem();
             fecha diferencia = new fecha();
             Calendar datebirthday = adminnew_view.adddatebirthday.getCalendar();
@@ -380,14 +377,6 @@ public class DAO_admin {
 
     /* ---- BBDD ----*/
     public static boolean guardarDatosAdmin(Connection _con) throws SQLException {
-        /*Connection _con = null;
-        ConnectionBBDD _conexion_DB = new ConnectionBBDD();
-        
-        int resultado = 0;
-
-        _con = _conexion_DB.AbrirConexion();*/ //pasar a BLL abres llamas al dao y cierras (?) nipa
-        /*    admin admind = new admin("00000000T", "Nana", "Maya", "666666666", "asd@asd.asd", "12/12/1900",
-                    "miau", "123", "av.jpg", "offline", "12/02/2016", 53423, 999);*/
         boolean correct = false;
         PreparedStatement stmt = null;
         for (int i = 0; i < singleton.admin.getAdmins().size(); i++) {
@@ -414,7 +403,6 @@ public class DAO_admin {
             stmt.executeUpdate();
             correct = true;
         }
-        //_conexion_DB.CerrarConexion(_con);
         return correct;
     }
 
@@ -490,13 +478,13 @@ public class DAO_admin {
                 correct = true;
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Ha habido un problema al obtener los usuarios!");
+            JOptionPane.showMessageDialog(null, "Ha habido un problema al obtener los usuarios");
         } finally {
             if (stmt != null) {
                 try {
                     stmt.close();
                 } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "Ha habido un error Logger!");
+                    JOptionPane.showMessageDialog(null, "Ha habido un error Logger");
                 }
             }
         }

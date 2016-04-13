@@ -7,7 +7,7 @@ import app.modules.users.admin.model.classes.admin;
 import app.modules.users.client.model.classes.client;
 //import app.modules.users.admin.model.classes.registered_user;
 import app.modules.users.admin.model.classes.singleton;
-import app.modules.users.admin.model.classes.users;
+import app.modules.users.classes.users;
 import app.modules.users.client.model.classes.singleton_client;
 import app.utils.functions;
 import app.utils.menus;

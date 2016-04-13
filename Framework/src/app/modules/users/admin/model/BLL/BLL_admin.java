@@ -7,16 +7,13 @@ package app.modules.users.admin.model.BLL;
 
 import app.classes.ConnectionBBDD;
 import app.modules.users.admin.model.DAO.DAO_admin;
-import app.modules.users.admin.model.classes.admin;
 import app.modules.users.admin.model.classes.miniSimpleTableModel_admin;
 import app.modules.users.admin.model.classes.singleton;
 import app.modules.users.admin.model.utils.pager.pagina;
-//import static app.modules.users.admin.view.adminmain_view.selected;
 import static app.modules.users.admin.view.adminmanage_view.TABLA;
 import static app.modules.users.admin.view.adminmanage_view.selected;
 import static app.modules.users.admin.view.adminmanage_view.statusnewadmin;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
@@ -112,7 +109,6 @@ public class BLL_admin {
         String ID;
         int n, selected, inicio, selected1;
         if (((miniSimpleTableModel_admin) TABLA.getModel()).getRowCount() != 0) {
-            //int selected = TABLA.getSelectedRow();//sustituir
             inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la página en cuestión
             selected = TABLA.getSelectedRow(); //nos situamos en la fila
             selected1 = inicio + selected; //nos situamos en la fila correspondiente de esa página

@@ -1,4 +1,4 @@
-package app.modules.users.admin.model.classes;
+package app.modules.users.classes;
 
 import app.classes.fecha;
 import java.io.Serializable;

@@ -1,7 +1,6 @@
 package app.modules.users.admin.model.BLL;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import javax.swing.JOptionPane;
 import app.classes.singleton_global;
 import app.modules.users.admin.model.BLL.lib_ficheros.json;
@@ -9,8 +8,6 @@ import app.modules.users.admin.model.BLL.lib_ficheros.txt;
 import app.modules.users.admin.model.BLL.lib_ficheros.xml;
 import app.modules.users.admin.model.DAO.functions_users;
 import app.modules.users.admin.model.classes.admin;
-import app.modules.users.admin.model.classes.orderdatebirthday;
-import app.modules.users.admin.model.classes.ordername;
 
 public class Arraylist_admin {
 
@@ -33,15 +30,7 @@ public class Arraylist_admin {
 
     public void AddAdmin(admin admind) {
         boolean asd = true;
-        /*int pos = -1;
-        admind = functions_users.finddniadmin();
-        pos = adminfind(admind);
-
-        if (pos != -1) {
-            JOptionPane.showMessageDialog(null, "Existe");
-        } else {
-            admins.add(admind);
-        }*/
+        
         for (int i = 0; i <= admins.size() - 1; i++) {
             if ((admins.get(i)).equals(admind)) {
                 JOptionPane.showMessageDialog(null, "Ya existe ese DNI");
@@ -65,9 +54,7 @@ public class Arraylist_admin {
             pos = -1;
             pos = adminfind(admind);
             if (pos != -1) {
-                //admins.get(pos);
-//                functions_users.cambiauser(admins.get(pos));
-                //admins.set(pos, admind);
+               
             } else {
                 JOptionPane.showMessageDialog(null, "Existe");
             }
@@ -80,24 +67,6 @@ public class Arraylist_admin {
         } else {
             for (int i = 0; i < admins.size(); i++) {
                 JOptionPane.showMessageDialog(null, admins.get(i).toString());
-            }
-        }
-    }
-
-    public void orderby(int i) {
-        if (admins.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
-        } else {
-            switch (i) {
-                case 0:
-                    Collections.sort(admins);
-                    break;
-                case 1:
-                    Collections.sort(admins, new ordername());
-                    break;
-                case 2:
-                    Collections.sort(admins, new orderdatebirthday());
-                    break;
             }
         }
     }
@@ -118,8 +87,6 @@ public class Arraylist_admin {
     public int buscarDniAdmin(String dni) {
         int pos = 0;
         for (int i = 0; i <= admins.size() - 1; i++) {
-            //if (admins.get(i).getDni()==dni) {
-            //if (admins.get(i).getDni() == null ? dni == null : admins.get(i).getDni().equals(dni)) {
             if (admins.get(i).getDni().equals(dni)) {
                 pos = i;
             }
@@ -140,9 +107,6 @@ public class Arraylist_admin {
         if (admins.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay ningún admin creado");
         } else {
-            //pideadmin = ;
-            //pideadmin = functions_users.finddniadmin();
-            //pideadmin = functions.validatestring("Introdudce DNI del admin que quiers eliminar", "Delete");
             for (int i = 0; i <= admins.size() - 1; i++) {
                 if ((admins.get(i)).equals(pideadmin)) {
                     admins.remove(i);

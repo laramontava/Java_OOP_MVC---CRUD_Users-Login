@@ -2,7 +2,7 @@ package app.modules.users.client.model.classes;
 
 import app.classes.fecha;
 import app.classes.singleton_global;
-import app.modules.users.admin.model.classes.users;
+import app.modules.users.classes.users;
 import app.utils.format;
 import java.io.Serializable;
 import com.thoughtworks.xstream.annotations.XStreamAlias;

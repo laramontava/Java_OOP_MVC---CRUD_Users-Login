@@ -1,6 +1,6 @@
 package app.modules.users.registered_user.model.classes;
 
-import app.modules.users.admin.model.classes.users;
+import app.modules.users.classes.users;
 import java.io.Serializable;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 

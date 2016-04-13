@@ -11,32 +11,33 @@ import app.modules.users.admin.model.classes.admin;
 import app.modules.users.admin.model.classes.singleton;
 
 public class txt {
-	public static void Generatetxt() {
-		String PATH = null;
-	       try {
-	           File f;
-	           JFileChooser fileChooser = new JFileChooser();
-	           int seleccion = fileChooser.showSaveDialog(null);
-	           if (seleccion == JFileChooser.APPROVE_OPTION) {
-	               File JFC = fileChooser.getSelectedFile();
-	               PATH = JFC.getAbsolutePath();
-	               PATH=PATH+ ".txt";
-	               f = new File(PATH);
-	               
-	               FileOutputStream fo=new FileOutputStream(f);
-				ObjectOutputStream o=new ObjectOutputStream(fo);
-				o.writeObject(singleton.admin.getAdmins());
-				o.close();
-	               JOptionPane.showMessageDialog(null, "Archivo TXT guardado con exito", "Archivo TXT", JOptionPane.INFORMATION_MESSAGE);
-	           }
-	       } catch (Exception e) {
-	       	JOptionPane.showMessageDialog(null, "Error al grabar el TXT", "Error", JOptionPane.ERROR_MESSAGE);
-	       }
+
+    public static void Generatetxt() {
+        String PATH = null;
+        try {
+            File f;
+            JFileChooser fileChooser = new JFileChooser();
+            int seleccion = fileChooser.showSaveDialog(null);
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+                File JFC = fileChooser.getSelectedFile();
+                PATH = JFC.getAbsolutePath();
+                PATH = PATH + ".txt";
+                f = new File(PATH);
+
+                FileOutputStream fo = new FileOutputStream(f);
+                ObjectOutputStream o = new ObjectOutputStream(fo);
+                o.writeObject(singleton.admin.getAdmins());
+                o.close();
+                JOptionPane.showMessageDialog(null, "Archivo TXT guardado con exito", "Archivo TXT", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al grabar el TXT", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
-    
+
     @SuppressWarnings("unchecked")
-	public static void Opentxt() {
-    	String PATH = null;
+    public static void Opentxt() {
+        String PATH = null;
         try {
             File f;
             JFileChooser fileChooser = new JFileChooser();
@@ -47,56 +48,57 @@ public class txt {
                 File JFC = fileChooser.getSelectedFile();
                 PATH = JFC.getAbsolutePath();
                 f = new File(PATH);
-                
-                FileInputStream fi=new FileInputStream(f);
-    			ObjectInputStream oi=new ObjectInputStream(fi);
-    			singleton.admin.setAdmins((ArrayList<admin>)oi.readObject());
-    			oi.close();
+
+                FileInputStream fi = new FileInputStream(f);
+                ObjectInputStream oi = new ObjectInputStream(fi);
+                singleton.admin.setAdmins((ArrayList<admin>) oi.readObject());
+                oi.close();
             }
         } catch (Exception e) {
-        	JOptionPane.showMessageDialog(null, "Error al leer el TXT", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al leer el TXT", "Error", JOptionPane.ERROR_MESSAGE);
         }
-    	
+
     }
-    
+
     public static void Generatetxtauto() {
-		String PATH = null;
-	       try {
-	           File f;
-	           if(!singleton_global.conf.getDummies())
-	               PATH=new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_admin/admin.txt";
-	           else
-	        	   PATH=new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_dummies_admin/admin.txt";
-	               f = new File(PATH);
-	               
-	               FileOutputStream fo=new FileOutputStream(f);
-				ObjectOutputStream o=new ObjectOutputStream(fo);
-				o.writeObject(singleton.admin.getAdmins());
-				o.close();
-	               //JOptionPane.showMessageDialog(null, "Archivo TXT guardado con exito", "Archivo TXT", JOptionPane.INFORMATION_MESSAGE);
-	           
-	       } catch (Exception e) {
-	       	JOptionPane.showMessageDialog(null, "Error al grabar el TXT", "Error", JOptionPane.ERROR_MESSAGE);
-	       }
-    }
-    @SuppressWarnings("unchecked")
-    public static void Opentxtauto() {
-    	String PATH = null;
+        String PATH = null;
         try {
             File f;
-            if(!singleton_global.conf.getDummies())
-            	PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_admin/admin.txt";
-            else
-            	PATH=new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_dummies_admin/admin.txt";
-                f = new File(PATH);
-                FileInputStream fi=new FileInputStream(f);
-    			ObjectInputStream oi=new ObjectInputStream(fi);
-    			singleton.admin.setAdmins((ArrayList<admin>)oi.readObject());
-    			oi.close();
+            if (!singleton_global.conf.getDummies()) {
+                PATH = new java.io.File(".").getCanonicalPath() + "/src/app/modules/users/files/files_admin/admin.txt";
+            } else {
+                PATH = new java.io.File(".").getCanonicalPath() + "/src/app/modules/users/files/files_dummies_admin/admin.txt";
+            }
+            f = new File(PATH);
+
+            FileOutputStream fo = new FileOutputStream(f);
+            ObjectOutputStream o = new ObjectOutputStream(fo);
+            o.writeObject(singleton.admin.getAdmins());
+            o.close();
             
         } catch (Exception e) {
-        	
+            JOptionPane.showMessageDialog(null, "Error al grabar el TXT", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    /*Client-----*/
+
+    @SuppressWarnings("unchecked")
+    public static void Opentxtauto() {
+        String PATH = null;
+        try {
+            File f;
+            if (!singleton_global.conf.getDummies()) {
+                PATH = new java.io.File(".").getCanonicalPath() + "/src/app/modules/users/files/files_admin/admin.txt";
+            } else {
+                PATH = new java.io.File(".").getCanonicalPath() + "/src/app/modules/users/files/files_dummies_admin/admin.txt";
+            }
+            f = new File(PATH);
+            FileInputStream fi = new FileInputStream(f);
+            ObjectInputStream oi = new ObjectInputStream(fi);
+            singleton.admin.setAdmins((ArrayList<admin>) oi.readObject());
+            oi.close();
+
+        } catch (Exception e) {
+
+        }
     }
+}

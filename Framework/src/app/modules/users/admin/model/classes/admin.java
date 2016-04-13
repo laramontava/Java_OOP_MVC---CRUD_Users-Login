@@ -1,11 +1,11 @@
 package app.modules.users.admin.model.classes;
 
+import app.modules.users.classes.users;
 import app.utils.format;
 import app.classes.fecha;
 import app.classes.singleton_global;
 import java.io.Serializable;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-//import java.sql.Timestamp;
 
 @SuppressWarnings("serial")
 @XStreamAlias("Admin")
@@ -60,10 +60,7 @@ public class admin extends users implements Serializable {
         }
     }
 
-    public admin(String name, String subname) {
-        super.name = name;
-        super.subname = subname;
-    }
+    
     //getter y setter
 
     public String getHiring_date() {

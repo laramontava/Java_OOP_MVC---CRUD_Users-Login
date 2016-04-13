@@ -96,8 +96,7 @@ public class xml {
                 fileXml.close();
                 osw.close();
                 os.close();
-                //JOptionPane.showMessageDialog(null, "Archivo XML guardado con exito", "Archivo XML", JOptionPane.INFORMATION_MESSAGE);
-            
+                
 	    }catch (Exception e1){
 	    	JOptionPane.showMessageDialog(null, "Error al grabar el XML", "Error", JOptionPane.ERROR_MESSAGE);
 	    } 
