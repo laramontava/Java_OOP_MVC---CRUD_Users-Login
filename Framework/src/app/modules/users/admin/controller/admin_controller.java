@@ -378,7 +378,8 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                 TableAdmin.dispose();
                 break;
             case btnModificar:
-                if (BLL_admin.Modificar()) {
+                //if (BLL_admin.Modificar()) {
+                if (BLL_admin.modificarAdminBBDD()) {
                     new admin_controller(new adminnew_view(), 2).Iniciar(2);
                     TableAdmin.dispose();
                 }
@@ -454,12 +455,10 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                 break;
             case btnCreate:
                 if (adddummies.isVisible()) {
-                    System.out.println("1");
-            try {
-                //if (BLL_admin.adminsave()) {
-                if (BLL_admin.crearAdminBBDD()) {
-                    System.out.println("2");
-                    /*    try {
+                    try {
+                        //if (BLL_admin.adminsave()) {
+                        if (BLL_admin.crearAdminBBDD()) {
+                            /*    try {
                     System.out.println("3");
                     
                     BLL_admin.crearAdminBBDD();
@@ -468,20 +467,20 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                     Logger.getLogger(admin_controller.class.getName()).log(Level.SEVERE, null, ex);
                     System.out.println("5");
                     }*/
-                    System.out.println("6");
-                    new admin_controller(new adminmanage_view(), 0).Iniciar(0);
-                    Crear.dispose();
-                    statusnewadmin.setText("Admin creado correctamente");
-                    statusnewadmin.setForeground(Green);
-                } else {
-                    jlblcreate.setText("Asegúrate de haber introducido bien los datos");
-                    jlblcreate.setForeground(Color.red);
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(admin_controller.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                            new admin_controller(new adminmanage_view(), 0).Iniciar(0);
+                            Crear.dispose();
+                            statusnewadmin.setText("Admin creado correctamente");
+                            statusnewadmin.setForeground(Green);
+                        } else {
+                            jlblcreate.setText("Asegúrate de haber introducido bien los datos");
+                            jlblcreate.setForeground(Color.red);
+                        }
+                    } catch (SQLException ex) {
+                        Logger.getLogger(admin_controller.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 
-                } else if (BLL_admin.Modificaradmin()) {
+                } //else if (BLL_admin.Modificaradmin()) {
+                    else if (BLL_admin.modificarAdminBBDD()) {
                     new admin_controller(new adminmanage_view(), 0).Iniciar(0);
                     Modificar.dispose();
                     statusnewadmin.setText("Admin editado correctamente");

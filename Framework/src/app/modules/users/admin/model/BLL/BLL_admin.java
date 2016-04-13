@@ -153,7 +153,17 @@ public class BLL_admin {
         Connection _con = null;
         ConnectionBBDD _conexion_DB = new ConnectionBBDD();
         _con = _conexion_DB.AbrirConexion();
-        DAO_admin.mostrarAdmin(_con);
+        correct = DAO_admin.mostrarAdmin(_con);
+        _conexion_DB.CerrarConexion(_con);
+        return correct;
+    }
+    
+    public static boolean modificarAdminBBDD(){
+        boolean correct = false;
+        Connection _con = null;
+        ConnectionBBDD _conexion_DB = new ConnectionBBDD();
+        _con = _conexion_DB.AbrirConexion();
+        correct = DAO_admin.modificarAdmin(_con);
         _conexion_DB.CerrarConexion(_con);
         return correct;
     }

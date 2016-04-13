@@ -418,39 +418,39 @@ public class DAO_admin {
                     adminnew_view.addnameuser.getText(), adminnew_view.addpassword.getText(), adminnew_view.addavatar.getText(),
                     adminnew_view.add_status.getSelectedItem().toString(), data.calendartostring(adminnew_view.addcontr.getCalendar(), 0), Float.parseFloat(adminnew_view.addsalary.getText()),
                     Integer.parseInt(adminnew_view.addactivity.getText()));
-            
-                stmt = _con.prepareStatement("INSERT INTO admin"
+
+            stmt = _con.prepareStatement("INSERT INTO admin"
                     + "(dni,name,subname,mobile,email,date_birthday,age,user,pass"
                     + ",avatar,state,hiring_date,years_service,salary,activity) "
                     + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-                stmt.setString(1, ad.getDni());
-                stmt.setString(2, ad.getName());
-                stmt.setString(3, ad.getSubname());
-                stmt.setString(4, ad.getMobile());
-                stmt.setString(5, ad.getEmail());
-                stmt.setString(6, ad.getDate_birthday());
-                stmt.setInt(7, ad.getAge());
-                stmt.setString(8, ad.getUser());
-                stmt.setString(9, ad.getPass());
-                stmt.setString(10, ad.getAvatar());
-                stmt.setString(11, ad.getState());
-                stmt.setString(12, ad.getHiring_date());
-                stmt.setInt(13, ad.getYears_service());
-                stmt.setFloat(14, ad.getSalary());
-                stmt.setInt(15, ad.getActivity());
-                
-                stmt.executeUpdate();
-                JOptionPane.showMessageDialog(null, "El usuario se ha registrado correctamente");
-                correct = true;
+            stmt.setString(1, ad.getDni());
+            stmt.setString(2, ad.getName());
+            stmt.setString(3, ad.getSubname());
+            stmt.setString(4, ad.getMobile());
+            stmt.setString(5, ad.getEmail());
+            stmt.setString(6, ad.getDate_birthday());
+            stmt.setInt(7, ad.getAge());
+            stmt.setString(8, ad.getUser());
+            stmt.setString(9, ad.getPass());
+            stmt.setString(10, ad.getAvatar());
+            stmt.setString(11, ad.getState());
+            stmt.setString(12, ad.getHiring_date());
+            stmt.setInt(13, ad.getYears_service());
+            stmt.setFloat(14, ad.getSalary());
+            stmt.setInt(15, ad.getActivity());
+
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "El usuario se ha registrado correctamente");
+            correct = true;
         }
         return correct;
     }
-    
+
     public static boolean mostrarAdmin(Connection _con) {
         boolean correct = false;
         ResultSet rs = null;
         PreparedStatement stmt = null;
-       
+
         singleton.admin.getAdmins().clear();
         try {
             stmt = _con.prepareStatement("SELECT * FROM admin");
@@ -459,7 +459,7 @@ public class DAO_admin {
             admin ad = null;
 
             while (rs.next()) {
-                                
+
                 ad = new admin();
                 ad.setDni(rs.getString("dni"));
                 ad.setName(rs.getString("name"));
@@ -490,6 +490,56 @@ public class DAO_admin {
         }
         return correct;
     }
-    
-    
+
+    public static boolean modificarAdmin(Connection _con) {
+        boolean correct = false;
+        PreparedStatement stmt = null;
+        if (pidedni() && pidenombre() && pideapellidos() && pidefechanacimiento()
+                && pidetelefono() && pideemail() && pideusuario() && pidecontrasenya()
+                && pidefechacontratacion() && pidesalario() && pideactividad()) {
+            fecha data = new fecha();
+            admin ad = new admin(adminnew_view.adddni.getText(), adminnew_view.addname.getText(), adminnew_view.addsurname.getText(),
+                    adminnew_view.addmobile.getText(), adminnew_view.addemail.getText(), data.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 0),
+                    adminnew_view.addnameuser.getText(), adminnew_view.addpassword.getText(), adminnew_view.addavatar.getText(),
+                    adminnew_view.add_status.getSelectedItem().toString(), data.calendartostring(adminnew_view.addcontr.getCalendar(), 0), Float.parseFloat(adminnew_view.addsalary.getText()),
+                    Integer.parseInt(adminnew_view.addactivity.getText()));
+            try {
+                stmt = _con.prepareStatement("UPDATE admin SET dni=?, "
+                        + "name=?, subname=?, mobile=?, email=?, date_birthday=?, age=?, user=?, pass=?, avatar=?,"
+                        + "state=?, hiring_date=?, years_service=?, salary=?, activity=? WHERE dni=?");
+
+                stmt.setString(1, ad.getDni());
+                stmt.setString(2, ad.getName());
+                stmt.setString(3, ad.getSubname());
+                stmt.setString(4, ad.getMobile());
+                stmt.setString(5, ad.getEmail());
+                stmt.setString(6, ad.getDate_birthday());
+                stmt.setInt(7, ad.getAge());
+                stmt.setString(8, ad.getUser());
+                stmt.setString(9, ad.getPass());
+                stmt.setString(10, ad.getAvatar());
+                stmt.setString(11, ad.getState());
+                stmt.setString(12, ad.getHiring_date());
+                stmt.setInt(13, ad.getYears_service());
+                stmt.setFloat(14, ad.getSalary());
+                stmt.setInt(15, ad.getActivity());
+                stmt.setString(16, ad.getDni());
+                
+                stmt.executeUpdate();
+                correct = true;
+                JOptionPane.showMessageDialog(null, "El usuario ha sido modificado correctamente!");
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Ha habido un problema al actualizar el usuario!");
+            } finally {
+                if (stmt != null) {
+                    try {
+                        stmt.close();
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, "Ha habido un error Logger!");
+                    }
+                }
+            }
+        }
+        return correct;
+    }
 }
