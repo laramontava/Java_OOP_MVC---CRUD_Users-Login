@@ -527,7 +527,6 @@ public class DAO_admin {
                 
                 stmt.executeUpdate();
                 correct = true;
-                JOptionPane.showMessageDialog(null, "El usuario ha sido modificado correctamente!");
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "Ha habido un problema al actualizar el usuario!");
             } finally {
@@ -540,6 +539,21 @@ public class DAO_admin {
                 }
             }
         }
+        return correct;
+    }
+    
+    public static boolean eliminarAdmin(Connection _con) {
+        boolean correct = false;
+        PreparedStatement stmt = null;
+        fecha data = new fecha();
+        try {
+            stmt = _con.prepareStatement("DELETE FROM admin WHERE dni=?");
+            stmt.setString(1, singleton.admin.getAdmins().get(TABLA.getSelectedRow()).getDni());
+            stmt.executeUpdate();
+            correct = true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ha habido un error al eliminar el usuario");
+        } 
         return correct;
     }
 }

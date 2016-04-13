@@ -385,6 +385,7 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                 }
                 break;
             case btnEliminar:
+                BLL_admin.eliminarAdminBBDD();
                 BLL_admin.Delete();
                 break;
             case btnGuardarJson:

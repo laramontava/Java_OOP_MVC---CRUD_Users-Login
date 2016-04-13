@@ -167,4 +167,14 @@ public class BLL_admin {
         _conexion_DB.CerrarConexion(_con);
         return correct;
     }
+    
+    public static boolean eliminarAdminBBDD(){
+        boolean correct = false;
+        Connection _con = null;
+        ConnectionBBDD _conexion_DB = new ConnectionBBDD();
+        _con = _conexion_DB.AbrirConexion();
+        correct = DAO_admin.eliminarAdmin(_con);
+        _conexion_DB.CerrarConexion(_con);
+        return correct;
+    }
 }
