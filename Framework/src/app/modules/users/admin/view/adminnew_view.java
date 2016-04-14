@@ -5,6 +5,7 @@
  */
 package app.modules.users.admin.view;
 
+import app.classes.singleton_global;
 import static app.classes.singleton_global.Green;
 import app.modules.users.admin.model.BLL.BLL_admin;
 import static app.modules.users.admin.view.adminmanage_view.statusnewadmin;
@@ -241,7 +242,7 @@ public class adminnew_view extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 80, 20));
 
         adddatebirthday.setToolTipText("");
-        adddatebirthday.setDateFormatString("dd-MM-yyyy");
+        adddatebirthday.setDateFormatString("dd/MM/yyyy");
         adddatebirthday.setMaxSelectableDate(new java.util.Date(32503680084000L));
         adddatebirthday.setMinSelectableDate(new java.util.Date(-2208985677000L));
         getContentPane().add(adddatebirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 130, -1));

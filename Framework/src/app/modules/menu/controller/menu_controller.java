@@ -245,18 +245,19 @@ public class menu_controller implements ActionListener {
                 break;
             case conf_data1:
                 singleton_global.conf.setDate('a');
-                //app.modules.users.admin.view.adminnew_view.adddatebirthday.setDateFormatString("dd/MM/yyyy");
+                config_view.dateformat.dispose();
                 break;
             case conf_data2:
                 singleton_global.conf.setDate('b');
-
-                //app.modules.users.admin.view.adminnew_view.adddatebirthday.setDateFormatString("dd-MM-yyyy");
+                config_view.dateformat.dispose();
                 break;
             case conf_data3:
                 singleton_global.conf.setDate('c');
+                config_view.dateformat.dispose();
                 break;
             case conf_data4:
                 singleton_global.conf.setDate('d');
+                config_view.dateformat.dispose();
                 break;
             case btn_decimal:
                 config_view.decimalsformat.setVisible(true);

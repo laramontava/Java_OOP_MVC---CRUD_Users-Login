@@ -290,16 +290,25 @@ public class DAO_admin {
             String email = adminnew_view.addemail.getText();
             fecha aux = new fecha();
             String datebirthday = "";
-            datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 0);
-            /*if (singleton_global.conf.getDate() == 'a') {
-                datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 0);
-            } else if (singleton_global.conf.getDate() == 'b') {
-                datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 1);
-            } else if (singleton_global.conf.getDate() == 'c') {
-                datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 2);
-            } else {
-                datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 3);
-            }*/
+            admin ad = new admin();
+            switch (singleton_global.conf.getDate()) {
+                case 'a':
+                    adminnew_view.adddatebirthday.setDateFormatString("dd/MM/yyyy");
+                    break;
+                case 'b':
+                    adminnew_view.adddatebirthday.setDateFormatString("dd-MM-yyyy");
+                    break;
+                case 'c':
+                    datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 2);
+                    adminnew_view.adddatebirthday.setDateFormatString("yyyy/MM/dd");
+                    break;
+                case 'd':
+                    datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 3);
+                    adminnew_view.adddatebirthday.setDateFormatString("yyyy-MM-dd");
+                    break;
+                default:
+                    break;
+            }
             String nameuser = adminnew_view.addnameuser.getText();
             String passwd = adminnew_view.addpassword.getText();
             String avatar = adminnew_view.addavatar.getText();
@@ -479,14 +488,6 @@ public class DAO_admin {
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un problema al obtener los usuarios");
-        } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "Ha habido un error Logger");
-                }
-            }
         }
         return correct;
     }

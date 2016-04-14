@@ -5,6 +5,7 @@
  */
 package app.modules.users.admin.model.classes;
 
+import app.classes.singleton_global;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
@@ -26,7 +27,7 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
     public String getColumnName(int col) {
         return columnas[col].toString();
     }
-    
+
     //Devuelve el numero de filas
     @Override
     public int getRowCount() {
@@ -60,7 +61,49 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
                 break;
 
             case 3:
-                dev = fila.getHiring_date();
+                String dia="", mes="", anyo="", fecha="";
+                switch (singleton_global.conf.getDate()) {
+                    case 'a': //dd/MM/yyyy
+                        dev = fila.getHiring_date();
+                        break;
+                    case 'b': //dd-MM-yyyy
+                        fecha=fila.getHiring_date();
+                        dia+=fecha.charAt(0)+"";
+                        dia+=fecha.charAt(1)+"";
+                        mes+=fecha.charAt(3)+"";
+                        mes+=fecha.charAt(4)+"";
+                        anyo+=fecha.charAt(6)+"";
+                        anyo+=fecha.charAt(7)+"";
+                        anyo+=fecha.charAt(8)+"";
+                        anyo+=fecha.charAt(9)+"";
+                        dev = dia+"-"+mes+"-"+anyo;
+                        break;
+                    case 'c': //yyyy/MM/dd
+                        fecha=fila.getHiring_date();
+                        dia+=fecha.charAt(0)+"";
+                        dia+=fecha.charAt(1)+"";
+                        mes+=fecha.charAt(3)+"";
+                        mes+=fecha.charAt(4)+"";
+                        anyo+=fecha.charAt(6)+"";
+                        anyo+=fecha.charAt(7)+"";
+                        anyo+=fecha.charAt(8)+"";
+                        anyo+=fecha.charAt(9)+"";
+                        dev = anyo+"/"+mes+"/"+dia;
+                        break;
+                    case 'd': //yyyy-MM-dd
+                        fecha=fila.getHiring_date();
+                        dia+=fecha.charAt(0)+"";
+                        dia+=fecha.charAt(1)+"";
+                        mes+=fecha.charAt(3)+"";
+                        mes+=fecha.charAt(4)+"";
+                        anyo+=fecha.charAt(6)+"";
+                        anyo+=fecha.charAt(7)+"";
+                        anyo+=fecha.charAt(8)+"";
+                        anyo+=fecha.charAt(9)+"";
+                        dev = anyo+"-"+mes+"-"+dia;
+                        break;
+                }
+
                 break;
 
         }
@@ -120,18 +163,18 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
         int cont = 0;
 
         String nom = (String) ((JComboBox) combo).getSelectedItem();
-        
-            if (nom != null) {
-                for (int i = 0; i < datosaux.size(); i++) {
-                    if (datosaux.get(i).getName().toLowerCase().startsWith(nom.toLowerCase())) {
-                        addRow(datosaux.get(i));
-                        cont++;
-                    }
+
+        if (nom != null) {
+            for (int i = 0; i < datosaux.size(); i++) {
+                if (datosaux.get(i).getName().toLowerCase().startsWith(nom.toLowerCase())) {
+                    addRow(datosaux.get(i));
+                    cont++;
                 }
-                adminmanage_view.jLabel3.setText(String.valueOf(cont));
-                //        System.out.println("word selected: " + nom);
-                pagina.initLinkBox();
-            } 
+            }
+            adminmanage_view.jLabel3.setText(String.valueOf(cont));
+            //        System.out.println("word selected: " + nom);
+            pagina.initLinkBox();
+        }
     }
 
     public admin buscar(String u) {
@@ -162,7 +205,7 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
 
     public void removeRow(int fila) {
         datos.remove(fila);
-        jLabel3.setText(String.valueOf(admin.getAdmins().size()-1));
+        jLabel3.setText(String.valueOf(admin.getAdmins().size() - 1));
         fireTableDataChanged();
         pagina.initLinkBox();
     }
