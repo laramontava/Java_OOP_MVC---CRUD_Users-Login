@@ -265,13 +265,16 @@ public class menu_controller implements ActionListener {
                 config_view.decimalsformat.setLocationRelativeTo(null);
                 break;
             case conf_decimal1:
-                JOptionPane.showMessageDialog(null, "decimal1");
+                singleton_global.conf.setDecimal(1);
+                config_view.decimalsformat.dispose();
                 break;
             case conf_decimal2:
-                JOptionPane.showMessageDialog(null, "decimal2");
+                singleton_global.conf.setDecimal(2);
+                config_view.decimalsformat.dispose();
                 break;
             case conf_decimal3:
-                JOptionPane.showMessageDialog(null, "decimal3");
+                singleton_global.conf.setDecimal(3);
+                config_view.decimalsformat.dispose();
                 break;
             case btn_theme:
                 config_view.themeformat.setVisible(true);

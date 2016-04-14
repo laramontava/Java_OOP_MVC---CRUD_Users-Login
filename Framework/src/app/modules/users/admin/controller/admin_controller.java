@@ -22,7 +22,6 @@ import static app.modules.users.admin.view.adminmanage_view.jComboBox1;
 import static app.modules.users.admin.view.adminmanage_view.statusnewadmin;
 import app.modules.users.admin.view.adminnew_view;
 import static app.modules.users.admin.view.adminnew_view.addavatar;
-import static app.modules.users.admin.view.adminnew_view.adddummies;
 import static app.modules.users.admin.view.adminnew_view.avataradd;
 import static app.modules.users.admin.view.adminnew_view.jlblcreate;
 import static app.modules.users.admin.view.adminnew_view.titlecreateedit;
@@ -51,6 +50,16 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import static app.modules.users.admin.view.adminmanage_view.searchby;
+import static app.modules.users.admin.view.adminnew_view.addactivity;
+import static app.modules.users.admin.view.adminnew_view.adddni;
+import static app.modules.users.admin.view.adminnew_view.addemail;
+import static app.modules.users.admin.view.adminnew_view.addmobile;
+import static app.modules.users.admin.view.adminnew_view.addname;
+import static app.modules.users.admin.view.adminnew_view.addnameuser;
+import static app.modules.users.admin.view.adminnew_view.addpassword;
+import static app.modules.users.admin.view.adminnew_view.addsalary;
+import static app.modules.users.admin.view.adminnew_view.addsurname;
+import static app.modules.users.admin.view.adminnew_view.dummiesornormal;
 import app.utils.theme;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -133,6 +142,7 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
             TableAdmin.TABLA.setFillsViewportHeight(true);
             TableAdmin.TABLA.setRowSorter(sorter);
             TableAdmin.TABLA.addMouseListener(new MouseAdapter() {
+                @Override
                 public void mousePressed(MouseEvent me) {
                     JTable table = (JTable) me.getSource();
                     Point p = me.getPoint();
@@ -141,11 +151,10 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                     if (me.getClickCount() == 2) {
                         if (BLL_admin.Modificar()) {
                             TableAdmin.dispose();
-                            //meh new adminnew_view().setVisible(true);
                             new admin_controller(new adminnew_view(), 2).Iniciar(2);
                             BLL_admin.LlenarCampos();
                             titlecreateedit.setText("Editar un usuario administrador");
-                            adddummies.setVisible(false);
+                            dummiesornormal.setVisible(false);
                         }
                     }
                 }
@@ -226,12 +235,18 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
             Crear.setSize(590, 541);
             Crear.setResizable(false);
             theme.temaElegido(singleton_global.conf.getTheme());
-            if (singleton_global.conf.getCurrency() == 'e') {
-                adminnew_view.currency.setText("€");
-            } else if (singleton_global.conf.getCurrency() == 'd') {
-                adminnew_view.currency.setText("$");
-            } else if (singleton_global.conf.getCurrency() == 'l') {
-                adminnew_view.currency.setText("£");
+            switch (singleton_global.conf.getCurrency()) {
+                case 'e':
+                    adminnew_view.currency.setText("€");
+                    break;
+                case 'd':
+                    adminnew_view.currency.setText("$");
+                    break;
+                case 'l':
+                    adminnew_view.currency.setText("£");
+                    break;
+                default:
+                    break;
             }
             adminnew_view.adddni.setActionCommand("jtxtDni");
             adminnew_view.adddni.addKeyListener(this);
@@ -289,24 +304,168 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                     new admin_controller(new adminmanage_view(), 0).Iniciar(0);
                 }
             });
+
+            adddni.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    adddniKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    adddniKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    adddniKeyTyped(evt);
+                }
+            });
+            addname.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addnameKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addnameKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addnameKeyTyped(evt);
+                }
+            });
+            addsurname.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyTyped(evt);
+                }
+            });
+            addmobile.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addmobileKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addmobileKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addmobileKeyTyped(evt);
+                }
+            });
+            addemail.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addemailKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addemailKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addemailKeyTyped(evt);
+                }
+            });
+            addnameuser.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyTyped(evt);
+                }
+            });
+            addpassword.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyTyped(evt);
+                }
+            });
+            addactivity.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addactivityKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addactivityKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addactivityKeyTyped(evt);
+                }
+            });
+            addsalary.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addsalaryKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addsalaryKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addsalaryKeyTyped(evt);
+                }
+            });
         } else if (op == 2) {
             ppalmain.singleton_vtna = "adminnew_view";
             Modificar.setVisible(true);
             Modificar.setLocationRelativeTo(null);
             Modificar.setSize(590, 541);
             Modificar.setResizable(false);
-            adddummies.setVisible(false);
+            dummiesornormal.setVisible(false);
             BLL_admin.LlenarCampos();
             theme.temaElegido(singleton_global.conf.getTheme());
 
             titlecreateedit.setText(singleton_global.translate.getProperty("edittit"));
 
-            if (singleton_global.conf.getCurrency() == 'e') {
-                adminnew_view.currency.setText("€");
-            } else if (singleton_global.conf.getCurrency() == 'd') {
-                adminnew_view.currency.setText("$");
-            } else if (singleton_global.conf.getCurrency() == 'l') {
-                adminnew_view.currency.setText("£");
+            switch (singleton_global.conf.getCurrency()) {
+                case 'e':
+                    adminnew_view.currency.setText("€");
+                    break;
+                case 'd':
+                    adminnew_view.currency.setText("$");
+                    break;
+                case 'l':
+                    adminnew_view.currency.setText("£");
+                    break;
+                default:
+                    break;
             }
 
             adminnew_view.adddni.setActionCommand("jtxtDni");
@@ -360,6 +519,144 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                 public void windowClosing(WindowEvent e) {
                     Modificar.dispose();
                     new admin_controller(new adminmanage_view(), 0).Iniciar(0);
+                }
+            });
+            
+            adddni.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    adddniKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    adddniKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    adddniKeyTyped(evt);
+                }
+            });
+            addname.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addnameKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addnameKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addnameKeyTyped(evt);
+                }
+            });
+            addsurname.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyTyped(evt);
+                }
+            });
+            addmobile.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addmobileKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addmobileKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addmobileKeyTyped(evt);
+                }
+            });
+            addemail.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addemailKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addemailKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addemailKeyTyped(evt);
+                }
+            });
+            addnameuser.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyTyped(evt);
+                }
+            });
+            addpassword.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyTyped(evt);
+                }
+            });
+            addactivity.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addactivityKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addactivityKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addactivityKeyTyped(evt);
+                }
+            });
+            addsalary.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addsalaryKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addsalaryKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addsalaryKeyTyped(evt);
                 }
             });
         }
@@ -455,19 +752,11 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                 new admin_controller(new adminmanage_view(), 0).Iniciar(0);
                 break;
             case btnCreate:
-                if (adddummies.isVisible()) {
+                if (dummiesornormal.isVisible()) {
                     try {
                         //if (BLL_admin.adminsave()) {
                         if (BLL_admin.crearAdminBBDD()) {
-                            /*    try {
-                    System.out.println("3");
-                    
-                    BLL_admin.crearAdminBBDD();
-                    System.out.println("4");
-                    } catch (SQLException ex) {
-                    Logger.getLogger(admin_controller.class.getName()).log(Level.SEVERE, null, ex);
-                    System.out.println("5");
-                    }*/
+
                             new admin_controller(new adminmanage_view(), 0).Iniciar(0);
                             Crear.dispose();
                             statusnewadmin.setText("Admin creado correctamente");
@@ -481,7 +770,7 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                     }
 
                 } //else if (BLL_admin.Modificaradmin()) {
-                    else if (BLL_admin.modificarAdminBBDD()) {
+                else if (BLL_admin.modificarAdminBBDD()) {
                     new admin_controller(new adminmanage_view(), 0).Iniciar(0);
                     Modificar.dispose();
                     statusnewadmin.setText("Admin editado correctamente");
@@ -492,7 +781,7 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                 }
                 break;
             case btnCancel:
-                if (adddummies.isVisible()) {
+                if (dummiesornormal.isVisible()) {
                     new admin_controller(new adminmanage_view(), 0).Iniciar(0);
                     Crear.dispose();
                     statusnewadmin.setText("Se ha cancelado la creación de un nuevo admin");
@@ -546,11 +835,10 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
                 if (ef.getClickCount() == 2) {
                     if (BLL_admin.Modificar()) {
                         TableAdmin.dispose();
-                        //meh    new adminnew_view().setVisible(true);
                         new admin_controller(new adminnew_view(), 2).Iniciar(2);
                         BLL_admin.LlenarCampos();
                         titlecreateedit.setText("Editar un usuario administrador");
-                        adddummies.setVisible(false);
+                        dummiesornormal.setVisible(false);
                     }
                 }
                 break;
@@ -573,4 +861,111 @@ public class admin_controller implements ActionListener, FocusListener, KeyListe
     public void mouseExited(MouseEvent e) {
     }
 
+    private void adddniKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_admin.DniValidate();
+    }
+
+    private void adddniKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_admin.DniValidate();
+    }
+
+    private void adddniKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_admin.DniValidate();
+    }
+
+    private void addnameKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_admin.NameValidate();
+    }
+
+    private void addnameKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_admin.NameValidate();
+    }
+
+    private void addnameKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_admin.NameValidate();
+    }
+
+    private void addsurnameKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_admin.SurnameValidate();
+    }
+
+    private void addsurnameKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_admin.SurnameValidate();
+    }
+
+    private void addsurnameKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_admin.SurnameValidate();
+    }
+
+    private void addmobileKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_admin.MobileValidate();
+    }
+
+    private void addmobileKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_admin.MobileValidate();
+    }
+
+    private void addmobileKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_admin.MobileValidate();
+    }
+
+    private void addemailKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_admin.EmailValidate();
+    }
+
+    private void addemailKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_admin.EmailValidate();
+    }
+
+    private void addemailKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_admin.EmailValidate();
+    }
+
+    private void addnameuserKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_admin.UserNameValidate();
+    }
+
+    private void addnameuserKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_admin.UserNameValidate();
+    }
+
+    private void addnameuserKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_admin.UserNameValidate();
+    }
+
+    private void addpasswordKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_admin.PasswordValidate();
+    }
+
+    private void addpasswordKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_admin.PasswordValidate();
+    }
+
+    private void addpasswordKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_admin.PasswordValidate();
+    }
+
+    private void addsalaryKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_admin.SalaryValidate();
+    }
+
+    private void addsalaryKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_admin.SalaryValidate();
+    }
+
+    private void addsalaryKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_admin.SalaryValidate();
+    }
+
+    private void addactivityKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_admin.ActivityValidate();
+    }
+
+    private void addactivityKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_admin.ActivityValidate();
+    }
+
+    private void addactivityKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_admin.ActivityValidate();
+    }
 }

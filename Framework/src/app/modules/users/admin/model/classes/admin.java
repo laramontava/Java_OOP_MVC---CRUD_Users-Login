@@ -173,27 +173,27 @@ public class admin extends users implements Serializable {
     public void currency(char moneda) {
         float cambia;
 
-        if (moneda == '�' && singleton_global.conf.getCurrency() == '$') {//eur a usd *1,0934
+        if (moneda == 'e' && singleton_global.conf.getCurrency() == 'd') {//eur a usd *1,0934
             cambia = (float) (this.salary * 1.0934);
             this.salary = cambia;
         }
-        if (moneda == '$' && singleton_global.conf.getCurrency() == '�') {//usd a eur /1,0934
+        if (moneda == 'd' && singleton_global.conf.getCurrency() == 'e') {//usd a eur /1,0934
             cambia = (float) (this.salary / 1.0934);
             this.salary = cambia;
         }
-        if (moneda == '�' && singleton_global.conf.getCurrency() == '�') {//eur a libra *0,728
+        if (moneda == 'e' && singleton_global.conf.getCurrency() == 'l') {//eur a libra *0,728
             cambia = (float) (this.salary * 0.728);
             this.salary = cambia;
         }
-        if (moneda == '�' && singleton_global.conf.getCurrency() == '�') {//libra a eur /0,728
+        if (moneda == 'l' && singleton_global.conf.getCurrency() == 'e') {//libra a eur /0,728
             cambia = (float) (this.salary / 0.728);
             this.salary = cambia;
         }
-        if (moneda == '$' && singleton_global.conf.getCurrency() == '�') {//usd a libra *0,6658
+        if (moneda == 'd' && singleton_global.conf.getCurrency() == 'l') {//usd a libra *0,6658
             cambia = (float) (this.salary * 0.6658);
             this.salary = cambia;
         }
-        if (moneda == '�' && singleton_global.conf.getCurrency() == '$') {//libra a usd /0,6658
+        if (moneda == 'l' && singleton_global.conf.getCurrency() == 'd') {//libra a usd /0,6658
             cambia = (float) (this.salary / 0.6658);
             this.salary = cambia;
         }

@@ -104,6 +104,7 @@ public class adminnew_view extends javax.swing.JFrame {
         adddummies = new javax.swing.JButton();
         currency = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        dummiesornormal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -242,7 +243,7 @@ public class adminnew_view extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 80, 20));
 
         adddatebirthday.setToolTipText("");
-        adddatebirthday.setDateFormatString("dd/MM/yyyy");
+        adddatebirthday.setDateFormatString("dd-MM-yyyy");
         adddatebirthday.setMaxSelectableDate(new java.util.Date(32503680084000L));
         adddatebirthday.setMinSelectableDate(new java.util.Date(-2208985677000L));
         getContentPane().add(adddatebirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 130, -1));
@@ -451,6 +452,9 @@ public class adminnew_view extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, -1, -1));
+
+        dummiesornormal.setText("dummies");
+        getContentPane().add(dummiesornormal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -776,6 +780,7 @@ public class adminnew_view extends javax.swing.JFrame {
     public static javax.swing.JLabel createoredit;
     public static javax.swing.JLabel currency;
     public static javax.swing.JLabel dni_validate;
+    public static javax.swing.JLabel dummiesornormal;
     public static javax.swing.JLabel email_validate;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;

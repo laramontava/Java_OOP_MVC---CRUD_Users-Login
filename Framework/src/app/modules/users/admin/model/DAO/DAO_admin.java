@@ -204,7 +204,6 @@ public class DAO_admin {
     }
 
     public static boolean pidefechanacimiento() {
-        String s = "";
         boolean val = true;
         int resultado = 0;
         try {
@@ -239,7 +238,6 @@ public class DAO_admin {
     }
 
     public static boolean pidefechacontratacion() {
-        String s = "";
         boolean val = true;
         int years = 0;
         try {
@@ -290,25 +288,7 @@ public class DAO_admin {
             String email = adminnew_view.addemail.getText();
             fecha aux = new fecha();
             String datebirthday = "";
-            admin ad = new admin();
-            switch (singleton_global.conf.getDate()) {
-                case 'a':
-                    adminnew_view.adddatebirthday.setDateFormatString("dd/MM/yyyy");
-                    break;
-                case 'b':
-                    adminnew_view.adddatebirthday.setDateFormatString("dd-MM-yyyy");
-                    break;
-                case 'c':
-                    datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 2);
-                    adminnew_view.adddatebirthday.setDateFormatString("yyyy/MM/dd");
-                    break;
-                case 'd':
-                    datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 3);
-                    adminnew_view.adddatebirthday.setDateFormatString("yyyy-MM-dd");
-                    break;
-                default:
-                    break;
-            }
+            datebirthday = aux.calendartostring(adminnew_view.adddatebirthday.getCalendar(), 0);
             String nameuser = adminnew_view.addnameuser.getText();
             String passwd = adminnew_view.addpassword.getText();
             String avatar = adminnew_view.addavatar.getText();
@@ -525,7 +505,7 @@ public class DAO_admin {
                 stmt.setFloat(14, ad.getSalary());
                 stmt.setInt(15, ad.getActivity());
                 stmt.setString(16, ad.getDni());
-                
+
                 stmt.executeUpdate();
                 correct = true;
             } catch (SQLException ex) {
@@ -542,11 +522,10 @@ public class DAO_admin {
         }
         return correct;
     }
-    
+
     public static boolean eliminarAdmin(Connection _con) {
         boolean correct = false;
         PreparedStatement stmt = null;
-        fecha data = new fecha();
         try {
             stmt = _con.prepareStatement("DELETE FROM admin WHERE dni=?");
             stmt.setString(1, singleton.admin.getAdmins().get(TABLA.getSelectedRow()).getDni());
@@ -554,7 +533,7 @@ public class DAO_admin {
             correct = true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un error al eliminar el usuario");
-        } 
+        }
         return correct;
     }
 }

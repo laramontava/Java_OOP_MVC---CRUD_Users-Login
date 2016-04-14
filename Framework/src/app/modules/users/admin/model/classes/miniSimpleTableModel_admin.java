@@ -15,12 +15,13 @@ import app.modules.users.admin.view.adminmanage_view;
 import static app.modules.users.admin.controller.admin_controller.combo;
 import app.modules.users.admin.model.BLL.BLL_admin;
 import static app.modules.users.admin.view.adminmanage_view.jLabel3;
+import app.utils.format;
 
 public class miniSimpleTableModel_admin extends AbstractTableModel {
 
     public static ArrayList<admin> datos = new ArrayList<admin>();
     public static ArrayList<admin> datosaux = new ArrayList<admin>();
-    String[] columnas = {"dni", "first_name", "last_name", "hiring_date"};
+    String[] columnas = {"dni", "first_name", "last_name", "hiring_date","salary"};
 
     ////////////////////estos métodos son necesarios para que jtable funcione/////////////////////
     @Override
@@ -103,8 +104,35 @@ public class miniSimpleTableModel_admin extends AbstractTableModel {
                         dev = anyo+"-"+mes+"-"+dia;
                         break;
                 }
-
                 break;
+            case 4:
+                float salary;
+                String predev="";
+                switch (singleton_global.conf.getDecimal()){
+                    case 1:
+                        salary = fila.getSalary();
+                        predev = format.format1decimal(salary);
+                        break;
+                    case 2:
+                        salary = fila.getSalary();
+                        predev = format.format2decimales(salary);
+                        break;
+                    case 3:
+                        salary = fila.getSalary();
+                        predev = format.format3decimales(salary);
+                        break;
+                }
+                switch(singleton_global.conf.getCurrency()){
+                    case 'e':
+                        dev=predev+"€";
+                        break;
+                    case 'l':
+                        dev=predev+"£";
+                        break;
+                    case 'd':
+                        dev="$"+predev;
+                        break;
+                }
 
         }
         return dev;
