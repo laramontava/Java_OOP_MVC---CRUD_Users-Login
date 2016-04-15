@@ -132,6 +132,84 @@ public class menu_controller implements ActionListener {
             config_view.languageformat.setLocationRelativeTo(null);
 
             theme.temaElegido(singleton_global.conf.getTheme());
+            
+            switch (singleton_global.conf.getDate()) {
+                case 'a':
+                    config_view.dateformat1.setSelected(true);
+                    break;
+                case 'b':
+                    config_view.dateformat2.setSelected(true);
+                    break;
+                case 'c':
+                    config_view.dateformat3.setSelected(true);
+                    break;
+                case 'd':
+                    config_view.dateformat4.setSelected(true);
+                    break;
+            }
+            switch (singleton_global.conf.getDecimal()) {
+                case 1:
+                    config_view.decimals1.setSelected(true);
+                    break;
+                case 2:
+                    config_view.decimals2.setSelected(true);
+                    break;
+                case 3:
+                    config_view.decimals3.setSelected(true);
+                    break;
+            }
+            switch (singleton_global.conf.getCurrency()) {
+                case 'e':
+                    config_view.euro.setSelected(true);
+                    break;
+                case 'd':
+                    config_view.dolar.setSelected(true);
+                    break;
+                case 'l':
+                    config_view.libra.setSelected(true);
+                    break;
+            }
+            switch (singleton_global.conf.getTheme()) {
+                case 0:
+                    config_view.metal.setSelected(true);
+                    break;
+                case 1:
+                    config_view.windows.setSelected(true);
+                    break;
+                case 2:
+                    config_view.motif.setSelected(true);
+                    break;
+                case 3:
+                    config_view.nimbus.setSelected(true);
+                    break;
+            }
+            switch (singleton_global.conf.getLanguage()) {
+                case "castellano":
+                    config_view.castellano.setSelected(true);
+                    break;
+                case "english":
+                    config_view.english.setSelected(true);
+                    break;
+                case "valencia":
+                    config_view.valencia.setSelected(true);
+                    break;
+            }
+            switch (singleton_global.conf.getFormat()) {
+                case "json":
+                    config_view.json.setSelected(true);
+                    break;
+                case "xml":
+                    config_view.xml.setSelected(true);
+                    break;
+                case "txt":
+                    config_view.txt.setSelected(true);
+                    break;
+            }
+            if (singleton_global.conf.getDummies()) {
+               config_view.dummieon.setSelected(true);
+            }else{
+                config_view.dummieoff.setSelected(true);
+            }
 
             conf_data.setText(singleton_global.translate.getProperty("date"));
             conf_decimal.setText(singleton_global.translate.getProperty("decimal"));
@@ -351,7 +429,7 @@ public class menu_controller implements ActionListener {
                 conf_format.setText(singleton_global.translate.getProperty("format"));
                 conf_currency.setText(singleton_global.translate.getProperty("currency"));
                 conf_language.setText(singleton_global.translate.getProperty("language"));
-                
+
                 config_view.languageformat.dispose();
                 break;
             case conf_language2:
@@ -365,7 +443,7 @@ public class menu_controller implements ActionListener {
                 conf_format.setText(singleton_global.translate.getProperty("format"));
                 conf_currency.setText(singleton_global.translate.getProperty("currency"));
                 conf_language.setText(singleton_global.translate.getProperty("language"));
-                
+
                 config_view.languageformat.dispose();
                 break;
             case conf_language3:
@@ -379,7 +457,7 @@ public class menu_controller implements ActionListener {
                 conf_format.setText(singleton_global.translate.getProperty("format"));
                 conf_currency.setText(singleton_global.translate.getProperty("currency"));
                 conf_language.setText(singleton_global.translate.getProperty("language"));
-                
+
                 config_view.languageformat.dispose();
                 break;
             case btn_dummies:
