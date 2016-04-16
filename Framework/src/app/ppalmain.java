@@ -1,5 +1,6 @@
 package app;
 
+import app.classes.ConnectionBBDD;
 import app.modules.menu.model.configuration;
 import app.modules.menu.model.idioma;
 import app.classes.singleton_global;
@@ -35,6 +36,7 @@ public class ppalmain {
     
     public static String singleton_vtna="";
     public static void main(String[]args){
+        ConnectionBBDD.inicializa_BasicDataSourceFactory();
         singleton_global.conf = new configuration();
         config_save.OpenJsonautoconf();
         int option, option2, dummies1;
@@ -92,7 +94,6 @@ public class ppalmain {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new main_view().setVisible(true);
                 new menu_controller(new main_view(),0).Iniciar(0);
             }
         });
