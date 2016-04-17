@@ -66,7 +66,10 @@ public class BLL_client {
     public static void Contratacion() {
         DAO_client.pidefecharegistro();
     }
-
+    
+    public static void TypeValidate() {
+        DAO_client.pidetipo();
+    }
     public static boolean Modificar() {
         String dni = "";
         int pos = 0;

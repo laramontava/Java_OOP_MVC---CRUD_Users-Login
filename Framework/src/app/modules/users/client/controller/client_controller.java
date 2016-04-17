@@ -47,10 +47,20 @@ import static app.modules.users.client.view.clientmanage_view.searchby;
 import app.modules.users.client.view.clientmanage_view;
 import app.modules.users.client.view.clientnew_view;
 import static app.modules.users.client.view.clientnew_view.addavatar;
+import static app.modules.users.client.view.clientnew_view.adddni;
 import static app.modules.users.client.view.clientnew_view.adddummies;
+import static app.modules.users.client.view.clientnew_view.addemail;
+import static app.modules.users.client.view.clientnew_view.addmobile;
+import static app.modules.users.client.view.clientnew_view.addname;
+import static app.modules.users.client.view.clientnew_view.addnameuser;
+import static app.modules.users.client.view.clientnew_view.addpassword;
+import static app.modules.users.client.view.clientnew_view.addshopping;
+import static app.modules.users.client.view.clientnew_view.addsurname;
+import static app.modules.users.client.view.clientnew_view.addtype;
 import static app.modules.users.client.view.clientnew_view.avataradd;
 import static app.modules.users.client.view.clientnew_view.jlblcreate;
 import static app.modules.users.client.view.clientnew_view.titlecreateedit;
+import java.awt.event.KeyAdapter;
 
 /**
  *
@@ -279,6 +289,141 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     new client_controller(new clientmanage_view(), 0).Iniciar(0);
                 }
             });
+            
+            adddni.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    adddniKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    adddniKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    adddniKeyTyped(evt);
+                }
+            });
+            addname.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addnameKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addnameKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addnameKeyTyped(evt);
+                }
+            });
+            addsurname.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyTyped(evt);
+                }
+            });
+            addmobile.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addmobileKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addmobileKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addmobileKeyTyped(evt);
+                }
+            });
+            addemail.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addemailKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addemailKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addemailKeyTyped(evt);
+                }
+            });
+            addnameuser.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyTyped(evt);
+                }
+            });
+            addpassword.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyTyped(evt);
+                }
+            });
+            addshopping.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addshoppingKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addshoppingKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addshoppingKeyTyped(evt);
+                }
+            });
+            addtype.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addtypeKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addtypeKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addtypeKeyTyped(evt);
+                }
+            });
         } else if (op == 2) {
             ppalmain.singleton_vtna = "clientnew_view";
             Modificar.setVisible(true);
@@ -342,6 +487,141 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                 public void windowClosing(WindowEvent e) {
                     Modificar.dispose();
                     new client_controller(new clientmanage_view(), 0).Iniciar(0);
+                }
+            });
+            
+            adddni.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    adddniKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    adddniKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    adddniKeyTyped(evt);
+                }
+            });
+            addname.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addnameKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addnameKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addnameKeyTyped(evt);
+                }
+            });
+            addsurname.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyTyped(evt);
+                }
+            });
+            addmobile.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addmobileKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addmobileKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addmobileKeyTyped(evt);
+                }
+            });
+            addemail.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addemailKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addemailKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addemailKeyTyped(evt);
+                }
+            });
+            addnameuser.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyTyped(evt);
+                }
+            });
+            addpassword.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyTyped(evt);
+                }
+            });
+            addshopping.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addshoppingKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addshoppingKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addshoppingKeyTyped(evt);
+                }
+            });
+            addtype.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addtypeKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addtypeKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addtypeKeyTyped(evt);
                 }
             });
         }
@@ -507,7 +787,6 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                 if (ef.getClickCount() == 2) {
                     if (BLL_client.Modificar()) {
                         TableClient.dispose();
-                        //meh    new adminnew_view().setVisible(true);
                         new client_controller(new clientnew_view(), 2).Iniciar(2);
                         BLL_client.LlenarCampos();
                         titlecreateedit.setText("Editar un cliente");
@@ -533,5 +812,111 @@ public class client_controller implements ActionListener, FocusListener, KeyList
     @Override
     public void mouseExited(MouseEvent e) {
     }
+    
+    private void adddniKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_client.DniValidate();
+    }
 
+    private void adddniKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_client.DniValidate();
+    }
+
+    private void adddniKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_client.DniValidate();
+    }
+
+    private void addnameKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_client.NameValidate();
+    }
+
+    private void addnameKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_client.NameValidate();
+    }
+
+    private void addnameKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_client.NameValidate();
+    }
+
+    private void addsurnameKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_client.SurnameValidate();
+    }
+
+    private void addsurnameKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_client.SurnameValidate();
+    }
+
+    private void addsurnameKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_client.SurnameValidate();
+    }
+
+    private void addmobileKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_client.MobileValidate();
+    }
+
+    private void addmobileKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_client.MobileValidate();
+    }
+
+    private void addmobileKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_client.MobileValidate();
+    }
+
+    private void addemailKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_client.EmailValidate();
+    }
+
+    private void addemailKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_client.EmailValidate();
+    }
+
+    private void addemailKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_client.EmailValidate();
+    }
+
+    private void addnameuserKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_client.UserNameValidate();
+    }
+
+    private void addnameuserKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_client.UserNameValidate();
+    }
+
+    private void addnameuserKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_client.UserNameValidate();
+    }
+
+    private void addpasswordKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_client.PasswordValidate();
+    }
+
+    private void addpasswordKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_client.PasswordValidate();
+    }
+
+    private void addpasswordKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_client.PasswordValidate();
+    }
+    private void addshoppingKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_client.SalaryValidate();
+    }
+
+    private void addshoppingKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_client.SalaryValidate();
+    }
+
+    private void addshoppingKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_client.SalaryValidate();
+    }
+    private void addtypeKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_client.TypeValidate();
+    }
+
+    private void addtypeKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_client.TypeValidate();
+    }
+
+    private void addtypeKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_client.TypeValidate();
+    }
+    
 }

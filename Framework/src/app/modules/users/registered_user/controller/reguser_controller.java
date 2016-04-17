@@ -45,8 +45,16 @@ import javax.swing.table.TableRowSorter;
 import static app.modules.users.registered_user.view.regusermanage_view.searchby;
 import app.modules.users.registered_user.view.regusermanage_view;
 import app.modules.users.registered_user.view.regusernew_view;
+import static app.modules.users.registered_user.view.regusernew_view.addactivity;
 import static app.modules.users.registered_user.view.regusernew_view.addavatar;
+import static app.modules.users.registered_user.view.regusernew_view.adddni;
 import static app.modules.users.registered_user.view.regusernew_view.adddummies;
+import static app.modules.users.registered_user.view.regusernew_view.addemail;
+import static app.modules.users.registered_user.view.regusernew_view.addmobile;
+import static app.modules.users.registered_user.view.regusernew_view.addname;
+import static app.modules.users.registered_user.view.regusernew_view.addnameuser;
+import static app.modules.users.registered_user.view.regusernew_view.addpassword;
+import static app.modules.users.registered_user.view.regusernew_view.addsurname;
 import static app.modules.users.registered_user.view.regusernew_view.avataradd;
 import static app.modules.users.registered_user.view.regusernew_view.jlblcreate;
 import static app.modules.users.registered_user.view.regusernew_view.titlecreateedit;
@@ -271,6 +279,128 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                     new reguser_controller(new regusermanage_view(), 0).Iniciar(0);
                 }
             });
+            
+            adddni.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    adddniKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    adddniKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    adddniKeyTyped(evt);
+                }
+            });
+            addname.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addnameKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addnameKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addnameKeyTyped(evt);
+                }
+            });
+            addsurname.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyTyped(evt);
+                }
+            });
+            addmobile.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addmobileKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addmobileKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addmobileKeyTyped(evt);
+                }
+            });
+            addemail.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addemailKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addemailKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addemailKeyTyped(evt);
+                }
+            });
+            addnameuser.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyTyped(evt);
+                }
+            });
+            addpassword.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyTyped(evt);
+                }
+            });
+            addactivity.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addactivityKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addactivityKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addactivityKeyTyped(evt);
+                }
+            });
         } else if (op == 2) {
             ppalmain.singleton_vtna = "regusernew_view";
             Modificar.setVisible(true);
@@ -329,6 +459,128 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                 public void windowClosing(WindowEvent e) {
                     Modificar.dispose();
                     new reguser_controller(new regusermanage_view(), 0).Iniciar(0);
+                }
+            });
+            
+            adddni.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    adddniKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    adddniKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    adddniKeyTyped(evt);
+                }
+            });
+            addname.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addnameKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addnameKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addnameKeyTyped(evt);
+                }
+            });
+            addsurname.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addsurnameKeyTyped(evt);
+                }
+            });
+            addmobile.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addmobileKeyPressed(evt);
+                }
+
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addmobileKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addmobileKeyTyped(evt);
+                }
+            });
+            addemail.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addemailKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addemailKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addemailKeyTyped(evt);
+                }
+            });
+            addnameuser.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addnameuserKeyTyped(evt);
+                }
+            });
+            addpassword.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyReleased(evt);
+                }
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addpasswordKeyTyped(evt);
+                }
+            });
+            addactivity.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    addactivityKeyPressed(evt);
+                }
+                @Override
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    addactivityKeyReleased(evt);
+                }
+
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    addactivityKeyTyped(evt);
                 }
             });
         }
@@ -519,5 +771,98 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
     @Override
     public void mouseExited(MouseEvent e) {
     }
+private void adddniKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_reguser.DniValidate();
+    }
 
+    private void adddniKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_reguser.DniValidate();
+    }
+
+    private void adddniKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_reguser.DniValidate();
+    }
+
+    private void addnameKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_reguser.NameValidate();
+    }
+
+    private void addnameKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_reguser.NameValidate();
+    }
+
+    private void addnameKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_reguser.NameValidate();
+    }
+
+    private void addsurnameKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_reguser.SurnameValidate();
+    }
+
+    private void addsurnameKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_reguser.SurnameValidate();
+    }
+
+    private void addsurnameKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_reguser.SurnameValidate();
+    }
+
+    private void addmobileKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_reguser.MobileValidate();
+    }
+
+    private void addmobileKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_reguser.MobileValidate();
+    }
+
+    private void addmobileKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_reguser.MobileValidate();
+    }
+
+    private void addemailKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_reguser.EmailValidate();
+    }
+
+    private void addemailKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_reguser.EmailValidate();
+    }
+
+    private void addemailKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_reguser.EmailValidate();
+    }
+
+    private void addnameuserKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_reguser.UserNameValidate();
+    }
+
+    private void addnameuserKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_reguser.UserNameValidate();
+    }
+
+    private void addnameuserKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_reguser.UserNameValidate();
+    }
+
+    private void addpasswordKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_reguser.PasswordValidate();
+    }
+
+    private void addpasswordKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_reguser.PasswordValidate();
+    }
+
+    private void addpasswordKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_reguser.PasswordValidate();
+    }
+    private void addactivityKeyPressed(java.awt.event.KeyEvent evt) {
+        BLL_reguser.ActivityValidate();
+    }
+
+    private void addactivityKeyReleased(java.awt.event.KeyEvent evt) {
+        BLL_reguser.ActivityValidate();
+    }
+
+    private void addactivityKeyTyped(java.awt.event.KeyEvent evt) {
+        BLL_reguser.ActivityValidate();
+    }
 }
