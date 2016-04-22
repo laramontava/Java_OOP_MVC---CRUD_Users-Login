@@ -11,6 +11,8 @@ import app.modules.users.client.model.classes.singleton_client;
 import app.modules.users.client.model.utils.pager.pagina;
 import static app.modules.users.client.view.clientmanage_view.TABLA;
 import static app.modules.users.admin.view.adminmanage_view.selected;
+import app.modules.users.client.model.DAO.DAO_Mongo;
+import app.modules.users.client.model.classes.client;
 import static app.modules.users.client.view.clientmanage_view.statusnewadmin;
 
 /**
@@ -126,5 +128,9 @@ public class BLL_client {
         } else {
             statusnewadmin.setText("No hay ningún usuario administrador");
         }
+    }
+    
+    public static void CreateClientMongo(client c){
+        DAO_Mongo.create_client(c);
     }
 }

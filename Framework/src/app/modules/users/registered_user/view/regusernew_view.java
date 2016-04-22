@@ -75,132 +75,22 @@ public class regusernew_view extends javax.swing.JFrame {
 
         jlblname.setText("Nombre");
         getContentPane().add(jlblname, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 70, 20));
-
-        addname.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                addnameFocusLost(evt);
-            }
-        });
-        addname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addnameActionPerformed(evt);
-            }
-        });
-        addname.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                addnameKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                addnameKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                addnameKeyTyped(evt);
-            }
-        });
         getContentPane().add(addname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 132, -1));
 
         jLabel2.setText("Apellidos");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 70, 20));
-
-        addsurname.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                addsurnameFocusLost(evt);
-            }
-        });
-        addsurname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addsurnameActionPerformed(evt);
-            }
-        });
-        addsurname.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                addsurnameKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                addsurnameKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                addsurnameKeyTyped(evt);
-            }
-        });
         getContentPane().add(addsurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 132, -1));
 
         jLabel3.setText("DNI");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 80, 20));
-
-        adddni.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                adddniFocusLost(evt);
-            }
-        });
-        adddni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adddniActionPerformed(evt);
-            }
-        });
-        adddni.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                adddniKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                adddniKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                adddniKeyTyped(evt);
-            }
-        });
         getContentPane().add(adddni, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 132, -1));
 
         jLabel4.setText("Teléfono");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 70, 20));
-
-        addmobile.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                addmobileFocusLost(evt);
-            }
-        });
-        addmobile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addmobileActionPerformed(evt);
-            }
-        });
-        addmobile.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                addmobileKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                addmobileKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                addmobileKeyTyped(evt);
-            }
-        });
         getContentPane().add(addmobile, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 134, -1));
 
         jLabel5.setText("Email");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 70, 20));
-
-        addemail.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                addemailFocusLost(evt);
-            }
-        });
-        addemail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addemailActionPerformed(evt);
-            }
-        });
-        addemail.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                addemailKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                addemailKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                addemailKeyTyped(evt);
-            }
-        });
         getContentPane().add(addemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 134, -1));
 
         jLabel6.setText("F. nacimiento");
@@ -218,54 +108,10 @@ public class regusernew_view extends javax.swing.JFrame {
 
         jLabel12.setText("Usuario");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 60, 20));
-
-        addnameuser.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                addnameuserFocusLost(evt);
-            }
-        });
-        addnameuser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addnameuserActionPerformed(evt);
-            }
-        });
-        addnameuser.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                addnameuserKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                addnameuserKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                addnameuserKeyTyped(evt);
-            }
-        });
         getContentPane().add(addnameuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 134, -1));
 
         jLabel13.setText("Contraseña");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 70, 20));
-
-        addpassword.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                addpasswordFocusLost(evt);
-            }
-        });
-        addpassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addpasswordActionPerformed(evt);
-            }
-        });
-        addpassword.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                addpasswordKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                addpasswordKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                addpasswordKeyTyped(evt);
-            }
-        });
         getContentPane().add(addpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 134, -1));
 
         jLabel14.setText("Avatar");
@@ -306,27 +152,12 @@ public class regusernew_view extends javax.swing.JFrame {
         cancelclient.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         cancelclient.setIconTextGap(-3);
         cancelclient.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        cancelclient.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cancelclientMouseClicked(evt);
-            }
-        });
         getContentPane().add(cancelclient, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 75, -1));
 
         titlecreateedit.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         titlecreateedit.setText("Crear un usuario registrado");
         titlecreateedit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(titlecreateedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 260, -1));
-
-        jLabel7.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel7AncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 42, 9));
         getContentPane().add(jlblcreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 290, 20));
         getContentPane().add(nameuser_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 28, 20));
@@ -338,28 +169,6 @@ public class regusernew_view extends javax.swing.JFrame {
 
         jLabel9.setText("Puntos");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 70, 20));
-
-        addactivity.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                addactivityFocusLost(evt);
-            }
-        });
-        addactivity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addactivityActionPerformed(evt);
-            }
-        });
-        addactivity.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                addactivityKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                addactivityKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                addactivityKeyTyped(evt);
-            }
-        });
         getContentPane().add(addactivity, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 130, -1));
 
         jLabel10.setText("Karma");
@@ -375,304 +184,11 @@ public class regusernew_view extends javax.swing.JFrame {
         getContentPane().add(add_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 134, -1));
 
         addpoints.setEditable(false);
-        addpoints.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                addpointsFocusLost(evt);
-            }
-        });
-        addpoints.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addpointsActionPerformed(evt);
-            }
-        });
-        addpoints.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                addpointsKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                addpointsKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                addpointsKeyTyped(evt);
-            }
-        });
         getContentPane().add(addpoints, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, 120, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void addmobileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addmobileActionPerformed
     
-    }//GEN-LAST:event_addmobileActionPerformed
-    
-    private void jLabel7AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel7AncestorAdded
-        // TODO add your handling code here:
-   /*     this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                dispose();
-                new adminmanage_view().setVisible(true);
-            }
-        });*/
-    }//GEN-LAST:event_jLabel7AncestorAdded
-
-    private void adddniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adddniActionPerformed
-        // TODO add your handling code here: Validar DNI
-  //      BLL_admin.DniValidate();
-    }//GEN-LAST:event_adddniActionPerformed
-
-    private void addnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addnameActionPerformed
-        // TODO add your handling code here: Validar nombre
- //       BLL_admin.NameValidate();
-    }//GEN-LAST:event_addnameActionPerformed
-
-    private void addnameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addnameFocusLost
-        // TODO add your handling code here:
-  //      BLL_admin.NameValidate();
-    }//GEN-LAST:event_addnameFocusLost
-
-    private void addnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addnameKeyPressed
-        // TODO add your handling code here:
-  //      BLL_admin.NameValidate();
-    }//GEN-LAST:event_addnameKeyPressed
-
-    private void addnameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addnameKeyReleased
-        // TODO add your handling code here:
-//        BLL_admin.NameValidate();
-    }//GEN-LAST:event_addnameKeyReleased
-
-    private void addnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addnameKeyTyped
-        // TODO add your handling code here:
-  //      BLL_admin.NameValidate();
-    }//GEN-LAST:event_addnameKeyTyped
-
-    private void addsurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsurnameActionPerformed
-        // TODO add your handling code here:
-  //      BLL_admin.SurnameValidate();
-    }//GEN-LAST:event_addsurnameActionPerformed
-
-    private void addsurnameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addsurnameFocusLost
-        // TODO add your handling code here:
-  //      BLL_admin.SurnameValidate();
-    }//GEN-LAST:event_addsurnameFocusLost
-
-    private void addsurnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addsurnameKeyPressed
-        // TODO add your handling code here:
-  //      BLL_admin.SurnameValidate();
-    }//GEN-LAST:event_addsurnameKeyPressed
-
-    private void addsurnameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addsurnameKeyReleased
-        // TODO add your handling code here:
-  //      BLL_admin.SurnameValidate();
-    }//GEN-LAST:event_addsurnameKeyReleased
-
-    private void addsurnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addsurnameKeyTyped
-        // TODO add your handling code here:
-   //     BLL_admin.SurnameValidate();
-    }//GEN-LAST:event_addsurnameKeyTyped
-
-    private void addmobileFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addmobileFocusLost
-        // TODO add your handling code here:
-    //    BLL_admin.MobileValidate();
-    }//GEN-LAST:event_addmobileFocusLost
-
-    private void addmobileKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addmobileKeyPressed
-        // TODO add your handling code here:
-   //     BLL_admin.MobileValidate();
-    }//GEN-LAST:event_addmobileKeyPressed
-
-    private void addmobileKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addmobileKeyReleased
-        // TODO add your handling code here:
-   //     BLL_admin.MobileValidate();
-    }//GEN-LAST:event_addmobileKeyReleased
-
-    private void addmobileKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addmobileKeyTyped
-        // TODO add your handling code here:
-   //     BLL_admin.MobileValidate();
-    }//GEN-LAST:event_addmobileKeyTyped
-
-    private void addemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addemailActionPerformed
-        // TODO add your handling code here:
-   //     BLL_admin.EmailValidate();
-    }//GEN-LAST:event_addemailActionPerformed
-
-    private void addemailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addemailFocusLost
-        // TODO add your handling code here:
-  //      BLL_admin.EmailValidate();
-    }//GEN-LAST:event_addemailFocusLost
-
-    private void addemailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addemailKeyPressed
-        // TODO add your handling code here:
-  //      BLL_admin.EmailValidate();
-    }//GEN-LAST:event_addemailKeyPressed
-
-    private void addemailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addemailKeyReleased
-        // TODO add your handling code here:
-  //      BLL_admin.EmailValidate();
-    }//GEN-LAST:event_addemailKeyReleased
-
-    private void addemailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addemailKeyTyped
-        // TODO add your handling code here:
-  //      BLL_admin.EmailValidate();
-    }//GEN-LAST:event_addemailKeyTyped
-
-    private void addnameuserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addnameuserFocusLost
-        // TODO add your handling code here:
- //       BLL_admin.UserNameValidate();
-    }//GEN-LAST:event_addnameuserFocusLost
-
-    private void addnameuserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addnameuserKeyPressed
-        // TODO add your handling code here:
-   //     BLL_admin.UserNameValidate();
-    }//GEN-LAST:event_addnameuserKeyPressed
-
-    private void addnameuserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addnameuserKeyReleased
-        // TODO add your handling code here:
-  //      BLL_admin.UserNameValidate();
-    }//GEN-LAST:event_addnameuserKeyReleased
-
-    private void addnameuserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addnameuserKeyTyped
-        // TODO add your handling code here:
-  //      BLL_admin.UserNameValidate();
-    }//GEN-LAST:event_addnameuserKeyTyped
-
-    private void addnameuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addnameuserActionPerformed
-        // TODO add your handling code here:
-  //      BLL_admin.UserNameValidate();
-    }//GEN-LAST:event_addnameuserActionPerformed
-
-    private void addpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addpasswordActionPerformed
-        // TODO add your handling code here:
-   //     BLL_admin.PasswordValidate();
-    }//GEN-LAST:event_addpasswordActionPerformed
-
-    private void addpasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addpasswordFocusLost
-        // TODO add your handling code here:
-   //     BLL_admin.PasswordValidate();
-    }//GEN-LAST:event_addpasswordFocusLost
-
-    private void addpasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addpasswordKeyPressed
-        // TODO add your handling code here:
-   //     BLL_admin.PasswordValidate();
-    }//GEN-LAST:event_addpasswordKeyPressed
-
-    private void addpasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addpasswordKeyReleased
-        // TODO add your handling code here:
- //       BLL_admin.PasswordValidate();
-    }//GEN-LAST:event_addpasswordKeyReleased
-
-    private void addpasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addpasswordKeyTyped
-        // TODO add your handling code here:
-  //      BLL_admin.PasswordValidate();
-    }//GEN-LAST:event_addpasswordKeyTyped
-
-    private void adddniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_adddniFocusLost
-        // TODO add your handling code here:
-  //      BLL_admin.DniValidate();
-    }//GEN-LAST:event_adddniFocusLost
-
-    private void adddniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adddniKeyPressed
-        // TODO add your handling code here:
-   //     BLL_admin.DniValidate();
-    }//GEN-LAST:event_adddniKeyPressed
-
-    private void adddniKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adddniKeyReleased
-        // TODO add your handling code here:
-   //     BLL_admin.DniValidate();
-    }//GEN-LAST:event_adddniKeyReleased
-
-    private void adddniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adddniKeyTyped
-        // TODO add your handling code here:
-    //    BLL_admin.DniValidate();
-    }//GEN-LAST:event_adddniKeyTyped
-
-    private void cancelclientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelclientMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_cancelclientMouseClicked
-
-    private void addactivityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addactivityActionPerformed
-        // TODO add your handling code here:
-  //      BLL_admin.SalaryValidate();
-    }//GEN-LAST:event_addactivityActionPerformed
-
-    private void addactivityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addactivityFocusLost
-        // TODO add your handling code here:
-  //      BLL_admin.SalaryValidate();
-    }//GEN-LAST:event_addactivityFocusLost
-
-    private void addactivityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addactivityKeyPressed
-        // TODO add your handling code here:
-   //     BLL_admin.SalaryValidate();
-    }//GEN-LAST:event_addactivityKeyPressed
-
-    private void addactivityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addactivityKeyReleased
-        // TODO add your handling code here:
-   //     BLL_admin.SalaryValidate();
-    }//GEN-LAST:event_addactivityKeyReleased
-
-    private void addactivityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addactivityKeyTyped
-        // TODO add your handling code here:
-   //     BLL_admin.SalaryValidate();
-    }//GEN-LAST:event_addactivityKeyTyped
-
-    private void addpointsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addpointsFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addpointsFocusLost
-
-    private void addpointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addpointsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addpointsActionPerformed
-
-    private void addpointsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addpointsKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addpointsKeyPressed
-
-    private void addpointsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addpointsKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addpointsKeyReleased
-
-    private void addpointsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addpointsKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addpointsKeyTyped
-
-    /**
-     * @param args the command line arguments
-     */
-    //public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         *
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(adminnew_view.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(adminnew_view.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(adminnew_view.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(adminnew_view.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form *//*
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new adminnew_view().setVisible(true);
-            }
-        });*/
-    //}
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JComboBox<String> add_status;
     public static javax.swing.JTextField addactivity;

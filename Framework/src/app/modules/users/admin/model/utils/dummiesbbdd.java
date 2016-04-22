@@ -16,9 +16,7 @@ public class dummiesbbdd {
         PreparedStatement stmt = null;
         int resultado = 0;
 
-        _con = _conexion_DB.AbrirConexion(); //pasar a BLL abres llamas al dao y cierras (?) nipa
-        /*    admin admind = new admin("00000000T", "Nana", "Maya", "666666666", "asd@asd.asd", "12/12/1900",
-                    "miau", "123", "av.jpg", "offline", "12/02/2016", 53423, 999);*/
+        _con = _conexion_DB.AbrirConexion(); 
         for (int i = 0; i < singleton.admin.getAdmins().size(); i++) {
             stmt = _con.prepareStatement("INSERT INTO admin"
                     + "(dni,name,subname,mobile,email,date_birthday,age,user,pass"

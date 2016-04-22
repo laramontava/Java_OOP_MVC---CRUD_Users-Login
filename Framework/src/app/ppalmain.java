@@ -1,5 +1,6 @@
 package app;
 
+import app.bbdd_mongo.Mongo_DB;
 import app.classes.ConnectionBBDD;
 import app.modules.menu.model.configuration;
 import app.modules.menu.model.idioma;
@@ -37,6 +38,15 @@ public class ppalmain {
     public static String singleton_vtna="";
     public static void main(String[]args){
         ConnectionBBDD.inicializa_BasicDataSourceFactory();
+        singleton_global.mongo = new Mongo_DB();
+        singleton_global.nom_bd = singleton_global.mongo.getNom_bd();
+        singleton_global.nom_table = singleton_global.mongo.getNom_table();
+        
+        singleton_global.client = Mongo_DB.connect();
+        if (singleton_global.client != null) {
+            singleton_global.db = singleton_global.mongo.getDb();
+            singleton_global.collection = singleton_global.mongo.getCollection();
+        }
         singleton_global.conf = new configuration();
         config_save.OpenJsonautoconf();
         int option, option2, dummies1;

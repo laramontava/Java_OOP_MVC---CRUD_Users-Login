@@ -10,6 +10,7 @@ import app.classes.singleton_global;
 import static app.classes.singleton_global.Green;
 import static app.classes.singleton_global.cancel;
 import static app.classes.singleton_global.ok;
+import app.modules.users.client.model.BLL.BLL_client;
 import app.modules.users.client.model.classes.client;
 import app.modules.users.client.model.classes.singleton_client;
 import app.modules.users.client.model.utils.pager.pagina;
@@ -17,6 +18,9 @@ import static app.modules.users.client.view.clientmanage_view.TABLA;
 import app.modules.users.client.view.clientnew_view;
 import static app.modules.users.client.view.clientnew_view.*;
 import app.utils.validate;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
 import java.awt.Color;
 import java.util.Calendar;
 
@@ -298,6 +302,7 @@ public class DAO_client {
             client clientcreate = new client(dni, name, surname, mobile, email, datebirthday,
 			nameuser, passwd, avatar, status, up_date, shopping,
 			premium, clienttype);
+            BLL_client.CreateClientMongo(clientcreate);
             singleton_client.client.AddClient(clientcreate);
 
             val = true;
