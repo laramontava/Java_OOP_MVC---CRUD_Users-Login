@@ -17,10 +17,12 @@ import com.mongodb.DBCollection;
  * @author Lara
  */
 public class DAO_Mongo {
+    //Crear
     public static void create_client(client c) {
         singleton_global.collection.insert(c.Client_to_BBDD());
     }
-    public static void update_worker(String dni) {
+    //Modificar
+    public static void update_client(String dni) {
         //Prepara para insertar un nuevo campo
         BasicDBObject updateClient = new BasicDBObject();
         updateClient.append("$set", new BasicDBObject().append("dni", clientnew_view.adddni.getText()));
@@ -37,7 +39,8 @@ public class DAO_Mongo {
         updateClient.append("$set", new BasicDBObject().append("years_service", clientnew_view.addyearsservice.getText()));
         updateClient.append("$set", new BasicDBObject().append("premium", clientnew_view.addpremium));
         updateClient.append("$set", new BasicDBObject().append("shopping", clientnew_view.addshopping.getText()));
-        updateClient.append("$set", new BasicDBObject().append("", clientnew_view.adddesc.getText()));
+        updateClient.append("$set", new BasicDBObject().append("discount", clientnew_view.adddesc.getText()));
+        updateClient.append("$set", new BasicDBObject().append("client_type", clientnew_view.addtype.getText()));
         //Busca el/los registro/s con el nombre indicado
         BasicDBObject searchById = new BasicDBObject();
         searchById.append("dni", dni);

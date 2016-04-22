@@ -348,6 +348,7 @@ public class DAO_client {
             singleton_client.client.getClient(selected1).setShopping(shopping);
             singleton_client.client.getClient(selected1).setPremium(premium);
             singleton_client.client.getClient(selected1).setClient_type(type);
+            BLL_client.UpdateClientMongo(dni);
             val = true;
         }
         return val;

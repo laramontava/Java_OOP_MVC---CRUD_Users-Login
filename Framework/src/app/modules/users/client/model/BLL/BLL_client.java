@@ -111,7 +111,6 @@ public class BLL_client {
         String ID;
         int n, selected, inicio, selected1;
         if (((miniSimpleTableModel_client) TABLA.getModel()).getRowCount() != 0) {
-            //int selected = TABLA.getSelectedRow();//sustituir
             inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la página en cuestión
             selected = TABLA.getSelectedRow(); //nos situamos en la fila
             selected1 = inicio + selected; //nos situamos en la fila correspondiente de esa página
@@ -122,6 +121,7 @@ public class BLL_client {
                 dni = (String) TABLA.getModel().getValueAt(selected1, 0);
                 pos = singleton_client.client.buscarDniClient(dni);
                 ((miniSimpleTableModel_client) TABLA.getModel()).removeRow(selected1);
+                DeleteClientMongo(dni);
                 singleton_client.client.DeleteC(singleton_client.client.getClient(pos));
                 statusnewadmin.setText("Usuario eliminado correctamente");
             }
@@ -132,5 +132,13 @@ public class BLL_client {
     
     public static void CreateClientMongo(client c){
         DAO_Mongo.create_client(c);
+    }
+    
+    public static void DeleteClientMongo(String dni){
+        DAO_Mongo.delete_client(dni);
+    }
+    
+    public static void UpdateClientMongo(String dni){
+        DAO_Mongo.update_client(dni);
     }
 }
