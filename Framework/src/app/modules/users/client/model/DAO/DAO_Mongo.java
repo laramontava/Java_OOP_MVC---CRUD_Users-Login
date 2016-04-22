@@ -5,6 +5,7 @@
  */
 package app.modules.users.client.model.DAO;
 
+import app.classes.fecha;
 import app.classes.singleton_global;
 import app.modules.users.client.model.classes.client;
 import app.modules.users.client.view.clientnew_view;
@@ -23,30 +24,48 @@ public class DAO_Mongo {
     }
     //Modificar
     public static void update_client(String dni) {
+        fecha aux = new fecha();
         //Prepara para insertar un nuevo campo
-        BasicDBObject updateClient = new BasicDBObject();
-        updateClient.append("$set", new BasicDBObject().append("dni", clientnew_view.adddni.getText()));
-        updateClient.append("$set", new BasicDBObject().append("name", clientnew_view.addname.getText()));
-        updateClient.append("$set", new BasicDBObject().append("subname", clientnew_view.addsurname.getText()));
-        updateClient.append("$set", new BasicDBObject().append("date_birthday", clientnew_view.adddatebirthday));
-        updateClient.append("$set", new BasicDBObject().append("mobile", clientnew_view.addmobile.getText()));
-        updateClient.append("$set", new BasicDBObject().append("email", clientnew_view.addemail.getText()));
-        updateClient.append("$set", new BasicDBObject().append("user", clientnew_view.addnameuser.getText()));
-        updateClient.append("$set", new BasicDBObject().append("pass", clientnew_view.addpassword.getText()));
-        updateClient.append("$set", new BasicDBObject().append("avatar", clientnew_view.addavatar.getText()));
-        updateClient.append("$set", new BasicDBObject().append("state", clientnew_view.add_status));
-        updateClient.append("$set", new BasicDBObject().append("hiring_date", clientnew_view.addreg));
-        updateClient.append("$set", new BasicDBObject().append("years_service", clientnew_view.addyearsservice.getText()));
-        updateClient.append("$set", new BasicDBObject().append("premium", clientnew_view.addpremium));
-        updateClient.append("$set", new BasicDBObject().append("shopping", clientnew_view.addshopping.getText()));
-        updateClient.append("$set", new BasicDBObject().append("discount", clientnew_view.adddesc.getText()));
-        updateClient.append("$set", new BasicDBObject().append("client_type", clientnew_view.addtype.getText()));
+        BasicDBObject updateDni = new BasicDBObject(),updateName = new BasicDBObject(),
+                updateSurname = new BasicDBObject(),updateMobile = new BasicDBObject(),
+                updateEmail = new BasicDBObject(),updateDate_birthday = new BasicDBObject(),
+                updateName_user = new BasicDBObject(),updatePasswd = new BasicDBObject(),
+                updateAvatar = new BasicDBObject(),updateState = new BasicDBObject(),
+                updateUp_date = new BasicDBObject(),updateShopping = new BasicDBObject(),
+                updatePremium = new BasicDBObject(), updateClient_type = new BasicDBObject();
+        updateDni.append("$set", new BasicDBObject().append("dni", clientnew_view.adddni.getText()));
+        updateName.append("$set", new BasicDBObject().append("name", clientnew_view.addname.getText()));
+        updateSurname.append("$set", new BasicDBObject().append("subname", clientnew_view.addsurname.getText()));
+        updateMobile.append("$set", new BasicDBObject().append("mobile", clientnew_view.addmobile.getText()));
+        updateEmail.append("$set", new BasicDBObject().append("email", clientnew_view.addemail.getText()));
+        updateDate_birthday.append("$set", new BasicDBObject().append("date_birthday", aux.calendartostring(clientnew_view.adddatebirthday.getCalendar(), 0)));
+        updateName_user.append("$set", new BasicDBObject().append("user", clientnew_view.addnameuser.getText()));
+        updatePasswd.append("$set", new BasicDBObject().append("pass", clientnew_view.addpassword.getText()));
+        updateAvatar.append("$set", new BasicDBObject().append("avatar", clientnew_view.addavatar.getText()));
+        updateState.append("$set", new BasicDBObject().append("state", clientnew_view.add_status.getSelectedItem().toString()));
+        updateUp_date.append("$set", new BasicDBObject().append("up_date", aux.calendartostring(clientnew_view.addreg.getCalendar(), 0)));
+        updateShopping.append("$set", new BasicDBObject().append("shopping", clientnew_view.addshopping.getText()));
+        updatePremium.append("$set", new BasicDBObject().append("premium", clientnew_view.addpremium.getSelectedItem().toString()));
+        updateClient_type.append("$set", new BasicDBObject().append("client_type", clientnew_view.addtype.getText()));
         //Busca el/los registro/s con el nombre indicado
         BasicDBObject searchById = new BasicDBObject();
         searchById.append("dni", dni);
  
         //Realiza la actualización
-        singleton_global.collection.updateMulti(searchById, updateClient);
+        singleton_global.collection.updateMulti(searchById, updateDni);
+        singleton_global.collection.updateMulti(searchById, updateName);
+        singleton_global.collection.updateMulti(searchById, updateSurname);
+        singleton_global.collection.updateMulti(searchById, updateMobile);
+        singleton_global.collection.updateMulti(searchById, updateEmail);
+        singleton_global.collection.updateMulti(searchById, updateDate_birthday);
+        singleton_global.collection.updateMulti(searchById, updateName_user);
+        singleton_global.collection.updateMulti(searchById, updatePasswd);
+        singleton_global.collection.updateMulti(searchById, updateAvatar);
+        singleton_global.collection.updateMulti(searchById, updateState);
+        singleton_global.collection.updateMulti(searchById, updateUp_date);
+        singleton_global.collection.updateMulti(searchById, updateShopping);
+        singleton_global.collection.updateMulti(searchById, updatePremium);
+        singleton_global.collection.updateMulti(searchById, updateClient_type);
     }
     public static void delete_client(String dni) {
         singleton_global.collection.remove(new BasicDBObject().append("dni", dni));
