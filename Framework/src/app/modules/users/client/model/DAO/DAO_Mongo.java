@@ -8,10 +8,12 @@ package app.modules.users.client.model.DAO;
 import app.classes.fecha;
 import app.classes.singleton_global;
 import app.modules.users.client.model.classes.client;
+import app.modules.users.client.model.classes.singleton_client;
 import app.modules.users.client.view.clientnew_view;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
 
 /**
  *
@@ -44,7 +46,7 @@ public class DAO_Mongo {
         updateAvatar.append("$set", new BasicDBObject().append("avatar", clientnew_view.addavatar.getText()));
         updateState.append("$set", new BasicDBObject().append("state", clientnew_view.add_status.getSelectedItem().toString()));
         updateUp_date.append("$set", new BasicDBObject().append("up_date", aux.calendartostring(clientnew_view.addreg.getCalendar(), 0)));
-        updateShopping.append("$set", new BasicDBObject().append("shopping", clientnew_view.addshopping.getText()));
+        updateShopping.append("$set", new BasicDBObject().append("shopping", Float.parseFloat(clientnew_view.addshopping.getText())));
         updatePremium.append("$set", new BasicDBObject().append("premium", clientnew_view.addpremium.getSelectedItem().toString()));
         updateClient_type.append("$set", new BasicDBObject().append("client_type", clientnew_view.addtype.getText()));
         //Busca el/los registro/s con el nombre indicado
@@ -69,5 +71,32 @@ public class DAO_Mongo {
     }
     public static void delete_client(String dni) {
         singleton_global.collection.remove(new BasicDBObject().append("dni", dni));
+    }
+   
+    public static void read_client() {
+        DBCursor cursor = null;
+        client c = new client();
+        try {
+            cursor = singleton_global.collection.find();
+            if(cursor.count()!=0){
+                for(int i = 0;i < cursor.size();i++){
+                    System.out.println("01");
+                    BasicDBObject document = (BasicDBObject) cursor.next();
+                    System.out.println("02");
+                    c = c.BBDD_to_client(document);
+                    System.out.println("03");
+                    client j = new client(c.getDni(),c.getName(),c.getSubname(),c.getMobile(),c.getEmail(),c.getDate_birthday(),
+                    c.getUser(),c.getPass(),c.getAvatar(),c.getState(),c.getUp_date(),c.getShopping(),c.getPremium(),c.getClient_type());
+                    singleton_client.client.AddClient(j);
+                    
+                }
+            }else{
+                System.out.println("NOT DATA"); 
+            }
+        } finally {
+            if (cursor != null){
+		cursor.close();
+            }
+	}	
     }
 }

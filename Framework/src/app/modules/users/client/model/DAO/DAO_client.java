@@ -334,6 +334,7 @@ public class DAO_client {
             int inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
             selectedcli = TABLA.getSelectedRow();
             int selected1 = inicio + selectedcli;
+            BLL_client.UpdateClientMongo(singleton_client.client.getClient(selected1).getDni());
             singleton_client.client.getClient(selected1).setDni(dni);
             singleton_client.client.getClient(selected1).setName(name);
             singleton_client.client.getClient(selected1).setSubname(surname);
@@ -348,7 +349,7 @@ public class DAO_client {
             singleton_client.client.getClient(selected1).setShopping(shopping);
             singleton_client.client.getClient(selected1).setPremium(premium);
             singleton_client.client.getClient(selected1).setClient_type(type);
-            BLL_client.UpdateClientMongo(dni);
+            
             val = true;
         }
         return val;

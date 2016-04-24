@@ -6,6 +6,7 @@
 package app.modules.users.client.model.classes;
 
 import static app.modules.users.client.controller.client_controller.combo;
+import app.modules.users.client.model.BLL.BLL_client;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
@@ -100,7 +101,9 @@ public class miniSimpleTableModel_client extends AbstractTableModel {
     public void cargar() {
         datos.clear();
         datosaux.clear();
-       for (int i = 0; i < singleton_client.client.getClients().size(); i++) {
+        singleton_client.client.getClients().clear();
+        BLL_client.ReadClientMongo();
+        for (int i = 0; i < singleton_client.client.getClients().size(); i++) {
             addRow(singleton_client.client.getClients().get(i));
             datosaux.add(singleton_client.client.getClients().get(i));
         }
@@ -120,7 +123,6 @@ public class miniSimpleTableModel_client extends AbstractTableModel {
                     }
                 }
                 clientmanage_view.jLabel3.setText(String.valueOf(cont));
-                //        System.out.println("word selected: " + nom);
                 pagina.initLinkBox();
             } 
     }

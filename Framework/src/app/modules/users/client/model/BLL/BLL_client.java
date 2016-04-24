@@ -141,4 +141,8 @@ public class BLL_client {
     public static void UpdateClientMongo(String dni){
         DAO_Mongo.update_client(dni);
     }
+    
+    public static void ReadClientMongo(){
+        DAO_Mongo.read_client();
+    }
 }

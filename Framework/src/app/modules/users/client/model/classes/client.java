@@ -40,21 +40,35 @@ public class client extends users implements Serializable {
     }
 
     public client BBDD_to_client(DBObject dBObjectWorker) {
-        this.setDni((String) dBObjectWorker.get("dni"));
-        this.setName((String) dBObjectWorker.get("name"));
-        this.setSubname((String) dBObjectWorker.get("subname"));
-        this.setMobile((String) dBObjectWorker.get("mobile"));
-        this.setEmail((String) dBObjectWorker.get("email"));
-        this.setDate_birthday((String) dBObjectWorker.get("date_birthday"));
-        this.setUser((String) dBObjectWorker.get("user"));
-        this.setPass((String) dBObjectWorker.get("pass"));
-        this.setAvatar((String) dBObjectWorker.get("avatar"));
-        this.setState((String) dBObjectWorker.get("state"));
+        super.setDni((String) dBObjectWorker.get("dni"));
+        System.out.println("B01");
+        super.setName((String) dBObjectWorker.get("name"));
+        System.out.println("B02");
+        super.setSubname((String) dBObjectWorker.get("subname"));
+        System.out.println("B03");
+        super.setMobile((String) dBObjectWorker.get("mobile"));
+        System.out.println("B04");
+        super.setEmail((String) dBObjectWorker.get("email"));
+        fecha aux = new fecha();
+        System.out.println("B05");
+        super.setDate_birthday((String) dBObjectWorker.get("date_birthday"));
+        System.out.println("B06");
+        super.setUser((String) dBObjectWorker.get("user"));
+        System.out.println("B07");
+        super.setPass((String) dBObjectWorker.get("pass"));
+        System.out.println("B08");
+        super.setAvatar((String) dBObjectWorker.get("avatar"));
+        System.out.println("B09");
+        super.setState((String) dBObjectWorker.get("state"));
+        System.out.println("B10");
         this.setUp_date((String) dBObjectWorker.get("up_date"));
-        this.setShopping((float) dBObjectWorker.get("shopping"));
+        System.out.println("B11");
+        this.setShopping( Float.parseFloat((Double)dBObjectWorker.get("shopping")+""));
+        System.out.println("B12");
         this.setPremium((String) dBObjectWorker.get("premium"));
+        System.out.println("B13");
         this.setClient_type((String) dBObjectWorker.get("client_type"));
-        
+        System.out.println("B14");
         return new client(super.getDni(), super.getName(), super.getSubname(), super.getMobile(),
         super.getEmail(), super.getDate_birthday(), super.getUser(), super.getPass(), super.getAvatar(),
         super.getState(), this.getUp_date(), this.getShopping(), this.getPremium(), this.getClient_type());

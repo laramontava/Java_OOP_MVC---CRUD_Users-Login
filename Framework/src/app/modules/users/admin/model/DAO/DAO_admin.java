@@ -510,15 +510,7 @@ public class DAO_admin {
                 correct = true;
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "Ha habido un problema al actualizar el usuario!");
-            } finally {
-                if (stmt != null) {
-                    try {
-                        stmt.close();
-                    } catch (SQLException ex) {
-                        JOptionPane.showMessageDialog(null, "Ha habido un error Logger!");
-                    }
-                }
-            }
+            } 
         }
         return correct;
     }

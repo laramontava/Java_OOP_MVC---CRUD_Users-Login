@@ -145,7 +145,6 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     if (me.getClickCount() == 2) {
                         if (BLL_client.Modificar()) {
                             TableClient.dispose();
-                            //meh new adminnew_view().setVisible(true);
                             new client_controller(new clientnew_view(), 2).Iniciar(2);
                             BLL_client.LlenarCampos();
                             titlecreateedit.setText("Editar un cliente");
