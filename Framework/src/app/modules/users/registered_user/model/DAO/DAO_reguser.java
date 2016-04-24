@@ -10,6 +10,9 @@ import app.classes.singleton_global;
 import static app.classes.singleton_global.Green;
 import static app.classes.singleton_global.cancel;
 import static app.classes.singleton_global.ok;
+import app.modules.users.registered_user.model.BLL.lib_ficheros.txt;
+import app.modules.users.registered_user.model.BLL.lib_ficheros.xml;
+import app.modules.users.registered_user.model.BLL.lib_ficheros.json;
 import app.modules.users.registered_user.model.classes.registered_user;
 import app.modules.users.registered_user.model.classes.singleton_reguser;
 import app.modules.users.registered_user.model.utils.pager.pagina;
@@ -251,7 +254,9 @@ public class DAO_reguser {
             registered_user regusercreate = new registered_user(dni, name, surname, mobile, email, datebirthday,
 			nameuser, passwd, avatar, status, activity);
             singleton_reguser.reguser.AddUserreg(regusercreate);
-
+            json.GenerateJsonauto();
+            txt.Generatetxtauto();
+            xml.Generatexmlauto();
             val = true;
         }
         return val;
@@ -299,6 +304,9 @@ public class DAO_reguser {
             singleton_reguser.reguser.getClient(selected1).setState(status);
             singleton_reguser.reguser.getClient(selected1).setActivity(activity);
             val = true;
+            json.GenerateJsonauto();
+            txt.Generatetxtauto();
+            xml.Generatexmlauto();
         }
         return val;
     }

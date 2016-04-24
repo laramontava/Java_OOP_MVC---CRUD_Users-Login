@@ -88,9 +88,9 @@ public class xml {
             xml.append(header);
             xml.append(os.toString());
             if(!singleton_global.conf.getDummies())
-                PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_admin/admin.xml";
+                PATH = new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/registered_user/model/files/files_registereduser/reguser.xml";
             else
-            	PATH=new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/files/files_dummies_admin/admin.txt";
+            	PATH=new java.io.File(".").getCanonicalPath()+"/src/app/modules/users/registered_user/model/files/files_registereduser/reguser.xml";
                 FileWriter fileXml = new FileWriter(PATH);
                 fileXml.write(xml.toString());
                 fileXml.close();

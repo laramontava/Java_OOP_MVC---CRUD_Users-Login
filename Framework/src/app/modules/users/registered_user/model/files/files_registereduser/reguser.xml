@@ -154,20 +154,21 @@
     <karma2>0</karma2>
   </Registered__user>
   <Registered__user>
-    <dni>49943460H</dni>
-    <name>Pepa</name>
-    <surname>Bonet</surname>
-    <mobile>888888888</mobile>
-    <email>dummie@dummie.com</email>
-    <datebirthday>26/09/1990</datebirthday>
-    <age>0</age>
-    <username>Dummie</username>
-    <password>1234</password>
-    <avatar>Avatar.jpg</avatar>
-    <state>Offline</state>
-    <ventajas>4995.0</ventajas>
-    <activity>999</activity>
-    <points>4995</points>
+    <dni>44444444A</dni>
+    <name>Pepito</name>
+    <surname>asd</surname>
+    <mobile>21312123</mobile>
+    <email>asd@asd.asd</email>
+    <datebirthday>02/04/1983</datebirthday>
+    <age>33</age>
+    <username>asd</username>
+    <password>asd</password>
+    <avatar>image.jpg</avatar>
+    <state>Online</state>
+    <ventajas>615.0</ventajas>
+    <activity>123</activity>
+    <karma>Low</karma>
+    <points>615</points>
     <karma2>0</karma2>
   </Registered__user>
 </list>

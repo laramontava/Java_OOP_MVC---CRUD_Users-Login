@@ -89,12 +89,12 @@ public class json {
         try {
             XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
             xstreamjson.setMode(XStream.NO_REFERENCES);
-            xstreamjson.alias("Registered_user", registered_user.class);
+            xstreamjson.alias("registered_user", registered_user.class);
 
             if (!singleton_global.conf.getDummies()) {
-                PATH = new java.io.File(".").getCanonicalPath() + "/src/app/modules/users/files/files_admin/admin.json";
+                PATH = new java.io.File(".").getCanonicalPath() + "/src/app/modules/users/registered_user/model/files/files_registereduser/reguser.json";
             } else {
-                PATH = new java.io.File(".").getCanonicalPath() + "/src/app/modules/users/files/files_dummies_admin/admin.json";
+                PATH = new java.io.File(".").getCanonicalPath() + "/src/app/modules/users/registered_user/model/files/files_registereduser/reguser.json";
             }
             Gson gson = new Gson();
             String json = gson.toJson(singleton_reguser.reguser.getUserreg());
@@ -118,7 +118,7 @@ public class json {
             if (!singleton_global.conf.getDummies()) {
                 PATH = new java.io.File(".").getCanonicalPath() + "/src/app/modules/users/registered_user/model/files/files_registereduser/reguser.json";
             } else {
-                PATH = new java.io.File(".").getCanonicalPath() + "/src/app/modules/users/registered_user/model/files/dummies_registereduser/reguser.json";
+                PATH = new java.io.File(".").getCanonicalPath() + "/src/app/modules/users/registered_user/model/files/files_registereduser/reguser.json";
             }
             File path = new File(PATH);
             if (path.exists()) {

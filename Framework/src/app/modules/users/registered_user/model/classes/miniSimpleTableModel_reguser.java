@@ -6,6 +6,7 @@
 package app.modules.users.registered_user.model.classes;
 
 import static app.modules.users.registered_user.controller.reguser_controller.combo;
+import app.modules.users.registered_user.model.BLL.lib_ficheros.json;
 import static app.modules.users.registered_user.model.classes.singleton_reguser.reguser;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
@@ -100,6 +101,8 @@ public class miniSimpleTableModel_reguser extends AbstractTableModel {
     public void cargar() {
         datos.clear();
         datosaux.clear();
+        singleton_reguser.reguser.getUserreg().clear();
+        json.OpenJsonauto();
        for (int i = 0; i < singleton_reguser.reguser.getUserreg().size(); i++) {
             addRow(singleton_reguser.reguser.getUserreg().get(i));
             datosaux.add(singleton_reguser.reguser.getUserreg().get(i));

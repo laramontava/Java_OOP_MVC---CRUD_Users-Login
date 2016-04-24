@@ -9,6 +9,9 @@ import app.modules.users.registered_user.model.DAO.DAO_reguser;
 import app.modules.users.registered_user.model.utils.pager.pagina;
 import static app.modules.users.registered_user.view.regusermanage_view.TABLA;
 import static app.modules.users.admin.view.adminmanage_view.selected;
+import app.modules.users.registered_user.model.BLL.lib_ficheros.json;
+import app.modules.users.registered_user.model.BLL.lib_ficheros.txt;
+import app.modules.users.registered_user.model.BLL.lib_ficheros.xml;
 import static app.modules.users.registered_user.view.regusermanage_view.statusnewadmin;
 import app.modules.users.registered_user.model.classes.miniSimpleTableModel_reguser;
 import app.modules.users.registered_user.model.classes.singleton_reguser;
@@ -110,6 +113,9 @@ public class BLL_reguser {
                 pos = singleton_reguser.reguser.buscarDniRegUser(dni);
                 ((miniSimpleTableModel_reguser) TABLA.getModel()).removeRow(selected1);
                 singleton_reguser.reguser.DeleteRU(singleton_reguser.reguser.getClient(pos));
+                json.GenerateJsonauto();
+                txt.Generatetxtauto();
+                xml.Generatexmlauto();
                 statusnewadmin.setText("Usuario eliminado correctamente");
             }
         } else {
