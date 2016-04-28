@@ -700,7 +700,7 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                         jlblcreate.setForeground(Color.red);
                     }
                 } else if (BLL_reguser.Modificaradmin()) {
-                    if(singleton_global.type=="Admin"){
+                    if(singleton_global.type=="admin"){
                         new reguser_controller(new regusermanage_view(), 0).Iniciar(0);
                         Modificar.dispose();
                         statusnewadmin.setText("Usuario editado correctamente");
@@ -722,7 +722,7 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                     statusnewadmin.setText("Se ha cancelado la creación de un nuevo usuario");
                     statusnewadmin.setForeground(Color.red);
                 } else {
-                    if(singleton_global.type=="Admin"){
+                    if(singleton_global.type=="admin"){
                         new reguser_controller(new regusermanage_view(), 0).Iniciar(0);
                         Modificar.dispose();
                         statusnewadmin.setText("Se ha cancelado la modificación de un usuario");

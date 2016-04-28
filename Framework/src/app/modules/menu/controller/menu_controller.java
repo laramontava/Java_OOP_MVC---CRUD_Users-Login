@@ -6,6 +6,9 @@
 package app.modules.menu.controller;
 
 import app.classes.singleton_global;
+import app.modules.SignIn.controller.login_controller;
+import app.modules.SignIn.view.login;
+import static app.modules.SignIn.view.login.statuslog;
 import app.modules.menu.view.config_view;
 import static app.modules.menu.view.config_view.conf_currency;
 import static app.modules.menu.view.config_view.conf_data;
@@ -89,6 +92,7 @@ public class menu_controller implements ActionListener {
         conf_dummieson,
         conf_dummiesoff,
         btn_return,
+        btn_logout
     }
 
     public void Iniciar(int op) {
@@ -113,13 +117,13 @@ public class menu_controller implements ActionListener {
             main_view.btnreguser_main.addActionListener(this);
             main_view.btnconf_main.setActionCommand("btn_confmain");
             main_view.btnconf_main.addActionListener(this);
-
+            main_view.logout.setActionCommand("btn_logout");
+            main_view.logout.addActionListener(this);
             mainview.addWindowListener(new WindowAdapter() {
                 @Override
                 public void windowClosing(WindowEvent e) {
                     JOptionPane.showMessageDialog(null, "Saliendo de la aplicación");
                     config_save.GenerateJsonautoconf();
-
                     System.exit(0);
                 }
             });
@@ -484,6 +488,11 @@ public class menu_controller implements ActionListener {
             case btn_return:
                 conf.dispose();
                 new menu_controller(new main_view(), 0).Iniciar(0);
+                break;
+            case btn_logout:
+                new login_controller(new login()).Iniciar();
+                mainview.dispose();
+                statuslog.setText("Se ha cerradi la sesión");
                 break;
         }
     }

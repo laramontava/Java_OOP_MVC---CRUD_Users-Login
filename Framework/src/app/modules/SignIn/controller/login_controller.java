@@ -37,6 +37,8 @@ public class login_controller implements ActionListener {
         
         btnadmin.setEnabled(false);
         singleton_global.type = "admin";
+        LogIn.setLocationRelativeTo(null);
+        LogIn.setResizable(false);
         LogIn.addWindowListener(new WindowAdapter() {
                 @Override
                 public void windowClosing(WindowEvent e) {
