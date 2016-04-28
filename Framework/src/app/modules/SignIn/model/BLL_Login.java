@@ -22,7 +22,9 @@ public class BLL_Login {
         _conexion_DB.liberaConexion(_con);
         return login;
     }
-    
+    public static boolean SignInClient(){
+        return DAO_Login.SignInClient();
+    }
     public static boolean SignInRUser(){
         return DAO_Login.SignInRUser();
     }

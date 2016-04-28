@@ -35,20 +35,20 @@ public class DAO_Mongo {
                 updateAvatar = new BasicDBObject(),updateState = new BasicDBObject(),
                 updateUp_date = new BasicDBObject(),updateShopping = new BasicDBObject(),
                 updatePremium = new BasicDBObject(), updateClient_type = new BasicDBObject();
-        updateDni.append("$set", new BasicDBObject().append("dni", clientnew_view.adddni.getText()));
-        updateName.append("$set", new BasicDBObject().append("name", clientnew_view.addname.getText()));
-        updateSurname.append("$set", new BasicDBObject().append("subname", clientnew_view.addsurname.getText()));
-        updateMobile.append("$set", new BasicDBObject().append("mobile", clientnew_view.addmobile.getText()));
-        updateEmail.append("$set", new BasicDBObject().append("email", clientnew_view.addemail.getText()));
-        updateDate_birthday.append("$set", new BasicDBObject().append("date_birthday", aux.calendartostring(clientnew_view.adddatebirthday.getCalendar(), 0)));
-        updateName_user.append("$set", new BasicDBObject().append("user", clientnew_view.addnameuser.getText()));
-        updatePasswd.append("$set", new BasicDBObject().append("pass", clientnew_view.addpassword.getText()));
-        updateAvatar.append("$set", new BasicDBObject().append("avatar", clientnew_view.addavatar.getText()));
-        updateState.append("$set", new BasicDBObject().append("state", clientnew_view.add_status.getSelectedItem().toString()));
-        updateUp_date.append("$set", new BasicDBObject().append("up_date", aux.calendartostring(clientnew_view.addreg.getCalendar(), 0)));
-        updateShopping.append("$set", new BasicDBObject().append("shopping", Float.parseFloat(clientnew_view.addshopping.getText())));
-        updatePremium.append("$set", new BasicDBObject().append("premium", clientnew_view.addpremium.getSelectedItem().toString()));
-        updateClient_type.append("$set", new BasicDBObject().append("client_type", clientnew_view.addtype.getText()));
+        updateDni.append("$set", new BasicDBObject().append("dni", clientnew_view.adddnic.getText()));
+        updateName.append("$set", new BasicDBObject().append("name", clientnew_view.caddname.getText()));
+        updateSurname.append("$set", new BasicDBObject().append("subname", clientnew_view.caddsurname.getText()));
+        updateMobile.append("$set", new BasicDBObject().append("mobile", clientnew_view.caddmobile.getText()));
+        updateEmail.append("$set", new BasicDBObject().append("email", clientnew_view.caddemail.getText()));
+        updateDate_birthday.append("$set", new BasicDBObject().append("date_birthday", aux.calendartostring(clientnew_view.cadddatebirthday.getCalendar(), 0)));
+        updateName_user.append("$set", new BasicDBObject().append("user", clientnew_view.caddnameuser.getText()));
+        updatePasswd.append("$set", new BasicDBObject().append("pass", clientnew_view.caddpassword.getText()));
+        updateAvatar.append("$set", new BasicDBObject().append("avatar", clientnew_view.caddavatar.getText()));
+        updateState.append("$set", new BasicDBObject().append("state", clientnew_view.cadd_status.getSelectedItem().toString()));
+        updateUp_date.append("$set", new BasicDBObject().append("up_date", aux.calendartostring(clientnew_view.caddreg.getCalendar(), 0)));
+        updateShopping.append("$set", new BasicDBObject().append("shopping", Float.parseFloat(clientnew_view.caddshopping.getText())));
+        updatePremium.append("$set", new BasicDBObject().append("premium", clientnew_view.caddpremium.getSelectedItem().toString()));
+        updateClient_type.append("$set", new BasicDBObject().append("client_type", clientnew_view.caddtype.getText()));
         //Busca el/los registro/s con el nombre indicado
         BasicDBObject searchById = new BasicDBObject();
         searchById.append("dni", dni);
@@ -89,7 +89,7 @@ public class DAO_Mongo {
             }else{
                 System.out.println("NOT DATA"); 
             }
-        } finally {
+        } catch (Exception e) {
             if (cursor != null){
 		cursor.close();
             }

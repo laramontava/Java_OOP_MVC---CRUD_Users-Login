@@ -492,7 +492,7 @@ public class menu_controller implements ActionListener {
             case btn_logout:
                 new login_controller(new login()).Iniciar();
                 mainview.dispose();
-                statuslog.setText("Se ha cerradi la sesión");
+                statuslog.setText("Se ha cerrado la sesión");
                 break;
         }
     }

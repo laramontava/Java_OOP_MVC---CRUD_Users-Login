@@ -40,12 +40,12 @@ public class DAO_client {
         dnicad = "";
         dniletra = "";
         dninum = 0;
-        s = clientnew_view.adddni.getText();
+        s = clientnew_view.adddnic.getText();
         correct = validate.validatedni(s);
         if (correct == false) {
             val = false;
             clientnew_view.dni_validate.setIcon(cancel);
-            clientnew_view.adddni.setForeground(Color.RED);
+            clientnew_view.adddnic.setForeground(Color.RED);
         }
         if (correct == true) {
             for (int i = 0; i < 8; i++) {
@@ -58,11 +58,11 @@ public class DAO_client {
             if (String.valueOf(numcalc).equals(dniletra)) {
                 val = true;
                 clientnew_view.dni_validate.setIcon(ok);
-                clientnew_view.adddni.setForeground(Green);
+                clientnew_view.adddnic.setForeground(Green);
             } else {
                 val = false;
                 clientnew_view.dni_validate.setIcon(cancel);
-                clientnew_view.adddni.setForeground(Color.RED);
+                clientnew_view.adddnic.setForeground(Color.RED);
             }
 
         }
@@ -71,17 +71,17 @@ public class DAO_client {
 
     public static boolean pidenombre() {
         boolean val = false;
-        if (clientnew_view.addname.getText().isEmpty()) {
+        if (clientnew_view.caddname.getText().isEmpty()) {
             clientnew_view.name_validate.setIcon(cancel);
-            clientnew_view.addname.setForeground(Color.RED);
+            clientnew_view.caddname.setForeground(Color.RED);
             val = false;
-        } else if (!validate.validaNombre(clientnew_view.addname.getText())) {
+        } else if (!validate.validaNombre(clientnew_view.caddname.getText())) {
             clientnew_view.name_validate.setIcon(cancel);
-            clientnew_view.addname.setForeground(Color.RED);
+            clientnew_view.caddname.setForeground(Color.RED);
             val = false;
         } else {
             clientnew_view.name_validate.setIcon(ok);
-            clientnew_view.addname.setForeground(Green);
+            clientnew_view.caddname.setForeground(Green);
             val = true;
         }
         return val;
@@ -89,17 +89,17 @@ public class DAO_client {
 
     public static boolean pideapellidos() {
         boolean val = false;
-        if (clientnew_view.addsurname.getText().isEmpty()) {
+        if (clientnew_view.caddsurname.getText().isEmpty()) {
             clientnew_view.surname_validate.setIcon(cancel);
-            clientnew_view.addsurname.setForeground(Color.RED);
+            clientnew_view.caddsurname.setForeground(Color.RED);
             val = false;
-        } else if (!validate.validaNombre(clientnew_view.addsurname.getText())) {
+        } else if (!validate.validaNombre(clientnew_view.caddsurname.getText())) {
             clientnew_view.surname_validate.setIcon(cancel);
-            clientnew_view.addsurname.setForeground(Color.RED);
+            clientnew_view.caddsurname.setForeground(Color.RED);
             val = false;
         } else {
             clientnew_view.surname_validate.setIcon(ok);
-            clientnew_view.addsurname.setForeground(Green);
+            clientnew_view.caddsurname.setForeground(Green);
             val = true;
         }
         return val;
@@ -107,17 +107,17 @@ public class DAO_client {
 
     public static boolean pidetelefono() {
         boolean val = false;
-        if (clientnew_view.addmobile.getText().isEmpty()) {
+        if (clientnew_view.caddmobile.getText().isEmpty()) {
             clientnew_view.mobile_validate.setIcon(cancel);
-            clientnew_view.addmobile.setForeground(Color.RED);
+            clientnew_view.caddmobile.setForeground(Color.RED);
             val = false;
-        } else if (!validate.validaTelefono(clientnew_view.addmobile.getText())) {
+        } else if (!validate.validaTelefono(clientnew_view.caddmobile.getText())) {
             clientnew_view.mobile_validate.setIcon(cancel);
-            clientnew_view.addmobile.setForeground(Color.RED);
+            clientnew_view.caddmobile.setForeground(Color.RED);
             val = false;
         } else {
             clientnew_view.mobile_validate.setIcon(ok);
-            clientnew_view.addmobile.setForeground(Green);
+            clientnew_view.caddmobile.setForeground(Green);
             val = true;
         }
         return val;
@@ -125,17 +125,17 @@ public class DAO_client {
 
     public static boolean pideemail() {
         boolean val = false;
-        if (clientnew_view.addemail.getText().isEmpty()) {
+        if (clientnew_view.caddemail.getText().isEmpty()) {
             clientnew_view.email_validate.setIcon(cancel);
-            clientnew_view.addemail.setForeground(Color.RED);
+            clientnew_view.caddemail.setForeground(Color.RED);
             val = false;
-        } else if (!validate.validaEmail(clientnew_view.addemail.getText())) {
+        } else if (!validate.validaEmail(clientnew_view.caddemail.getText())) {
             clientnew_view.email_validate.setIcon(cancel);
-            clientnew_view.addemail.setForeground(Color.RED);
+            clientnew_view.caddemail.setForeground(Color.RED);
             val = false;
         } else {
             clientnew_view.email_validate.setIcon(ok);
-            clientnew_view.addemail.setForeground(Green);
+            clientnew_view.caddemail.setForeground(Green);
             val = true;
         }
         return val;
@@ -143,13 +143,13 @@ public class DAO_client {
 
     public static boolean pideusuario() {
         boolean val = false;
-        if (clientnew_view.addnameuser.getText().isEmpty()) {
+        if (clientnew_view.caddnameuser.getText().isEmpty()) {
             clientnew_view.nameuser_validate.setIcon(cancel);
-            clientnew_view.addnameuser.setForeground(Color.RED);
+            clientnew_view.caddnameuser.setForeground(Color.RED);
             val = false;
         } else {
             clientnew_view.nameuser_validate.setIcon(ok);
-            clientnew_view.addnameuser.setForeground(Green);
+            clientnew_view.caddnameuser.setForeground(Green);
             val = true;
 
         }
@@ -158,13 +158,13 @@ public class DAO_client {
 
     public static boolean pidecontrasenya() {
         boolean val = false;
-        if (clientnew_view.addpassword.getText().isEmpty()) {
+        if (clientnew_view.caddpassword.getText().isEmpty()) {
             clientnew_view.password_validate.setIcon(cancel);
-            clientnew_view.addpassword.setForeground(Color.RED);
+            clientnew_view.caddpassword.setForeground(Color.RED);
             val = false;
         } else {
             clientnew_view.password_validate.setIcon(ok);
-            clientnew_view.addpassword.setForeground(Green);
+            clientnew_view.caddpassword.setForeground(Green);
             val = true;
 
         }
@@ -173,14 +173,14 @@ public class DAO_client {
 
     public static boolean pidecompras() {
         boolean val = false;
-        if (clientnew_view.addshopping.getText().isEmpty()) {
+        if (clientnew_view.caddshopping.getText().isEmpty()) {
             clientnew_view.validatesalary.setIcon(cancel);
-        } else if (!validate.validaCompras(clientnew_view.addshopping.getText())) {
+        } else if (!validate.validaCompras(clientnew_view.caddshopping.getText())) {
             clientnew_view.validatesalary.setIcon(cancel);
-            clientnew_view.addshopping.setForeground(Color.RED);
+            clientnew_view.caddshopping.setForeground(Color.RED);
         } else {
             clientnew_view.validatesalary.setIcon(ok);
-            clientnew_view.addshopping.setForeground(Green);
+            clientnew_view.caddshopping.setForeground(Green);
             val = true;
         }
         return val;
@@ -188,14 +188,14 @@ public class DAO_client {
 
     public static boolean pidetipo() {
         boolean val = false;
-        if (clientnew_view.addtype.getText().isEmpty()) {
+        if (clientnew_view.caddtype.getText().isEmpty()) {
             clientnew_view.validateactivity.setIcon(cancel);
-        } else if (!validate.validaTipo(clientnew_view.addtype.getText())) {
+        } else if (!validate.validaTipo(clientnew_view.caddtype.getText())) {
             clientnew_view.validateactivity.setIcon(cancel);
-            clientnew_view.addtype.setForeground(Color.RED);
+            clientnew_view.caddtype.setForeground(Color.RED);
         } else {
             clientnew_view.validateactivity.setIcon(ok);
-            clientnew_view.addtype.setForeground(Green);
+            clientnew_view.caddtype.setForeground(Green);
             val = true;
         }
         return val;
@@ -207,7 +207,7 @@ public class DAO_client {
         int resultado = 0;
         try {
             val = true;
-            Calendar date = clientnew_view.adddatebirthday.getCalendar();
+            Calendar date = clientnew_view.cadddatebirthday.getCalendar();
             fecha fe = new fecha();
             Calendar datesystem = fe.fechasystem();
 
@@ -244,12 +244,12 @@ public class DAO_client {
             val = true;
             //s = validatefecha(message, title);
             fecha datefecha = new fecha();
-            Calendar date = clientnew_view.addreg.getCalendar();
+            Calendar date = clientnew_view.caddreg.getCalendar();
             fecha fe = new fecha();
             //Calendar datesystem = new GregorianCalendar();
             Calendar datesystem = fe.fechasystem();
             fecha diferencia = new fecha();
-            Calendar datebirthday = clientnew_view.adddatebirthday.getCalendar();
+            Calendar datebirthday = clientnew_view.cadddatebirthday.getCalendar();
 
             if (date.after(datesystem)) {
                 jlblcreate.setText(singleton_global.translate.getProperty("future"));
@@ -283,21 +283,21 @@ public class DAO_client {
                 && pidetelefono() && pideemail() && pideusuario() && pidecontrasenya()
                 && pidefecharegistro() && pidecompras() && pidetipo()) {
 
-            String dni = clientnew_view.adddni.getText();
-            String name = clientnew_view.addname.getText();
-            String surname = clientnew_view.addsurname.getText();
-            String mobile = clientnew_view.addmobile.getText();
-            String email = clientnew_view.addemail.getText();
+            String dni = clientnew_view.adddnic.getText();
+            String name = clientnew_view.caddname.getText();
+            String surname = clientnew_view.caddsurname.getText();
+            String mobile = clientnew_view.caddmobile.getText();
+            String email = clientnew_view.caddemail.getText();
             fecha aux = new fecha();
-            String datebirthday = aux.calendartostring(clientnew_view.adddatebirthday.getCalendar(), 0);
-            String nameuser = clientnew_view.addnameuser.getText();
-            String passwd = clientnew_view.addpassword.getText();
-            String avatar = clientnew_view.addavatar.getText();
-            String status = clientnew_view.add_status.getSelectedItem().toString();
-            String up_date = aux.calendartostring(clientnew_view.addreg.getCalendar(), 0);
-            float shopping = Float.parseFloat(clientnew_view.addshopping.getText());
-            String premium = clientnew_view.addpremium.getSelectedItem().toString();
-            String clienttype = clientnew_view.addtype.getText();
+            String datebirthday = aux.calendartostring(clientnew_view.cadddatebirthday.getCalendar(), 0);
+            String nameuser = clientnew_view.caddnameuser.getText();
+            String passwd = clientnew_view.caddpassword.getText();
+            String avatar = clientnew_view.caddavatar.getText();
+            String status = clientnew_view.cadd_status.getSelectedItem().toString();
+            String up_date = aux.calendartostring(clientnew_view.caddreg.getCalendar(), 0);
+            float shopping = Float.parseFloat(clientnew_view.caddshopping.getText());
+            String premium = clientnew_view.caddpremium.getSelectedItem().toString();
+            String clienttype = clientnew_view.caddtype.getText();
 
             client clientcreate = new client(dni, name, surname, mobile, email, datebirthday,
 			nameuser, passwd, avatar, status, up_date, shopping,
@@ -316,21 +316,21 @@ public class DAO_client {
                 && pidetelefono() && pideemail() && pideusuario() && pidecontrasenya()
                 && pidefecharegistro() && pidecompras() && pidetipo()) {
 
-            String dni = clientnew_view.adddni.getText();
-            String name = clientnew_view.addname.getText();
-            String surname = clientnew_view.addsurname.getText();
-            String mobile = clientnew_view.addmobile.getText();
-            String email = clientnew_view.addemail.getText();
+            String dni = clientnew_view.adddnic.getText();
+            String name = clientnew_view.caddname.getText();
+            String surname = clientnew_view.caddsurname.getText();
+            String mobile = clientnew_view.caddmobile.getText();
+            String email = clientnew_view.caddemail.getText();
             fecha aux = new fecha();
-            String datebirthday = aux.calendartostring(clientnew_view.adddatebirthday.getCalendar(), 0);
-            String nameuser = clientnew_view.addnameuser.getText();
-            String passwd = clientnew_view.addpassword.getText();
-            String avatar = clientnew_view.addavatar.getText();
-            String status = clientnew_view.add_status.getSelectedItem().toString();
-            String update = aux.calendartostring(clientnew_view.addreg.getCalendar(), 0);
-            float shopping = Float.parseFloat(clientnew_view.addshopping.getText());
-            String premium = clientnew_view.addpremium.getSelectedItem().toString();
-            String type = clientnew_view.addtype.getText();
+            String datebirthday = aux.calendartostring(clientnew_view.cadddatebirthday.getCalendar(), 0);
+            String nameuser = clientnew_view.caddnameuser.getText();
+            String passwd = clientnew_view.caddpassword.getText();
+            String avatar = clientnew_view.caddavatar.getText();
+            String status = clientnew_view.cadd_status.getSelectedItem().toString();
+            String update = aux.calendartostring(clientnew_view.caddreg.getCalendar(), 0);
+            float shopping = Float.parseFloat(clientnew_view.caddshopping.getText());
+            String premium = clientnew_view.caddpremium.getSelectedItem().toString();
+            String type = clientnew_view.caddtype.getText();
             int inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
             selectedcli = TABLA.getSelectedRow();
             int selected1 = inicio + selectedcli;
@@ -357,27 +357,27 @@ public class DAO_client {
 
     public static void fillfields(int pos) {
         fecha aux = new fecha();
-        adddni.setText(singleton_client.client.getClient(pos).getDni());
-        addname.setText(singleton_client.client.getClient(pos).getName());
-        addsurname.setText(singleton_client.client.getClient(pos).getSubname());
-        addmobile.setText(singleton_client.client.getClient(pos).getMobile());
-        addemail.setText(singleton_client.client.getClient(pos).getEmail());
-        adddatebirthday.setCalendar(aux.stringtocalendar(singleton_client.client.getClient(pos).getDate_birthday()));
-        addnameuser.setText(singleton_client.client.getClient(pos).getUser());
-        addpassword.setText(singleton_client.client.getClient(pos).getPass());
-        addavatar.setText(singleton_client.client.getClient(pos).getAvatar());
-        add_status.setSelectedItem(singleton_client.client.getClient(pos).getState());
-        addreg.setCalendar(aux.stringtocalendar(singleton_client.client.getClient(pos).getUp_date()));
-        addshopping.setText(String.valueOf(singleton_client.client.getClient(pos).getShopping()));
-        addpremium.setSelectedItem(singleton_client.client.getClient(pos).getPremium());
-        addtype.setText(String.valueOf(singleton_client.client.getClient(pos).getClient_type()));
+        adddnic.setText(singleton_client.client.getClient(pos).getDni());
+        caddname.setText(singleton_client.client.getClient(pos).getName());
+        caddsurname.setText(singleton_client.client.getClient(pos).getSubname());
+        caddmobile.setText(singleton_client.client.getClient(pos).getMobile());
+        caddemail.setText(singleton_client.client.getClient(pos).getEmail());
+        cadddatebirthday.setCalendar(aux.stringtocalendar(singleton_client.client.getClient(pos).getDate_birthday()));
+        caddnameuser.setText(singleton_client.client.getClient(pos).getUser());
+        caddpassword.setText(singleton_client.client.getClient(pos).getPass());
+        caddavatar.setText(singleton_client.client.getClient(pos).getAvatar());
+        cadd_status.setSelectedItem(singleton_client.client.getClient(pos).getState());
+        caddreg.setCalendar(aux.stringtocalendar(singleton_client.client.getClient(pos).getUp_date()));
+        caddshopping.setText(String.valueOf(singleton_client.client.getClient(pos).getShopping()));
+        caddpremium.setSelectedItem(singleton_client.client.getClient(pos).getPremium());
+        caddtype.setText(String.valueOf(singleton_client.client.getClient(pos).getClient_type()));
         if("Premium".equals(singleton_client.client.getClient(pos).getPremium())){
-            adddesc.setText("10%");
+            cadddesc.setText("10%");
         }else{
-            adddesc.setText("0%");
+            cadddesc.setText("0%");
         }
         fecha years = new fecha();
-	addyearsservice.setText(Integer.toString(years.restafechas(years.stringtocalendar(singleton_client.client.getClient(pos).getUp_date()), years.fechasystem(), "years")));
+	caddyearsservice.setText(Integer.toString(years.restafechas(years.stringtocalendar(singleton_client.client.getClient(pos).getUp_date()), years.fechasystem(), "years")));
       
     }
 }

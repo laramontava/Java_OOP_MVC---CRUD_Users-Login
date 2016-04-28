@@ -69,6 +69,7 @@ public class regusernew_view extends javax.swing.JFrame {
         adddummies = new javax.swing.JButton();
         add_status = new javax.swing.JComboBox<>();
         addpoints = new javax.swing.JTextField();
+        logoutruser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -178,13 +179,24 @@ public class regusernew_view extends javax.swing.JFrame {
         getContentPane().add(createoredit, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 40, 20));
 
         adddummies.setText("Add dummies");
-        getContentPane().add(adddummies, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, -1, -1));
+        getContentPane().add(adddummies, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, -1, -1));
 
         add_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Online", "Offline" }));
         getContentPane().add(add_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 134, -1));
 
         addpoints.setEditable(false);
         getContentPane().add(addpoints, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, 120, -1));
+
+        logoutruser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/door-48.png"))); // NOI18N
+        logoutruser.setToolTipText("Cerrar sesión");
+        logoutruser.setBorder(null);
+        logoutruser.setContentAreaFilled(false);
+        logoutruser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logoutruser.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        logoutruser.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/door2-48.png"))); // NOI18N
+        logoutruser.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/door2-48.png"))); // NOI18N
+        logoutruser.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(logoutruser, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 440, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -227,6 +239,7 @@ public class regusernew_view extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     public static javax.swing.JLabel jlblcreate;
     public static javax.swing.JLabel jlblname;
+    public static javax.swing.JButton logoutruser;
     public static javax.swing.JLabel mobile_validate;
     public static javax.swing.JLabel name_validate;
     public static javax.swing.JLabel nameuser_validate;

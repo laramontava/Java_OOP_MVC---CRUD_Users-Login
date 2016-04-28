@@ -46,21 +46,20 @@ import javax.swing.table.TableRowSorter;
 import static app.modules.users.client.view.clientmanage_view.searchby;
 import app.modules.users.client.view.clientmanage_view;
 import app.modules.users.client.view.clientnew_view;
-import static app.modules.users.client.view.clientnew_view.addavatar;
-import static app.modules.users.client.view.clientnew_view.adddni;
 import static app.modules.users.client.view.clientnew_view.adddummies;
-import static app.modules.users.client.view.clientnew_view.addemail;
-import static app.modules.users.client.view.clientnew_view.addmobile;
-import static app.modules.users.client.view.clientnew_view.addname;
-import static app.modules.users.client.view.clientnew_view.addnameuser;
-import static app.modules.users.client.view.clientnew_view.addpassword;
-import static app.modules.users.client.view.clientnew_view.addshopping;
-import static app.modules.users.client.view.clientnew_view.addsurname;
-import static app.modules.users.client.view.clientnew_view.addtype;
 import static app.modules.users.client.view.clientnew_view.avataradd;
 import static app.modules.users.client.view.clientnew_view.jlblcreate;
 import static app.modules.users.client.view.clientnew_view.titlecreateedit;
-import java.awt.event.KeyAdapter;
+import static app.modules.users.client.view.clientnew_view.adddnic;
+import static app.modules.users.client.view.clientnew_view.caddname;
+import static app.modules.users.client.view.clientnew_view.caddsurname;
+import static app.modules.users.client.view.clientnew_view.caddmobile;
+import static app.modules.users.client.view.clientnew_view.caddemail;
+import static app.modules.users.client.view.clientnew_view.caddnameuser;
+import static app.modules.users.client.view.clientnew_view.caddpassword;
+import static app.modules.users.client.view.clientnew_view.caddavatar;
+import static app.modules.users.client.view.clientnew_view.caddshopping;
+import static app.modules.users.client.view.clientnew_view.caddtype;
 
 /**
  *
@@ -229,47 +228,47 @@ public class client_controller implements ActionListener, FocusListener, KeyList
             Crear.setSize(590, 571);
             Crear.setResizable(false);
             
-            clientnew_view.adddesc.setEditable(false);
-            clientnew_view.addyearsservice.setEditable(false);
+            clientnew_view.cadddesc.setEditable(false);
+            clientnew_view.caddyearsservice.setEditable(false);
 
-            clientnew_view.adddni.setActionCommand("jtxtDni");
-            clientnew_view.adddni.addKeyListener(this);
-            clientnew_view.adddni.addActionListener(this);
+            clientnew_view.adddnic.setActionCommand("jtxtDni");
+            clientnew_view.adddnic.addKeyListener(this);
+            clientnew_view.adddnic.addActionListener(this);
 
-            clientnew_view.addname.setActionCommand("jtxtName");
-            clientnew_view.addname.addKeyListener(this);
-            clientnew_view.addname.addActionListener(this);
+            clientnew_view.caddname.setActionCommand("jtxtName");
+            clientnew_view.caddname.addKeyListener(this);
+            clientnew_view.caddname.addActionListener(this);
 
-            clientnew_view.addsurname.setActionCommand("jtxtSurname");
-            clientnew_view.addsurname.addKeyListener(this);
-            clientnew_view.addsurname.addActionListener(this);
+            clientnew_view.caddsurname.setActionCommand("jtxtSurname");
+            clientnew_view.caddsurname.addKeyListener(this);
+            clientnew_view.caddsurname.addActionListener(this);
 
-            clientnew_view.addmobile.setActionCommand("jtxtMobile");
-            clientnew_view.addmobile.addKeyListener(this);
-            clientnew_view.addmobile.addActionListener(this);
+            clientnew_view.caddmobile.setActionCommand("jtxtMobile");
+            clientnew_view.caddmobile.addKeyListener(this);
+            clientnew_view.caddmobile.addActionListener(this);
 
-            clientnew_view.addemail.setActionCommand("jtxtEmail");
-            clientnew_view.addemail.addKeyListener(this);
-            clientnew_view.addemail.addActionListener(this);
+            clientnew_view.caddemail.setActionCommand("jtxtEmail");
+            clientnew_view.caddemail.addKeyListener(this);
+            clientnew_view.caddemail.addActionListener(this);
 
-            clientnew_view.addnameuser.setActionCommand("jtxtNameUser");
-            clientnew_view.addnameuser.addKeyListener(this);
-            clientnew_view.addnameuser.addActionListener(this);
+            clientnew_view.caddnameuser.setActionCommand("jtxtNameUser");
+            clientnew_view.caddnameuser.addKeyListener(this);
+            clientnew_view.caddnameuser.addActionListener(this);
 
-            clientnew_view.addpassword.setActionCommand("jtxtPasswd");
-            clientnew_view.addpassword.addKeyListener(this);
-            clientnew_view.addpassword.addActionListener(this);
+            clientnew_view.caddpassword.setActionCommand("jtxtPasswd");
+            clientnew_view.caddpassword.addKeyListener(this);
+            clientnew_view.caddpassword.addActionListener(this);
 
             clientnew_view.avataradd.setActionCommand("btnAvatar");
             clientnew_view.avataradd.addActionListener(this);
 
-            clientnew_view.addshopping.setActionCommand("jtxtShopping");
-            clientnew_view.addshopping.addKeyListener(this);
-            clientnew_view.addshopping.addActionListener(this);
+            clientnew_view.caddshopping.setActionCommand("jtxtShopping");
+            clientnew_view.caddshopping.addKeyListener(this);
+            clientnew_view.caddshopping.addActionListener(this);
 
-            clientnew_view.addtype.setActionCommand("jtxtType");
-            clientnew_view.addtype.addKeyListener(this);
-            clientnew_view.addtype.addActionListener(this);
+            clientnew_view.caddtype.setActionCommand("jtxtType");
+            clientnew_view.caddtype.addKeyListener(this);
+            clientnew_view.caddtype.addActionListener(this);
 
             clientnew_view.adddummies.setActionCommand("btnDummies");
             clientnew_view.adddummies.addActionListener(this);
@@ -289,7 +288,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                 }
             });
             
-            adddni.addKeyListener(new java.awt.event.KeyAdapter() {
+            adddnic.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     adddniKeyPressed(evt);
@@ -305,7 +304,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     adddniKeyTyped(evt);
                 }
             });
-            addname.addKeyListener(new java.awt.event.KeyAdapter() {
+            caddname.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addnameKeyPressed(evt);
@@ -321,7 +320,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     addnameKeyTyped(evt);
                 }
             });
-            addsurname.addKeyListener(new java.awt.event.KeyAdapter() {
+            caddsurname.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addsurnameKeyPressed(evt);
@@ -337,7 +336,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     addsurnameKeyTyped(evt);
                 }
             });
-            addmobile.addKeyListener(new java.awt.event.KeyAdapter() {
+            caddmobile.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addmobileKeyPressed(evt);
@@ -353,7 +352,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     addmobileKeyTyped(evt);
                 }
             });
-            addemail.addKeyListener(new java.awt.event.KeyAdapter() {
+            caddemail.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addemailKeyPressed(evt);
@@ -367,7 +366,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     addemailKeyTyped(evt);
                 }
             });
-            addnameuser.addKeyListener(new java.awt.event.KeyAdapter() {
+            caddnameuser.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addnameuserKeyPressed(evt);
@@ -381,7 +380,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     addnameuserKeyTyped(evt);
                 }
             });
-            addpassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            caddpassword.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addpasswordKeyPressed(evt);
@@ -395,7 +394,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     addpasswordKeyTyped(evt);
                 }
             });
-            addshopping.addKeyListener(new java.awt.event.KeyAdapter() {
+            caddshopping.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addshoppingKeyPressed(evt);
@@ -409,7 +408,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     addshoppingKeyTyped(evt);
                 }
             });
-            addtype.addKeyListener(new java.awt.event.KeyAdapter() {
+            caddtype.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addtypeKeyPressed(evt);
@@ -430,46 +429,46 @@ public class client_controller implements ActionListener, FocusListener, KeyList
             Modificar.setSize(590, 571);
             Modificar.setResizable(false);
             adddummies.setVisible(false);
-            BLL_client.LlenarCampos();
-            clientnew_view.adddesc.setEditable(false);
-            clientnew_view.addyearsservice.setEditable(false);
+            //BLL_client.LlenarCampos();
+            clientnew_view.cadddesc.setEditable(false);
+            clientnew_view.caddyearsservice.setEditable(false);
             titlecreateedit.setText(singleton_global.translate.getProperty("edittit"));
 
-            clientnew_view.adddni.setActionCommand("jtxtDni");
-            clientnew_view.adddni.addKeyListener(this);
-            clientnew_view.adddni.addActionListener(this);
+            clientnew_view.adddnic.setActionCommand("jtxtDni");
+            clientnew_view.adddnic.addKeyListener(this);
+            clientnew_view.adddnic.addActionListener(this);
 
-            clientnew_view.addname.setActionCommand("jtxtName");
-            clientnew_view.addname.addKeyListener(this);
-            clientnew_view.addname.addActionListener(this);
+            clientnew_view.caddname.setActionCommand("jtxtName");
+            clientnew_view.caddname.addKeyListener(this);
+            clientnew_view.caddname.addActionListener(this);
 
-            clientnew_view.addsurname.setActionCommand("jtxtSurname");
-            clientnew_view.addsurname.addKeyListener(this);
-            clientnew_view.addsurname.addActionListener(this);
+            clientnew_view.caddsurname.setActionCommand("jtxtSurname");
+            clientnew_view.caddsurname.addKeyListener(this);
+            clientnew_view.caddsurname.addActionListener(this);
 
-            clientnew_view.addmobile.setActionCommand("jtxtMobile");
-            clientnew_view.addmobile.addKeyListener(this);
-            clientnew_view.addmobile.addActionListener(this);
+            clientnew_view.caddmobile.setActionCommand("jtxtMobile");
+            clientnew_view.caddmobile.addKeyListener(this);
+            clientnew_view.caddmobile.addActionListener(this);
 
-            clientnew_view.addemail.setActionCommand("jtxtEmail");
-            clientnew_view.addemail.addKeyListener(this);
-            clientnew_view.addemail.addActionListener(this);
+            clientnew_view.caddemail.setActionCommand("jtxtEmail");
+            clientnew_view.caddemail.addKeyListener(this);
+            clientnew_view.caddemail.addActionListener(this);
 
-            clientnew_view.addnameuser.setActionCommand("jtxtNameUser");
-            clientnew_view.addnameuser.addKeyListener(this);
-            clientnew_view.addnameuser.addActionListener(this);
+            clientnew_view.caddnameuser.setActionCommand("jtxtNameUser");
+            clientnew_view.caddnameuser.addKeyListener(this);
+            clientnew_view.caddnameuser.addActionListener(this);
 
-            clientnew_view.addpassword.setActionCommand("jtxtPasswd");
-            clientnew_view.addpassword.addKeyListener(this);
-            clientnew_view.addpassword.addActionListener(this);
+            clientnew_view.caddpassword.setActionCommand("jtxtPasswd");
+            clientnew_view.caddpassword.addKeyListener(this);
+            clientnew_view.caddpassword.addActionListener(this);
 
-            clientnew_view.addshopping.setActionCommand("jtxtSalary");
-            clientnew_view.addshopping.addKeyListener(this);
-            clientnew_view.addshopping.addActionListener(this);
+            clientnew_view.caddshopping.setActionCommand("jtxtSalary");
+            clientnew_view.caddshopping.addKeyListener(this);
+            clientnew_view.caddshopping.addActionListener(this);
 
-            clientnew_view.adddesc.setActionCommand("jtxtActivity");
-            clientnew_view.adddesc.addKeyListener(this);
-            clientnew_view.adddesc.addActionListener(this);
+            clientnew_view.cadddesc.setActionCommand("jtxtActivity");
+            clientnew_view.cadddesc.addKeyListener(this);
+            clientnew_view.cadddesc.addActionListener(this);
 
             clientnew_view.adddummies.setActionCommand("btnDummies");
             clientnew_view.adddummies.addActionListener(this);
@@ -489,7 +488,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                 }
             });
             
-            adddni.addKeyListener(new java.awt.event.KeyAdapter() {
+            adddnic.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     adddniKeyPressed(evt);
@@ -505,7 +504,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     adddniKeyTyped(evt);
                 }
             });
-            addname.addKeyListener(new java.awt.event.KeyAdapter() {
+            caddname.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addnameKeyPressed(evt);
@@ -521,7 +520,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     addnameKeyTyped(evt);
                 }
             });
-            addsurname.addKeyListener(new java.awt.event.KeyAdapter() {
+            caddsurname.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addsurnameKeyPressed(evt);
@@ -537,7 +536,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     addsurnameKeyTyped(evt);
                 }
             });
-            addmobile.addKeyListener(new java.awt.event.KeyAdapter() {
+            caddmobile.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addmobileKeyPressed(evt);
@@ -553,7 +552,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     addmobileKeyTyped(evt);
                 }
             });
-            addemail.addKeyListener(new java.awt.event.KeyAdapter() {
+            caddemail.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addemailKeyPressed(evt);
@@ -567,7 +566,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     addemailKeyTyped(evt);
                 }
             });
-            addnameuser.addKeyListener(new java.awt.event.KeyAdapter() {
+            caddnameuser.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addnameuserKeyPressed(evt);
@@ -581,7 +580,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     addnameuserKeyTyped(evt);
                 }
             });
-            addpassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            caddpassword.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addpasswordKeyPressed(evt);
@@ -595,7 +594,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     addpasswordKeyTyped(evt);
                 }
             });
-            addshopping.addKeyListener(new java.awt.event.KeyAdapter() {
+            caddshopping.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addshoppingKeyPressed(evt);
@@ -609,7 +608,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     addshoppingKeyTyped(evt);
                 }
             });
-            addtype.addKeyListener(new java.awt.event.KeyAdapter() {
+            caddtype.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addtypeKeyPressed(evt);
@@ -641,6 +640,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
             case btnModificar:
                 if (BLL_client.Modificar()) {
                     new client_controller(new clientnew_view(), 2).Iniciar(2);
+                    BLL_client.LlenarCampos();
                     TableClient.dispose();
                 }
                 break;
@@ -751,7 +751,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                 if (option == JFileChooser.APPROVE_OPTION) {
                     String filename = dlg.getSelectedFile().getPath();
                     String fileurl = dlg.getSelectedFile().toString();
-                    addavatar.setText(fileurl);
+                    caddavatar.setText(fileurl);
                 }
                 break;
         }

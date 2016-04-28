@@ -62,6 +62,7 @@ import static app.modules.users.registered_user.view.regusernew_view.addpassword
 import static app.modules.users.registered_user.view.regusernew_view.addsurname;
 import static app.modules.users.registered_user.view.regusernew_view.avataradd;
 import static app.modules.users.registered_user.view.regusernew_view.jlblcreate;
+import static app.modules.users.registered_user.view.regusernew_view.logoutruser;
 import static app.modules.users.registered_user.view.regusernew_view.titlecreateedit;
 import javax.swing.JOptionPane;
 
@@ -123,6 +124,7 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
         btnDummies,
         btnCreate,
         btnCancel,
+        btnLogOut,
 
     }
 
@@ -421,7 +423,10 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
             adddummies.setVisible(false);
             //BLL_reguser.LlenarCampos();
             titlecreateedit.setText("Editar usuario registrado");
-
+            if(singleton_global.type=="ruser")
+                logoutruser.setVisible(true);
+            else
+                logoutruser.setVisible(false);
             regusernew_view.adddni.setActionCommand("jtxtDni");
             regusernew_view.adddni.addKeyListener(this);
             regusernew_view.adddni.addActionListener(this);
@@ -462,6 +467,9 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
 
             regusernew_view.cancelclient.setActionCommand("btnCancel");
             regusernew_view.cancelclient.addActionListener(this);
+            
+            regusernew_view.logoutruser.setActionCommand("btnLogOut");
+            regusernew_view.logoutruser.addActionListener(this);
 
             Modificar.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             addWindowListener(new WindowAdapter() {
@@ -743,6 +751,10 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                     String fileurl = dlg.getSelectedFile().toString();
                     addavatar.setText(fileurl);
                 }
+                break;
+            case btnLogOut:
+                JOptionPane.showMessageDialog(null, "Esperamos que vuelva pronto");
+                System.exit(0);
                 break;
         }
     }

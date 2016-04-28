@@ -37,7 +37,7 @@ public class main_view extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/user_manage.png"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(210, 30, 173, 181);
+        jLabel1.setBounds(190, 50, 173, 181);
         getContentPane().add(jLabel2);
         jLabel2.setBounds(365, 0, 42, 11);
 
@@ -101,15 +101,17 @@ public class main_view extends javax.swing.JFrame {
         getContentPane().add(btnreguser_main);
         btnreguser_main.setBounds(30, 220, 90, 80);
 
-        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/exit-48.png"))); // NOI18N
+        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/door-48.png"))); // NOI18N
         logout.setToolTipText("Cerrar sesión");
         logout.setBorder(null);
         logout.setContentAreaFilled(false);
         logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logout.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        logout.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/door2-48.png"))); // NOI18N
+        logout.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/door2-48.png"))); // NOI18N
         logout.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(logout);
-        logout.setBounds(170, 240, 97, 70);
+        logout.setBounds(350, 0, 49, 60);
 
         background_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/background_main.png"))); // NOI18N
         getContentPane().add(background_main);

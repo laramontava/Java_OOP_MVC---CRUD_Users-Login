@@ -24,29 +24,29 @@ public class clientnew_view extends javax.swing.JFrame {
     private void initComponents() {
 
         jlblname = new javax.swing.JLabel();
-        addname = new javax.swing.JTextField();
+        caddname = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        addsurname = new javax.swing.JTextField();
+        caddsurname = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        adddni = new javax.swing.JTextField();
+        adddnic = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        addmobile = new javax.swing.JTextField();
+        caddmobile = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        addemail = new javax.swing.JTextField();
+        caddemail = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        adddatebirthday = new com.toedter.calendar.JDateChooser();
+        cadddatebirthday = new com.toedter.calendar.JDateChooser();
         dni_validate = new javax.swing.JLabel();
         name_validate = new javax.swing.JLabel();
         surname_validate = new javax.swing.JLabel();
         mobile_validate = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        addnameuser = new javax.swing.JTextField();
+        caddnameuser = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        addpassword = new javax.swing.JPasswordField();
+        caddpassword = new javax.swing.JPasswordField();
         jLabel14 = new javax.swing.JLabel();
-        addavatar = new javax.swing.JTextField();
+        caddavatar = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        addpremium = new javax.swing.JComboBox<>();
+        caddpremium = new javax.swing.JComboBox<>();
         email_validate = new javax.swing.JLabel();
         avatar_validate = new javax.swing.JLabel();
         state_validate = new javax.swing.JLabel();
@@ -61,54 +61,54 @@ public class clientnew_view extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
-        addshopping = new javax.swing.JTextField();
+        caddshopping = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        adddesc = new javax.swing.JTextField();
+        cadddesc = new javax.swing.JTextField();
         validateactivity = new javax.swing.JLabel();
         validatesalary = new javax.swing.JLabel();
         validatebirthday = new javax.swing.JLabel();
         validate_cont = new javax.swing.JLabel();
         createoredit = new javax.swing.JLabel();
         adddummies = new javax.swing.JButton();
-        addreg = new com.toedter.calendar.JDateChooser();
+        caddreg = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        add_status = new javax.swing.JComboBox<>();
+        cadd_status = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
-        addtype = new javax.swing.JTextField();
-        addyearsservice = new javax.swing.JTextField();
+        caddtype = new javax.swing.JTextField();
+        caddyearsservice = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jlblname.setText("Nombre");
         getContentPane().add(jlblname, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 70, 20));
-        getContentPane().add(addname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 132, -1));
+        getContentPane().add(caddname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 132, -1));
 
         jLabel2.setText("Apellidos");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 70, 20));
-        getContentPane().add(addsurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 132, -1));
+        getContentPane().add(caddsurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 132, -1));
 
         jLabel3.setText("DNI");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 80, 20));
-        getContentPane().add(adddni, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 132, -1));
+        getContentPane().add(adddnic, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 132, -1));
 
         jLabel4.setText("Teléfono");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 70, 20));
-        getContentPane().add(addmobile, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 134, -1));
+        getContentPane().add(caddmobile, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 134, -1));
 
         jLabel5.setText("Email");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 70, 20));
-        getContentPane().add(addemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 134, -1));
+        getContentPane().add(caddemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 134, -1));
 
         jLabel6.setText("F. nacimiento");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 80, 20));
 
-        adddatebirthday.setToolTipText("");
-        adddatebirthday.setDateFormatString("dd-MM-yyyy");
-        adddatebirthday.setMaxSelectableDate(new java.util.Date(32503680084000L));
-        adddatebirthday.setMinSelectableDate(new java.util.Date(-2208985677000L));
-        getContentPane().add(adddatebirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 130, -1));
+        cadddatebirthday.setToolTipText("");
+        cadddatebirthday.setDateFormatString("dd-MM-yyyy");
+        cadddatebirthday.setMaxSelectableDate(new java.util.Date(32503680084000L));
+        cadddatebirthday.setMinSelectableDate(new java.util.Date(-2208985677000L));
+        getContentPane().add(cadddatebirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 130, -1));
         getContentPane().add(dni_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 28, 20));
         getContentPane().add(name_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 28, 20));
         getContentPane().add(surname_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 28, 20));
@@ -116,23 +116,23 @@ public class clientnew_view extends javax.swing.JFrame {
 
         jLabel12.setText("Usuario");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 60, 20));
-        getContentPane().add(addnameuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 134, -1));
+        getContentPane().add(caddnameuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 134, -1));
 
         jLabel13.setText("Contraseña");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 70, 20));
-        getContentPane().add(addpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 134, -1));
+        getContentPane().add(caddpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 134, -1));
 
         jLabel14.setText("Avatar");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 70, 20));
 
-        addavatar.setText("image.jpg");
-        getContentPane().add(addavatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 91, 84));
+        caddavatar.setText("image.jpg");
+        getContentPane().add(caddavatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 91, 84));
 
         jLabel15.setText("Estado");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 60, 20));
 
-        addpremium.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Premium", "Standard" }));
-        getContentPane().add(addpremium, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 130, -1));
+        caddpremium.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Premium", "Standard" }));
+        getContentPane().add(caddpremium, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 130, -1));
         getContentPane().add(email_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 30, 20));
         getContentPane().add(avatar_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
         getContentPane().add(state_validate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -177,11 +177,11 @@ public class clientnew_view extends javax.swing.JFrame {
 
         jLabel9.setText("Compras");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 70, 20));
-        getContentPane().add(addshopping, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, 120, -1));
+        getContentPane().add(caddshopping, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, 120, -1));
 
         jLabel10.setText("Años de servicio");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 80, 20));
-        getContentPane().add(adddesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 120, -1));
+        getContentPane().add(cadddesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 120, -1));
         getContentPane().add(validateactivity, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, 30, 20));
         getContentPane().add(validatesalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 30, 20));
         getContentPane().add(validatebirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 30, 20));
@@ -191,10 +191,10 @@ public class clientnew_view extends javax.swing.JFrame {
         adddummies.setText("Add dummies");
         getContentPane().add(adddummies, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 470, -1, -1));
 
-        addreg.setDateFormatString("dd-MM-yyyy");
-        addreg.setMaxSelectableDate(new java.util.Date(32503680118000L));
-        addreg.setMinSelectableDate(new java.util.Date(-2208985643000L));
-        getContentPane().add(addreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 130, -1));
+        caddreg.setDateFormatString("dd-MM-yyyy");
+        caddreg.setMaxSelectableDate(new java.util.Date(32503680118000L));
+        caddreg.setMinSelectableDate(new java.util.Date(-2208985643000L));
+        getContentPane().add(caddreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 130, -1));
 
         jLabel1.setText("Descuento");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 70, 20));
@@ -202,37 +202,37 @@ public class clientnew_view extends javax.swing.JFrame {
         jLabel11.setText("Premium");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 90, 20));
 
-        add_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Online", "Offline" }));
-        getContentPane().add(add_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 134, -1));
+        cadd_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Online", "Offline" }));
+        getContentPane().add(cadd_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 134, -1));
 
         jLabel16.setText("Tipo");
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, 70, 20));
-        getContentPane().add(addtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 120, -1));
-        getContentPane().add(addyearsservice, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 130, -1));
+        getContentPane().add(caddtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 120, -1));
+        getContentPane().add(caddyearsservice, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 130, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JComboBox<String> add_status;
-    public static javax.swing.JTextField addavatar;
-    public static com.toedter.calendar.JDateChooser adddatebirthday;
-    public static javax.swing.JTextField adddesc;
-    public static javax.swing.JTextField adddni;
+    public static javax.swing.JTextField adddnic;
     public static javax.swing.JButton adddummies;
-    public static javax.swing.JTextField addemail;
-    public static javax.swing.JTextField addmobile;
-    public static javax.swing.JTextField addname;
-    public static javax.swing.JTextField addnameuser;
-    public static javax.swing.JPasswordField addpassword;
-    public static javax.swing.JComboBox<String> addpremium;
-    public static com.toedter.calendar.JDateChooser addreg;
-    public static javax.swing.JTextField addshopping;
-    public static javax.swing.JTextField addsurname;
-    public static javax.swing.JTextField addtype;
-    public static javax.swing.JTextField addyearsservice;
     public static javax.swing.JLabel avatar_validate;
     public static javax.swing.JButton avataradd;
+    public static javax.swing.JComboBox<String> cadd_status;
+    public static javax.swing.JTextField caddavatar;
+    public static com.toedter.calendar.JDateChooser cadddatebirthday;
+    public static javax.swing.JTextField cadddesc;
+    public static javax.swing.JTextField caddemail;
+    public static javax.swing.JTextField caddmobile;
+    public static javax.swing.JTextField caddname;
+    public static javax.swing.JTextField caddnameuser;
+    public static javax.swing.JPasswordField caddpassword;
+    public static javax.swing.JComboBox<String> caddpremium;
+    public static com.toedter.calendar.JDateChooser caddreg;
+    public static javax.swing.JTextField caddshopping;
+    public static javax.swing.JTextField caddsurname;
+    public static javax.swing.JTextField caddtype;
+    public static javax.swing.JTextField caddyearsservice;
     public static javax.swing.JButton cancelclient;
     public static javax.swing.JButton createclient;
     public static javax.swing.JLabel createoredit;
