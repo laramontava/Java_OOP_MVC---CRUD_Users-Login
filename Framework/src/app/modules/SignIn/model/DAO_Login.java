@@ -32,36 +32,17 @@ public class DAO_Login {
         boolean login = false;
         ResultSet rs = null;
         PreparedStatement stmt = null;
-        String user=addusername.getText(),pass=addpass.getText();
-        System.out.println(addusername.getText());
-        System.out.println(addpass.getText());
         singleton.admin.getAdmins().clear();
         try {
-            stmt = _con.prepareStatement("SELECT * FROM admin WHERE user='"+user+"' AND pass='"+pass+"'");
+            stmt = _con.prepareStatement("SELECT * FROM admin WHERE user='"+addusername.getText()+"' AND pass='"+addpass.getText()+"'");
             rs = stmt.executeQuery();
-
             admin ad = null;
-
             while (rs.next()) {
-                ad = new admin();
-                ad.setDni(rs.getString("dni"));
-                ad.setName(rs.getString("name"));
-                ad.setSubname(rs.getString("subname"));
-                ad.setMobile(rs.getString("mobile"));
-                ad.setEmail(rs.getString("email"));
-                ad.setDate_birthday(rs.getString("date_birthday"));
-                ad.setUser(rs.getString("user"));
-                ad.setPass(rs.getString("pass"));
-                ad.setAvatar(rs.getString("avatar"));
-                ad.setState(rs.getString("state"));
-                ad.setHiring_date(rs.getString("hiring_date"));
-                ad.setSalary(rs.getFloat("salary"));
-                ad.setActivity(rs.getInt("activity"));
-                singleton.admin.AddAdmin(ad);
                 login = true;
             }
+            
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Ha habido un problema al obtener los usuarios");
+            JOptionPane.showMessageDialog(null, "Ha habido un problema al iniciar sesión");
         }
         return login;
     }

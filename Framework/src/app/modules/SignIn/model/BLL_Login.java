@@ -5,11 +5,24 @@
  */
 package app.modules.SignIn.model;
 
+import app.classes.ConnectionBBDD;
+import java.sql.Connection;
+
 /**
  *
  * @author Lara
  */
 public class BLL_Login {
+    public static boolean SignInAdmin(){
+        boolean login = false;
+        Connection _con = null;
+        ConnectionBBDD _conexion_DB = new ConnectionBBDD();
+        _con = _conexion_DB.getConexion();
+        login = DAO_Login.SignInAdmin(_con);
+        _conexion_DB.liberaConexion(_con);
+        return login;
+    }
+    
     public static boolean SignInRUser(){
         return DAO_Login.SignInRUser();
     }

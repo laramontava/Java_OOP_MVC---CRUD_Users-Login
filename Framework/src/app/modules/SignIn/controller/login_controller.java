@@ -86,11 +86,12 @@ public class login_controller implements ActionListener {
                 break;
             case btnLogIn:
                 if ("admin".equals(singleton_global.type)){
-                    new menu_controller(new main_view(),0).Iniciar(0);
-                    LogIn.dispose();
+                    if(BLL_Login.SignInAdmin()){
+                        new menu_controller(new main_view(),0).Iniciar(0);
+                        LogIn.dispose();
+                    }
                 } else if ("ruser".equals(singleton_global.type)){
                     if(BLL_Login.SignInRUser()){
-                        
                         LogIn.dispose();
                     }
                 }
