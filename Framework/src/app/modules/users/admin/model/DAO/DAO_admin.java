@@ -31,7 +31,11 @@ import javax.swing.JOptionPane;
  * @author Lara
  */
 public class DAO_admin {
-
+    
+    /**
+     * Devuelve si el DNI introducido es correcto o incorrecto
+     * @return val
+    */
     public static boolean pidedni() {
         int modulo, dninum;
         char numcalc;
@@ -70,7 +74,10 @@ public class DAO_admin {
         }
         return val;
     }
-
+    /**
+     * Devuelve si el nombre introducido es correcto o incorrecto
+     * @return val
+    */
     public static boolean pidenombre() {
         boolean val = false;
         if (adminnew_view.addname.getText().isEmpty()) {
@@ -88,7 +95,10 @@ public class DAO_admin {
         }
         return val;
     }
-
+    /**
+     * Devuelve si los apellidos introducidos son correctos o incorrectos
+     * @return val
+    */
     public static boolean pideapellidos() {
         boolean val = false;
         if (adminnew_view.addsurname.getText().isEmpty()) {
@@ -106,7 +116,10 @@ public class DAO_admin {
         }
         return val;
     }
-
+    /**
+     * Devuelve si el teléfono introducido es correcto o incorrecto
+     * @return val
+    */
     public static boolean pidetelefono() {
         boolean val = false;
         if (adminnew_view.addmobile.getText().isEmpty()) {
@@ -124,7 +137,10 @@ public class DAO_admin {
         }
         return val;
     }
-
+    /**
+     * Devuelve si el correo introducido es correcto o incorrecto
+     * @return val
+    */
     public static boolean pideemail() {
         boolean val = false;
         if (adminnew_view.addemail.getText().isEmpty()) {
@@ -142,7 +158,10 @@ public class DAO_admin {
         }
         return val;
     }
-
+    /**
+     * Devuelve si el nombre de usuario introducido es correcto o incorrecto
+     * @return val
+    */
     public static boolean pideusuario() {
         boolean val = false;
         if (adminnew_view.addnameuser.getText().isEmpty()) {
@@ -157,7 +176,10 @@ public class DAO_admin {
         }
         return val;
     }
-
+    /**
+     * Devuelve si la contraseña introducida es correcta o incorrecta
+     * @return val
+    */
     public static boolean pidecontrasenya() {
         boolean val = false;
         if (adminnew_view.addpassword.getText().isEmpty()) {
@@ -172,7 +194,10 @@ public class DAO_admin {
         }
         return val;
     }
-
+    /**
+     * Devuelve si el salario introducido es correcto o incorrecto
+     * @return val
+    */
     public static boolean pidesalario() {
         boolean val = false;
         if (adminnew_view.addsalary.getText().isEmpty()) {
@@ -187,7 +212,10 @@ public class DAO_admin {
         }
         return val;
     }
-
+    /**
+     * Devuelve si la actividad introducida es correcta o incorrecta
+     * @return val
+    */
     public static boolean pideactividad() {
         boolean val = false;
         if (adminnew_view.addactivity.getText().isEmpty()) {
@@ -202,7 +230,10 @@ public class DAO_admin {
         }
         return val;
     }
-
+    /**
+     * Devuelve si la fecha de nacimiento introducida es correcta o incorrecta
+     * @return val
+    */
     public static boolean pidefechanacimiento() {
         boolean val = true;
         int resultado = 0;
@@ -236,7 +267,10 @@ public class DAO_admin {
 
         return val;
     }
-
+    /**
+     * Devuelve si la fecha de contratación introducida es correcta o incorrecta
+     * @return val
+    */
     public static boolean pidefechacontratacion() {
         boolean val = true;
         int years = 0;
@@ -274,7 +308,10 @@ public class DAO_admin {
         return val;
 
     }
-
+    /**
+     * Devuelve si un admin se ha añadido correctamente en el array
+     * @return val
+    */
     public static boolean saveadmin() {
         boolean val = false;
         if (pidedni() && pidenombre() && pideapellidos() && pidefechanacimiento()
@@ -305,7 +342,10 @@ public class DAO_admin {
         }
         return val;
     }
-
+    /**
+     * Devuelve si un admin ha sido modificado correctamente
+     * @return val
+    */
     public static boolean saveeditadmin() {
         boolean val = false;
         if (pidedni() && pidenombre() && pideapellidos() && pidefechanacimiento()
@@ -346,7 +386,10 @@ public class DAO_admin {
         }
         return val;
     }
-
+    /**
+     * Saca la posición del objeto y rellena los campos con la información que este contiene
+     * @param pos
+    */
     public static void fillfields(int pos) {
         fecha aux = new fecha();
         adddni.setText(singleton.admin.getAdmin(pos).getDni());
@@ -365,6 +408,12 @@ public class DAO_admin {
     }
 
     /* ---- BBDD ----*/
+    /**
+     * Devuelve si la actividad introducida es correcta o incorrecta
+     * @param _con
+     * @return correct
+     * @throws java.sql.SQLException
+    */
     public static boolean guardarDatosAdmin(Connection _con) throws SQLException {
         boolean correct = false;
         PreparedStatement stmt = null;
@@ -394,7 +443,12 @@ public class DAO_admin {
         }
         return correct;
     }
-
+    /**
+     * Devuelve si se ha creado y se ha añadido correctamente un admin en la bbdd
+     * @param _con
+     * @return correct
+     * @throws java.sql.SQLException
+    */
     public static boolean crearAdmin(Connection _con) throws SQLException {
         boolean correct = false;
         PreparedStatement stmt = null;
@@ -434,7 +488,11 @@ public class DAO_admin {
         }
         return correct;
     }
-
+    /**
+     * Devuelve si se han podido leer los admins de la bbdd para mostrarlos en nuestra app
+     * @param _con
+     * @return correct
+    */
     public static boolean mostrarAdmin(Connection _con) {
         boolean correct = false;
         ResultSet rs = null;
@@ -471,7 +529,11 @@ public class DAO_admin {
         }
         return correct;
     }
-
+    /**
+     * Devuelve si se ha modificado correctamente un administrador en la bbdd
+     * @param _con
+     * @return correct
+    */
     public static boolean modificarAdmin(Connection _con) {
         boolean correct = false;
         PreparedStatement stmt = null;
@@ -514,7 +576,11 @@ public class DAO_admin {
         }
         return correct;
     }
-
+    /**
+     * Devuelve si se ha eliminado correctamente un administrador de la bbdd
+     * @param _con
+     * @return correct
+    */
     public static boolean eliminarAdmin(Connection _con) {
         boolean correct = false;
         PreparedStatement stmt = null;

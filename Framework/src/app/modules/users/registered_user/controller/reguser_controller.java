@@ -5,7 +5,11 @@
  */
 package app.modules.users.registered_user.controller;
 
+import app.classes.singleton_global;
 import static app.classes.singleton_global.Green;
+import app.modules.SignIn.controller.login_controller;
+import app.modules.SignIn.view.login;
+import static app.modules.SignIn.view.login.statuslog;
 import app.modules.menu.controller.menu_controller;
 import app.modules.menu.view.main_view;
 import app.modules.users.registered_user.model.BLL.BLL_reguser;
@@ -59,6 +63,7 @@ import static app.modules.users.registered_user.view.regusernew_view.addsurname;
 import static app.modules.users.registered_user.view.regusernew_view.avataradd;
 import static app.modules.users.registered_user.view.regusernew_view.jlblcreate;
 import static app.modules.users.registered_user.view.regusernew_view.titlecreateedit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -73,8 +78,7 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
     public static TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(new miniSimpleTableModel_reguser());
     public static AutocompleteJComboBox combo = null;
     int dia, mes, anyo;
-    
-    
+
     private FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de imagen", "jpg", "png", "gif");
     String rutaimagen = "";
 
@@ -226,7 +230,6 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
             Crear.setLocationRelativeTo(null);
             Crear.setSize(590, 571);
             Crear.setResizable(false);
-            
 
             regusernew_view.adddni.setActionCommand("jtxtDni");
             regusernew_view.adddni.addKeyListener(this);
@@ -280,7 +283,7 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                     new reguser_controller(new regusermanage_view(), 0).Iniciar(0);
                 }
             });
-            
+
             adddni.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -350,10 +353,12 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addemailKeyPressed(evt);
                 }
+
                 @Override
                 public void keyReleased(java.awt.event.KeyEvent evt) {
                     addemailKeyReleased(evt);
                 }
+
                 @Override
                 public void keyTyped(java.awt.event.KeyEvent evt) {
                     addemailKeyTyped(evt);
@@ -364,10 +369,12 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addnameuserKeyPressed(evt);
                 }
+
                 @Override
                 public void keyReleased(java.awt.event.KeyEvent evt) {
                     addnameuserKeyReleased(evt);
                 }
+
                 @Override
                 public void keyTyped(java.awt.event.KeyEvent evt) {
                     addnameuserKeyTyped(evt);
@@ -378,10 +385,12 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addpasswordKeyPressed(evt);
                 }
+
                 @Override
                 public void keyReleased(java.awt.event.KeyEvent evt) {
                     addpasswordKeyReleased(evt);
                 }
+
                 @Override
                 public void keyTyped(java.awt.event.KeyEvent evt) {
                     addpasswordKeyTyped(evt);
@@ -392,6 +401,7 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addactivityKeyPressed(evt);
                 }
+
                 @Override
                 public void keyReleased(java.awt.event.KeyEvent evt) {
                     addactivityKeyReleased(evt);
@@ -409,7 +419,7 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
             Modificar.setSize(590, 541);
             Modificar.setResizable(false);
             adddummies.setVisible(false);
-            BLL_reguser.LlenarCampos();
+            //BLL_reguser.LlenarCampos();
             titlecreateedit.setText("Editar usuario registrado");
 
             regusernew_view.adddni.setActionCommand("jtxtDni");
@@ -444,7 +454,6 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
             regusernew_view.addactivity.addKeyListener(this);
             regusernew_view.addactivity.addActionListener(this);
 
-
             regusernew_view.adddummies.setActionCommand("btnDummies");
             regusernew_view.adddummies.addActionListener(this);
 
@@ -462,7 +471,7 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                     new reguser_controller(new regusermanage_view(), 0).Iniciar(0);
                 }
             });
-            
+
             adddni.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
                 public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -532,10 +541,12 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addemailKeyPressed(evt);
                 }
+
                 @Override
                 public void keyReleased(java.awt.event.KeyEvent evt) {
                     addemailKeyReleased(evt);
                 }
+
                 @Override
                 public void keyTyped(java.awt.event.KeyEvent evt) {
                     addemailKeyTyped(evt);
@@ -546,10 +557,12 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addnameuserKeyPressed(evt);
                 }
+
                 @Override
                 public void keyReleased(java.awt.event.KeyEvent evt) {
                     addnameuserKeyReleased(evt);
                 }
+
                 @Override
                 public void keyTyped(java.awt.event.KeyEvent evt) {
                     addnameuserKeyTyped(evt);
@@ -560,10 +573,12 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addpasswordKeyPressed(evt);
                 }
+
                 @Override
                 public void keyReleased(java.awt.event.KeyEvent evt) {
                     addpasswordKeyReleased(evt);
                 }
+
                 @Override
                 public void keyTyped(java.awt.event.KeyEvent evt) {
                     addpasswordKeyTyped(evt);
@@ -574,6 +589,7 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     addactivityKeyPressed(evt);
                 }
+
                 @Override
                 public void keyReleased(java.awt.event.KeyEvent evt) {
                     addactivityKeyReleased(evt);
@@ -602,6 +618,7 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
             case btnModificar:
                 if (BLL_reguser.Modificar()) {
                     new reguser_controller(new regusernew_view(), 2).Iniciar(2);
+                    BLL_reguser.LlenarCampos();
                     TableReguser.dispose();
                 }
                 break;
@@ -683,10 +700,16 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                         jlblcreate.setForeground(Color.red);
                     }
                 } else if (BLL_reguser.Modificaradmin()) {
-                    new reguser_controller(new regusermanage_view(), 0).Iniciar(0);
-                    Modificar.dispose();
-                    statusnewadmin.setText("Usuario editado correctamente");
-                    statusnewadmin.setForeground(Green);
+                    if(singleton_global.type=="Admin"){
+                        new reguser_controller(new regusermanage_view(), 0).Iniciar(0);
+                        Modificar.dispose();
+                        statusnewadmin.setText("Usuario editado correctamente");
+                        statusnewadmin.setForeground(Green);
+                    } else {
+                        new login_controller(new login()).Iniciar();
+                        Modificar.dispose();
+                        statuslog.setText("Se ha cerrado la sesión");
+                    }
                 } else {
                     jlblcreate.setText("Asegúrate de haber introducido bien los datos");
                     jlblcreate.setForeground(Color.red);
@@ -699,10 +722,16 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
                     statusnewadmin.setText("Se ha cancelado la creación de un nuevo usuario");
                     statusnewadmin.setForeground(Color.red);
                 } else {
-                    new reguser_controller(new regusermanage_view(), 0).Iniciar(0);
-                    Modificar.dispose();
-                    statusnewadmin.setText("Se ha cancelado la modificación de un usuario");
-                    statusnewadmin.setForeground(Color.RED);
+                    if(singleton_global.type=="Admin"){
+                        new reguser_controller(new regusermanage_view(), 0).Iniciar(0);
+                        Modificar.dispose();
+                        statusnewadmin.setText("Se ha cancelado la modificación de un usuario");
+                        statusnewadmin.setForeground(Color.RED);
+                    } else {
+                        new login_controller(new login()).Iniciar();
+                        Modificar.dispose();
+                        statuslog.setText("Se ha cerrado la sesión");
+                    }
                 }
                 break;
             case btnAvatar:
@@ -772,7 +801,8 @@ public class reguser_controller implements ActionListener, FocusListener, KeyLis
     @Override
     public void mouseExited(MouseEvent e) {
     }
-private void adddniKeyPressed(java.awt.event.KeyEvent evt) {
+
+    private void adddniKeyPressed(java.awt.event.KeyEvent evt) {
         BLL_reguser.DniValidate();
     }
 
@@ -855,6 +885,7 @@ private void adddniKeyPressed(java.awt.event.KeyEvent evt) {
     private void addpasswordKeyTyped(java.awt.event.KeyEvent evt) {
         BLL_reguser.PasswordValidate();
     }
+
     private void addactivityKeyPressed(java.awt.event.KeyEvent evt) {
         BLL_reguser.ActivityValidate();
     }

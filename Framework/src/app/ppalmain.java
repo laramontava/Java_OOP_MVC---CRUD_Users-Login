@@ -5,6 +5,8 @@ import app.classes.ConnectionBBDD;
 import app.modules.menu.model.configuration;
 import app.modules.menu.model.idioma;
 import app.classes.singleton_global;
+import app.modules.SignIn.controller.login_controller;
+import app.modules.SignIn.view.login;
 import app.modules.menu.controller.menu_controller;
 import app.modules.menu.view.main_view;
 import app.modules.users.admin.model.BLL.Arraylist_admin;
@@ -62,17 +64,17 @@ public class ppalmain {
         singleton_reguser.reguser = new Arraylist_userreg();
         switch (singleton_global.conf.getFormat()) {
             case "json":
-                json.OpenJsonauto();
+                //json.OpenJsonauto();
                 //app.modules.users.client.model.BLL.lib_ficheros.json.OpenJsonauto();
                 app.modules.users.registered_user.model.BLL.lib_ficheros.json.OpenJsonauto();
                 break;
             case "txt":
-                txt.Opentxtauto();
+                //txt.Opentxtauto();
                 //app.modules.users.client.model.BLL.lib_ficheros.txt.Opentxtauto();
                 app.modules.users.registered_user.model.BLL.lib_ficheros.txt.Opentxtauto();
                 break;
             case "xml":
-                xml.Openxmlauto();
+                //xml.Openxmlauto();
                 //app.modules.users.client.model.BLL.lib_ficheros.xml.Openxmlauto();
                 app.modules.users.registered_user.model.BLL.lib_ficheros.xml.Openxmlauto();
                 break;
@@ -104,7 +106,8 @@ public class ppalmain {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new menu_controller(new main_view(),0).Iniciar(0);
+                //new menu_controller(new main_view(),0).Iniciar(0);
+                new login_controller(new login()).Iniciar();
             }
         });
     }

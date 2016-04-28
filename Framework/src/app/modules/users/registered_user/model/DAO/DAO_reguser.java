@@ -28,7 +28,9 @@ import java.util.Calendar;
  * @author Lara
  */
 public class DAO_reguser {
+
     public static int selectedcli;
+
     public static boolean pidedni() {
         int modulo, dninum;
         char numcalc;
@@ -220,8 +222,6 @@ public class DAO_reguser {
         return val;
     }
 
-    
-
     public static boolean savereguser() {
         boolean val = false;
         if (pidedni() && pidenombre() && pideapellidos() && pidefechanacimiento()
@@ -234,17 +234,17 @@ public class DAO_reguser {
             String mobile = regusernew_view.addmobile.getText();
             String email = regusernew_view.addemail.getText();
             fecha aux = new fecha();
-            String datebirthday="";
-            if(singleton_global.conf.getDate()=='a'){
+            String datebirthday = "";
+            if (singleton_global.conf.getDate() == 'a') {
                 datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 0);
-            } else if(singleton_global.conf.getDate()=='b'){
+            } else if (singleton_global.conf.getDate() == 'b') {
                 datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 1);
-            } else if(singleton_global.conf.getDate()=='c'){
+            } else if (singleton_global.conf.getDate() == 'c') {
                 datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 2);
             } else {
                 datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 3);
             }
-            
+
             String nameuser = regusernew_view.addnameuser.getText();
             String passwd = regusernew_view.addpassword.getText();
             String avatar = regusernew_view.addavatar.getText();
@@ -252,7 +252,7 @@ public class DAO_reguser {
             int activity = Integer.parseInt(regusernew_view.addactivity.getText());
 
             registered_user regusercreate = new registered_user(dni, name, surname, mobile, email, datebirthday,
-			nameuser, passwd, avatar, status, activity);
+                    nameuser, passwd, avatar, status, activity);
             singleton_reguser.reguser.AddUserreg(regusercreate);
             json.GenerateJsonauto();
             txt.Generatetxtauto();
@@ -267,46 +267,68 @@ public class DAO_reguser {
         if (pidedni() && pidenombre() && pideapellidos() && pidefechanacimiento()
                 && pidetelefono() && pideemail() && pideusuario() && pidecontrasenya()
                 && pideactividad()) {
-
-            String dni = regusernew_view.adddni.getText();
-            String name = regusernew_view.addname.getText();
-            String surname = regusernew_view.addsurname.getText();
-            String mobile = regusernew_view.addmobile.getText();
-            String email = regusernew_view.addemail.getText();
-            fecha aux = new fecha();
-            String datebirthday = "";
-            if(singleton_global.conf.getDate()=='a'){
-                datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 0);
-            } else if(singleton_global.conf.getDate()=='b'){
-                datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 1);
-            } else if(singleton_global.conf.getDate()=='c'){
-                datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 2);
+            if ("Admin".equals(singleton_global.type)) {
+                String dni = regusernew_view.adddni.getText();
+                String name = regusernew_view.addname.getText();
+                String surname = regusernew_view.addsurname.getText();
+                String mobile = regusernew_view.addmobile.getText();
+                String email = regusernew_view.addemail.getText();
+                fecha aux = new fecha();
+                String datebirthday = "";
+                if (singleton_global.conf.getDate() == 'a') {
+                    datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 0);
+                } else if (singleton_global.conf.getDate() == 'b') {
+                    datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 1);
+                } else if (singleton_global.conf.getDate() == 'c') {
+                    datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 2);
+                } else {
+                    datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 3);
+                }
+                String nameuser = regusernew_view.addnameuser.getText();
+                String passwd = regusernew_view.addpassword.getText();
+                String avatar = regusernew_view.addavatar.getText();
+                String status = regusernew_view.add_status.getSelectedItem().toString();
+                int activity = Integer.parseInt(regusernew_view.addactivity.getText());
+                int inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
+                selectedcli = TABLA.getSelectedRow();
+                int selected1 = inicio + selectedcli;
+                singleton_reguser.reguser.getClient(selected1).setDni(dni);
+                singleton_reguser.reguser.getClient(selected1).setName(name);
+                singleton_reguser.reguser.getClient(selected1).setSubname(surname);
+                singleton_reguser.reguser.getClient(selected1).setMobile(mobile);
+                singleton_reguser.reguser.getClient(selected1).setEmail(email);
+                singleton_reguser.reguser.getClient(selected1).setDate_birthday(datebirthday);
+                singleton_reguser.reguser.getClient(selected1).setUser(nameuser);
+                singleton_reguser.reguser.getClient(selected1).setPass(passwd);
+                singleton_reguser.reguser.getClient(selected1).setAvatar(avatar);
+                singleton_reguser.reguser.getClient(selected1).setState(status);
+                singleton_reguser.reguser.getClient(selected1).setActivity(activity);
+                val = true;
+                json.GenerateJsonauto();
+                txt.Generatetxtauto();
+                xml.Generatexmlauto();
             } else {
-                datebirthday = aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 3);
+                for (int i = 0; i < singleton_reguser.reguser.getUserreg().size(); i++) {
+                    if (singleton_reguser.reguser.getClient(i).getDni().equals(regusernew_view.adddni.getText())) {
+                        singleton_reguser.reguser.getClient(i).setDni(regusernew_view.adddni.getText());
+                        singleton_reguser.reguser.getClient(i).setName(regusernew_view.addname.getText());
+                        singleton_reguser.reguser.getClient(i).setSubname(regusernew_view.addsurname.getText());
+                        singleton_reguser.reguser.getClient(i).setMobile(regusernew_view.addmobile.getText());
+                        singleton_reguser.reguser.getClient(i).setEmail(regusernew_view.addemail.getText());
+                        fecha aux = new fecha();
+                        singleton_reguser.reguser.getClient(i).setDate_birthday(aux.calendartostring(regusernew_view.adddatebirthday.getCalendar(), 0));
+                        singleton_reguser.reguser.getClient(i).setUser(regusernew_view.addnameuser.getText());
+                        singleton_reguser.reguser.getClient(i).setPass(regusernew_view.addpassword.getText());
+                        singleton_reguser.reguser.getClient(i).setAvatar(regusernew_view.addavatar.getText());
+                        singleton_reguser.reguser.getClient(i).setState(regusernew_view.add_status.getSelectedItem().toString());
+                        singleton_reguser.reguser.getClient(i).setActivity(Integer.parseInt(regusernew_view.addactivity.getText()));
+                        json.GenerateJsonauto();
+                        txt.Generatetxtauto();
+                        xml.Generatexmlauto();
+                    }
+                }
+                val = true;
             }
-            String nameuser = regusernew_view.addnameuser.getText();
-            String passwd = regusernew_view.addpassword.getText();
-            String avatar = regusernew_view.addavatar.getText();
-            String status = regusernew_view.add_status.getSelectedItem().toString();
-            int activity = Integer.parseInt(regusernew_view.addactivity.getText());
-            int inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
-            selectedcli = TABLA.getSelectedRow();
-            int selected1 = inicio + selectedcli;
-            singleton_reguser.reguser.getClient(selected1).setDni(dni);
-            singleton_reguser.reguser.getClient(selected1).setName(name);
-            singleton_reguser.reguser.getClient(selected1).setSubname(surname);
-            singleton_reguser.reguser.getClient(selected1).setMobile(mobile);
-            singleton_reguser.reguser.getClient(selected1).setEmail(email);
-            singleton_reguser.reguser.getClient(selected1).setDate_birthday(datebirthday);
-            singleton_reguser.reguser.getClient(selected1).setUser(nameuser);
-            singleton_reguser.reguser.getClient(selected1).setPass(passwd);
-            singleton_reguser.reguser.getClient(selected1).setAvatar(avatar);
-            singleton_reguser.reguser.getClient(selected1).setState(status);
-            singleton_reguser.reguser.getClient(selected1).setActivity(activity);
-            val = true;
-            json.GenerateJsonauto();
-            txt.Generatetxtauto();
-            xml.Generatexmlauto();
         }
         return val;
     }
@@ -324,17 +346,17 @@ public class DAO_reguser {
         addavatar.setText(singleton_reguser.reguser.getClient(pos).getAvatar());
         add_status.setSelectedItem(singleton_reguser.reguser.getClient(pos).getState());
         addactivity.setText(Integer.toString(singleton_reguser.reguser.getClient(pos).getActivity()));
-        
-        if(singleton_reguser.reguser.getClient(pos).getActivity()<=999){
+
+        if (singleton_reguser.reguser.getClient(pos).getActivity() <= 999) {
             addkarma.setSelectedItem("Bajo");
-            addpoints.setText(Integer.toString(singleton_reguser.reguser.getClient(pos).getActivity()*5));
-        }else if((singleton_reguser.reguser.getClient(pos).getActivity()>=1000)&&
-                (singleton_reguser.reguser.getClient(pos).getActivity()<=4999)){
+            addpoints.setText(Integer.toString(singleton_reguser.reguser.getClient(pos).getActivity() * 5));
+        } else if ((singleton_reguser.reguser.getClient(pos).getActivity() >= 1000)
+                && (singleton_reguser.reguser.getClient(pos).getActivity() <= 4999)) {
             addkarma.setSelectedItem("Medio");
-            addpoints.setText(Integer.toString(singleton_reguser.reguser.getClient(pos).getActivity()*7));
-        }else if(singleton_reguser.reguser.getClient(pos).getActivity()>=5000){
+            addpoints.setText(Integer.toString(singleton_reguser.reguser.getClient(pos).getActivity() * 7));
+        } else if (singleton_reguser.reguser.getClient(pos).getActivity() >= 5000) {
             addkarma.setSelectedItem("Alto");
-            addpoints.setText(Integer.toString(singleton_reguser.reguser.getClient(pos).getActivity()*10));
+            addpoints.setText(Integer.toString(singleton_reguser.reguser.getClient(pos).getActivity() * 10));
         }
     }
 }

@@ -80,15 +80,11 @@ public class DAO_Mongo {
             cursor = singleton_global.collection.find();
             if(cursor.count()!=0){
                 for(int i = 0;i < cursor.size();i++){
-                    System.out.println("01");
                     BasicDBObject document = (BasicDBObject) cursor.next();
-                    System.out.println("02");
                     c = c.BBDD_to_client(document);
-                    System.out.println("03");
                     client j = new client(c.getDni(),c.getName(),c.getSubname(),c.getMobile(),c.getEmail(),c.getDate_birthday(),
                     c.getUser(),c.getPass(),c.getAvatar(),c.getState(),c.getUp_date(),c.getShopping(),c.getPremium(),c.getClient_type());
                     singleton_client.client.AddClient(j);
-                    
                 }
             }else{
                 System.out.println("NOT DATA"); 

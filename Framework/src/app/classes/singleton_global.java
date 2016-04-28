@@ -22,4 +22,6 @@ public class singleton_global {
         public static DB db = null;
         public static String nom_table = "";
         public static DBCollection collection = null;
+        
+        public static String type="";
 }

@@ -2,20 +2,21 @@
 <list>
   <Registered__user>
     <dni>54926412C</dni>
-    <name>Rafa</name>
-    <surname>Blanes</surname>
-    <mobile>888888888</mobile>
-    <email>dummie@dummie.com</email>
-    <datebirthday>26/09/1990</datebirthday>
-    <age>0</age>
-    <username>Dummie</username>
+    <name>Pepe Juan</name>
+    <surname>Blanes Kawaii</surname>
+    <mobile>666666666</mobile>
+    <email>dummie@gmail.com</email>
+    <datebirthday>14/09/1972</datebirthday>
+    <age>43</age>
+    <username>user</username>
     <password>1234</password>
-    <avatar>Avatar.jpg</avatar>
-    <state>Offline</state>
-    <ventajas>4995.0</ventajas>
-    <activity>999</activity>
-    <points>4995</points>
-    <karma2>0</karma2>
+    <avatar>Abatar.jpg</avatar>
+    <state>Online</state>
+    <ventajas>666660.0</ventajas>
+    <activity>66666</activity>
+    <karma>Hight</karma>
+    <points>666660</points>
+    <karma2>2</karma2>
   </Registered__user>
   <Registered__user>
     <dni>60107644L</dni>
@@ -58,15 +59,16 @@
     <mobile>888888888</mobile>
     <email>dummie@dummie.com</email>
     <datebirthday>26/09/1990</datebirthday>
-    <age>0</age>
+    <age>25</age>
     <username>Dummie</username>
     <password>1234</password>
     <avatar>Avatar.jpg</avatar>
     <state>Offline</state>
-    <ventajas>4995.0</ventajas>
-    <activity>999</activity>
-    <points>4995</points>
-    <karma2>0</karma2>
+    <ventajas>999990.0</ventajas>
+    <activity>99999</activity>
+    <karma>Hight</karma>
+    <points>999990</points>
+    <karma2>2</karma2>
   </Registered__user>
   <Registered__user>
     <dni>88876755V</dni>
@@ -75,13 +77,14 @@
     <mobile>888888888</mobile>
     <email>dummie@dummie.com</email>
     <datebirthday>26/09/1990</datebirthday>
-    <age>0</age>
-    <username>Dummie</username>
-    <password>1234</password>
+    <age>25</age>
+    <username>nanana</username>
+    <password>nanana</password>
     <avatar>Avatar.jpg</avatar>
     <state>Offline</state>
     <ventajas>4995.0</ventajas>
     <activity>999</activity>
+    <karma>Low</karma>
     <points>4995</points>
     <karma2>0</karma2>
   </Registered__user>
@@ -89,23 +92,6 @@
     <dni>56857477M</dni>
     <name>Felipe</name>
     <surname>Huertas</surname>
-    <mobile>888888888</mobile>
-    <email>dummie@dummie.com</email>
-    <datebirthday>26/09/1990</datebirthday>
-    <age>0</age>
-    <username>Dummie</username>
-    <password>1234</password>
-    <avatar>Avatar.jpg</avatar>
-    <state>Offline</state>
-    <ventajas>4995.0</ventajas>
-    <activity>999</activity>
-    <points>4995</points>
-    <karma2>0</karma2>
-  </Registered__user>
-  <Registered__user>
-    <dni>65202429M</dni>
-    <name>Josep</name>
-    <surname>Borreguero</surname>
     <mobile>888888888</mobile>
     <email>dummie@dummie.com</email>
     <datebirthday>26/09/1990</datebirthday>
