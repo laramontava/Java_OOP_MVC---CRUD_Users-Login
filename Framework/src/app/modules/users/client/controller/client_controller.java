@@ -7,6 +7,9 @@ package app.modules.users.client.controller;
 
 import app.classes.singleton_global;
 import static app.classes.singleton_global.Green;
+import app.modules.SignIn.controller.login_controller;
+import app.modules.SignIn.view.login;
+import static app.modules.SignIn.view.login.statuslog;
 import app.modules.menu.controller.menu_controller;
 import app.modules.menu.view.main_view;
 import app.modules.users.client.model.BLL.BLL_client;
@@ -60,6 +63,7 @@ import static app.modules.users.client.view.clientnew_view.caddpassword;
 import static app.modules.users.client.view.clientnew_view.caddavatar;
 import static app.modules.users.client.view.clientnew_view.caddshopping;
 import static app.modules.users.client.view.clientnew_view.caddtype;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -120,6 +124,7 @@ public class client_controller implements ActionListener, FocusListener, KeyList
         btnDummies,
         btnCreate,
         btnCancel,
+        btnLogOut
 
     }
 
@@ -479,6 +484,12 @@ public class client_controller implements ActionListener, FocusListener, KeyList
             clientnew_view.cancelclient.setActionCommand("btnCancel");
             clientnew_view.cancelclient.addActionListener(this);
 
+            clientnew_view.logoutclient.setActionCommand("btnLogOut");
+            clientnew_view.logoutclient.addActionListener(this);
+            
+            if(singleton_global.type=="admin"){
+                clientnew_view.logoutclient.setVisible(false);
+            }
             Modificar.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             addWindowListener(new WindowAdapter() {
                 @Override
@@ -722,10 +733,16 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                         jlblcreate.setForeground(Color.red);
                     }
                 } else if (BLL_client.Modificaradmin()) {
-                    new client_controller(new clientmanage_view(), 0).Iniciar(0);
-                    Modificar.dispose();
-                    statusnewadmin.setText("Cliente editado correctamente");
-                    statusnewadmin.setForeground(Green);
+                    if(singleton_global.type=="admin"){
+                        new client_controller(new clientmanage_view(), 0).Iniciar(0);
+                        Modificar.dispose();
+                        statusnewadmin.setText("Cliente editado correctamente");
+                        statusnewadmin.setForeground(Green);
+                    } else {
+                        new login_controller(new login()).Iniciar();
+                        Modificar.dispose();
+                        statuslog.setText("Se han guardado los cambios");
+                    }
                 } else {
                     jlblcreate.setText("Asegúrate de haber introducido bien los datos");
                     jlblcreate.setForeground(Color.red);
@@ -738,10 +755,16 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     statusnewadmin.setText("Se ha cancelado la creación de un nuevo cliente");
                     statusnewadmin.setForeground(Color.red);
                 } else {
-                    new client_controller(new clientmanage_view(), 0).Iniciar(0);
-                    Modificar.dispose();
-                    statusnewadmin.setText("Se ha cancelado la modificación de un cliente");
-                    statusnewadmin.setForeground(Color.RED);
+                    if(singleton_global.type=="admin"){
+                        new client_controller(new clientmanage_view(), 0).Iniciar(0);
+                        Modificar.dispose();
+                        statusnewadmin.setText("Se ha cancelado la modificación de un cliente");
+                        statusnewadmin.setForeground(Color.RED);
+                    } else {
+                        new login_controller(new login()).Iniciar();
+                        Modificar.dispose();
+                        statuslog.setText("Se han cancelado los cambios");
+                    }
                 }
                 break;
             case btnAvatar:
@@ -753,6 +776,10 @@ public class client_controller implements ActionListener, FocusListener, KeyList
                     String fileurl = dlg.getSelectedFile().toString();
                     caddavatar.setText(fileurl);
                 }
+                break;
+            case btnLogOut:
+                JOptionPane.showMessageDialog(null, "Esperamos que vuelva pronto");
+                System.exit(0);
                 break;
         }
     }

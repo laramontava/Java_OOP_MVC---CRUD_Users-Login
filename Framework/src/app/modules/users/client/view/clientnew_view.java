@@ -77,6 +77,7 @@ public class clientnew_view extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         caddtype = new javax.swing.JTextField();
         caddyearsservice = new javax.swing.JTextField();
+        logoutclient = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -189,7 +190,7 @@ public class clientnew_view extends javax.swing.JFrame {
         getContentPane().add(createoredit, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 40, 20));
 
         adddummies.setText("Add dummies");
-        getContentPane().add(adddummies, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 470, -1, -1));
+        getContentPane().add(adddummies, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, -1, -1));
 
         caddreg.setDateFormatString("dd-MM-yyyy");
         caddreg.setMaxSelectableDate(new java.util.Date(32503680118000L));
@@ -209,6 +210,17 @@ public class clientnew_view extends javax.swing.JFrame {
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, 70, 20));
         getContentPane().add(caddtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 120, -1));
         getContentPane().add(caddyearsservice, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 130, -1));
+
+        logoutclient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/door-48.png"))); // NOI18N
+        logoutclient.setToolTipText("Cerrar sesión");
+        logoutclient.setBorder(null);
+        logoutclient.setContentAreaFilled(false);
+        logoutclient.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logoutclient.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        logoutclient.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/door2-48.png"))); // NOI18N
+        logoutclient.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/menu/view/img/door2-48.png"))); // NOI18N
+        logoutclient.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(logoutclient, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -257,6 +269,7 @@ public class clientnew_view extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     public static javax.swing.JLabel jlblcreate;
     public static javax.swing.JLabel jlblname;
+    public static javax.swing.JButton logoutclient;
     public static javax.swing.JLabel mobile_validate;
     public static javax.swing.JLabel name_validate;
     public static javax.swing.JLabel nameuser_validate;
