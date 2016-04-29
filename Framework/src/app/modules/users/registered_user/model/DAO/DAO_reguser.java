@@ -267,7 +267,7 @@ public class DAO_reguser {
         if (pidedni() && pidenombre() && pideapellidos() && pidefechanacimiento()
                 && pidetelefono() && pideemail() && pideusuario() && pidecontrasenya()
                 && pideactividad()) {
-            if ("Admin".equals(singleton_global.type)) {
+            if ("admin".equals(singleton_global.type)) {
                 String dni = regusernew_view.adddni.getText();
                 String name = regusernew_view.addname.getText();
                 String surname = regusernew_view.addsurname.getText();

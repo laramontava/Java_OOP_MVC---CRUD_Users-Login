@@ -21,6 +21,7 @@ import app.utils.validate;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
 import java.awt.Color;
 import java.util.Calendar;
 
@@ -29,7 +30,9 @@ import java.util.Calendar;
  * @author Lara
  */
 public class DAO_client {
+
     public static int selectedcli;
+
     public static boolean pidedni() {
         int modulo, dninum;
         char numcalc;
@@ -300,8 +303,8 @@ public class DAO_client {
             String clienttype = clientnew_view.caddtype.getText();
 
             client clientcreate = new client(dni, name, surname, mobile, email, datebirthday,
-			nameuser, passwd, avatar, status, up_date, shopping,
-			premium, clienttype);
+                    nameuser, passwd, avatar, status, up_date, shopping,
+                    premium, clienttype);
             BLL_client.CreateClientMongo(clientcreate);
             singleton_client.client.AddClient(clientcreate);
 
@@ -315,42 +318,69 @@ public class DAO_client {
         if (pidedni() && pidenombre() && pideapellidos() && pidefechanacimiento()
                 && pidetelefono() && pideemail() && pideusuario() && pidecontrasenya()
                 && pidefecharegistro() && pidecompras() && pidetipo()) {
+            if ("admin".equals(singleton_global.type)) {
+                String dni = clientnew_view.adddnic.getText();
+                String name = clientnew_view.caddname.getText();
+                String surname = clientnew_view.caddsurname.getText();
+                String mobile = clientnew_view.caddmobile.getText();
+                String email = clientnew_view.caddemail.getText();
+                fecha aux = new fecha();
+                String datebirthday = aux.calendartostring(clientnew_view.cadddatebirthday.getCalendar(), 0);
+                String nameuser = clientnew_view.caddnameuser.getText();
+                String passwd = clientnew_view.caddpassword.getText();
+                String avatar = clientnew_view.caddavatar.getText();
+                String status = clientnew_view.cadd_status.getSelectedItem().toString();
+                String update = aux.calendartostring(clientnew_view.caddreg.getCalendar(), 0);
+                float shopping = Float.parseFloat(clientnew_view.caddshopping.getText());
+                String premium = clientnew_view.caddpremium.getSelectedItem().toString();
+                String type = clientnew_view.caddtype.getText();
+                int inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
+                selectedcli = TABLA.getSelectedRow();
+                int selected1 = inicio + selectedcli;
+                BLL_client.UpdateClientMongo(singleton_client.client.getClient(selected1).getDni());
+                singleton_client.client.getClient(selected1).setDni(dni);
+                singleton_client.client.getClient(selected1).setName(name);
+                singleton_client.client.getClient(selected1).setSubname(surname);
+                singleton_client.client.getClient(selected1).setMobile(mobile);
+                singleton_client.client.getClient(selected1).setEmail(email);
+                singleton_client.client.getClient(selected1).setDate_birthday(datebirthday);
+                singleton_client.client.getClient(selected1).setUser(nameuser);
+                singleton_client.client.getClient(selected1).setPass(passwd);
+                singleton_client.client.getClient(selected1).setAvatar(avatar);
+                singleton_client.client.getClient(selected1).setState(status);
+                singleton_client.client.getClient(selected1).setUp_date(update);
+                singleton_client.client.getClient(selected1).setShopping(shopping);
+                singleton_client.client.getClient(selected1).setPremium(premium);
+                singleton_client.client.getClient(selected1).setClient_type(type);
 
-            String dni = clientnew_view.adddnic.getText();
-            String name = clientnew_view.caddname.getText();
-            String surname = clientnew_view.caddsurname.getText();
-            String mobile = clientnew_view.caddmobile.getText();
-            String email = clientnew_view.caddemail.getText();
-            fecha aux = new fecha();
-            String datebirthday = aux.calendartostring(clientnew_view.cadddatebirthday.getCalendar(), 0);
-            String nameuser = clientnew_view.caddnameuser.getText();
-            String passwd = clientnew_view.caddpassword.getText();
-            String avatar = clientnew_view.caddavatar.getText();
-            String status = clientnew_view.cadd_status.getSelectedItem().toString();
-            String update = aux.calendartostring(clientnew_view.caddreg.getCalendar(), 0);
-            float shopping = Float.parseFloat(clientnew_view.caddshopping.getText());
-            String premium = clientnew_view.caddpremium.getSelectedItem().toString();
-            String type = clientnew_view.caddtype.getText();
-            int inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
-            selectedcli = TABLA.getSelectedRow();
-            int selected1 = inicio + selectedcli;
-            BLL_client.UpdateClientMongo(singleton_client.client.getClient(selected1).getDni());
-            singleton_client.client.getClient(selected1).setDni(dni);
-            singleton_client.client.getClient(selected1).setName(name);
-            singleton_client.client.getClient(selected1).setSubname(surname);
-            singleton_client.client.getClient(selected1).setMobile(mobile);
-            singleton_client.client.getClient(selected1).setEmail(email);
-            singleton_client.client.getClient(selected1).setDate_birthday(datebirthday);
-            singleton_client.client.getClient(selected1).setUser(nameuser);
-            singleton_client.client.getClient(selected1).setPass(passwd);
-            singleton_client.client.getClient(selected1).setAvatar(avatar);
-            singleton_client.client.getClient(selected1).setState(status);
-            singleton_client.client.getClient(selected1).setUp_date(update);
-            singleton_client.client.getClient(selected1).setShopping(shopping);
-            singleton_client.client.getClient(selected1).setPremium(premium);
-            singleton_client.client.getClient(selected1).setClient_type(type);
-            
-            val = true;
+                val = true;
+            } else {
+                client c = new client();
+                DBCursor cursor = singleton_global.collection.find(new BasicDBObject().append("dni", adddnic.getText()));
+                for (int i = 0; i < cursor.size(); i++) {
+                    BasicDBObject document = (BasicDBObject) cursor.next();
+                    c = c.BBDD_to_client(document);
+                    if (c.getDni().equals(adddnic.getText())) {
+                        c.setDni(clientnew_view.adddnic.getText());
+                        c.setName(clientnew_view.caddname.getText());
+                        c.setSubname(clientnew_view.caddsurname.getText());
+                        c.setMobile(clientnew_view.caddmobile.getText());
+                        c.setEmail(clientnew_view.caddemail.getText());
+                        fecha aux = new fecha();
+                        c.setDate_birthday(aux.calendartostring(clientnew_view.cadddatebirthday.getCalendar(), 0));
+                        c.setUser(clientnew_view.caddnameuser.getText());
+                        c.setPass(clientnew_view.caddpassword.getText());
+                        c.setAvatar(clientnew_view.caddavatar.getText());
+                        c.setState(clientnew_view.cadd_status.getSelectedItem().toString());
+                        c.setUp_date(aux.calendartostring(clientnew_view.caddreg.getCalendar(),0));
+                        c.setShopping(Float.parseFloat(clientnew_view.caddshopping.getText()));
+                        c.setPremium(clientnew_view.caddpremium.getSelectedItem().toString());
+                        c.setClient_type(clientnew_view.caddtype.getText());
+                        BLL_client.UpdateClientMongo(c.getDni());
+                    }
+                }
+                val = true;
+            }
         }
         return val;
     }
@@ -371,13 +401,13 @@ public class DAO_client {
         caddshopping.setText(String.valueOf(singleton_client.client.getClient(pos).getShopping()));
         caddpremium.setSelectedItem(singleton_client.client.getClient(pos).getPremium());
         caddtype.setText(String.valueOf(singleton_client.client.getClient(pos).getClient_type()));
-        if("Premium".equals(singleton_client.client.getClient(pos).getPremium())){
+        if ("Premium".equals(singleton_client.client.getClient(pos).getPremium())) {
             cadddesc.setText("10%");
-        }else{
+        } else {
             cadddesc.setText("0%");
         }
         fecha years = new fecha();
-	caddyearsservice.setText(Integer.toString(years.restafechas(years.stringtocalendar(singleton_client.client.getClient(pos).getUp_date()), years.fechasystem(), "years")));
-      
+        caddyearsservice.setText(Integer.toString(years.restafechas(years.stringtocalendar(singleton_client.client.getClient(pos).getUp_date()), years.fechasystem(), "years")));
+
     }
 }
