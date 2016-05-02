@@ -51,11 +51,13 @@ public class login extends javax.swing.JFrame {
         jLabel2.setText("Password");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, -1, -1));
 
-        signin.setText("Sign In");
-        getContentPane().add(signin, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
+        signin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/SignIn/view/img/signin.png"))); // NOI18N
+        signin.setToolTipText("Sign In");
+        getContentPane().add(signin, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, -1));
 
-        exit.setText("Exit");
-        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
+        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/modules/SignIn/view/img/stopapp.png"))); // NOI18N
+        exit.setToolTipText("Exit");
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, -1, -1));
 
         btnadmin.setText("Admin");
         signusers.add(btnadmin);

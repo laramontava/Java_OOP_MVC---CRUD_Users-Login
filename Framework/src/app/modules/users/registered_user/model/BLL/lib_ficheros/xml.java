@@ -19,6 +19,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 @SuppressWarnings("deprecation")
 public class xml {
     private static final String ENCODING = "UTF-8";
+    /**
+     * Genera un fichero xml
+     */
     public static void Generatexml() {
     	String PATH=null;
 		try {
@@ -51,7 +54,9 @@ public class xml {
 	    	JOptionPane.showMessageDialog(null, "Error al grabar el XML", "Error", JOptionPane.ERROR_MESSAGE);
 	    } 
     }
-    
+    /**
+     * Abre un fichero xml
+     */
     @SuppressWarnings("unchecked")
 	public static void Openxml() {
     	String PATH=null;
@@ -73,7 +78,9 @@ public class xml {
         	JOptionPane.showMessageDialog(null, "Error al leer el XML", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+    /**
+     * Genera un fichero automáticamente
+     */
     public static void Generatexmlauto() {
     	String PATH=null;
 		try {
@@ -102,7 +109,9 @@ public class xml {
 	    	JOptionPane.showMessageDialog(null, "Error al grabar el XML", "Error", JOptionPane.ERROR_MESSAGE);
 	    } 
     }
-    
+    /**
+     * Abre un fichero automáticamente
+     */
     @SuppressWarnings("unchecked")
 	public static void Openxmlauto() {
     	String PATH=null;

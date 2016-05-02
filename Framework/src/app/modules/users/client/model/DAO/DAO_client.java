@@ -32,7 +32,10 @@ import java.util.Calendar;
 public class DAO_client {
 
     public static int selectedcli;
-
+    /**
+     * Indica si el dni es correcto
+     * @return True si es correcto
+    */
     public static boolean pidedni() {
         int modulo, dninum;
         char numcalc;
@@ -71,7 +74,10 @@ public class DAO_client {
         }
         return val;
     }
-
+    /**
+     * Indica si el nombre es correcto
+     * @return True si es correcto
+    */
     public static boolean pidenombre() {
         boolean val = false;
         if (clientnew_view.caddname.getText().isEmpty()) {
@@ -89,7 +95,10 @@ public class DAO_client {
         }
         return val;
     }
-
+    /**
+     * Indica si el apellido es correcto
+     * @return True si es correcto
+    */
     public static boolean pideapellidos() {
         boolean val = false;
         if (clientnew_view.caddsurname.getText().isEmpty()) {
@@ -107,7 +116,10 @@ public class DAO_client {
         }
         return val;
     }
-
+    /**
+     * Indica si el teléfono es correcto
+     * @return True si es correcto
+    */
     public static boolean pidetelefono() {
         boolean val = false;
         if (clientnew_view.caddmobile.getText().isEmpty()) {
@@ -125,7 +137,10 @@ public class DAO_client {
         }
         return val;
     }
-
+    /**
+     * Indica si el correo es correcto
+     * @return True si es correcto
+    */
     public static boolean pideemail() {
         boolean val = false;
         if (clientnew_view.caddemail.getText().isEmpty()) {
@@ -143,7 +158,10 @@ public class DAO_client {
         }
         return val;
     }
-
+    /**
+     * Indica si el nombre de usuario es correcto
+     * @return True si es correcto
+    */
     public static boolean pideusuario() {
         boolean val = false;
         if (clientnew_view.caddnameuser.getText().isEmpty()) {
@@ -158,7 +176,10 @@ public class DAO_client {
         }
         return val;
     }
-
+    /**
+     * Indica si la contraseña es correcta
+     * @return True si es correcto
+    */
     public static boolean pidecontrasenya() {
         boolean val = false;
         if (clientnew_view.caddpassword.getText().isEmpty()) {
@@ -173,7 +194,10 @@ public class DAO_client {
         }
         return val;
     }
-
+    /**
+     * Indica si el número de compras es correcto
+     * @return True si es correcto
+    */
     public static boolean pidecompras() {
         boolean val = false;
         if (clientnew_view.caddshopping.getText().isEmpty()) {
@@ -188,7 +212,10 @@ public class DAO_client {
         }
         return val;
     }
-
+    /**
+     * Indica si el tipo de cliente es correcto
+     * @return True si es correcto
+    */
     public static boolean pidetipo() {
         boolean val = false;
         if (clientnew_view.caddtype.getText().isEmpty()) {
@@ -203,7 +230,10 @@ public class DAO_client {
         }
         return val;
     }
-
+    /**
+     * Indica si la fecha de nacimiento es correcta
+     * @return True si es correcto
+    */
     public static boolean pidefechanacimiento() {
         String s = "";
         boolean val = true;
@@ -238,7 +268,10 @@ public class DAO_client {
 
         return val;
     }
-
+    /**
+     * Indica si la fecha de registro es correcta
+     * @return True si es correcto
+    */
     public static boolean pidefecharegistro() {
         String s = "";
         boolean val = true;
@@ -279,7 +312,10 @@ public class DAO_client {
         return val;
 
     }
-
+    /**
+     * Comprueba que los datos sean correctos y añade un nuevo cliente
+     * @return True si se ha guardado correctamente
+    */
     public static boolean saveclient() {
         boolean val = false;
         if (pidedni() && pidenombre() && pideapellidos() && pidefechanacimiento()
@@ -312,7 +348,10 @@ public class DAO_client {
         }
         return val;
     }
-
+    /**
+     * Comprueba que todos los datos sean correctos y los guarda sobre los antiguos
+     * @return True si se ha modificado correctamente
+    */
     public static boolean saveeditclient() {
         boolean val = false;
         if (pidedni() && pidenombre() && pideapellidos() && pidefechanacimiento()
@@ -384,7 +423,10 @@ public class DAO_client {
         }
         return val;
     }
-
+    /**
+     * Con la posición del cliente saca su información y rellena el formulario
+     * @param pos Posición del cliente en el array
+    */
     public static void fillfields(int pos) {
         fecha aux = new fecha();
         adddnic.setText(singleton_client.client.getClient(pos).getDni());

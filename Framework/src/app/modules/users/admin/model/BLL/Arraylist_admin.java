@@ -27,7 +27,10 @@ public class Arraylist_admin {
     public admin getAdmin(int pos) {
         return admins.get(pos);
     }
-
+    /**
+     * Añade un nuevo admin al array
+     * @param admind 
+     */
     public void AddAdmin(admin admind) {
         boolean asd = true;
         
@@ -41,11 +44,14 @@ public class Arraylist_admin {
             admins.add(admind);
         }
     }
-
+    /**
+     * Añade dummies al array
+     * @param admind Recoge el nuevo objeto
+     */
     public void AddDummies(admin admind) {
         admins.add(admind);
     }
-
+    
     public void editadmin(admin admind) {
         int pos = -1;
         if (admins.isEmpty()) {

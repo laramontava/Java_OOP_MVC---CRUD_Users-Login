@@ -20,11 +20,17 @@ import com.mongodb.DBCursor;
  * @author Lara
  */
 public class DAO_Mongo {
-    //Crear
+    /**
+     * Crea un nuevo cliente y lo guarda en la bbdd
+     * @param c 
+     */
     public static void create_client(client c) {
         singleton_global.collection.insert(c.Client_to_BBDD());
     }
-    //Modificar
+    /**
+     * Selecciona un cliente por el DNI y modifica sus campos
+     * @param dni 
+     */
     public static void update_client(String dni) {
         fecha aux = new fecha();
         //Prepara para insertar un nuevo campo
@@ -69,10 +75,16 @@ public class DAO_Mongo {
         singleton_global.collection.updateMulti(searchById, updatePremium);
         singleton_global.collection.updateMulti(searchById, updateClient_type);
     }
+    /**
+     * Selecciona un cliente por su DNI y lo elimina
+     * @param dni 
+     */
     public static void delete_client(String dni) {
         singleton_global.collection.remove(new BasicDBObject().append("dni", dni));
     }
-   
+   /**
+    * Lee todos los clientes de la bbdd para mostrarlos en nuestra app
+    */
     public static void read_client() {
         DBCursor cursor = null;
         client c = new client();

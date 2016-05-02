@@ -34,7 +34,7 @@ public class DAO_admin {
     
     /**
      * Devuelve si el DNI introducido es correcto o incorrecto
-     * @return val
+     * @return True si es correcto
     */
     public static boolean pidedni() {
         int modulo, dninum;
@@ -76,7 +76,7 @@ public class DAO_admin {
     }
     /**
      * Devuelve si el nombre introducido es correcto o incorrecto
-     * @return val
+     * @return True si es correcto
     */
     public static boolean pidenombre() {
         boolean val = false;
@@ -97,7 +97,7 @@ public class DAO_admin {
     }
     /**
      * Devuelve si los apellidos introducidos son correctos o incorrectos
-     * @return val
+     * @return True si es correcto
     */
     public static boolean pideapellidos() {
         boolean val = false;
@@ -118,7 +118,7 @@ public class DAO_admin {
     }
     /**
      * Devuelve si el teléfono introducido es correcto o incorrecto
-     * @return val
+     * @return True si es correcto
     */
     public static boolean pidetelefono() {
         boolean val = false;
@@ -139,7 +139,7 @@ public class DAO_admin {
     }
     /**
      * Devuelve si el correo introducido es correcto o incorrecto
-     * @return val
+     * @return True si es correcto
     */
     public static boolean pideemail() {
         boolean val = false;
@@ -160,7 +160,7 @@ public class DAO_admin {
     }
     /**
      * Devuelve si el nombre de usuario introducido es correcto o incorrecto
-     * @return val
+     * @return True si es correcto
     */
     public static boolean pideusuario() {
         boolean val = false;
@@ -178,7 +178,7 @@ public class DAO_admin {
     }
     /**
      * Devuelve si la contraseña introducida es correcta o incorrecta
-     * @return val
+     * @return True si es correcto
     */
     public static boolean pidecontrasenya() {
         boolean val = false;
@@ -196,7 +196,7 @@ public class DAO_admin {
     }
     /**
      * Devuelve si el salario introducido es correcto o incorrecto
-     * @return val
+     * @return True si es correcto
     */
     public static boolean pidesalario() {
         boolean val = false;
@@ -214,7 +214,7 @@ public class DAO_admin {
     }
     /**
      * Devuelve si la actividad introducida es correcta o incorrecta
-     * @return val
+     * @return True si es correcto
     */
     public static boolean pideactividad() {
         boolean val = false;
@@ -232,7 +232,7 @@ public class DAO_admin {
     }
     /**
      * Devuelve si la fecha de nacimiento introducida es correcta o incorrecta
-     * @return val
+     * @return True si es correcto
     */
     public static boolean pidefechanacimiento() {
         boolean val = true;
@@ -269,7 +269,7 @@ public class DAO_admin {
     }
     /**
      * Devuelve si la fecha de contratación introducida es correcta o incorrecta
-     * @return val
+     * @return True si es correcto
     */
     public static boolean pidefechacontratacion() {
         boolean val = true;
@@ -310,7 +310,7 @@ public class DAO_admin {
     }
     /**
      * Devuelve si un admin se ha añadido correctamente en el array
-     * @return val
+     * @return True si es correcto
     */
     public static boolean saveadmin() {
         boolean val = false;
@@ -344,7 +344,7 @@ public class DAO_admin {
     }
     /**
      * Devuelve si un admin ha sido modificado correctamente
-     * @return val
+     * @return True si es correcto
     */
     public static boolean saveeditadmin() {
         boolean val = false;
@@ -388,7 +388,7 @@ public class DAO_admin {
     }
     /**
      * Saca la posición del objeto y rellena los campos con la información que este contiene
-     * @param pos
+     * @param pos posición del admin en el array
     */
     public static void fillfields(int pos) {
         fecha aux = new fecha();
@@ -409,9 +409,9 @@ public class DAO_admin {
 
     /* ---- BBDD ----*/
     /**
-     * Devuelve si la actividad introducida es correcta o incorrecta
+     * Guarda un admin en la bbdd
      * @param _con
-     * @return correct
+     * @return True si se ha guardado correctamente
      * @throws java.sql.SQLException
     */
     public static boolean guardarDatosAdmin(Connection _con) throws SQLException {
@@ -446,7 +446,7 @@ public class DAO_admin {
     /**
      * Devuelve si se ha creado y se ha añadido correctamente un admin en la bbdd
      * @param _con
-     * @return correct
+     * @return True si se ha creado el admin correctamente
      * @throws java.sql.SQLException
     */
     public static boolean crearAdmin(Connection _con) throws SQLException {
@@ -491,7 +491,7 @@ public class DAO_admin {
     /**
      * Devuelve si se han podido leer los admins de la bbdd para mostrarlos en nuestra app
      * @param _con
-     * @return correct
+     * @return True si se han podido leer la bbdd
     */
     public static boolean mostrarAdmin(Connection _con) {
         boolean correct = false;
@@ -532,7 +532,7 @@ public class DAO_admin {
     /**
      * Devuelve si se ha modificado correctamente un administrador en la bbdd
      * @param _con
-     * @return correct
+     * @return True si se ha modificado correctamente
     */
     public static boolean modificarAdmin(Connection _con) {
         boolean correct = false;
@@ -579,7 +579,7 @@ public class DAO_admin {
     /**
      * Devuelve si se ha eliminado correctamente un administrador de la bbdd
      * @param _con
-     * @return correct
+     * @return True si se ha eliminado correctamente
     */
     public static boolean eliminarAdmin(Connection _con) {
         boolean correct = false;

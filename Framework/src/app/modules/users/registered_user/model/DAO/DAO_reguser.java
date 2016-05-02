@@ -30,7 +30,10 @@ import java.util.Calendar;
 public class DAO_reguser {
 
     public static int selectedcli;
-
+    /**
+     * Indica si el dni es correcto
+     * @return True si es correcto
+    */
     public static boolean pidedni() {
         int modulo, dninum;
         char numcalc;
@@ -69,7 +72,10 @@ public class DAO_reguser {
         }
         return val;
     }
-
+    /**
+     * Indica si el nombre es correcto
+     * @return True si es correcto
+    */
     public static boolean pidenombre() {
         boolean val = false;
         if (regusernew_view.addname.getText().isEmpty()) {
@@ -87,7 +93,10 @@ public class DAO_reguser {
         }
         return val;
     }
-
+    /**
+     * Indica si los apellidos son correctos
+     * @return True si es correcto
+    */
     public static boolean pideapellidos() {
         boolean val = false;
         if (regusernew_view.addsurname.getText().isEmpty()) {
@@ -105,7 +114,10 @@ public class DAO_reguser {
         }
         return val;
     }
-
+    /**
+     * Indica si el teléfono es correcto
+     * @return True si es correcto
+    */
     public static boolean pidetelefono() {
         boolean val = false;
         if (regusernew_view.addmobile.getText().isEmpty()) {
@@ -123,7 +135,10 @@ public class DAO_reguser {
         }
         return val;
     }
-
+    /**
+     * Indica si el correo es correcto
+     * @return True si es correcto
+    */
     public static boolean pideemail() {
         boolean val = false;
         if (regusernew_view.addemail.getText().isEmpty()) {
@@ -141,7 +156,10 @@ public class DAO_reguser {
         }
         return val;
     }
-
+    /**
+     * Indica si el nombre de usuario es correcto
+     * @return True si es correcto
+    */
     public static boolean pideusuario() {
         boolean val = false;
         if (regusernew_view.addnameuser.getText().isEmpty()) {
@@ -156,7 +174,10 @@ public class DAO_reguser {
         }
         return val;
     }
-
+    /**
+     * Indica si la contraseña es correcta
+     * @return True si es correcto
+    */
     public static boolean pidecontrasenya() {
         boolean val = false;
         if (regusernew_view.addpassword.getText().isEmpty()) {
@@ -171,7 +192,10 @@ public class DAO_reguser {
         }
         return val;
     }
-
+    /**
+     * Indica si la actividad es correcta
+     * @return True si es correcto
+    */
     public static boolean pideactividad() {
         boolean val = false;
         if (regusernew_view.addactivity.getText().isEmpty()) {
@@ -186,7 +210,10 @@ public class DAO_reguser {
         }
         return val;
     }
-
+    /**
+     * Indica si la fecha de nacimiento es correcta
+     * @return True si es correcto
+    */
     public static boolean pidefechanacimiento() {
         String s = "";
         boolean val = true;
@@ -221,7 +248,10 @@ public class DAO_reguser {
 
         return val;
     }
-
+    /**
+     * Guarda el usuario e indica si se ha guardado bien
+     * @return True si se ha guardado correctamente
+    */
     public static boolean savereguser() {
         boolean val = false;
         if (pidedni() && pidenombre() && pideapellidos() && pidefechanacimiento()
@@ -261,7 +291,10 @@ public class DAO_reguser {
         }
         return val;
     }
-
+    /**
+     * Guarda las modificaciones del usuario e indica si se han realizado bien los cambios
+     * @return True si se ha modificado correctamente
+    */
     public static boolean saveeditreguser() {
         boolean val = false;
         if (pidedni() && pidenombre() && pideapellidos() && pidefechanacimiento()
@@ -332,7 +365,10 @@ public class DAO_reguser {
         }
         return val;
     }
-
+    /**
+     * Saca la posición del usuario y extrae sus datos rellenando así el formulario
+     * @param pos posición del usuario en el array
+    */
     public static void fillfields(int pos) {
         fecha aux = new fecha();
         adddni.setText(singleton_reguser.reguser.getClient(pos).getDni());

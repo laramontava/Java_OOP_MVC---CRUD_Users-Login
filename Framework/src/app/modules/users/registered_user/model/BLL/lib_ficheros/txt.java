@@ -11,7 +11,9 @@ import app.modules.users.registered_user.model.classes.registered_user;
 import app.modules.users.registered_user.model.classes.singleton_reguser;
 
 public class txt {
-
+    /**
+     * Genera un fichero txt
+     */
     public static void Generatetxt() {
         String PATH = null;
         try {
@@ -34,7 +36,9 @@ public class txt {
             JOptionPane.showMessageDialog(null, "Error al grabar el TXT", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    /**
+     * Abre un fichero txt
+     */
     @SuppressWarnings("unchecked")
     public static void Opentxt() {
         String PATH = null;
@@ -59,7 +63,9 @@ public class txt {
         }
 
     }
-
+    /**
+     * Genera un fichero txt automáticamente
+     */
     public static void Generatetxtauto() {
         String PATH = null;
         try {
@@ -81,7 +87,9 @@ public class txt {
             JOptionPane.showMessageDialog(null, "Error al grabar el TXT", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    /**
+     * Abre un fichero txt automáticamente
+     */
     @SuppressWarnings("unchecked")
     public static void Opentxtauto() {
         String PATH = null;

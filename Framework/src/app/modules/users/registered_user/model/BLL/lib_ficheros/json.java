@@ -21,6 +21,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class json {
 
+    /**
+     * Genera un fichero .json
+     */
     public static void GenerateJson() {
         String PATH = null;
         try {
@@ -47,7 +50,9 @@ public class json {
             JOptionPane.showMessageDialog(null, "Error al grabar el JSON", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    /**
+     * Abre un fichero json
+     */
     public static void OpenJson() {
         String PATH = null;
         registered_user e1 = new registered_user("");
@@ -83,7 +88,9 @@ public class json {
         }
 
     }
-
+    /**
+     * Genera un fichero json automáticamente
+     */
     public static void GenerateJsonauto() {
         String PATH = null;
         try {
@@ -106,7 +113,9 @@ public class json {
             JOptionPane.showMessageDialog(null, "Error al grabar el JSON", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    /**
+     * Abre un fichero json automáticamente
+     */
     public static void OpenJsonauto() {
         String PATH = null;
         registered_user e1 = new registered_user("");

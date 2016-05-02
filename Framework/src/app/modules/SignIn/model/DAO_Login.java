@@ -38,7 +38,7 @@ public class DAO_Login {
      * permite iniciar sesión.
      *
      * @param _con
-     * @return login
+     * @return login True si se ha logrado iniciar sesión
      */
     public static boolean SignInAdmin(Connection _con) {
         boolean login = false;
@@ -59,7 +59,12 @@ public class DAO_Login {
         }
         return login;
     }
-
+    /**
+     * Compara el nombre de usuario con el de todos los clientes de la base de datos, cuando encuentra una coincidencia
+     * compara la contraseña introducida con la de la base de datos, cuando ambos datos coinciden devuelve true y
+     * rellena el perfil del usuario
+     * @return login True si se ha logrado iniciar sesión
+     */
     public static boolean SignInClient() {
         boolean login = false;
         DBCursor cursor = null;
@@ -112,7 +117,7 @@ public class DAO_Login {
      * en el array, cuando encuentra que ambos campos coinciden devuelve true y
      * permite iniciar sesión, mostrando el perfil de ese usuario.
      *
-     * @return login
+     * @return login True si se ha logrado iniciar sesión
      */
     public static boolean SignInRUser() {
         boolean login = false;

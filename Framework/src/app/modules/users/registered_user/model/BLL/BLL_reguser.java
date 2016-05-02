@@ -21,47 +21,71 @@ import app.modules.users.registered_user.model.classes.singleton_reguser;
  * @author Lara
  */
 public class BLL_reguser {
-
+    /**
+     * Llama al DAO que comprueba que esté correcto el DNI
+    */
     public static void DniValidate() {
         DAO_reguser.pidedni();
     }
-
+    /**
+     * Llama al DAO que comprueba que esté correcto el nombre
+    */
     public static void NameValidate() {
         DAO_reguser.pidenombre();
     }
-
+    /**
+     * Llama al DAO que comprueba que esté correcto el apellido
+    */
     public static void SurnameValidate() {
         DAO_reguser.pideapellidos();
     }
-
+    /**
+     * Llama al DAO que comprueba que esté correcto el teléfono
+    */
     public static void MobileValidate() {
         DAO_reguser.pidetelefono();
     }
-
+    /**
+     * Llama al DAO que comprueba que esté correcto el correo
+    */
     public static void EmailValidate() {
         DAO_reguser.pideemail();
     }
-
+    /**
+     * Llama al DAO que comprueba que esté correcto el nombre de usuario
+    */
     public static void UserNameValidate() {
         DAO_reguser.pideusuario();
     }
-
+    /**
+     * Llama al DAO que comprueba que esté correcta la contraseña
+    */
     public static void PasswordValidate() {
         DAO_reguser.pidecontrasenya();
     }
-
+    /**
+     * Llama al DAO que guarda un registrado y comprueba que se haya guardado con éxito
+     * @return true si se ha guardado correctamente
+    */
     public static boolean adminsave() {
         return DAO_reguser.savereguser();
     }
-
+    /**
+     * Llama al DAO que comprueba que esté correcta la fecha de nacimiento
+    */
     public static void DateBirthdayValidate() {
         DAO_reguser.pidefechanacimiento();
     }
-
+    /**
+     * Llama al DAO que comprueba que esté correcta la actividad
+    */
     public static void ActivityValidate() {
         DAO_reguser.pideactividad();
     }
-
+    /**
+     * Saca la posición de un usuario registrado seleccionado en la tabla
+     * @return true si se ha seleccionado un usuario
+    */
     public static boolean Modificar() {
         String dni = "";
         int pos = 0;
@@ -85,16 +109,26 @@ public class BLL_reguser {
         }
         return correct;
     }
+    /**
+     * Llama al DAO que modifica al usuario registrado
+     * @return true si se ha modificado con éxito 
+    */    
     public static boolean Modificaradmin(){
         return DAO_reguser.saveeditreguser();
     }
+    /**
+     * Saca la posición de un usuario seleccionado en la tabla y llama al DAO para que rellene
+     * el formulario con sus datos
+    */    
     public static void LlenarCampos() {
         int inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
             selected = TABLA.getSelectedRow();
         int selected1 = inicio + selected;
         DAO_reguser.fillfields(selected1);
     }
-
+    /**
+     * Saca la posición del usuario y lo elimina
+    */
     public static void Delete() {
         String dni = "";
         int pos = 0;
