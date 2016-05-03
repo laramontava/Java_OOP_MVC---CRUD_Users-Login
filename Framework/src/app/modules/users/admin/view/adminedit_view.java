@@ -186,9 +186,6 @@ public class adminedit_view extends javax.swing.JFrame {
         //BLL_admin.Modificar(ad);
     }//GEN-LAST:event_pruebaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     /*public static void main(String args[]) {
          Set the Nimbus look and feel 
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
